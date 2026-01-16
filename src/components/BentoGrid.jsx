@@ -40,7 +40,7 @@ const BentoGrid = ({ items, marqueeItems }) => {
                 </div>
                 <p className="text-slate-400 text-xs leading-relaxed mb-3 flex-grow">{item.description}</p>
                 
-                <div className="h-32 bg-slate-900/50 rounded-lg p-1 my-2">
+                <div className="h-32 bg-slate-800/50 border border-white/10 backdrop-blur-sm rounded-lg p-1 my-2 shadow-inner">
                   {item && item.subdomain ? (
                     <KnowledgeVisual visualData={generateVisual(item, item.subdomain)} />
                   ) : (

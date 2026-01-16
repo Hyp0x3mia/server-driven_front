@@ -48,7 +48,7 @@ const VerticalChronicle = ({ items }) => {
                     <h3 className="text-xl font-bold text-white mb-3">{item.name}</h3>
                     <p className="text-slate-300 text-sm leading-relaxed mb-4">{item.description}</p>
                     
-                    <div className="h-24 bg-slate-900/50 rounded-lg p-2 my-4">
+                    <div className="h-24 bg-slate-800/50 border border-white/10 backdrop-blur-sm rounded-lg p-2 my-4 shadow-inner">
                       <KnowledgeVisual visualData={generateVisual(item, item.subdomain)} />
                     </div>
 
