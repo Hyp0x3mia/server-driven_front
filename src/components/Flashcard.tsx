@@ -47,17 +47,19 @@ export function Flashcard({ data, className }: FlashcardProps) {
       `}</style>
 
       <motion.div
-        className="relative rounded-2xl overflow-hidden transition-all duration-300"
-        whileHover={!isFlipped ? { y: -8, boxShadow: "0 35px 70px -12px rgba(0,0,0,0.6)" } : {}}
+        className="relative rounded-2xl overflow-hidden"
+        whileHover={!isFlipped ? { y: -6, scale: 1.01 } : {}}
+        whileTap={{ scale: 0.99 }}
         transition={{
           type: "spring",
-          stiffness: 400,
-          damping: 25
+          stiffness: 300,
+          damping: 20
         }}
         style={{
           minHeight: '520px',
           maxHeight: '620px',
-          boxShadow: "0 20px 40px -12px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.1)"
+          boxShadow: "0 20px 40px -12px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.1)",
+          willChange: "transform, box-shadow"
         }}
       >
         <AnimatePresence mode="wait">
@@ -65,18 +67,24 @@ export function Flashcard({ data, className }: FlashcardProps) {
             // 正面 - 深色玻璃态卡片
             <motion.div
               key="front"
-              initial={{ opacity: 0, rotateY: -10 }}
+              initial={{ opacity: 0, rotateY: -5 }}
               animate={{ opacity: 1, rotateY: 0 }}
-              exit={{ opacity: 0, rotateY: 10 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
+              exit={{ opacity: 0, rotateY: 5 }}
+              transition={{
+                duration: 0.25,
+                ease: "easeOut"
+              }}
               className="absolute inset-0 cursor-pointer"
+              style={{
+                willChange: "transform, opacity"
+              }}
             >
               <div
                 className="absolute w-full h-full flex flex-col rounded-2xl overflow-hidden"
                 style={{
                   background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%)',
-                  backdropFilter: 'blur(12px)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)'
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  transform: 'translateZ(0)'
                 }}
               >
                 {/* 顶部内容滚动区 */}
@@ -191,19 +199,26 @@ export function Flashcard({ data, className }: FlashcardProps) {
             // 反面 - 深色玻璃态卡片（禁用悬停效果）
             <motion.div
               key="back"
-              initial={{ opacity: 0, rotateY: 10 }}
+              initial={{ opacity: 0, rotateY: 5 }}
               animate={{ opacity: 1, rotateY: 0 }}
-              exit={{ opacity: 0, rotateY: -10 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
+              exit={{ opacity: 0, rotateY: -5 }}
+              transition={{
+                duration: 0.25,
+                ease: "easeOut"
+              }}
               className="absolute inset-0 cursor-default"
-              style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
+              style={{
+                backfaceVisibility: "hidden",
+                transform: "translateZ(0)",
+                willChange: "transform, opacity"
+              }}
             >
               <div
                 className="absolute w-full h-full flex flex-col rounded-2xl overflow-hidden"
                 style={{
                   background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%)',
-                  backdropFilter: 'blur(12px)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)'
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  transform: 'translateZ(0)'
                 }}
               >
                 {/* 顶部内容滚动区 */}
