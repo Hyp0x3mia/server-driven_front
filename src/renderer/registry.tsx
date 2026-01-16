@@ -254,9 +254,9 @@ const MarkdownAdapter: React.FC<AdapterProps<MarkdownBlock>> = ({ block }) => {
 };
 
 const FlashcardAdapter: React.FC<AdapterProps<FlashcardBlock>> = ({ block }) => {
-  // 修复：添加 relative 和 z-10 以提升层级，确保遮住背景文字
+  // 移除 my-16，由父级 space-y-16 统一控制间距
   return (
-    <div className="w-full flex justify-center my-16 relative z-10">
+    <div className="w-full flex justify-center relative z-10">
       <Flashcard data={block} />
     </div>
   );

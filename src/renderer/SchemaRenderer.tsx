@@ -103,12 +103,13 @@ export function SchemaRenderer(props: { pageId: string }) {
   const effectivePageId = schema.page_id || pageId;
 
   return (
-    <>
+    // ✅ 添加 space-y-16 让所有组件之间自动有 64px 间距
+    <div className="space-y-16">
       {blocks.map((block, idx) => {
         if (!isRegistryKey(block.type)) return null;
         const Comp = registry[block.type] as any;
         return <Comp key={`${block.type}-${idx}`} block={block} pageId={effectivePageId} />;
       })}
-    </>
+    </div>
   );
 }
