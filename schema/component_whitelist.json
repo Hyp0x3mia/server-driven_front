@@ -1,0 +1,19 @@
+[
+  {
+    "type": "Hero",
+    "content": ["title", "subtitle", "features"],
+    "description": "The main hero/banner section of a page, usually containing a title, subtitle, and a list of key features."
+  },
+  {
+    "type": "CardGrid",
+    "content": ["title", "items"],
+    "render": ["variant", "items_icon"],
+    "description": "A versatile component for displaying a grid of items, such as features, capabilities, or comparisons. The rendering can be customized with variants and icons."
+  },
+  {
+    "type": "Timeline",
+    "content": ["title", "items"],
+    "render": ["variant"],
+    "description": "A component for representing historical events or milestones in a sequential but non-linear fashion. The rendering can be customized with variants."
+  }
+]

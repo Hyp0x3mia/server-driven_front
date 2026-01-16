@@ -1,0 +1,241 @@
+{
+  "page_id": "comprehensive-test",
+  "pageMode": "interactive-article",
+  "title": "组件全面测试页面",
+  "summary": "测试所有可用组件的渲染效果，包括 Hero、CardGrid、Timeline、Markdown 和 Flashcard。",
+  "sections": [
+    {
+      "section_id": "test-section-1",
+      "sectionType": "Article",
+      "title": "第一部分：所有组件测试",
+      "layoutIntent": "prose-view",
+      "pedagogicalGoal": "测试所有组件的渲染和交互效果",
+      "blocks": [
+        {
+          "type": "Hero",
+          "role": "header",
+          "content": {
+            "title": "🎨 组件测试实验室",
+            "subtitle": "全面测试所有可用的交互式组件",
+            "features": [
+              "🚀 Hero 动态头部",
+              "📇 CardGrid 卡片网格",
+              "📅 Timeline 时间线",
+              "📝 Markdown 富文本",
+              "🎴 Flashcard 闪卡"
+            ]
+          }
+        },
+        {
+          "type": "Flashcard",
+          "id": "test-flashcard-1",
+          "front": {
+            "title": "快速测试",
+            "content": "这是一个**测试闪卡**。点击卡片可以翻转查看答案！"
+          },
+          "back": {
+            "title": "答案揭晓",
+            "content": "✅ **恭喜你！**\n\n你已经成功测试了 Flashcard 组件的翻转功能。\n\n这个组件使用了 **Framer Motion** 来实现流畅的 3D 翻转动画。"
+          }
+        },
+        {
+          "type": "CardGrid",
+          "role": "knowledge-cards",
+          "content": {
+            "title": "核心概念",
+            "items": [
+              {
+                "name": "React 组件",
+                "description": "React 的核心概念，用于构建可复用的 UI 片段。组件可以是函数式或类组件。",
+                "keywords": ["组件", "React", "UI"],
+                "common_misconceptions": ["组件必须用类编写", "组件不能有状态"]
+              },
+              {
+                "name": "虚拟 DOM",
+                "description": "React 在内存中维护的真实 DOM 的轻量级副本，通过 Diff 算法优化更新性能。",
+                "keywords": ["虚拟DOM", "性能", "Diff算法"],
+                "common_misconceptions": ["虚拟DOM比原生DOM快", "虚拟DOM完全替代DOM"]
+              },
+              {
+                "name": "状态管理",
+                "description": "管理应用中数据状态的方法，包括 useState、useReducer、Context API 和 Redux 等。",
+                "keywords": ["状态", "State", "管理"],
+                "common_misconceptions": ["所有状态都需要Redux", "Context会重渲染所有组件"]
+              },
+              {
+                "name": "Hook 系统",
+                "description": "React 16.8 引入的特性，让函数组件能够使用状态和其他 React 特性。",
+                "keywords": ["Hook", "函数组件", "副作用"],
+                "common_misconceptions": ["Hook只能在类组件中使用", "useEffect就是componentDidMount"]
+              },
+              {
+                "name": "组件生命周期",
+                "description": "组件从创建、更新到销毁的完整过程，理解生命周期对优化性能很重要。",
+                "keywords": ["生命周期", "挂载", "卸载"],
+                "common_misconceptions": ["函数组件没有生命周期", "useEffect只能运行一次"]
+              },
+              {
+                "name": "props 传递",
+                "description": "组件之间传递数据的方式，props 是只读的，遵循单向数据流原则。",
+                "keywords": ["props", "数据传递", "单向流"],
+                "common_misconceptions": ["props可以被子组件修改", "props只能传递简单数据"]
+              }
+            ]
+          }
+        },
+        {
+          "type": "Timeline",
+          "role": "chronology",
+          "content": {
+            "title": "React 发展历程",
+            "items": [
+              {
+                "year": "2013",
+                "label": "诞生",
+                "title": "React 开源发布",
+                "description": "Facebook 开源 React 库，引入组件化和虚拟 DOM 的革命性概念。",
+                "keywords": ["开源", "Facebook", "发布"],
+                "subdomain": "react-history"
+              },
+              {
+                "year": "2015",
+                "label": "生态",
+                "title": "React Native 发布",
+                "description": "React 扩展到移动开发，实现了 'Learn Once, Write Anywhere' 的理念。",
+                "keywords": ["移动端", "跨平台", "Native"],
+                "subdomain": "react-history"
+              },
+              {
+                "year": "2016",
+                "label": "状态管理",
+                "title": "Redux 流行",
+                "description": "Redux 成为 React 生态中最流行的状态管理解决方案，基于 Flux 架构。",
+                "keywords": ["Redux", "状态管理", "Flux"],
+                "subdomain": "react-history"
+              },
+              {
+                "year": "2017",
+                "label": "架构创新",
+                "title": "React Fiber 架构",
+                "description": "React 16 引入 Fiber 架构，改进了渲染性能和异步渲染能力。",
+                "keywords": ["Fiber", "性能", "异步渲染"],
+                "subdomain": "react-history"
+              },
+              {
+                "year": "2018",
+                "label": "API 变革",
+                "title": "Hooks 时代开启",
+                "description": "React 16.8 发布 Hooks，彻底改变了 React 组件的编写方式。",
+                "keywords": ["Hooks", "函数组件", "useState"],
+                "common_misconceptions": ["Hooks只能在类组件中使用", "Hooks会替换类组件"],
+                "subdomain": "react-history"
+              },
+              {
+                "year": "2020",
+                "label": "并发模式",
+                "title": "React 18 & 并发特性",
+                "description": "引入并发渲染、自动批处理、Suspense 改进等新特性，提升用户体验。",
+                "keywords": ["React 18", "并发", "Suspense"],
+                "subdomain": "react-history"
+              },
+              {
+                "year": "2024",
+                "label": "服务器组件",
+                "title": "React Server Components",
+                "description": "React 19 带来服务器组件、Actions、Compiler 等重大更新。",
+                "keywords": ["RSC", "React 19", "Compiler"],
+                "subdomain": "react-history"
+              }
+            ]
+          }
+        },
+        {
+          "type": "Flashcard",
+          "id": "test-flashcard-2",
+          "front": {
+            "title": "进阶测试",
+            "content": "# Markdown 支持测试\n\n这个卡片的正面和背面都支持 **Markdown 格式**。\n\n- 列表项\n- *斜体*\n- **粗体**\n\n测试是否正确渲染？"
+          },
+          "back": {
+            "title": "答案",
+            "content": "## ✅ 完美支持！\n\nFlashcard 组件的正面和背面都支持完整的 Markdown 语法：\n\n### 支持的功能：\n\n1. **标题** (H1-H6)\n2. **列表** (有序/无序)\n3. **强调** (粗体/斜体)\n4. **链接**\n5. **代码**\n\n### 测试代码：\n\n```javascript\nconsole.log('Hello Flashcard!');\n```\n\n这个组件使用了 `react-markdown` 库，结合 `remark-gfm` 插件。"
+          }
+        },
+        {
+          "type": "CardGrid",
+          "role": "myth-busters",
+          "content": {
+            "title": "常见误区",
+            "items": [
+              {
+                "name": "误区 1",
+                "description": "认为虚拟 DOM 一定比原生 DOM 操作快",
+                "keywords": ["性能", "虚拟DOM", "误区"],
+                "common_misconceptions": ["虚拟DOM总是更快", "不需要考虑性能优化"]
+              },
+              {
+                "name": "误区 2",
+                "description": "认为所有项目都需要 Redux",
+                "keywords": ["状态管理", "Redux", "过度设计"],
+                "common_misconceptions": ["不用Redux就不是专业项目", "Context API不够用"]
+              },
+              {
+                "name": "误区 3",
+                "description": "认为 useEffect 完全等同于 componentDidMount",
+                "keywords": ["生命周期", "useEffect", "Hooks"],
+                "common_misconceptions": ["useEffect只在挂载时运行", "不会在更新时运行"]
+              },
+              {
+                "name": "误区 4",
+                "description": "认为每次渲染都会创建新的函数",
+                "keywords": ["性能", "useCallback", "函数"],
+                "common_misconceptions": ["必须用useCallback包装所有函数", "内联函数总是性能问题"]
+              }
+            ]
+          }
+        },
+        {
+          "type": "Timeline",
+          "role": "learning-path",
+          "content": {
+            "title": "React 学习路径",
+            "items": [
+              {
+                "label": "第一步",
+                "title": "掌握基础",
+                "description": "学习 React 基础概念：JSX、组件、props、state",
+                "keywords": ["基础", "入门", "JSX"]
+              },
+              {
+                "label": "第二步",
+                "title": "理解 Hooks",
+                "description": "深入理解 useState、useEffect、useContext 等 Hooks",
+                "keywords": ["Hooks", "状态管理", "副作用"],
+                "common_misconceptions": ["Hooks只能在函数组件中使用", "useEffect就是componentDidMount"]
+              },
+              {
+                "label": "第三步",
+                "title": "路由和导航",
+                "description": "学习 React Router，实现单页应用的路由管理",
+                "keywords": ["路由", "React Router", "SPA"]
+              },
+              {
+                "label": "第四步",
+                "title": "状态管理进阶",
+                "description": "学习 Context API、Redux、Zustand 等状态管理方案",
+                "keywords": ["Redux", "Context", "状态管理"],
+                "common_misconceptions": ["所有项目都需要Redux", "Context会导致性能问题"]
+              },
+              {
+                "label": "第五步",
+                "title": "性能优化",
+                "description": "掌握 React.memo、useMemo、useCallback、代码分割等优化技巧",
+                "keywords": ["性能", "优化", "memo"]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

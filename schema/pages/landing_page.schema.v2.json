@@ -1,0 +1,132 @@
+{
+  "page_id": "landing_page_v2",
+  "components": [
+    {
+      "type": "Hero",
+      "content": {
+        "title": "人工智能导论",
+        "subtitle": "一个交互式的学习体验，旨在探索人工智能的本质、历史演进与核心技术原理，助您构建系统化的现代AI认知框架。",
+        "features": [
+          "📚 30+ 核心知识点",
+          "🧠 交互式图表与代码",
+          "⚡ 动态内容布局"
+        ]
+      }
+    },
+    {
+      "type": "CardGrid",
+      "content": {
+        "title": "人工智能概述",
+        "items": [
+          {
+            "title": "Perception",
+            "description": "Sensing the world."
+          },
+          {
+            "title": "Reasoning",
+            "description": "Thinking and planning."
+          },
+          {
+            "title": "Action",
+            "description": "Responding and acting."
+          }
+        ]
+      },
+      "render": {
+        "variant": "feature_cards",
+        "items_icon": ["Eye", "Brain", "Zap"]
+      }
+    },
+    {
+      "type": "Timeline",
+      "content": {
+        "title": "发展历史",
+        "items": [
+          {
+            "year": "1956",
+            "title": "Symbolic AI",
+            "description": "Early rule-based systems."
+          },
+          {
+            "year": "2012",
+            "title": "Deep Learning",
+            "description": "The data-driven revolution."
+          },
+          {
+            "year": "2023",
+            "title": "Foundation Models",
+            "description": "Emergence of general capabilities."
+          }
+        ]
+      },
+      "render": {
+        "variant": "horizontal_eras"
+      }
+    },
+    {
+      "type": "CardGrid",
+      "content": {
+        "title": "技术原理",
+        "items": [
+          {
+            "title": "Rule-Based",
+            "description": "Explicit logic and programmed rules."
+          },
+          {
+            "title": "Data-Driven",
+            "description": "Learns patterns from large datasets."
+          }
+        ]
+      },
+      "render": {
+        "variant": "comparison_cards",
+        "items_icon": ["Puzzle", "Database"]
+      }
+    },
+    {
+      "type": "CardGrid",
+      "content": {
+        "title": "机器学习与深度学习",
+        "items": [
+          { "name": "Image Recognition" },
+          { "name": "Natural Language" },
+          { "name": "Game Playing" }
+        ]
+      },
+      "render": {
+        "variant": "capability_cards",
+        "items_icon": ["ImageIcon", "Type", "Gamepad2"]
+      }
+    },
+    {
+      "type": "CardGrid",
+      "content": {
+        "title": "神经网络基础",
+        "items": [
+          { "name": "Image Recognition" },
+          { "name": "Natural Language" },
+          { "name": "Game Playing" }
+        ]
+      },
+      "render": {
+        "variant": "capability_cards",
+        "items_icon": ["ImageIcon", "Type", "Gamepad2"]
+      }
+    },
+    {
+      "type": "CardGrid",
+      "content": {
+        "title": "大模型技术",
+        "items": [
+          { "name": "Image Recognition" },
+          { "name": "Natural Language" },
+          { "name": "Game Playing" }
+        ]
+      },
+      "render": {
+        "variant": "capability_cards",
+        "items_icon": ["ImageIcon", "Type", "Gamepad2"]
+      }
+    }
+  ]
+}

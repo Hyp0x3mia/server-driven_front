@@ -1,0 +1,165 @@
+{
+  "page_id": "landing_page",
+  "components": [
+    {
+      "type": "Navigation",
+      "props": {
+        "sections": [
+          { "id": "overview", "title": "Hero" },
+          { "id": "component-showcase", "title": "组件展示" },
+          { "id": "人工智能概述", "title": "人工智能概述" },
+          { "id": "基本概念", "title": "基本概念" },
+          { "id": "发展历史", "title": "发展历史" },
+          { "id": "计算理论基础", "title": "计算理论基础" },
+          { "id": "哲学基础", "title": "哲学基础" },
+          { "id": "技术原理", "title": "技术原理" },
+          { "id": "机器学习与深度学习", "title": "机器学习与深度学习" },
+          { "id": "神经网络基础", "title": "神经网络基础" },
+          { "id": "大模型技术", "title": "大模型技术" },
+          { "id": "安全与伦理", "title": "安全与伦理" }
+        ]
+      }
+    },
+    {
+      "type": "Hero",
+      "props": {
+        "title": "人工智能导论",
+        "subtitle": "一个交互式的学习体验，旨在探索人工智能的本质、历史演进与核心技术原理，助您构建系统化的现代AI认知框架。",
+        "features": [
+          "📚 30+ 核心知识点",
+          "🧠 交互式图表与代码",
+          "⚡ 动态内容布局"
+        ]
+      }
+    },
+    {
+      "type": "ComponentShowcase",
+      "props": {
+        "title": "交互式组件展示",
+        "items": [
+          { "title": "数据表格" },
+          { "title": "日历组件" },
+          { "title": "轮播图" },
+          { "title": "交互控件" },
+          { "title": "信息提示" },
+          { "title": "选项卡" }
+        ]
+      }
+    },
+    {
+      "type": "AIOverviewSection",
+      "props": {
+        "title": "人工智能概述",
+        "cards": [
+          { "icon": "Eye", "title": "Perception", "description": "Sensing the world." },
+          { "icon": "Brain", "title": "Reasoning", "description": "Thinking and planning." },
+          { "icon": "Zap", "title": "Action", "description": "Responding and acting." }
+        ]
+      }
+    },
+    {
+      "type": "BasicConceptsSection",
+      "props": {
+        "title": "基本概念",
+        "visual": {
+          "type": "fallback",
+          "icon": "Bot",
+          "title": "人工智能名词的提出与内涵"
+        }
+      }
+    },
+    {
+      "type": "DevelopmentHistorySection",
+      "props": {
+        "title": "发展历史",
+        "eras": [
+          { "year": "1956", "title": "Symbolic AI", "description": "Early rule-based systems." },
+          { "year": "2012", "title": "Deep Learning", "description": "The data-driven revolution." },
+          { "year": "2023", "title": "Foundation Models", "description": "Emergence of general capabilities." }
+        ]
+      }
+    },
+    {
+      "type": "ComputationalTheorySection",
+      "props": {
+        "title": "计算理论基础",
+        "visual": {
+          "type": "fallback",
+          "icon": "Bot",
+          "title": "图灵机模型"
+        }
+      }
+    },
+    {
+      "type": "PhilosophicalFoundationsSection",
+      "props": {
+        "title": "哲学基础",
+        "visual": {
+          "type": "fallback",
+          "icon": "Bot",
+          "title": "乔姆斯基的认知与语言研究思想"
+        }
+      }
+    },
+    {
+      "type": "TechnicalPrinciplesSection",
+      "props": {
+        "title": "技术原理",
+        "paradigms": [
+          { "icon": "Puzzle", "title": "Rule-Based", "description": "Explicit logic and programmed rules." },
+          { "icon": "Database", "title": "Data-Driven", "description": "Learns patterns from large datasets." }
+        ]
+      }
+    },
+    {
+      "type": "MachineLearningDeepLearningSection",
+      "props": {
+        "title": "机器学习与深度学习",
+        "capabilities": [
+          { "icon": "ImageIcon", "name": "Image Recognition" },
+          { "icon": "Type", "name": "Natural Language" },
+          { "icon": "Gamepad2", "name": "Game Playing" }
+        ]
+      }
+    },
+    {
+      "type": "NeuralNetworkFoundationSection",
+      "props": {
+        "title": "神经网络基础",
+        "capabilities": [
+          { "icon": "ImageIcon", "name": "Image Recognition" },
+          { "icon": "Type", "name": "Natural Language" },
+          { "icon": "Gamepad2", "name": "Game Playing" }
+        ]
+      }
+    },
+    {
+      "type": "LargeModelTechnologySection",
+      "props": {
+        "title": "大模型技术",
+        "capabilities": [
+          { "icon": "ImageIcon", "name": "Image Recognition" },
+          { "icon": "Type", "name": "Natural Language" },
+          { "icon": "Gamepad2", "name": "Game Playing" }
+        ]
+      }
+    },
+    {
+      "type": "SafetyEthicsSection",
+      "props": {
+        "title": "安全与伦理",
+        "visual": {
+          "type": "fallback",
+          "icon": "Bot",
+          "title": "人工智能发展速度的担忧"
+        }
+      }
+    },
+    {
+      "type": "Footer",
+      "props": {
+        "copyright": "© 2024 人工智能导论 - 构建系统化的AI认知框架"
+      }
+    }
+  ]
+}
