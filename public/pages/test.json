@@ -1,84 +1,83 @@
 {
-  "page_id": "comprehensive-test",
+  "page_id": "nlp-comprehensive-test",
   "pageMode": "interactive-article",
-  "title": "组件全面测试页面",
-  "summary": "测试所有可用组件的渲染效果，包括 Hero、CardGrid、Timeline、Markdown 和 Flashcard。",
+  "title": "自然语言处理全面测试",
+  "summary": "测试所有组件：Hero、Flashcard、CardGrid、Timeline",
   "sections": [
     {
-      "section_id": "test-section-1",
+      "section_id": "nlp-intro",
       "sectionType": "Article",
-      "title": "第一部分：所有组件测试",
+      "title": "自然语言处理学习路径",
       "layoutIntent": "prose-view",
-      "pedagogicalGoal": "测试所有组件的渲染和交互效果",
+      "pedagogicalGoal": "全面测试所有组件类型",
       "blocks": [
         {
           "type": "Hero",
           "role": "header",
           "content": {
-            "title": "🎨 组件测试实验室",
-            "subtitle": "全面测试所有可用的交互式组件",
+            "title": "🤖 自然语言处理 (NLP)",
+            "subtitle": "从基础概念到大语言模型的完整学习路径",
             "features": [
-              "🚀 Hero 动态头部",
-              "📇 CardGrid 卡片网格",
-              "📅 Timeline 时间线",
-              "📝 Markdown 富文本",
-              "🎴 Flashcard 闪卡"
+              "📚 基础概念与历史发展",
+              "🧠 文本分析与语义表示",
+              "🌐 核心NLP任务详解",
+              "💬 对话系统与大模型应用"
             ]
           }
         },
         {
           "type": "Flashcard",
-          "id": "test-flashcard-1",
+          "id": "nlp-flashcard-1",
           "front": {
-            "title": "快速测试",
-            "content": "这是一个**测试闪卡**。点击卡片可以翻转查看答案！"
+            "title": "快速自测",
+            "content": "什么是**自然语言处理 (NLP)**？\n\n它主要解决哪些问题？"
           },
           "back": {
-            "title": "答案揭晓",
-            "content": "✅ **恭喜你！**\n\n你已经成功测试了 Flashcard 组件的翻转功能。\n\n这个组件使用了 **Framer Motion** 来实现流畅的 3D 翻转动画。"
+            "title": "答案",
+            "content": "**自然语言处理 (NLP)** 是引导机器模拟和延伸人类语言能力的基础性和关键性研究方向。\n\n**主要任务：**\n\n- 自然语言的机器表示\n- 文本分析与理解\n- 语言生成\n- 广泛应用于各行各业和日常生活"
           }
         },
         {
           "type": "CardGrid",
           "role": "knowledge-cards",
           "content": {
-            "title": "核心概念",
+            "title": "NLP 基础概念",
             "items": [
               {
-                "name": "React 组件",
-                "description": "React 的核心概念，用于构建可复用的 UI 片段。组件可以是函数式或类组件。",
-                "keywords": ["组件", "React", "UI"],
-                "common_misconceptions": ["组件必须用类编写", "组件不能有状态"]
+                "name": "自然语言处理概述",
+                "description": "自然语言处理是人工智能十分重要的研究领域，有漫长的发展历史、丰富的技术内涵和广泛的应用价值。",
+                "keywords": ["自然语言处理", "人工智能", "大语言模型"],
+                "common_misconceptions": ["NLP就是机器翻译", "NLP只能处理英文"]
               },
               {
-                "name": "虚拟 DOM",
-                "description": "React 在内存中维护的真实 DOM 的轻量级副本，通过 Diff 算法优化更新性能。",
-                "keywords": ["虚拟DOM", "性能", "Diff算法"],
-                "common_misconceptions": ["虚拟DOM比原生DOM快", "虚拟DOM完全替代DOM"]
+                "name": "NLP的定义与作用",
+                "description": "自然语言处理（NLP）是引导机器模拟和延伸人类语言能力的基础性和关键性研究方向，包括自然语言的机器表示、分析、理解、生成等。",
+                "keywords": ["NLP", "机器表示", "分析", "理解", "生成"],
+                "common_misconceptions": ["NLP可以完全理解人类语言", "NLP只处理文本"]
               },
               {
-                "name": "状态管理",
-                "description": "管理应用中数据状态的方法，包括 useState、useReducer、Context API 和 Redux 等。",
-                "keywords": ["状态", "State", "管理"],
-                "common_misconceptions": ["所有状态都需要Redux", "Context会重渲染所有组件"]
+                "name": "文本向量表示",
+                "description": "将长短不一的文本转化为长度一致的向量，以便进行统一处理，是文本分析的基础表示方法。",
+                "keywords": ["文本向量", "统一表示", "特征提取"],
+                "common_misconceptions": ["向量表示就是词袋模型", "向量维度越高越好"]
               },
               {
-                "name": "Hook 系统",
-                "description": "React 16.8 引入的特性，让函数组件能够使用状态和其他 React 特性。",
-                "keywords": ["Hook", "函数组件", "副作用"],
-                "common_misconceptions": ["Hook只能在类组件中使用", "useEffect就是componentDidMount"]
+                "name": "文本分析",
+                "description": "文本分析就是自然语言处理各项任务的基础，最终目标是使计算机理解和生成人类语言。从一个文本文档中抽取所需要的信息。",
+                "keywords": ["文本分析", "语义理解", "信息抽取"],
+                "common_misconceptions": ["文本分析就是分词", "分析结果总是准确的"]
               },
               {
-                "name": "组件生命周期",
-                "description": "组件从创建、更新到销毁的完整过程，理解生命周期对优化性能很重要。",
-                "keywords": ["生命周期", "挂载", "卸载"],
-                "common_misconceptions": ["函数组件没有生命周期", "useEffect只能运行一次"]
+                "name": "文本语义表示",
+                "description": "解决自然语言处理领域的基本问题——什么是语义？学习计算机如何理解文本语义并进行计算。",
+                "keywords": ["文本语义", "语义表示", "语义理解", "计算"],
+                "common_misconceptions": ["语义就是字面意思", "语义表示只有一种方法"]
               },
               {
-                "name": "props 传递",
-                "description": "组件之间传递数据的方式，props 是只读的，遵循单向数据流原则。",
-                "keywords": ["props", "数据传递", "单向流"],
-                "common_misconceptions": ["props可以被子组件修改", "props只能传递简单数据"]
+                "name": "文本分类",
+                "description": "为给定的文本自动确定其所述的类别标签。文本可以是不同长度的句子、段落、文章，也可以是不同类型的新闻、邮件、评价等。",
+                "keywords": ["文本分类", "类别标签", "监督学习"],
+                "common_misconceptions": ["分类需要人工规则", "只能分两类"]
               }
             ]
           }
@@ -87,109 +86,90 @@
           "type": "Timeline",
           "role": "chronology",
           "content": {
-            "title": "React 发展历程",
+            "title": "NLP 发展历程",
             "items": [
               {
-                "year": "2013",
-                "label": "诞生",
-                "title": "React 开源发布",
-                "description": "Facebook 开源 React 库，引入组件化和虚拟 DOM 的革命性概念。",
-                "keywords": ["开源", "Facebook", "发布"],
-                "subdomain": "react-history"
+                "year": "1956前",
+                "label": "萌芽期",
+                "title": "理论基础奠基",
+                "description": "1936年图灵提出图灵机概念、1946年电子计算机诞生、1948年Shannon利用概率方法描述语言、1956年Chomsky提出上下文无关语法，开辟了基于规则和基于概率两种技术路线。",
+                "keywords": ["图灵机", "Shannon", "Chomsky", "上下文无关语法"],
+                "subdomain": "nlp-history"
               },
               {
-                "year": "2015",
-                "label": "生态",
-                "title": "React Native 发布",
-                "description": "React 扩展到移动开发，实现了 'Learn Once, Write Anywhere' 的理念。",
-                "keywords": ["移动端", "跨平台", "Native"],
-                "subdomain": "react-history"
+                "year": "1957-1970",
+                "label": "快速发展期",
+                "title": "两大阵营形成",
+                "description": "形成基于规则方法的符号派和基于概率方法的随机派：符号派以Chomsky为代表进行形式语言理论研究；随机派采用贝叶斯方法。",
+                "keywords": ["符号派", "随机派", "贝叶斯方法", "形式语言理论"],
+                "subdomain": "nlp-history"
               },
               {
-                "year": "2016",
-                "label": "状态管理",
-                "title": "Redux 流行",
-                "description": "Redux 成为 React 生态中最流行的状态管理解决方案，基于 Flux 架构。",
-                "keywords": ["Redux", "状态管理", "Flux"],
-                "subdomain": "react-history"
+                "year": "1971-1990",
+                "label": "低谷期",
+                "title": "理性主义与经验主义",
+                "description": "AI领域聚焦推理和逻辑问题，符号派研究势头强于随机派，但计算能力限制导致实际应用受阻。",
+                "keywords": ["符号派", "随机派", "逻辑推理"],
+                "subdomain": "nlp-history"
               },
               {
-                "year": "2017",
-                "label": "架构创新",
-                "title": "React Fiber 架构",
-                "description": "React 16 引入 Fiber 架构，改进了渲染性能和异步渲染能力。",
-                "keywords": ["Fiber", "性能", "异步渲染"],
-                "subdomain": "react-history"
-              },
-              {
-                "year": "2018",
-                "label": "API 变革",
-                "title": "Hooks 时代开启",
-                "description": "React 16.8 发布 Hooks，彻底改变了 React 组件的编写方式。",
-                "keywords": ["Hooks", "函数组件", "useState"],
-                "common_misconceptions": ["Hooks只能在类组件中使用", "Hooks会替换类组件"],
-                "subdomain": "react-history"
-              },
-              {
-                "year": "2020",
-                "label": "并发模式",
-                "title": "React 18 & 并发特性",
-                "description": "引入并发渲染、自动批处理、Suspense 改进等新特性，提升用户体验。",
-                "keywords": ["React 18", "并发", "Suspense"],
-                "subdomain": "react-history"
-              },
-              {
-                "year": "2024",
-                "label": "服务器组件",
-                "title": "React Server Components",
-                "description": "React 19 带来服务器组件、Actions、Compiler 等重大更新。",
-                "keywords": ["RSC", "React 19", "Compiler"],
-                "subdomain": "react-history"
+                "year": "1990后",
+                "label": "复苏繁荣期",
+                "title": "统计方法与深度学习",
+                "description": "互联网带来大量数据，统计方法兴起。随后深度学习革命，2013年Word2Vec，2017年Transformer，2018年BERT，2020年代大语言模型爆发。",
+                "keywords": ["统计方法", "深度学习", "Transformer", "大语言模型"],
+                "subdomain": "nlp-history"
               }
             ]
           }
         },
         {
           "type": "Flashcard",
-          "id": "test-flashcard-2",
+          "id": "nlp-flashcard-2",
           "front": {
-            "title": "进阶测试",
-            "content": "# Markdown 支持测试\n\n这个卡片的正面和背面都支持 **Markdown 格式**。\n\n- 列表项\n- *斜体*\n- **粗体**\n\n测试是否正确渲染？"
+            "title": "技术路线对比",
+            "content": "NLP发展过程中形成了哪两大技术阵营？它们的主要区别是什么？"
           },
           "back": {
-            "title": "答案",
-            "content": "## ✅ 完美支持！\n\nFlashcard 组件的正面和背面都支持完整的 Markdown 语法：\n\n### 支持的功能：\n\n1. **标题** (H1-H6)\n2. **列表** (有序/无序)\n3. **强调** (粗体/斜体)\n4. **链接**\n5. **代码**\n\n### 测试代码：\n\n```javascript\nconsole.log('Hello Flashcard!');\n```\n\n这个组件使用了 `react-markdown` 库，结合 `remark-gfm` 插件。"
+            "title": "答案揭晓",
+            "content": "## 两大阵营\n\n### 1. 符号派（规则方法）\n- **代表**：Chomsky\n- **方法**：形式语言理论、生成句法、形式逻辑\n- **特点**：基于语言规则和语法结构\n\n### 2. 随机派（概率方法）\n- **方法**：贝叶斯方法、统计模型\n- **特点**：基于数据驱动和概率计算\n\n> 在1957-1970快速发展期，符号派势头强于随机派。"
           }
         },
         {
           "type": "CardGrid",
-          "role": "myth-busters",
+          "role": "task-showcase",
           "content": {
-            "title": "常见误区",
+            "title": "核心 NLP 任务",
             "items": [
               {
-                "name": "误区 1",
-                "description": "认为虚拟 DOM 一定比原生 DOM 操作快",
-                "keywords": ["性能", "虚拟DOM", "误区"],
-                "common_misconceptions": ["虚拟DOM总是更快", "不需要考虑性能优化"]
+                "name": "情感分析",
+                "description": "分析人们在文本中对产品、事件、话题等的意见、情绪或评价。从某种意义上讲，情感分析也是一种广义的文本分类。",
+                "keywords": ["情感分析", "观点挖掘", "文本分类"],
+                "common_misconceptions": ["情感分析只能识别正面负面", "不需要上下文"]
               },
               {
-                "name": "误区 2",
-                "description": "认为所有项目都需要 Redux",
-                "keywords": ["状态管理", "Redux", "过度设计"],
-                "common_misconceptions": ["不用Redux就不是专业项目", "Context API不够用"]
+                "name": "文本摘要",
+                "description": "将长文本进行压缩、归纳和总结，从而形成概括性短文本。分为抽取式摘要和生成式摘要。",
+                "keywords": ["文本摘要", "抽取式", "生成式", "压缩"],
+                "common_misconceptions": ["抽取式就是复制第一句", "生成式必须使用RNN"]
               },
               {
-                "name": "误区 3",
-                "description": "认为 useEffect 完全等同于 componentDidMount",
-                "keywords": ["生命周期", "useEffect", "Hooks"],
-                "common_misconceptions": ["useEffect只在挂载时运行", "不会在更新时运行"]
+                "name": "机器翻译",
+                "description": "机器在没有人工干预下完成从一种语言到另一种语言的转换。技术发展经历了基于规则、基于统计和基于深度神经网络三个阶段。",
+                "keywords": ["机器翻译", "规则", "统计", "神经网络"],
+                "common_misconceptions": ["翻译就是逐词替换", "统计方法已经被淘汰"]
               },
               {
-                "name": "误区 4",
-                "description": "认为每次渲染都会创建新的函数",
-                "keywords": ["性能", "useCallback", "函数"],
-                "common_misconceptions": ["必须用useCallback包装所有函数", "内联函数总是性能问题"]
+                "name": "机器阅读理解",
+                "description": "使机器具有从自然语言中理解和抽取关键信息，继而回答问题的能力。这是对人类语言处理能力的一种模仿。",
+                "keywords": ["机器阅读理解", "信息抽取", "问答系统"],
+                "common_misconceptions": ["阅读理解需要完全理解文本", "只能回答事实性问题"]
+              },
+              {
+                "name": "对话系统",
+                "description": "目标是使机器与人类进行流畅的有意义的对话。分为任务导向型对话系统（帮助完成具体任务）和非任务导向型对话系统（聊天娱乐）。",
+                "keywords": ["对话系统", "任务导向", "聊天机器人", "交互"],
+                "common_misconceptions": ["对话系统就是Siri", "非任务型没有实际用途"]
               }
             ]
           }
@@ -198,41 +178,56 @@
           "type": "Timeline",
           "role": "learning-path",
           "content": {
-            "title": "React 学习路径",
+            "title": "NLP 学习路径推荐",
             "items": [
               {
                 "label": "第一步",
-                "title": "掌握基础",
-                "description": "学习 React 基础概念：JSX、组件、props、state",
-                "keywords": ["基础", "入门", "JSX"]
+                "title": "掌握基础概念",
+                "description": "学习自然语言处理的定义、作用、发展历程。理解文本向量表示、语义表示等基础理论。",
+                "keywords": ["基础", "定义", "历史", "向量表示"],
+                "common_misconceptions": ["基础概念不重要", "可以直接学深度学习"]
               },
               {
                 "label": "第二步",
-                "title": "理解 Hooks",
-                "description": "深入理解 useState、useEffect、useContext 等 Hooks",
-                "keywords": ["Hooks", "状态管理", "副作用"],
-                "common_misconceptions": ["Hooks只能在函数组件中使用", "useEffect就是componentDidMount"]
+                "title": "文本分析技术",
+                "description": "深入理解文本分析的目的、过程及在NLP中的基础作用。学习特征提取、文本预处理等技术。",
+                "keywords": ["文本分析", "特征提取", "预处理"],
+                "common_misconceptions": ["文本分析就是分词", "预处理步骤可以跳过"]
               },
               {
                 "label": "第三步",
-                "title": "路由和导航",
-                "description": "学习 React Router，实现单页应用的路由管理",
-                "keywords": ["路由", "React Router", "SPA"]
+                "title": "核心NLP任务",
+                "description": "掌握文本分类、情感分析、文本摘要、机器翻译等经典任务的原理和方法。",
+                "keywords": ["分类", "情感分析", "摘要", "翻译"],
+                "common_misconceptions": ["所有任务都用同一种方法", "任务之间没有关联"]
               },
               {
                 "label": "第四步",
-                "title": "状态管理进阶",
-                "description": "学习 Context API、Redux、Zustand 等状态管理方案",
-                "keywords": ["Redux", "Context", "状态管理"],
-                "common_misconceptions": ["所有项目都需要Redux", "Context会导致性能问题"]
+                "title": "高级应用",
+                "description": "学习机器阅读理解、对话系统、知识图谱等高级应用。了解Transformer、BERT等预训练模型。",
+                "keywords": ["阅读理解", "对话系统", "Transformer", "BERT"],
+                "common_misconceptions": ["预训练模型万能", "不需要领域知识"]
               },
               {
                 "label": "第五步",
-                "title": "性能优化",
-                "description": "掌握 React.memo、useMemo、useCallback、代码分割等优化技巧",
-                "keywords": ["性能", "优化", "memo"]
+                "title": "大语言模型",
+                "description": "深入学习GPT、LLaMA等大语言模型的原理、微调技术、提示工程和应用开发。",
+                "keywords": ["大语言模型", "GPT", "微调", "提示工程"],
+                "common_misconceptions": ["大模型不需要训练", "提示工程很简单", "模型越大越好"]
               }
             ]
+          }
+        },
+        {
+          "type": "Flashcard",
+          "id": "nlp-flashcard-3",
+          "front": {
+            "title": "任务对比",
+            "content": "**抽取式摘要** vs **生成式摘要**\n\n它们的本质区别是什么？"
+          },
+          "back": {
+            "title": "答案揭晓",
+            "content": "## 两种摘要方法对比\n\n### 📋 抽取式摘要\n- **方法**：直接从原文中选择重要的句子\n- **过程**：排序、重组\n- **优点**：简单快速，事实准确\n- **缺点**：可能不连贯，缺乏新意\n\n### ✍️ 生成式摘要\n- **方法**：机器理解完整原文后转述\n- **过程**：理解 + 生成\n- **优点**：自然流畅，可以概括\n- **缺点**：可能产生幻觉\n\n> 💡 实际应用中常结合两种方法。"
           }
         }
       ]
