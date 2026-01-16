@@ -5,7 +5,6 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { cn } from "@/lib/utils";
 import type { FlashcardContent } from "@/types/interactive-content";
 
@@ -14,22 +13,13 @@ interface FlashcardProps {
   className?: string;
 }
 
-// Mac-style window dots component
-const MacWindowDots = () => (
-  <div className="flex gap-1.5 mb-3">
-    <div className="w-2.5 h-2.5 rounded-full bg-red-400 hover:bg-red-500 transition-colors" />
-    <div className="w-2.5 h-2.5 rounded-full bg-yellow-400 hover:bg-yellow-500 transition-colors" />
-    <div className="w-2.5 h-2.5 rounded-full bg-green-400 hover:bg-green-500 transition-colors" />
-  </div>
-);
-
 export function Flashcard({ data, className }: FlashcardProps) {
   const [isFlipped, setIsFlipped] = useState(false);
 
   if (!data || !data.front || !data.back) {
     return (
-      <div className="p-8 bg-red-100 border-2 border-red-500 rounded-xl">
-        <h2 className="text-xl font-bold text-red-700 mb-2">Flashcard 数据错误</h2>
+      <div className="p-8 bg-red-900/50 border-2 border-red-500 rounded-xl">
+        <h2 className="text-xl font-bold text-red-300 mb-2">Flashcard 数据错误</h2>
       </div>
     );
   }
@@ -39,69 +29,102 @@ export function Flashcard({ data, className }: FlashcardProps) {
 
   return (
     <div className={cn("w-full max-w-2xl mx-auto", className)}>
+      <style>{`
+        .flashcard-scrollbar::-webkit-scrollbar {
+          width: 6px;
+        }
+        .flashcard-scrollbar::-webkit-scrollbar-track {
+          background: rgba(255, 255, 255, 0.05);
+          border-radius: 3px;
+        }
+        .flashcard-scrollbar::-webkit-scrollbar-thumb {
+          background: rgba(255, 255, 255, 0.2);
+          border-radius: 3px;
+        }
+        .flashcard-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: rgba(255, 255, 255, 0.3);
+        }
+      `}</style>
+
       <motion.div
-        className="relative rounded-3xl overflow-hidden shadow-2xl transition-all duration-300"
-        whileHover={{ y: -8, boxShadow: "0 20px 40px rgb(0,0,0,0.2)" }}
-        style={{ minHeight: '480px' }}
+        className="relative rounded-2xl overflow-hidden transition-all duration-300"
+        whileHover={{ y: -6, boxShadow: "0 30px 60px -12px rgba(0,0,0,0.5)" }}
+        style={{
+          minHeight: '520px',
+          maxHeight: '620px',
+          boxShadow: "0 20px 40px -12px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.1)"
+        }}
       >
         <AnimatePresence mode="wait">
           {!isFlipped ? (
-            // 正面
+            // 正面 - 深色玻璃态卡片
             <motion.div
               key="front"
-              initial={{ opacity: 0, rotateY: -90 }}
+              initial={{ opacity: 0, rotateY: -10 }}
               animate={{ opacity: 1, rotateY: 0 }}
-              exit={{ opacity: 0, rotateY: 90 }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
+              exit={{ opacity: 0, rotateY: 10 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
               className="absolute inset-0"
             >
-              <div className="h-full bg-gradient-to-br from-white to-gray-50 border border-gray-100/80 ring-1 ring-black/5 rounded-3xl overflow-hidden">
-                {/* Badge */}
-                <div className="text-center pt-8 pb-6">
-                  <span className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-600 text-xs font-bold uppercase tracking-[0.2em] rounded-full border border-blue-100/50 shadow-sm">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
-                    {frontData.title || "Question"}
-                  </span>
-                </div>
+              <div
+                className="absolute w-full h-full flex flex-col rounded-2xl overflow-hidden"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%)',
+                  backdropFilter: 'blur(12px)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)'
+                }}
+              >
+                {/* 顶部内容滚动区 */}
+                <div className="flex-1 overflow-y-auto flashcard-scrollbar p-6">
+                  {/* Badge */}
+                  <div className="flex justify-center mb-6">
+                    <span
+                      style={{
+                        background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
+                        boxShadow: '0 4px 12px rgba(59, 130, 246, 0.3)'
+                      }}
+                      className="px-4 py-2 text-white text-xs font-bold rounded-full uppercase tracking-wider"
+                    >
+                      {frontData.title || "问题"}
+                    </span>
+                  </div>
 
-                {/* 内容区域 */}
-                <div className="px-8 pb-24">
-                  <div className="text-center max-w-none">
+                  {/* 核心内容 */}
+                  <div className="prose prose-invert prose-sm max-w-none mb-6">
                     <ReactMarkdown
                       remarkPlugins={[remarkGfm]}
                       components={{
-                        p: ({node, ...props}) => <p className="mb-3 text-gray-700 leading-relaxed" {...props} />,
-                        strong: ({node, ...props}) => <strong className="font-bold text-gray-900" {...props} />,
-                        h1: ({node, ...props}) => <h1 className="text-2xl font-bold mb-4 text-gray-900 text-center" {...props} />,
-                        h2: ({node, ...props}) => <h2 className="text-xl font-bold mb-3 text-gray-900 text-center" {...props} />,
-                        h3: ({node, ...props}) => <h3 className="text-lg font-bold mb-3 text-gray-900 text-center" {...props} />,
+                        p: ({node, ...props}) => <p className="mb-4 text-slate-300 leading-relaxed" {...props} />,
+                        strong: ({node, ...props}) => <strong className="font-bold text-white" {...props} />,
+                        h1: ({node, ...props}) => <h1 className="text-2xl font-bold mb-4 text-white" {...props} />,
+                        h2: ({node, ...props}) => <h2 className="text-xl font-bold mb-3 text-white" {...props} />,
+                        h3: ({node, ...props}) => <h3 className="text-lg font-bold mb-3 text-white" {...props} />,
                         code: ({node, className, children, ...props }: any) => {
                           const inline = !className?.includes('language-');
                           if (!inline) {
                             const match = /language-(\w+)/.exec(className || '');
                             const language = match ? match[1] : 'text';
                             return (
-                              <div className="my-4">
-                                {/* Mac-style window header */}
-                                <div className="bg-gradient-to-br from-gray-100 to-gray-50 rounded-t-xl px-4 py-2.5 border-b border-gray-200">
-                                  <div className="flex items-center justify-between">
-                                    <MacWindowDots />
-                                    <span className="text-xs font-medium text-gray-400 uppercase tracking-wider">{language}</span>
-                                    <div className="w-16" />
-                                  </div>
+                              <div className="rounded-xl overflow-hidden my-4" style={{ border: '1px solid rgba(255, 255, 255, 0.1)', background: 'rgba(0, 0, 0, 0.3)' }}>
+                                {/* Mac 窗口头 */}
+                                <div className="h-8 flex items-center px-4 space-x-1.5" style={{ background: 'rgba(255, 255, 255, 0.05)', borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}>
+                                  <div className="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+                                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
+                                  <div className="w-2.5 h-2.5 rounded-full bg-green-400"></div>
+                                  <span className="ml-auto text-xs font-medium text-slate-500 uppercase tracking-wider">{language}</span>
                                 </div>
-                                {/* Code block */}
-                                <div className="bg-slate-50 rounded-b-xl border border-t-0 border-gray-200 overflow-hidden">
+                                {/* 代码内容 */}
+                                <div className="p-4 overflow-x-auto">
                                   <SyntaxHighlighter
                                     language={language}
-                                    style={oneLight}
+                                    style={oneDark}
                                     PreTag="div"
-                                    className="!bg-transparent !p-4 !m-0 text-sm"
+                                    className="!bg-transparent !m-0 !p-0 text-sm"
                                     customStyle={{
                                       fontSize: '0.875rem',
                                       lineHeight: '1.714',
                                       background: 'transparent',
-                                      padding: '1rem',
+                                      padding: '0',
                                       margin: '0'
                                     }}
                                   >
@@ -111,96 +134,124 @@ export function Flashcard({ data, className }: FlashcardProps) {
                               </div>
                             );
                           }
+                          // 行内代码 - 渐变高亮
                           return (
-                            <code className="bg-gradient-to-br from-slate-100 to-slate-50 text-slate-700 px-2 py-1 rounded-lg text-sm font-mono border border-slate-200 shadow-sm" {...props}>
+                            <code
+                              style={{
+                                background: 'linear-gradient(135deg, rgba(236, 72, 153, 0.2) 0%, rgba(168, 85, 247, 0.2) 100%)',
+                                border: '1px solid rgba(236, 72, 153, 0.3)'
+                              }}
+                              className="rounded px-1.5 py-0.5 text-sm font-mono text-pink-400"
+                              {...props}
+                            >
                               {children}
                             </code>
                           );
                         },
                         pre: ({node, children }: any) => <div>{children}</div>,
-                        ul: ({node, ...props}) => <ul className="text-left inline-block space-y-1.5" {...props} />,
-                        ol: ({node, ...props}) => <ol className="text-left inline-block space-y-1.5" {...props} />,
+                        ul: ({node, ...props}) => <ul className="text-left space-y-2" {...props} />,
+                        ol: ({node, ...props}) => <ol className="text-left space-y-2" {...props} />,
                       }}
                     >
                       {frontData.content || "点击编辑内容"}
                     </ReactMarkdown>
                   </div>
+
+                  {/* 底部留白 */}
+                  <div className="h-4"></div>
                 </div>
 
-                {/* 底部按钮 */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-white via-white to-transparent border-t border-gray-100">
+                {/* 底部固定操作栏 */}
+                <div className="flex-none p-4" style={{ background: 'rgba(0, 0, 0, 0.3)', borderTop: '1px solid rgba(255, 255, 255, 0.1)' }}>
                   <motion.button
                     onClick={() => setIsFlipped(true)}
-                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white font-medium transition-all duration-200 shadow-lg hover:shadow-xl"
-                    whileHover={{ scale: 1.02 }}
+                    className="w-full flex items-center justify-center space-x-2 py-3 rounded-full font-medium transition-all duration-200"
+                    style={{
+                      background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
+                      boxShadow: '0 4px 12px rgba(59, 130, 246, 0.3)'
+                    }}
+                    whileHover={{ scale: 1.02, boxShadow: '0 6px 16px rgba(59, 130, 246, 0.4)' }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                     </svg>
-                    <span>查看答案</span>
+                    <span className="text-white">查看答案</span>
                   </motion.button>
                 </div>
               </div>
             </motion.div>
           ) : (
-            // 反面
+            // 反面 - 深色玻璃态卡片
             <motion.div
               key="back"
-              initial={{ opacity: 0, rotateY: 90 }}
+              initial={{ opacity: 0, rotateY: 10 }}
               animate={{ opacity: 1, rotateY: 0 }}
-              exit={{ opacity: 0, rotateY: -90 }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
+              exit={{ opacity: 0, rotateY: -10 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
               className="absolute inset-0"
+              style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
             >
-              <div className="h-full bg-gradient-to-br from-slate-900 via-slate-900 to-slate-800 border border-slate-700/50 ring-1 ring-white/10 rounded-3xl overflow-hidden">
-                {/* Badge */}
-                <div className="text-center pt-8 pb-6">
-                  <span className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-emerald-900/40 to-green-900/40 text-emerald-400 text-xs font-bold uppercase tracking-[0.2em] rounded-full border border-emerald-800/50 shadow-lg">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    {backData.title || "Answer"}
-                  </span>
-                </div>
+              <div
+                className="absolute w-full h-full flex flex-col rounded-2xl overflow-hidden"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%)',
+                  backdropFilter: 'blur(12px)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)'
+                }}
+              >
+                {/* 顶部内容滚动区 */}
+                <div className="flex-1 overflow-y-auto flashcard-scrollbar p-6">
+                  {/* Badge */}
+                  <div className="flex justify-center mb-6">
+                    <span
+                      style={{
+                        background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                        boxShadow: '0 4px 12px rgba(16, 185, 129, 0.3)'
+                      }}
+                      className="px-4 py-2 text-white text-xs font-bold rounded-full uppercase tracking-wider"
+                    >
+                      {backData.title || "答案解析"}
+                    </span>
+                  </div>
 
-                {/* 内容区域 */}
-                <div className="px-8 pb-24">
-                  <div className="text-center max-w-none">
+                  {/* 核心内容 */}
+                  <div className="prose prose-invert prose-sm max-w-none mb-6">
                     <ReactMarkdown
                       remarkPlugins={[remarkGfm]}
                       components={{
-                        p: ({node, ...props}) => <p className="mb-3 text-gray-300 leading-relaxed" {...props} />,
+                        p: ({node, ...props}) => <p className="mb-4 text-slate-300 leading-relaxed" {...props} />,
                         strong: ({node, ...props}) => <strong className="font-bold text-white" {...props} />,
-                        h1: ({node, ...props}) => <h1 className="text-2xl font-bold mb-4 text-white text-center" {...props} />,
-                        h2: ({node, ...props}) => <h2 className="text-xl font-bold mb-3 text-white text-center" {...props} />,
-                        h3: ({node, ...props}) => <h3 className="text-lg font-bold mb-3 text-white text-center" {...props} />,
+                        h1: ({node, ...props}) => <h1 className="text-2xl font-bold mb-4 text-white" {...props} />,
+                        h2: ({node, ...props}) => <h2 className="text-xl font-bold mb-3 text-white" {...props} />,
+                        h3: ({node, ...props}) => <h3 className="text-lg font-bold mb-3 text-white" {...props} />,
                         code: ({node, className, children, ...props }: any) => {
                           const inline = !className?.includes('language-');
                           if (!inline) {
                             const match = /language-(\w+)/.exec(className || '');
                             const language = match ? match[1] : 'text';
                             return (
-                              <div className="my-4">
-                                {/* Mac-style window header */}
-                                <div className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-t-xl px-4 py-2.5 border-b border-slate-600">
-                                  <div className="flex items-center justify-between">
-                                    <MacWindowDots />
-                                    <span className="text-xs font-medium text-slate-400 uppercase tracking-wider">{language}</span>
-                                    <div className="w-16" />
-                                  </div>
+                              <div className="rounded-xl overflow-hidden my-4" style={{ border: '1px solid rgba(255, 255, 255, 0.1)', background: 'rgba(0, 0, 0, 0.3)' }}>
+                                {/* Mac 窗口头 */}
+                                <div className="h-8 flex items-center px-4 space-x-1.5" style={{ background: 'rgba(255, 255, 255, 0.05)', borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}>
+                                  <div className="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+                                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
+                                  <div className="w-2.5 h-2.5 rounded-full bg-green-400"></div>
+                                  <span className="ml-auto text-xs font-medium text-slate-500 uppercase tracking-wider">{language}</span>
                                 </div>
-                                {/* Code block */}
-                                <div className="bg-slate-950/50 rounded-b-xl border border-t-0 border-slate-700 overflow-hidden">
+                                {/* 代码内容 */}
+                                <div className="p-4 overflow-x-auto">
                                   <SyntaxHighlighter
                                     language={language}
                                     style={oneDark}
                                     PreTag="div"
-                                    className="!bg-transparent !p-4 !m-0 text-sm"
+                                    className="!bg-transparent !m-0 !p-0 text-sm"
                                     customStyle={{
                                       fontSize: '0.875rem',
                                       lineHeight: '1.714',
                                       background: 'transparent',
-                                      padding: '1rem',
+                                      padding: '0',
                                       margin: '0'
                                     }}
                                   >
@@ -210,28 +261,43 @@ export function Flashcard({ data, className }: FlashcardProps) {
                               </div>
                             );
                           }
+                          // 行内代码
                           return (
-                            <code className="bg-gradient-to-br from-white/10 to-white/5 text-amber-300 px-2 py-1 rounded-lg text-sm font-mono border border-white/10 shadow-lg" {...props}>
+                            <code
+                              style={{
+                                background: 'linear-gradient(135deg, rgba(236, 72, 153, 0.2) 0%, rgba(168, 85, 247, 0.2) 100%)',
+                                border: '1px solid rgba(236, 72, 153, 0.3)'
+                              }}
+                              className="rounded px-1.5 py-0.5 text-sm font-mono text-pink-400"
+                              {...props}
+                            >
                               {children}
                             </code>
                           );
                         },
                         pre: ({node, children }: any) => <div>{children}</div>,
-                        ul: ({node, ...props}) => <ul className="text-left inline-block space-y-1.5" {...props} />,
-                        ol: ({node, ...props}) => <ol className="text-left inline-block space-y-1.5" {...props} />,
+                        ul: ({node, ...props}) => <ul className="text-left space-y-2" {...props} />,
+                        ol: ({node, ...props}) => <ol className="text-left space-y-2" {...props} />,
                       }}
                     >
                       {backData.content || "暂无答案"}
                     </ReactMarkdown>
                   </div>
+
+                  {/* 底部留白 */}
+                  <div className="h-4"></div>
                 </div>
 
-                {/* 底部按钮 */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-slate-900 via-slate-900 to-transparent border-t border-slate-700/50">
+                {/* 底部固定操作栏 */}
+                <div className="flex-none p-4" style={{ background: 'rgba(0, 0, 0, 0.3)', borderTop: '1px solid rgba(255, 255, 255, 0.1)' }}>
                   <motion.button
                     onClick={() => setIsFlipped(false)}
-                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-slate-700 to-slate-600 hover:from-slate-600 hover:to-slate-500 text-slate-200 font-medium transition-all duration-200 shadow-lg hover:shadow-xl border border-slate-500/50"
-                    whileHover={{ scale: 1.02 }}
+                    className="w-full flex items-center justify-center space-x-2 py-3 rounded-full font-medium transition-all duration-200 text-slate-300"
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.05)',
+                      border: '1px solid rgba(255, 255, 255, 0.1)'
+                    }}
+                    whileHover={{ scale: 1.02, background: 'rgba(255, 255, 255, 0.1)' }}
                     whileTap={{ scale: 0.98 }}
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
