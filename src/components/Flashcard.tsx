@@ -90,7 +90,7 @@ export function Flashcard({ data, className }: FlashcardProps) {
                   </div>
 
                   {/* 核心内容 */}
-                  <div className="prose prose-invert prose-sm max-w-none mb-6">
+                  <div className="prose prose-invert prose-sm max-w-none mb-6 text-center">
                     <ReactMarkdown
                       remarkPlugins={[remarkGfm]}
                       components={{
@@ -105,7 +105,7 @@ export function Flashcard({ data, className }: FlashcardProps) {
                             const match = /language-(\w+)/.exec(className || '');
                             const language = match ? match[1] : 'text';
                             return (
-                              <div className="rounded-xl overflow-hidden my-4" style={{ border: '1px solid rgba(255, 255, 255, 0.1)', background: 'rgba(0, 0, 0, 0.3)' }}>
+                              <div className="rounded-xl overflow-hidden my-4 text-left" style={{ border: '1px solid rgba(255, 255, 255, 0.1)', background: 'rgba(0, 0, 0, 0.3)' }}>
                                 {/* Mac 窗口头 */}
                                 <div className="h-8 flex items-center px-4 space-x-1.5" style={{ background: 'rgba(255, 255, 255, 0.05)', borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}>
                                   <div className="w-2.5 h-2.5 rounded-full bg-red-400"></div>
@@ -148,9 +148,9 @@ export function Flashcard({ data, className }: FlashcardProps) {
                             </code>
                           );
                         },
-                        pre: ({node, children }: any) => <div>{children}</div>,
-                        ul: ({node, ...props}) => <ul className="text-left space-y-2" {...props} />,
-                        ol: ({node, ...props}) => <ol className="text-left space-y-2" {...props} />,
+                        pre: ({node, children }: any) => <div className="text-left">{children}</div>,
+                        ul: ({node, ...props}) => <ul className="text-left inline-block space-y-2 text-left" {...props} />,
+                        ol: ({node, ...props}) => <ol className="text-left inline-block space-y-2 text-left" {...props} />,
                       }}
                     >
                       {frontData.content || "点击编辑内容"}
@@ -217,7 +217,7 @@ export function Flashcard({ data, className }: FlashcardProps) {
                   </div>
 
                   {/* 核心内容 */}
-                  <div className="prose prose-invert prose-sm max-w-none mb-6">
+                  <div className="prose prose-invert prose-sm max-w-none mb-6 text-center">
                     <ReactMarkdown
                       remarkPlugins={[remarkGfm]}
                       components={{
@@ -232,7 +232,7 @@ export function Flashcard({ data, className }: FlashcardProps) {
                             const match = /language-(\w+)/.exec(className || '');
                             const language = match ? match[1] : 'text';
                             return (
-                              <div className="rounded-xl overflow-hidden my-4" style={{ border: '1px solid rgba(255, 255, 255, 0.1)', background: 'rgba(0, 0, 0, 0.3)' }}>
+                              <div className="rounded-xl overflow-hidden my-4 text-left" style={{ border: '1px solid rgba(255, 255, 255, 0.1)', background: 'rgba(0, 0, 0, 0.3)' }}>
                                 {/* Mac 窗口头 */}
                                 <div className="h-8 flex items-center px-4 space-x-1.5" style={{ background: 'rgba(255, 255, 255, 0.05)', borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}>
                                   <div className="w-2.5 h-2.5 rounded-full bg-red-400"></div>
@@ -275,9 +275,9 @@ export function Flashcard({ data, className }: FlashcardProps) {
                             </code>
                           );
                         },
-                        pre: ({node, children }: any) => <div>{children}</div>,
-                        ul: ({node, ...props}) => <ul className="text-left space-y-2" {...props} />,
-                        ol: ({node, ...props}) => <ol className="text-left space-y-2" {...props} />,
+                        pre: ({node, children }: any) => <div className="text-left">{children}</div>,
+                        ul: ({node, ...props}) => <ul className="text-left inline-block space-y-2 text-left" {...props} />,
+                        ol: ({node, ...props}) => <ol className="text-left inline-block space-y-2 text-left" {...props} />,
                       }}
                     >
                       {backData.content || "暂无答案"}
