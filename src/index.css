@@ -77,3 +77,21 @@
     @apply text-white;
   }
 }
+
+@layer utilities {
+  /* 3D Transform utilities for Flashcard */
+  .backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .transform-style-3d {
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+    -webkit-perspective: 1000px;
+  }
+}

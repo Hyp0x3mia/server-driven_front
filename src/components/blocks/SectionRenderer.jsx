@@ -1,6 +1,7 @@
 import React from 'react';
 import MarkdownBlock from './MarkdownBlock';
 import FlashcardBlock from './FlashcardBlock';
+import ClozeBlock from './ClozeBlock';
 
 const SectionRenderer = ({ section }) => {
   if (!section || !section.blocks) {
@@ -15,6 +16,8 @@ const SectionRenderer = ({ section }) => {
             return <MarkdownBlock key={index} content={block.content} />;
           case 'Flashcard':
             return <FlashcardBlock key={block.id || index} id={block.id} front={block.front} back={block.back} />;
+          case 'Cloze':
+            return <ClozeBlock key={index} text={block.content} />;
           default:
             console.warn(`Unknown block type: ${block.type}`);
             return null;

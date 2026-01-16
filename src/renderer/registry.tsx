@@ -71,10 +71,15 @@ export type MarkdownBlock = {
   content: string;
 };
 
-export type FlashcardBlock = FlashcardContent & { type: "Flashcard" };
+export type FlashcardBlock = Omit<FlashcardContent, 'type'> & { type: "Flashcard" };
+
+export type ClozeBlock = {
+  type: "Cloze";
+  content: string;
+};
 
 
-export type Block = HeroBlock | CardGridBlock | TimelineBlock | MarkdownBlock | FlashcardBlock;
+export type Block = HeroBlock | CardGridBlock | TimelineBlock | MarkdownBlock | FlashcardBlock | ClozeBlock;
 
 export type SectionV2 = {
   section_id?: string;
@@ -109,6 +114,7 @@ import VerticalChronicle from "../components/VerticalChronicle.jsx";
 import { Flashcard } from "../components/Flashcard.tsx";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import ClozeBlock from "../components/blocks/ClozeBlock.jsx";
 
 
 /** =========================
@@ -254,12 +260,24 @@ const MarkdownAdapter: React.FC<AdapterProps<MarkdownBlock>> = ({ block }) => {
 };
 
 const FlashcardAdapter: React.FC<AdapterProps<FlashcardBlock>> = ({ block }) => {
+  // 调试日志
+  console.log("FlashcardAdapter received block:", block);
+
+  // 数据验证
+  if (!block) {
+    return <div className="p-4 bg-red-100 text-red-700">FlashcardAdapter: No block data</div>;
+  }
+
   // 移除 my-16，由父级 space-y-16 统一控制间距
   return (
-    <div className="w-full flex justify-center relative z-10">
+    <div className="w-full flex justify-center relative z-10 py-8">
       <Flashcard data={block} />
     </div>
   );
+};
+
+const ClozeAdapter: React.FC<AdapterProps<ClozeBlock>> = ({ block }) => {
+  return <ClozeBlock text={block.content} />;
 };
 
 
@@ -269,6 +287,7 @@ export const registry = {
   Timeline: TimelineAdapter,
   Markdown: MarkdownAdapter,
   Flashcard: FlashcardAdapter,
+  Cloze: ClozeAdapter,
 } as const;
 
 export type RegistryKey = keyof typeof registry;

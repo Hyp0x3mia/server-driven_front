@@ -229,6 +229,34 @@
             "title": "答案揭晓",
             "content": "## 两种摘要方法对比\n\n### 📋 抽取式摘要\n- **方法**：直接从原文中选择重要的句子\n- **过程**：排序、重组\n- **优点**：简单快速，事实准确\n- **缺点**：可能不连贯，缺乏新意\n\n### ✍️ 生成式摘要\n- **方法**：机器理解完整原文后转述\n- **过程**：理解 + 生成\n- **优点**：自然流畅，可以概括\n- **缺点**：可能产生幻觉\n\n> 💡 实际应用中常结合两种方法。"
           }
+        },
+        {
+          "type": "Cloze",
+          "content": "自然语言处理（NLP）是引导机器{{模拟和延伸}}人类语言能力的基础性和关键性研究方向。NLP的发展经历了{{基于规则}}、{{基于统计}}和{{基于深度学习}}三个主要技术阶段。"
+        },
+        {
+          "type": "Flashcard",
+          "id": "code-flashcard-1",
+          "front": {
+            "title": "代码测试",
+            "content": "## JavaScript 闭包\n\n下面代码的输出是什么？\n\n```javascript\nfor (var i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 100);\n}\n```"
+          },
+          "back": {
+            "title": "答案",
+            "content": "## 输出结果\n\n```\n3\n3\n3\n```\n\n### 解释\n\n因为 `var` 是**函数作用域**，而不是块级作用域。所有三个 setTimeout 都引用同一个 `i` 变量。\n\n### 解决方案\n\n使用 `let`（块级作用域）或立即执行函数：\n\n```javascript\n// 方案1：使用 let\nfor (let i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 100);\n}\n\n// 方案2：使用 IIFE\nfor (var i = 0; i < 3; i++) {\n  ((j) => setTimeout(() => console.log(j), 100))(i);\n}\n```"
+          }
+        },
+        {
+          "type": "Flashcard",
+          "id": "code-flashcard-2",
+          "front": {
+            "title": "React Hooks",
+            "content": "## 这段代码有什么问题？\n\n```javascript\nuseEffect(() => {\n  fetch(url).then(data => setData(data));\n}, []);\n```"
+          },
+          "back": {
+            "title": "问题分析",
+            "content": "## ❌ 缺少依赖项\n\n### 问题\n\n- 如果 `url` 是 props 或 state，使用的是**旧值**\n- ESLint 会警告：`React Hook useEffect has missing dependency: 'url'`\n\n### ✅ 正确写法\n\n```javascript\n// 方案1：添加依赖\nuseEffect(() => {\n  fetch(url).then(data => setData(data));\n}, [url]);\n\n// 方案2：使用 useCallback\nconst fetchData = useCallback(() => {\n  fetch(url).then(data => setData(data));\n}, [url]);\n\nuseEffect(() => {\n  fetchData();\n}, [fetchData]);\n```"
+          }
         }
       ]
     }
