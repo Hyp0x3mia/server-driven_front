@@ -48,7 +48,12 @@ export function Flashcard({ data, className }: FlashcardProps) {
 
       <motion.div
         className="relative rounded-2xl overflow-hidden transition-all duration-300"
-        whileHover={{ y: -6, boxShadow: "0 30px 60px -12px rgba(0,0,0,0.5)" }}
+        whileHover={!isFlipped ? { y: -8, boxShadow: "0 35px 70px -12px rgba(0,0,0,0.6)" } : {}}
+        transition={{
+          type: "spring",
+          stiffness: 400,
+          damping: 25
+        }}
         style={{
           minHeight: '520px',
           maxHeight: '620px',
@@ -64,7 +69,7 @@ export function Flashcard({ data, className }: FlashcardProps) {
               animate={{ opacity: 1, rotateY: 0 }}
               exit={{ opacity: 0, rotateY: 10 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="absolute inset-0"
+              className="absolute inset-0 cursor-pointer"
             >
               <div
                 className="absolute w-full h-full flex flex-col rounded-2xl overflow-hidden"
@@ -183,14 +188,14 @@ export function Flashcard({ data, className }: FlashcardProps) {
               </div>
             </motion.div>
           ) : (
-            // 反面 - 深色玻璃态卡片
+            // 反面 - 深色玻璃态卡片（禁用悬停效果）
             <motion.div
               key="back"
               initial={{ opacity: 0, rotateY: 10 }}
               animate={{ opacity: 1, rotateY: 0 }}
               exit={{ opacity: 0, rotateY: -10 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="absolute inset-0"
+              className="absolute inset-0 cursor-default"
               style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
             >
               <div
