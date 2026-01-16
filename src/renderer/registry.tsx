@@ -78,8 +78,16 @@ export type ClozeBlock = {
   content: string;
 };
 
+export type FlashcardGridBlock = {
+  type: "FlashcardGrid";
+  role?: string;
+  content: {
+    title?: string;
+    cards: FlashcardBlock[];
+  };
+};
 
-export type Block = HeroBlock | CardGridBlock | TimelineBlock | MarkdownBlock | FlashcardBlock | ClozeBlock;
+export type Block = HeroBlock | CardGridBlock | TimelineBlock | MarkdownBlock | FlashcardBlock | ClozeBlock | FlashcardGridBlock;
 
 export type SectionV2 = {
   section_id?: string;
@@ -112,6 +120,7 @@ import HeroMatrix from "../components/HeroMatrix.jsx";
 import BentoGrid from "../components/BentoGrid.jsx";
 import VerticalChronicle from "../components/VerticalChronicle.jsx";
 import { Flashcard } from "../components/Flashcard.tsx";
+import FlashcardGrid from "../components/FlashcardGrid.jsx";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import ClozeBlock from "../components/blocks/ClozeBlock.jsx";
@@ -280,6 +289,13 @@ const ClozeAdapter: React.FC<AdapterProps<ClozeBlock>> = ({ block }) => {
   return <ClozeBlock text={block.content} />;
 };
 
+const FlashcardGridAdapter: React.FC<AdapterProps<FlashcardGridBlock>> = ({ block }) => {
+  return (
+    <div className="w-full py-8">
+      <FlashcardGrid cards={block.content.cards} />
+    </div>
+  );
+};
 
 export const registry = {
   Hero: HeroAdapter,
@@ -288,6 +304,7 @@ export const registry = {
   Markdown: MarkdownAdapter,
   Flashcard: FlashcardAdapter,
   Cloze: ClozeAdapter,
+  FlashcardGrid: FlashcardGridAdapter,
 } as const;
 
 export type RegistryKey = keyof typeof registry;

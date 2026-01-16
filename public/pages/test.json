@@ -235,27 +235,48 @@
           "content": "自然语言处理（NLP）是引导机器{{模拟和延伸}}人类语言能力的基础性和关键性研究方向。NLP的发展经历了{{基于规则}}、{{基于统计}}和{{基于深度学习}}三个主要技术阶段。"
         },
         {
-          "type": "Flashcard",
-          "id": "code-flashcard-1",
-          "front": {
-            "title": "代码测试",
-            "content": "## JavaScript 闭包\n\n下面代码的输出是什么？\n\n```javascript\nfor (var i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 100);\n}\n```"
-          },
-          "back": {
-            "title": "答案",
-            "content": "## 输出结果\n\n```\n3\n3\n3\n```\n\n### 解释\n\n因为 `var` 是**函数作用域**，而不是块级作用域。所有三个 setTimeout 都引用同一个 `i` 变量。\n\n### 解决方案\n\n使用 `let`（块级作用域）或立即执行函数：\n\n```javascript\n// 方案1：使用 let\nfor (let i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 100);\n}\n\n// 方案2：使用 IIFE\nfor (var i = 0; i < 3; i++) {\n  ((j) => setTimeout(() => console.log(j), 100))(i);\n}\n```"
-          }
-        },
-        {
-          "type": "Flashcard",
-          "id": "code-flashcard-2",
-          "front": {
-            "title": "React Hooks",
-            "content": "## 这段代码有什么问题？\n\n```javascript\nuseEffect(() => {\n  fetch(url).then(data => setData(data));\n}, []);\n```"
-          },
-          "back": {
-            "title": "问题分析",
-            "content": "## ❌ 缺少依赖项\n\n### 问题\n\n- 如果 `url` 是 props 或 state，使用的是**旧值**\n- ESLint 会警告：`React Hook useEffect has missing dependency: 'url'`\n\n### ✅ 正确写法\n\n```javascript\n// 方案1：添加依赖\nuseEffect(() => {\n  fetch(url).then(data => setData(data));\n}, [url]);\n\n// 方案2：使用 useCallback\nconst fetchData = useCallback(() => {\n  fetch(url).then(data => setData(data));\n}, [url]);\n\nuseEffect(() => {\n  fetchData();\n}, [fetchData]);\n```"
+          "type": "FlashcardGrid",
+          "role": "code-practice",
+          "content": {
+            "title": "代码练习",
+            "cards": [
+              {
+                "type": "Flashcard",
+                "id": "code-flashcard-1",
+                "front": {
+                  "title": "JavaScript 闭包",
+                  "content": "## JavaScript 闭包\n\n下面代码的输出是什么？\n\n```javascript\nfor (var i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 100);\n}\n```"
+                },
+                "back": {
+                  "title": "答案",
+                  "content": "## 输出结果\n\n```\n3\n3\n3\n```\n\n### 解释\n\n因为 `var` 是**函数作用域**，而不是块级作用域。"
+                }
+              },
+              {
+                "type": "Flashcard",
+                "id": "code-flashcard-2",
+                "front": {
+                  "title": "React Hooks",
+                  "content": "## 这段代码有什么问题？\n\n```javascript\nuseEffect(() => {\n  fetch(url).then(data => setData(data));\n}, []);\n```"
+                },
+                "back": {
+                  "title": "问题分析",
+                  "content": "## ❌ 缺少依赖项\n\n### 问题\n\n- 如果 `url` 是 props 或 state，使用的是**旧值**\n- ESLint 会警告缺少依赖\n\n### ✅ 正确写法\n\n```javascript\nuseEffect(() => {\n  fetch(url).then(data => setData(data));\n}, [url]);\n```"
+                }
+              },
+              {
+                "type": "Flashcard",
+                "id": "code-flashcard-3",
+                "front": {
+                  "title": "Python 装饰器",
+                  "content": "## 什么是装饰器？\n\n装饰器是 Python 中一种修改函数或类的语法糖。"
+                },
+                "back": {
+                  "title": "答案",
+                  "content": "## 装饰器\n\n装饰器接受一个函数，返回一个新函数。\n\n```python\n@decorator\ndef func():\n    pass\n\n# 等价于\nfunc = decorator(func)\n```"
+                }
+              }
+            ]
           }
         }
       ]

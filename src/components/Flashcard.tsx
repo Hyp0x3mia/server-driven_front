@@ -28,7 +28,7 @@ export function Flashcard({ data, className }: FlashcardProps) {
   const backData = data.back;
 
   return (
-    <div className={cn("w-full max-w-2xl mx-auto", className)}>
+    <div className={cn("w-full", className)}>
       <style>{`
         .flashcard-scrollbar::-webkit-scrollbar {
           width: 6px;
