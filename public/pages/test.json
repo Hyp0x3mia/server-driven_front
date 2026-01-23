@@ -235,6 +235,24 @@
           "content": "自然语言处理（NLP）是引导机器{{模拟和延伸}}人类语言能力的基础性和关键性研究方向。NLP的发展经历了{{基于规则}}、{{基于统计}}和{{基于深度学习}}三个主要技术阶段。"
         },
         {
+          "type": "CodePlayground",
+          "role": "interactive-demo",
+          "title": "🎮 交互演示：Token 分词",
+          "content": {
+            "mode": "tokenizer",
+            "initialText": "Natural Language Processing enables machines to understand human language."
+          }
+        },
+        {
+          "type": "CodePlayground",
+          "role": "interactive-demo",
+          "title": "🎮 交互演示：超参数调优",
+          "content": {
+            "mode": "hyperparameter",
+            "codeTemplate": "optimizer = torch.optim.SGD(\n  model.parameters(),\n  lr={lr_value},\n  momentum={momentum_value}\n)"
+          }
+        },
+        {
           "type": "FlashcardGrid",
           "role": "code-practice",
           "content": {

@@ -100,7 +100,8 @@ function extractNavItems(blocks: Block[]): Array<{ id: string; title: string; ty
         block.type === 'CardGrid' ||
         block.type === 'Timeline' ||
         block.type === 'FlashcardGrid' ||
-        block.type === 'Cloze'
+        block.type === 'Cloze' ||
+        block.type === 'CodePlayground'  // ✅ 新增
       );
     })
     .map((block, index) => ({

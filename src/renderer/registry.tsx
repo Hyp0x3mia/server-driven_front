@@ -1,6 +1,7 @@
 // src/renderer/registry.tsx
 
 import React from "react";
+import { CodePlayground } from "../components/blocks/CodePlayground";
 
 /** =========================
  *  Schema Types (v1/v2 compatible)
@@ -87,7 +88,17 @@ export type FlashcardGridBlock = {
   };
 };
 
-export type Block = HeroBlock | CardGridBlock | TimelineBlock | MarkdownBlock | FlashcardBlock | ClozeBlock | FlashcardGridBlock;
+export type CodePlaygroundBlock = {
+  type: "CodePlayground";
+  role?: string;
+  content: {
+    mode: 'tokenizer' | 'hyperparameter';
+    initialText?: string;
+    codeTemplate?: string;
+  };
+};
+
+export type Block = HeroBlock | CardGridBlock | TimelineBlock | MarkdownBlock | FlashcardBlock | ClozeBlock | FlashcardGridBlock | CodePlaygroundBlock;
 
 export type SectionV2 = {
   section_id?: string;
@@ -297,6 +308,18 @@ const FlashcardGridAdapter: React.FC<AdapterProps<FlashcardGridBlock>> = ({ bloc
   );
 };
 
+const CodePlaygroundAdapter: React.FC<AdapterProps<CodePlaygroundBlock>> = ({ block }) => {
+  return (
+    <div className="w-full py-6">
+      <CodePlayground
+        type={block.content.mode}
+        initialText={block.content.initialText}
+        codeTemplate={block.content.codeTemplate}
+      />
+    </div>
+  );
+};
+
 export const registry = {
   Hero: HeroAdapter,
   CardGrid: CardGridAdapter,
@@ -305,6 +328,7 @@ export const registry = {
   Flashcard: FlashcardAdapter,
   Cloze: ClozeAdapter,
   FlashcardGrid: FlashcardGridAdapter,
+  CodePlayground: CodePlaygroundAdapter,
 } as const;
 
 export type RegistryKey = keyof typeof registry;

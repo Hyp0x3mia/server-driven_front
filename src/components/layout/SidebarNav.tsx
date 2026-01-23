@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { BookOpen, Hash, Cpu, History, Code, Lightbulb, FileText, Layers } from 'lucide-react';
+import { BookOpen, Hash, Cpu, History, Code, Lightbulb, FileText, Layers, Gamepad2 } from 'lucide-react';
 import { cn } from '../../lib/utils';
 
 interface NavItem {
@@ -45,6 +45,8 @@ function getIconForItem(item: NavItem): React.ReactNode {
       return <FileText size={16} />;
     case 'code':
       return <Code size={16} />;
+    case 'codeplayground':
+      return <Gamepad2 size={16} />;
     default:
       return <Hash size={16} />;
   }
