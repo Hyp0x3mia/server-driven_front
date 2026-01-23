@@ -3,7 +3,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import { navItems } from "./nav-items";
-import DynamicSchemaPage from "./pages/DynamicSchemaPage"; // 新增
+import SchemaPage from "./pages/SchemaPage"; // 使用新的 SchemaPage（带 Navbar）
 
 const queryClient = new QueryClient();
 
@@ -13,8 +13,8 @@ const App = () => (
       <Toaster />
       <HashRouter>
         <Routes>
-          {/* 1) 先挂一个动态 schema 页 */}
-          <Route path="/page/:id" element={<DynamicSchemaPage />} />
+          {/* 1) 使用新的 SchemaPage（带 Navbar 集成） */}
+          <Route path="/page/:id" element={<SchemaPage />} />
 
           {/* 2) 你原有的静态页面路由保持不变 */}
           {navItems.map(({ to, page }) => (
