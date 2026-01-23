@@ -11,4 +11,6 @@ export const navItems = [
     icon: <HomeIcon className="h-4 w-4" />,
     page: <Index />,
   },
+  // Note: LLM Generator, Schema Validator and Test Runner are available via browser console
+  // See LLM_INTEGRATION.md and AUTOMATED_TESTING.md for usage instructions
 ];
