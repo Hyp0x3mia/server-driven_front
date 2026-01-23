@@ -404,7 +404,7 @@ export class PathBasedContentGenerator {
 
     // 1. 移除注释
     cleaned = cleaned.replace(/\/\/.*$/gm, '');
-    
+
     // 2. 移除尾随逗号 (Trailing Commas)
     // 匹配: , } -> } 和 , ] -> ]
     cleaned = cleaned.replace(/,\s*([}\]])/g, '$1');
@@ -416,6 +416,76 @@ export class PathBasedContentGenerator {
     cleaned = cleaned.replace(/(["\d}le])\s*\n\s*"/g, '$1,\n"');
 
     return cleaned;
+  }
+
+  /**
+   * 🔄 针对单个 Block 的 AI 优化
+   * 用于 "Human-in-the-loop" 编辑流
+   *
+   * @param currentBlock - 当前要优化的 block 数据
+   * @param instruction - 用户指令（可选）
+   * @returns 优化后的 block 数据
+   */
+  async regenerateBlock(
+    currentBlock: any,
+    instruction: string = "优化这个模块的内容，使其更清晰、专业"
+  ): Promise<any> {
+    console.log('🔄 开始 AI 优化单个 Block...');
+    console.log(`   类型: ${currentBlock.type}`);
+    console.log(`   指令: ${instruction}`);
+
+    const prompt = `
+你是一个专业的前端内容优化助手。
+请基于用户的指令，修改以下 UI Block 的 JSON 数据。
+
+【用户指令】: "${instruction}"
+【当前 Block 类型】: ${currentBlock.type}
+【当前数据】:
+\`\`\`json
+${JSON.stringify(currentBlock, null, 2)}
+\`\`\`
+
+【要求】:
+1. 保持 type 和结构不变
+2. 仅优化 content, title, description 或 visual_mode 等展示层字段
+3. 确保优化后的内容更符合用户指令
+4. 直接返回标准的 JSON，不要任何 Markdown 标记（不要 \`\`\`json）
+5. 确保 JSON 格式正确（属性名用双引号，不要有尾随逗号）
+
+【优化示例】:
+如果用户要求"让内容更简洁"，你应该：
+- 精简 description 字段的文字
+- 保留关键信息
+- 移除冗余内容
+
+如果用户要求"转换为代码风格"，你应该：
+- 将 visual_mode 改为 "terminal"
+- 在 content 中添加代码示例
+`;
+
+    try {
+      // 调用 LLM
+      const response = await this.llmClient.chat([
+        { role: MessageRole.USER, content: prompt }
+      ]);
+
+      // 解析响应（复用现有的 parseResponse）
+      const optimizedBlock = this.parseResponse(response.content);
+
+      // 验证结果
+      if (!optimizedBlock || !optimizedBlock.type) {
+        throw new Error('优化后的数据无效：缺少 type 字段');
+      }
+
+      console.log('✅ AI 优化完成');
+      console.log(`   原类型: ${currentBlock.type}`);
+      console.log(`   新类型: ${optimizedBlock.type}`);
+
+      return optimizedBlock;
+    } catch (error) {
+      console.error('❌ AI 优化失败:', error);
+      throw error;
+    }
   }
 
   /**

@@ -1,5 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { registry, type Block, type PageSchema, type RegistryKey } from "./registry";
+import { EditableBlock } from "../components/editor/EditableBlock";
+import { cn } from "../lib/utils";
 
 function flattenBlocksFromSections(schema: any): Block[] {
   const secs = schema?.sections;
@@ -63,6 +65,8 @@ export function SchemaRenderer(props: { pageId: string }) {
 
   const [schema, setSchema] = useState<PageSchema | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [isEditing, setIsEditing] = useState(false);
+  const [blocks, setBlocks] = useState<Block[]>([]);
 
   useEffect(() => {
     let cancelled = false;
@@ -71,7 +75,11 @@ export function SchemaRenderer(props: { pageId: string }) {
 
     loadPageSchema(pageId)
       .then((s) => {
-        if (!cancelled) setSchema(s);
+        if (!cancelled) {
+          setSchema(s);
+          const cs = s?.components ?? [];
+          setBlocks(cs.filter(shouldRenderBlock));
+        }
       })
       .catch((e) => {
         if (!cancelled) setError(e?.message ?? String(e));
@@ -81,11 +89,6 @@ export function SchemaRenderer(props: { pageId: string }) {
       cancelled = true;
     };
   }, [pageId]);
-
-  const blocks = useMemo(() => {
-    const cs = schema?.components ?? [];
-    return cs.filter(shouldRenderBlock);
-  }, [schema]);
 
   if (error) {
     return (
@@ -102,14 +105,131 @@ export function SchemaRenderer(props: { pageId: string }) {
 
   const effectivePageId = schema.page_id || pageId;
 
+  // 更新单个 block 的处理函数
+  const handleUpdateBlock = (index: number, newData: any) => {
+    const newBlocks = [...blocks];
+    newBlocks[index] = newData;
+    setBlocks(newBlocks);
+
+    // 同时更新 schema 中的 components
+    if (schema) {
+      const updatedSchema = {
+        ...schema,
+        components: newBlocks
+      };
+      setSchema(updatedSchema);
+
+      // 保存到 LocalStorage
+      try {
+        localStorage.setItem(`pages/${pageId}.json`, JSON.stringify(updatedSchema));
+        console.log('✅ 已更新到 LocalStorage');
+      } catch (e) {
+        console.warn('⚠️  保存到 LocalStorage 失败:', e);
+      }
+    }
+  };
+
+  // 删除单个 block 的处理函数
+  const handleDeleteBlock = (index: number) => {
+    if (confirm('确定要删除这个模块吗？')) {
+      const newBlocks = blocks.filter((_, i) => i !== index);
+      setBlocks(newBlocks);
+
+      if (schema) {
+        const updatedSchema = {
+          ...schema,
+          components: newBlocks
+        };
+        setSchema(updatedSchema);
+
+        try {
+          localStorage.setItem(`pages/${pageId}.json`, JSON.stringify(updatedSchema));
+          console.log('✅ 已删除模块');
+        } catch (e) {
+          console.warn('⚠️  保存失败:', e);
+        }
+      }
+    }
+  };
+
+  // AI 重写单个 block 的处理函数
+  const handleRegenerateBlock = async (index: number) => {
+    const block = blocks[index];
+
+    // 询问用户指令
+    const instruction = prompt(
+      `请输入优化指令（留空使用默认指令）：\n\n当前模块: ${block.type}\n${block.title ? `标题: ${block.title}` : ''}`,
+      '优化这个模块的内容，使其更清晰、专业'
+    );
+
+    if (instruction === null) {
+      // 用户点击了取消
+      return;
+    }
+
+    try {
+      // 调用 llm helper 的 regenerateBlock 方法
+      const llmHelper = (window as any).llm;
+      if (!llmHelper || !llmHelper.pathGenerator) {
+        alert('LLM Helper 未初始化，请刷新页面重试');
+        return;
+      }
+
+      console.log('🔄 开始 AI 优化...');
+      const optimizedBlock = await llmHelper.pathGenerator.regenerateBlock(
+        block,
+        instruction || '优化这个模块的内容，使其更清晰、专业'
+      );
+
+      // 更新 block
+      handleUpdateBlock(index, optimizedBlock);
+      console.log('✅ AI 优化完成！');
+    } catch (error) {
+      console.error('❌ AI 优化失败:', error);
+      alert(`AI 优化失败: ${error instanceof Error ? error.message : '未知错误'}`);
+    }
+  };
+
   return (
-    // ✅ 添加 space-y-16 让所有组件之间自动有 64px 间距
-    <div className="space-y-16">
-      {blocks.map((block, idx) => {
-        if (!isRegistryKey(block.type)) return null;
-        const Comp = registry[block.type] as any;
-        return <Comp key={`${block.type}-${idx}`} block={block} pageId={effectivePageId} />;
-      })}
-    </div>
+    <>
+      {/* 编辑模式开关 */}
+      <div className="fixed top-4 right-4 z-50 bg-slate-900/90 backdrop-blur border border-slate-700 p-2 rounded-full flex items-center space-x-2 shadow-2xl">
+        <span className="text-xs text-slate-400 pl-2 font-mono">EDIT MODE</span>
+        <button
+          onClick={() => setIsEditing(!isEditing)}
+          className={cn(
+            "w-12 h-6 rounded-full transition-colors flex items-center px-1",
+            isEditing ? "bg-indigo-600 justify-end" : "bg-slate-700 justify-start"
+          )}
+        >
+          <div className="w-4 h-4 bg-white rounded-full shadow-md" />
+        </button>
+      </div>
+
+      {/* 内容区域 */}
+      <div className="space-y-16 pb-32">
+        {blocks.map((block, idx) => {
+          if (!isRegistryKey(block.type)) return null;
+          const Comp = registry[block.type] as any;
+
+          return (
+            <EditableBlock
+              key={`${block.type}-${idx}`}
+              isEditing={isEditing}
+              data={block}
+              onUpdate={(newData) => handleUpdateBlock(idx, newData)}
+              onRegenerate={() => handleRegenerateBlock(idx)}
+              onEdit={() => {
+                // TODO: 打开 JSON 编辑器
+                alert(`JSON 编辑器\n\n${JSON.stringify(block, null, 2)}`);
+              }}
+              onDelete={() => handleDeleteBlock(idx)}
+            >
+              <Comp block={block} pageId={effectivePageId} />
+            </EditableBlock>
+          );
+        })}
+      </div>
+    </>
   );
 }

@@ -16,7 +16,7 @@ import { PathBasedContentGenerator, PathBasedGenerationOptions } from './path-ba
  */
 export class LLMHelper {
   private generator: AgentGenerator | null = null;
-  private pathGenerator: PathBasedContentGenerator | null = null;
+  public pathGenerator: PathBasedContentGenerator | null = null; // 公开以便外部访问
   private llmClient: LLMClient | null = null;
 
   /**
@@ -226,6 +226,15 @@ if (typeof window !== 'undefined') {
      * llm.download(converted, 'react-hooks.json')
      */
     generateAndConvert: (options: any) => llmHelper.generateAndConvert(options),
+
+    /**
+     * 🔄 AI 优化单个 Block (Human-in-the-loop)
+     *
+     * 示例:
+     * const optimizedBlock = await llm.regenerateBlock(currentBlock, "让内容更简洁")
+     */
+    regenerateBlock: (currentBlock: any, instruction?: string) =>
+      llmHelper.pathGenerator?.regenerateBlock(currentBlock, instruction),
 
     /**
      * 下载 JSON
