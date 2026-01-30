@@ -1,0 +1,223 @@
+{
+  "page_id": "ai_009",
+  "page_mode": null,
+  "title": "AI工具与实践",
+  "summary": "学习人工智能的核心知识，包含3个知识点，预计学习时间1小时25分钟。",
+  "sections": [
+    {
+      "section_id": "section-00-ai工具",
+      "section_type": "Concept",
+      "title": "AI工具",
+      "layout_intent": "default",
+      "pedagogical_goal": "掌握AI工具的核心概念，重点关注3个关键知识点，理解1个难点内容",
+      "blocks": [
+        {
+          "type": "Hero",
+          "role": "intro",
+          "content": {
+            "title": "Python与AI开发生态",
+            "subtitle": "# Python与AI开发生态\n\nPython 之所以成为人工智能领域的首选语言，不仅因为它的语法简洁易读，更因为它拥有庞大且强大的第三方库生态系统。这些库就像是一个个功能强大的“工具箱”，让开发者无需从零造轮子，就能直接进行复杂的数学运算和数据处理。\n\n## 核心库介绍\n\n在 AI 开发中，有几个库是你必须掌握的“三剑客”：\n\n1.  **NumPy (Numerical Python)**: ...",
+            "features": [
+              "Python 是 AI 领域的通用语言，拥有丰富的第三方库支持。",
+              "NumPy 是高性能科学计算的基础，专注于矩阵和数组运算。",
+              "Pandas 提供了 DataFrame 结构，是数据处理和分析的核心工具。",
+              "Matplotlib 和 Seaborn 用于数据可视化，帮助理解数据分布。",
+              "AI 开发的大部分时间实际上花在了数据处理上，而非模型训练。"
+            ]
+          },
+          "title": "Python与AI开发生态",
+          "id": null
+        },
+        {
+          "type": "CardGrid",
+          "role": "core-concept",
+          "content": {
+            "title": "深度学习框架",
+            "items": [
+              {
+                "name": "Example",
+                "description": "研究人员使用 PyTorch 在两天内复现了一篇最新的论文代码，验证了新的算法思路。",
+                "keywords": [
+                  "深度学习框架",
+                  "PyTorch",
+                  "TensorFlow"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "一家科技公司使用 TensorFlow 将训练好的模型部署到了数百万部手机上，实现了离线的图像识别功能。",
+                "keywords": [
+                  "深度学习框架",
+                  "PyTorch",
+                  "TensorFlow"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "开发者使用 Keras 的 Sequential 模型，仅用 10 行代码就搭建了一个基础的图像分类器。",
+                "keywords": [
+                  "深度学习框架",
+                  "PyTorch",
+                  "TensorFlow"
+                ]
+              }
+            ]
+          },
+          "title": "深度学习框架",
+          "id": null
+        },
+        {
+          "type": "Timeline",
+          "role": "process-flow",
+          "content": {
+            "title": "AI实践入门",
+            "items": [
+              {
+                "year": "1",
+                "label": "Step 1",
+                "title": "Phase 1",
+                "description": "构建一个垃圾邮件过滤器：收集邮件数据 -> 标记哪些是垃圾邮件 -> 提取关键词特征 -> 训练分类器 -> 集成到邮箱系统中。",
+                "keywords": [
+                  "AI 开发流程",
+                  "数据预处理",
+                  "特征工程"
+                ]
+              },
+              {
+                "year": "2",
+                "label": "Step 2",
+                "title": "Phase 2",
+                "description": "开发一个自动驾驶系统：收集车载摄像头视频 -> 标注行人和车辆 -> 训练目标检测模型 -> 在测试车上路测 -> 不断优化算法。",
+                "keywords": [
+                  "AI 开发流程",
+                  "数据预处理",
+                  "特征工程"
+                ]
+              },
+              {
+                "year": "3",
+                "label": "Step 3",
+                "title": "Phase 3",
+                "description": "制作一个推荐系统：收集用户点击历史 -> 分析用户兴趣 -> 训练协同过滤模型 -> 在电商首页展示推荐商品。",
+                "keywords": [
+                  "AI 开发流程",
+                  "数据预处理",
+                  "特征工程"
+                ]
+              }
+            ]
+          },
+          "title": "AI实践入门",
+          "id": null
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "Hero",
+      "role": "intro",
+      "content": {
+        "title": "Python与AI开发生态",
+        "subtitle": "# Python与AI开发生态\n\nPython 之所以成为人工智能领域的首选语言，不仅因为它的语法简洁易读，更因为它拥有庞大且强大的第三方库生态系统。这些库就像是一个个功能强大的“工具箱”，让开发者无需从零造轮子，就能直接进行复杂的数学运算和数据处理。\n\n## 核心库介绍\n\n在 AI 开发中，有几个库是你必须掌握的“三剑客”：\n\n1.  **NumPy (Numerical Python)**: ...",
+        "features": [
+          "Python 是 AI 领域的通用语言，拥有丰富的第三方库支持。",
+          "NumPy 是高性能科学计算的基础，专注于矩阵和数组运算。",
+          "Pandas 提供了 DataFrame 结构，是数据处理和分析的核心工具。",
+          "Matplotlib 和 Seaborn 用于数据可视化，帮助理解数据分布。",
+          "AI 开发的大部分时间实际上花在了数据处理上，而非模型训练。"
+        ]
+      },
+      "title": "Python与AI开发生态",
+      "id": null
+    },
+    {
+      "type": "CardGrid",
+      "role": "core-concept",
+      "content": {
+        "title": "深度学习框架",
+        "items": [
+          {
+            "name": "Example",
+            "description": "研究人员使用 PyTorch 在两天内复现了一篇最新的论文代码，验证了新的算法思路。",
+            "keywords": [
+              "深度学习框架",
+              "PyTorch",
+              "TensorFlow"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "一家科技公司使用 TensorFlow 将训练好的模型部署到了数百万部手机上，实现了离线的图像识别功能。",
+            "keywords": [
+              "深度学习框架",
+              "PyTorch",
+              "TensorFlow"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "开发者使用 Keras 的 Sequential 模型，仅用 10 行代码就搭建了一个基础的图像分类器。",
+            "keywords": [
+              "深度学习框架",
+              "PyTorch",
+              "TensorFlow"
+            ]
+          }
+        ]
+      },
+      "title": "深度学习框架",
+      "id": null
+    },
+    {
+      "type": "Timeline",
+      "role": "process-flow",
+      "content": {
+        "title": "AI实践入门",
+        "items": [
+          {
+            "year": "1",
+            "label": "Step 1",
+            "title": "Phase 1",
+            "description": "构建一个垃圾邮件过滤器：收集邮件数据 -> 标记哪些是垃圾邮件 -> 提取关键词特征 -> 训练分类器 -> 集成到邮箱系统中。",
+            "keywords": [
+              "AI 开发流程",
+              "数据预处理",
+              "特征工程"
+            ]
+          },
+          {
+            "year": "2",
+            "label": "Step 2",
+            "title": "Phase 2",
+            "description": "开发一个自动驾驶系统：收集车载摄像头视频 -> 标注行人和车辆 -> 训练目标检测模型 -> 在测试车上路测 -> 不断优化算法。",
+            "keywords": [
+              "AI 开发流程",
+              "数据预处理",
+              "特征工程"
+            ]
+          },
+          {
+            "year": "3",
+            "label": "Step 3",
+            "title": "Phase 3",
+            "description": "制作一个推荐系统：收集用户点击历史 -> 分析用户兴趣 -> 训练协同过滤模型 -> 在电商首页展示推荐商品。",
+            "keywords": [
+              "AI 开发流程",
+              "数据预处理",
+              "特征工程"
+            ]
+          }
+        ]
+      },
+      "title": "AI实践入门",
+      "id": null
+    }
+  ],
+  "metadata": {
+    "total_estimated_time": 85,
+    "target_audience": "想动手实践AI的学习者",
+    "warnings": [],
+    "generation_method": "multi-agent-pipeline"
+  }
+}

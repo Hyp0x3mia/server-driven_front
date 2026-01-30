@@ -1,0 +1,235 @@
+{
+  "page_id": "ai_007",
+  "page_mode": null,
+  "title": "AI伦理与安全",
+  "summary": "学习人工智能的核心知识，包含3个知识点，预计学习时间1小时20分钟。",
+  "sections": [
+    {
+      "section_id": "section-00-ai伦理",
+      "section_type": "Concept",
+      "title": "AI伦理",
+      "layout_intent": "default",
+      "pedagogical_goal": "掌握AI伦理的核心概念，重点关注3个关键知识点，理解1个难点内容",
+      "blocks": [
+        {
+          "type": "Hero",
+          "role": "intro",
+          "content": {
+            "title": "AI伦理的核心问题",
+            "subtitle": "AI伦理不仅仅是哲学讨论，它是确保人工智能系统公平、透明且负责任的实际操作指南。当我们将AI部署到现实世界（如招聘或贷款审批）时，必须遵循一套严谨的流程来识别和解决潜在的伦理风险。\n\n### 识别AI伦理问题的流程\n\n识别AI伦理问题并非一蹴而就，它贯穿于AI系统的整个生命周期。以下是一个标准的排查流程：\n\n```mermaid\ngraph TD\n    A[1. 数据收集阶段] -->|检查| ...",
+            "features": [
+              "AI伦理的核心支柱包括公平性、透明度和问责制",
+              "伦理审查应贯穿数据收集、模型训练和部署应用的全生命周期",
+              "历史数据中的偏见是导致AI不公平的主要原因",
+              "“黑盒”模型（缺乏透明度）在敏感领域（如医疗、司法）风险极高",
+              "持续监控是防止AI在实际应用中产生伦理问题的关键"
+            ]
+          },
+          "title": "AI伦理的核心问题",
+          "id": null
+        },
+        {
+          "type": "CardGrid",
+          "role": "core-concept",
+          "content": {
+            "title": "隐私与数据安全",
+            "items": [
+              {
+                "name": "Example",
+                "description": "**人脸识别**：某公司收集了数百万张人脸用于训练安防系统。如果数据库未加密且缺乏差分隐私保护，黑客可以获取这些生物特征信息，进而伪造身份通过验证。",
+                "keywords": [
+                  "数据隐私",
+                  "差分隐私",
+                  "联邦学习"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "**推荐系统**：输入法App通过联邦学习技术，在你的手机本地学习你的输入习惯，提高打字预测准确率，而无需将你的聊天记录上传到服务器。",
+                "keywords": [
+                  "数据隐私",
+                  "差分隐私",
+                  "联邦学习"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "AI对大数据的需求与个人隐私保护之间存在天然矛盾",
+                "keywords": [
+                  "数据隐私",
+                  "差分隐私"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "传统的匿名化技术已不足以抵御AI的重识别攻击",
+                "keywords": [
+                  "数据隐私",
+                  "差分隐私"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "差分隐私通过添加数学噪音来保护个体隐私",
+                "keywords": [
+                  "数据隐私",
+                  "差分隐私"
+                ]
+              }
+            ]
+          },
+          "title": "隐私与数据安全",
+          "id": null
+        },
+        {
+          "type": "FlashcardGrid",
+          "role": "practice",
+          "content": {
+            "title": "AI安全与对抗",
+            "cards": [
+              {
+                "type": "Flashcard",
+                "id": "ethics-003-card-0",
+                "front": {
+                  "title": "Question 1",
+                  "content": "什么是对抗性样本？"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "在输入数据（如图像、声音）中添加了人类难以察觉的微小扰动，但能导致AI模型做出错误判断的样本。"
+                }
+              },
+              {
+                "type": "Flashcard",
+                "id": "ethics-003-card-1",
+                "front": {
+                  "title": "Question 2",
+                  "content": "为什么传统的网络安全措施（如防火墙）难以防御对抗性攻击？"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "因为对抗性攻击是针对算法逻辑本身的漏洞进行的。输入数据本身是合法的格式（如一张正常的图片），防火墙无法识别其内部隐藏的恶意扰动，只有AI模型在处理时才会受骗。"
+                }
+              }
+            ]
+          },
+          "title": "AI安全与对抗",
+          "id": null
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "Hero",
+      "role": "intro",
+      "content": {
+        "title": "AI伦理的核心问题",
+        "subtitle": "AI伦理不仅仅是哲学讨论，它是确保人工智能系统公平、透明且负责任的实际操作指南。当我们将AI部署到现实世界（如招聘或贷款审批）时，必须遵循一套严谨的流程来识别和解决潜在的伦理风险。\n\n### 识别AI伦理问题的流程\n\n识别AI伦理问题并非一蹴而就，它贯穿于AI系统的整个生命周期。以下是一个标准的排查流程：\n\n```mermaid\ngraph TD\n    A[1. 数据收集阶段] -->|检查| ...",
+        "features": [
+          "AI伦理的核心支柱包括公平性、透明度和问责制",
+          "伦理审查应贯穿数据收集、模型训练和部署应用的全生命周期",
+          "历史数据中的偏见是导致AI不公平的主要原因",
+          "“黑盒”模型（缺乏透明度）在敏感领域（如医疗、司法）风险极高",
+          "持续监控是防止AI在实际应用中产生伦理问题的关键"
+        ]
+      },
+      "title": "AI伦理的核心问题",
+      "id": null
+    },
+    {
+      "type": "CardGrid",
+      "role": "core-concept",
+      "content": {
+        "title": "隐私与数据安全",
+        "items": [
+          {
+            "name": "Example",
+            "description": "**人脸识别**：某公司收集了数百万张人脸用于训练安防系统。如果数据库未加密且缺乏差分隐私保护，黑客可以获取这些生物特征信息，进而伪造身份通过验证。",
+            "keywords": [
+              "数据隐私",
+              "差分隐私",
+              "联邦学习"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "**推荐系统**：输入法App通过联邦学习技术，在你的手机本地学习你的输入习惯，提高打字预测准确率，而无需将你的聊天记录上传到服务器。",
+            "keywords": [
+              "数据隐私",
+              "差分隐私",
+              "联邦学习"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "AI对大数据的需求与个人隐私保护之间存在天然矛盾",
+            "keywords": [
+              "数据隐私",
+              "差分隐私"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "传统的匿名化技术已不足以抵御AI的重识别攻击",
+            "keywords": [
+              "数据隐私",
+              "差分隐私"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "差分隐私通过添加数学噪音来保护个体隐私",
+            "keywords": [
+              "数据隐私",
+              "差分隐私"
+            ]
+          }
+        ]
+      },
+      "title": "隐私与数据安全",
+      "id": null
+    },
+    {
+      "type": "FlashcardGrid",
+      "role": "practice",
+      "content": {
+        "title": "AI安全与对抗",
+        "cards": [
+          {
+            "type": "Flashcard",
+            "id": "ethics-003-card-0",
+            "front": {
+              "title": "Question 1",
+              "content": "什么是对抗性样本？"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "在输入数据（如图像、声音）中添加了人类难以察觉的微小扰动，但能导致AI模型做出错误判断的样本。"
+            }
+          },
+          {
+            "type": "Flashcard",
+            "id": "ethics-003-card-1",
+            "front": {
+              "title": "Question 2",
+              "content": "为什么传统的网络安全措施（如防火墙）难以防御对抗性攻击？"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "因为对抗性攻击是针对算法逻辑本身的漏洞进行的。输入数据本身是合法的格式（如一张正常的图片），防火墙无法识别其内部隐藏的恶意扰动，只有AI模型在处理时才会受骗。"
+            }
+          }
+        ]
+      },
+      "title": "AI安全与对抗",
+      "id": null
+    }
+  ],
+  "metadata": {
+    "total_estimated_time": 80,
+    "target_audience": "关注AI社会影响的读者",
+    "warnings": [],
+    "generation_method": "multi-agent-pipeline"
+  }
+}

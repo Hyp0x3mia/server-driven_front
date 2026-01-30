@@ -1,0 +1,221 @@
+{
+  "page_id": "ai_004",
+  "page_mode": null,
+  "title": "神经网络与深度学习",
+  "summary": "学习人工智能的核心知识，包含3个知识点，预计学习时间1小时20分钟。",
+  "sections": [
+    {
+      "section_id": "section-00-深度学习",
+      "section_type": "Concept",
+      "title": "深度学习",
+      "layout_intent": "default",
+      "pedagogical_goal": "掌握深度学习的核心概念，重点关注3个关键知识点，理解1个难点内容",
+      "blocks": [
+        {
+          "type": "Hero",
+          "role": "intro",
+          "content": {
+            "title": "神经元模型",
+            "subtitle": "# 神经元模型：人工智能的积木\n\n想象一下，如果我们要构建一个能够思考的机器，最基本的构建单元是什么？在深度学习中，这个基本单元就是**人工神经元**（Artificial Neuron），也被称为感知机（Perceptron）。\n\n## 核心组件\n\n人工神经元是对生物神经元极其简化的数学模型。它的工作流程可以分为三个主要步骤：\n\n1.  **输入与权重**：神经元接收来自其他神经元或外部环境的信...",
+            "features": [
+              "人工神经元是深度学习的基本计算单元，模仿生物神经元的功能。",
+              "权重决定了输入信号的重要性，偏置调整了激活的门槛。",
+              "激活函数引入了非线性特性，使神经网络能够解决复杂问题。",
+              "神经元的计算过程本质上是：输入 -> 加权求和 -> 激活函数 -> 输出。"
+            ]
+          },
+          "title": "神经元模型",
+          "id": null
+        },
+        {
+          "type": "Timeline",
+          "role": "process-flow",
+          "content": {
+            "title": "前向神经网络",
+            "items": [
+              {
+                "year": "1",
+                "label": "Step 1",
+                "title": "Phase 1",
+                "description": "手写数字识别：输入图片像素，输出是0-9的分类。",
+                "keywords": [
+                  "前向神经网络",
+                  "输入层",
+                  "隐藏层"
+                ]
+              },
+              {
+                "year": "2",
+                "label": "Step 2",
+                "title": "Phase 2",
+                "description": "银行贷款审批：输入收入、信用记录等数据，输出是否批准贷款的二分类结果。",
+                "keywords": [
+                  "前向神经网络",
+                  "输入层",
+                  "隐藏层"
+                ]
+              },
+              {
+                "year": "3",
+                "label": "Step 3",
+                "title": "Phase 3",
+                "description": "客户流失预测：输入用户行为数据，输出用户流失的概率评分。",
+                "keywords": [
+                  "前向神经网络",
+                  "输入层",
+                  "隐藏层"
+                ]
+              }
+            ]
+          },
+          "title": "前向神经网络",
+          "id": null
+        },
+        {
+          "type": "CardGrid",
+          "role": "application-examples",
+          "content": {
+            "title": "深度学习的兴起",
+            "items": [
+              {
+                "name": "Example",
+                "description": "计算机视觉：安防摄像头实时识别异常行为，手机相册自动分类人物照片。",
+                "keywords": [
+                  "深度学习",
+                  "CNN",
+                  "RNN"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "语音识别：微信语音转文字，智能音箱通过语音指令控制家电。",
+                "keywords": [
+                  "深度学习",
+                  "CNN",
+                  "RNN"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "机器翻译：将一篇中文新闻瞬间翻译成流畅的英文，保留原意。",
+                "keywords": [
+                  "深度学习",
+                  "CNN",
+                  "RNN"
+                ]
+              }
+            ]
+          },
+          "title": "深度学习的兴起",
+          "id": null
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "Hero",
+      "role": "intro",
+      "content": {
+        "title": "神经元模型",
+        "subtitle": "# 神经元模型：人工智能的积木\n\n想象一下，如果我们要构建一个能够思考的机器，最基本的构建单元是什么？在深度学习中，这个基本单元就是**人工神经元**（Artificial Neuron），也被称为感知机（Perceptron）。\n\n## 核心组件\n\n人工神经元是对生物神经元极其简化的数学模型。它的工作流程可以分为三个主要步骤：\n\n1.  **输入与权重**：神经元接收来自其他神经元或外部环境的信...",
+        "features": [
+          "人工神经元是深度学习的基本计算单元，模仿生物神经元的功能。",
+          "权重决定了输入信号的重要性，偏置调整了激活的门槛。",
+          "激活函数引入了非线性特性，使神经网络能够解决复杂问题。",
+          "神经元的计算过程本质上是：输入 -> 加权求和 -> 激活函数 -> 输出。"
+        ]
+      },
+      "title": "神经元模型",
+      "id": null
+    },
+    {
+      "type": "Timeline",
+      "role": "process-flow",
+      "content": {
+        "title": "前向神经网络",
+        "items": [
+          {
+            "year": "1",
+            "label": "Step 1",
+            "title": "Phase 1",
+            "description": "手写数字识别：输入图片像素，输出是0-9的分类。",
+            "keywords": [
+              "前向神经网络",
+              "输入层",
+              "隐藏层"
+            ]
+          },
+          {
+            "year": "2",
+            "label": "Step 2",
+            "title": "Phase 2",
+            "description": "银行贷款审批：输入收入、信用记录等数据，输出是否批准贷款的二分类结果。",
+            "keywords": [
+              "前向神经网络",
+              "输入层",
+              "隐藏层"
+            ]
+          },
+          {
+            "year": "3",
+            "label": "Step 3",
+            "title": "Phase 3",
+            "description": "客户流失预测：输入用户行为数据，输出用户流失的概率评分。",
+            "keywords": [
+              "前向神经网络",
+              "输入层",
+              "隐藏层"
+            ]
+          }
+        ]
+      },
+      "title": "前向神经网络",
+      "id": null
+    },
+    {
+      "type": "CardGrid",
+      "role": "application-examples",
+      "content": {
+        "title": "深度学习的兴起",
+        "items": [
+          {
+            "name": "Example",
+            "description": "计算机视觉：安防摄像头实时识别异常行为，手机相册自动分类人物照片。",
+            "keywords": [
+              "深度学习",
+              "CNN",
+              "RNN"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "语音识别：微信语音转文字，智能音箱通过语音指令控制家电。",
+            "keywords": [
+              "深度学习",
+              "CNN",
+              "RNN"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "机器翻译：将一篇中文新闻瞬间翻译成流畅的英文，保留原意。",
+            "keywords": [
+              "深度学习",
+              "CNN",
+              "RNN"
+            ]
+          }
+        ]
+      },
+      "title": "深度学习的兴起",
+      "id": null
+    }
+  ],
+  "metadata": {
+    "total_estimated_time": 80,
+    "target_audience": "AI学习者",
+    "warnings": [],
+    "generation_method": "multi-agent-pipeline"
+  }
+}

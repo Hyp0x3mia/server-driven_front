@@ -1,0 +1,106 @@
+{
+  "set_id": "ai_010",
+  "domain": "人工智能",
+  "topic": "AI的未来发展趋势",
+  "target_audience": "关注AI未来的读者",
+  "difficulty": "intermediate",
+  "user_intent": "探讨AI技术的发展方向和未来挑战",
+  "expected_components": [
+    "Hero",
+    "Timeline",
+    "FlashcardGrid",
+    "Markdown"
+  ],
+  "knowledge_points": [
+    {
+      "knowledge_id": "FUTURE-001",
+      "name": "AGI与超级AI",
+      "description": "通用人工智能（AGI）的愿景与挑战",
+      "domain": "人工智能",
+      "subdomain": "AI未来",
+      "difficulty": 3,
+      "cognitive_level": "COG_L2",
+      "importance": 0.9,
+      "abstraction": 5,
+      "estimated_time": 25,
+      "is_key_point": true,
+      "is_difficult": true,
+      "prerequisites": [],
+      "successors": [
+        "FUTURE-002",
+        "FUTURE-003"
+      ],
+      "keywords": [
+        "AGI",
+        "通用人工智能",
+        "超级AI",
+        "意识"
+      ],
+      "application_scenarios": [],
+      "common_misconceptions": [
+        "AGI很快就会实现",
+        "AGI会有人类意识"
+      ],
+      "mastery_criteria": "理解AGI的概念和面临的挑战"
+    },
+    {
+      "knowledge_id": "FUTURE-002",
+      "name": "人机协作与AI增强",
+      "description": "AI作为工具增强人类能力而非替代",
+      "domain": "人工智能",
+      "subdomain": "AI未来",
+      "difficulty": 2,
+      "cognitive_level": "COG_L2",
+      "importance": 0.8,
+      "abstraction": 4,
+      "estimated_time": 25,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [
+        "FUTURE-001"
+      ],
+      "successors": [
+        "FUTURE-003"
+      ],
+      "keywords": [
+        "人机协作",
+        "AI增强",
+        "增强智能",
+        "Copilot"
+      ],
+      "application_scenarios": [],
+      "common_misconceptions": [
+        "AI会全面取代人类工作"
+      ],
+      "mastery_criteria": "理解人机协作的价值和意义"
+    },
+    {
+      "knowledge_id": "FUTURE-003",
+      "name": "AI发展趋势与挑战",
+      "description": "AI技术的发展方向和需要解决的关键问题",
+      "domain": "人工智能",
+      "subdomain": "AI未来",
+      "difficulty": 2,
+      "cognitive_level": "COG_L2",
+      "importance": 0.9,
+      "abstraction": 4,
+      "estimated_time": 30,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [
+        "FUTURE-001",
+        "FUTURE-002"
+      ],
+      "successors": [],
+      "keywords": [
+        "多模态AI",
+        "具身AI",
+        "可解释AI",
+        "绿色AI"
+      ],
+      "application_scenarios": [],
+      "common_misconceptions": [],
+      "mastery_criteria": "了解AI的前沿发展方向"
+    }
+  ]
+}

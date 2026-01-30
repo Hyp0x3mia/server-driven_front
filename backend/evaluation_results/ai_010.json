@@ -1,0 +1,223 @@
+{
+  "page_id": "ai_010",
+  "page_mode": null,
+  "title": "AI的未来发展趋势",
+  "summary": "学习人工智能的核心知识，包含3个知识点，预计学习时间1小时20分钟。",
+  "sections": [
+    {
+      "section_id": "section-00-ai未来",
+      "section_type": "Concept",
+      "title": "AI未来",
+      "layout_intent": "default",
+      "pedagogical_goal": "掌握AI未来的核心概念，重点关注3个关键知识点，理解1个难点内容",
+      "blocks": [
+        {
+          "type": "Hero",
+          "role": "intro",
+          "content": {
+            "title": "AGI与超级AI",
+            "subtitle": "# 什么是AGI与超级AI？\n\n当我们谈论AI的未来时，经常会听到两个缩写：**AGI** 和 **ASI**。理解这两个概念对于把握未来至关重要。\n\n## 1. 从弱人工智能（ANI）到通用人工智能（AGI）\n\n目前的AI，包括ChatGPT、Midjourney等，大多属于**弱人工智能**。它们在特定领域（如写作、画图、下棋）表现出色，但一旦跨出这个领域，它们就无能为力了。就像一个只会下围棋...",
+            "features": [
+              "目前的AI大多是弱人工智能（ANI），仅擅长特定任务",
+              "AGI（通用人工智能）具备像人类一样跨领域学习和解决问题的能力",
+              "ASI（超级人工智能）是在所有方面都超越人类的智能形态",
+              "从AGI到ASI可能发生“智能爆炸”，速度极快",
+              "实现AGI的主要挑战包括推理能力、能耗控制和价值对齐"
+            ]
+          },
+          "title": "AGI与超级AI",
+          "id": null
+        },
+        {
+          "type": "CardGrid",
+          "role": "core-concept",
+          "content": {
+            "title": "人机协作与AI增强",
+            "items": [
+              {
+                "name": "Example",
+                "description": "医生使用AI辅助诊断：AI负责分析X光片中的微小病灶，医生负责结合病人的病史和临床表现做最终决策。",
+                "keywords": [
+                  "人机协作",
+                  "AI增强",
+                  "半人马模式"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "程序员使用AI写代码：程序员描述逻辑，AI生成基础代码片段，程序员进行审查、调试和架构设计。",
+                "keywords": [
+                  "人机协作",
+                  "AI增强",
+                  "半人马模式"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "设计师使用AI生成素材：设计师输入创意描述，AI生成几十种风格草图，设计师挑选并在此基础上精修。",
+                "keywords": [
+                  "人机协作",
+                  "AI增强",
+                  "半人马模式"
+                ]
+              }
+            ]
+          },
+          "title": "人机协作与AI增强",
+          "id": null
+        },
+        {
+          "type": "Timeline",
+          "role": "historical-narrative",
+          "content": {
+            "title": "AI发展趋势与挑战",
+            "items": [
+              {
+                "year": "1",
+                "label": "Step 1",
+                "title": "Phase 1",
+                "description": "具身智能：Tesla Optimus机器人正在学习工厂里的搬运和组装工作，未来可能进入家庭做家务。",
+                "keywords": [
+                  "多模态",
+                  "具身智能",
+                  "AI for Science"
+                ]
+              },
+              {
+                "year": "2",
+                "label": "Step 2",
+                "title": "Phase 2",
+                "description": "AI for Science：DeepMind的AlphaFold 3预测了几乎所有生物分子的结构，将药物研发周期从数年缩短至数月。",
+                "keywords": [
+                  "多模态",
+                  "具身智能",
+                  "AI for Science"
+                ]
+              },
+              {
+                "year": "3",
+                "label": "Step 3",
+                "title": "Phase 3",
+                "description": "代理型AI：Devin（号称首个AI软件工程师）可以自主规划、编写代码、调试并部署一个完整的网页应用。",
+                "keywords": [
+                  "多模态",
+                  "具身智能",
+                  "AI for Science"
+                ]
+              }
+            ]
+          },
+          "title": "AI发展趋势与挑战",
+          "id": null
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "Hero",
+      "role": "intro",
+      "content": {
+        "title": "AGI与超级AI",
+        "subtitle": "# 什么是AGI与超级AI？\n\n当我们谈论AI的未来时，经常会听到两个缩写：**AGI** 和 **ASI**。理解这两个概念对于把握未来至关重要。\n\n## 1. 从弱人工智能（ANI）到通用人工智能（AGI）\n\n目前的AI，包括ChatGPT、Midjourney等，大多属于**弱人工智能**。它们在特定领域（如写作、画图、下棋）表现出色，但一旦跨出这个领域，它们就无能为力了。就像一个只会下围棋...",
+        "features": [
+          "目前的AI大多是弱人工智能（ANI），仅擅长特定任务",
+          "AGI（通用人工智能）具备像人类一样跨领域学习和解决问题的能力",
+          "ASI（超级人工智能）是在所有方面都超越人类的智能形态",
+          "从AGI到ASI可能发生“智能爆炸”，速度极快",
+          "实现AGI的主要挑战包括推理能力、能耗控制和价值对齐"
+        ]
+      },
+      "title": "AGI与超级AI",
+      "id": null
+    },
+    {
+      "type": "CardGrid",
+      "role": "core-concept",
+      "content": {
+        "title": "人机协作与AI增强",
+        "items": [
+          {
+            "name": "Example",
+            "description": "医生使用AI辅助诊断：AI负责分析X光片中的微小病灶，医生负责结合病人的病史和临床表现做最终决策。",
+            "keywords": [
+              "人机协作",
+              "AI增强",
+              "半人马模式"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "程序员使用AI写代码：程序员描述逻辑，AI生成基础代码片段，程序员进行审查、调试和架构设计。",
+            "keywords": [
+              "人机协作",
+              "AI增强",
+              "半人马模式"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "设计师使用AI生成素材：设计师输入创意描述，AI生成几十种风格草图，设计师挑选并在此基础上精修。",
+            "keywords": [
+              "人机协作",
+              "AI增强",
+              "半人马模式"
+            ]
+          }
+        ]
+      },
+      "title": "人机协作与AI增强",
+      "id": null
+    },
+    {
+      "type": "Timeline",
+      "role": "historical-narrative",
+      "content": {
+        "title": "AI发展趋势与挑战",
+        "items": [
+          {
+            "year": "1",
+            "label": "Step 1",
+            "title": "Phase 1",
+            "description": "具身智能：Tesla Optimus机器人正在学习工厂里的搬运和组装工作，未来可能进入家庭做家务。",
+            "keywords": [
+              "多模态",
+              "具身智能",
+              "AI for Science"
+            ]
+          },
+          {
+            "year": "2",
+            "label": "Step 2",
+            "title": "Phase 2",
+            "description": "AI for Science：DeepMind的AlphaFold 3预测了几乎所有生物分子的结构，将药物研发周期从数年缩短至数月。",
+            "keywords": [
+              "多模态",
+              "具身智能",
+              "AI for Science"
+            ]
+          },
+          {
+            "year": "3",
+            "label": "Step 3",
+            "title": "Phase 3",
+            "description": "代理型AI：Devin（号称首个AI软件工程师）可以自主规划、编写代码、调试并部署一个完整的网页应用。",
+            "keywords": [
+              "多模态",
+              "具身智能",
+              "AI for Science"
+            ]
+          }
+        ]
+      },
+      "title": "AI发展趋势与挑战",
+      "id": null
+    }
+  ],
+  "metadata": {
+    "total_estimated_time": 80,
+    "target_audience": "关注AI未来的读者",
+    "warnings": [],
+    "generation_method": "multi-agent-pipeline"
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "set_id": "eval_010",
+  "domain": "哲学",
+  "topic": "伦理学导论",
+  "target_audience": "哲学系本科生",
+  "difficulty": "intermediate",
+  "user_intent": "探索道德哲学的基本问题",
+  "expected_components": [
+    "Hero",
+    "FlashcardGrid",
+    "CardGrid",
+    "Markdown"
+  ],
+  "knowledge_points": [
+    {
+      "knowledge_id": "PHIL-001",
+      "name": "伦理学的基本问题",
+      "description": "什么是善恶？如何判断对错？",
+      "domain": "哲学",
+      "subdomain": "伦理学",
+      "difficulty": 2,
+      "cognitive_level": "COG_L2",
+      "importance": 0.9,
+      "abstraction": 4,
+      "estimated_time": 25,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [],
+      "successors": [
+        "PHIL-002",
+        "PHIL-003"
+      ],
+      "keywords": [
+        "道德",
+        "价值",
+        "规范"
+      ],
+      "application_scenarios": [
+        " bioethics",
+        "商业伦理"
+      ],
+      "common_misconceptions": [
+        "伦理学就是讲道理"
+      ],
+      "mastery_criteria": "理解伦理学的基本问题"
+    },
+    {
+      "knowledge_id": "PHIL-002",
+      "name": "功利主义",
+      "description": "以最大多数人的最大幸福为原则",
+      "domain": "哲学",
+      "subdomain": "伦理学",
+      "difficulty": 3,
+      "cognitive_level": "COG_L3",
+      "importance": 0.9,
+      "abstraction": 4,
+      "estimated_time": 30,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [
+        "PHIL-001"
+      ],
+      "successors": [
+        "PHIL-003"
+      ],
+      "keywords": [
+        "效用",
+        "幸福",
+        "边沁",
+        "密尔"
+      ],
+      "application_scenarios": [
+        "公共政策",
+        "医疗分配"
+      ],
+      "common_misconceptions": [
+        "功利主义就是利己主义"
+      ],
+      "mastery_criteria": "理解功利主义的核心思想"
+    },
+    {
+      "knowledge_id": "PHIL-003",
+      "name": "义务论",
+      "description": "基于道德义务和行为本身的伦理学理论",
+      "domain": "哲学",
+      "subdomain": "伦理学",
+      "difficulty": 3,
+      "cognitive_level": "COG_L3",
+      "importance": 0.9,
+      "abstraction": 5,
+      "estimated_time": 30,
+      "is_key_point": true,
+      "is_difficult": true,
+      "prerequisites": [
+        "PHIL-001",
+        "PHIL-002"
+      ],
+      "successors": [],
+      "keywords": [
+        "康德",
+        "绝对命令",
+        "道德法则"
+      ],
+      "application_scenarios": [
+        "人权",
+        "正义"
+      ],
+      "common_misconceptions": [],
+      "mastery_criteria": "理解义务论与功利主义的区别"
+    }
+  ]
+}

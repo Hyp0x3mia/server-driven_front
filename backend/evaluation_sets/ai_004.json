@@ -1,0 +1,113 @@
+{
+  "set_id": "ai_004",
+  "domain": "人工智能",
+  "topic": "神经网络与深度学习",
+  "target_audience": "AI学习者",
+  "difficulty": "intermediate",
+  "user_intent": "深入理解神经网络的结构和深度学习原理",
+  "expected_components": [
+    "Hero",
+    "CodePlayground",
+    "FlashcardGrid",
+    "Markdown"
+  ],
+  "knowledge_points": [
+    {
+      "knowledge_id": "DL-001",
+      "name": "神经元模型",
+      "description": "人工神经元模拟生物神经元的工作方式",
+      "domain": "人工智能",
+      "subdomain": "深度学习",
+      "difficulty": 2,
+      "cognitive_level": "COG_L2",
+      "importance": 0.9,
+      "abstraction": 3,
+      "estimated_time": 25,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [],
+      "successors": [
+        "DL-002",
+        "DL-003"
+      ],
+      "keywords": [
+        "感知机",
+        "激活函数",
+        "权重",
+        "偏置"
+      ],
+      "application_scenarios": [],
+      "common_misconceptions": [
+        "人工神经元和生物神经元完全一样"
+      ],
+      "mastery_criteria": "理解神经元的工作原理"
+    },
+    {
+      "knowledge_id": "DL-002",
+      "name": "前向神经网络",
+      "description": "多层神经网络的结构和前向传播过程",
+      "domain": "人工智能",
+      "subdomain": "深度学习",
+      "difficulty": 3,
+      "cognitive_level": "COG_L3",
+      "importance": 0.9,
+      "abstraction": 4,
+      "estimated_time": 30,
+      "is_key_point": true,
+      "is_difficult": true,
+      "prerequisites": [
+        "DL-001"
+      ],
+      "successors": [
+        "DL-003"
+      ],
+      "keywords": [
+        "输入层",
+        "隐藏层",
+        "输出层",
+        "全连接"
+      ],
+      "application_scenarios": [
+        "手写数字识别",
+        "分类问题"
+      ],
+      "common_misconceptions": [],
+      "mastery_criteria": "理解神经网络的结构和数据流动"
+    },
+    {
+      "knowledge_id": "DL-003",
+      "name": "深度学习的兴起",
+      "description": "深度学习在图像、语音等领域的突破性进展",
+      "domain": "人工智能",
+      "subdomain": "深度学习",
+      "difficulty": 3,
+      "cognitive_level": "COG_L2",
+      "importance": 0.9,
+      "abstraction": 4,
+      "estimated_time": 25,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [
+        "DL-001",
+        "DL-002"
+      ],
+      "successors": [],
+      "keywords": [
+        "CNN",
+        "RNN",
+        "Attention",
+        "Transformer",
+        "GPT"
+      ],
+      "application_scenarios": [
+        "计算机视觉",
+        "语音识别",
+        "机器翻译"
+      ],
+      "common_misconceptions": [
+        "深度学习只是更深的神经网络"
+      ],
+      "mastery_criteria": "了解深度学习的主要架构和应用"
+    }
+  ]
+}

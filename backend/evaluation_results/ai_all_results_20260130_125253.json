@@ -1,0 +1,119 @@
+{
+  "timestamp": "2026-01-30T12:52:53.235888",
+  "total": 10,
+  "successful": 10,
+  "failed": 0,
+  "total_time_minutes": 24.399058135350547,
+  "results": [
+    {
+      "set_id": "ai_001",
+      "topic": "人工智能基础概念",
+      "success": true,
+      "generation_time": 140.19236207008362,
+      "tokens_used": 8500,
+      "sections": 1,
+      "components": 3,
+      "component_coverage": 0.5,
+      "generated_at": "2026-01-30T12:30:49.445704"
+    },
+    {
+      "set_id": "ai_002",
+      "topic": "AI发展历史",
+      "success": true,
+      "generation_time": 248.92413210868835,
+      "tokens_used": 8500,
+      "sections": 1,
+      "components": 3,
+      "component_coverage": 0.75,
+      "generated_at": "2026-01-30T12:34:58.374112"
+    },
+    {
+      "set_id": "ai_003",
+      "topic": "机器学习基础",
+      "success": true,
+      "generation_time": 133.69951367378235,
+      "tokens_used": 8500,
+      "sections": 1,
+      "components": 3,
+      "component_coverage": 0.25,
+      "generated_at": "2026-01-30T12:37:12.077671"
+    },
+    {
+      "set_id": "ai_004",
+      "topic": "神经网络与深度学习",
+      "success": true,
+      "generation_time": 128.81277108192444,
+      "tokens_used": 8500,
+      "sections": 1,
+      "components": 3,
+      "component_coverage": 0.25,
+      "generated_at": "2026-01-30T12:39:20.894307"
+    },
+    {
+      "set_id": "ai_005",
+      "topic": "自然语言处理（NLP）",
+      "success": true,
+      "generation_time": 103.72650909423828,
+      "tokens_used": 8500,
+      "sections": 1,
+      "components": 3,
+      "component_coverage": 0.5,
+      "generated_at": "2026-01-30T12:41:04.624967"
+    },
+    {
+      "set_id": "ai_006",
+      "topic": "计算机视觉",
+      "success": true,
+      "generation_time": 125.7446699142456,
+      "tokens_used": 8500,
+      "sections": 1,
+      "components": 3,
+      "component_coverage": 0.5,
+      "generated_at": "2026-01-30T12:43:10.374023"
+    },
+    {
+      "set_id": "ai_007",
+      "topic": "AI伦理与安全",
+      "success": true,
+      "generation_time": 224.2517590522766,
+      "tokens_used": 8500,
+      "sections": 1,
+      "components": 3,
+      "component_coverage": 0.5,
+      "generated_at": "2026-01-30T12:46:54.630137"
+    },
+    {
+      "set_id": "ai_008",
+      "topic": "AI应用场景",
+      "success": true,
+      "generation_time": 139.67005324363708,
+      "tokens_used": 8500,
+      "sections": 1,
+      "components": 3,
+      "component_coverage": 0.5,
+      "generated_at": "2026-01-30T12:49:14.304855"
+    },
+    {
+      "set_id": "ai_009",
+      "topic": "AI工具与实践",
+      "success": true,
+      "generation_time": 128.95403480529785,
+      "tokens_used": 8500,
+      "sections": 1,
+      "components": 3,
+      "component_coverage": 0.5,
+      "generated_at": "2026-01-30T12:51:23.265098"
+    },
+    {
+      "set_id": "ai_010",
+      "topic": "AI的未来发展趋势",
+      "success": true,
+      "generation_time": 89.96768307685852,
+      "tokens_used": 8500,
+      "sections": 1,
+      "components": 3,
+      "component_coverage": 0.5,
+      "generated_at": "2026-01-30T12:52:53.235494"
+    }
+  ]
+}

@@ -1,0 +1,245 @@
+{
+  "page_id": "ai_006",
+  "page_mode": null,
+  "title": "计算机视觉",
+  "summary": "学习人工智能的核心知识，包含3个知识点，预计学习时间1小时15分钟。",
+  "sections": [
+    {
+      "section_id": "section-00-计算机视觉",
+      "section_type": "Concept",
+      "title": "计算机视觉",
+      "layout_intent": "default",
+      "pedagogical_goal": "掌握计算机视觉的核心概念，重点关注3个关键知识点，理解1个难点内容",
+      "blocks": [
+        {
+          "type": "Hero",
+          "role": "intro",
+          "content": {
+            "title": "计算机视觉概述",
+            "subtitle": "## 什么是计算机视觉？\n\n计算机视觉（Computer Vision，简称 CV）是人工智能（AI）的一个领域，旨在让计算机能够“看懂”图像和视频。如果说人类的眼睛是感知世界的窗口，那么计算机视觉就是赋予机器类似的感知能力。\n\n简单来说，计算机视觉的任务是将图像中的像素数据转化为有意义的信息。它不仅仅是捕捉图像，而是理解图像中的内容。\n\n### 为什么这很难？\n\n对于人类来说，识别一只猫是轻而易...",
+            "features": [
+              "计算机视觉致力于让计算机从图像或视频中获取高层理解",
+              "它将像素数据转化为语义信息（如“这是一只猫”）",
+              "主要挑战包括视角、光照、背景干扰和物体形变",
+              "人脸识别和自动驾驶是其最典型的应用场景"
+            ]
+          },
+          "title": "计算机视觉概述",
+          "id": null
+        },
+        {
+          "type": "CardGrid",
+          "role": "core-concept",
+          "content": {
+            "title": "卷积神经网络（CNN）",
+            "items": [
+              {
+                "name": "Example",
+                "description": "Google Photos：使用 CNN 自动识别你照片里的人、狗和风景",
+                "keywords": [
+                  "卷积神经网络",
+                  "CNN",
+                  "卷积核"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "车牌识别系统：通过 CNN 提取车牌字符特征，即使在夜间也能准确识别",
+                "keywords": [
+                  "卷积神经网络",
+                  "CNN",
+                  "卷积核"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "垃圾分类 AI：摄像头拍摄垃圾，CNN 判断是可回收还是有害垃圾",
+                "keywords": [
+                  "卷积神经网络",
+                  "CNN",
+                  "卷积核"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "皮肤癌检测 App：用户上传皮肤照片，CNN 辅助医生判断是否为恶性病变",
+                "keywords": [
+                  "卷积神经网络",
+                  "CNN",
+                  "卷积核"
+                ]
+              }
+            ]
+          },
+          "title": "卷积神经网络（CNN）",
+          "id": null
+        },
+        {
+          "type": "FlashcardGrid",
+          "role": "application-practice",
+          "content": {
+            "title": "视觉任务和应用",
+            "cards": [
+              {
+                "type": "Flashcard",
+                "id": "cv-003-card-0",
+                "front": {
+                  "title": "Question 1",
+                  "content": "如果不仅要识别出图片中的汽车，还要画出汽车的轮廓，这属于什么任务？"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "实例分割（如果是语义分割则不区分具体是哪辆车，但通常指精确轮廓即分割任务）。"
+                }
+              },
+              {
+                "type": "Flashcard",
+                "id": "cv-003-card-1",
+                "front": {
+                  "title": "Question 2",
+                  "content": "在医疗影像中，AI 辅助检测微小肿瘤属于哪类视觉任务的应用？"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "图像分类（判断是否有肿瘤）或 语义分割（勾勒肿瘤轮廓）。"
+                }
+              },
+              {
+                "type": "Flashcard",
+                "id": "cv-003-card-2",
+                "front": {
+                  "title": "Question 3",
+                  "content": "目标检测和图像分类的主要区别是什么？"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "目标检测除了识别物体类别，还需要提供物体在图像中的位置（通常用边界框表示）。"
+                }
+              }
+            ]
+          },
+          "title": "视觉任务和应用",
+          "id": null
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "Hero",
+      "role": "intro",
+      "content": {
+        "title": "计算机视觉概述",
+        "subtitle": "## 什么是计算机视觉？\n\n计算机视觉（Computer Vision，简称 CV）是人工智能（AI）的一个领域，旨在让计算机能够“看懂”图像和视频。如果说人类的眼睛是感知世界的窗口，那么计算机视觉就是赋予机器类似的感知能力。\n\n简单来说，计算机视觉的任务是将图像中的像素数据转化为有意义的信息。它不仅仅是捕捉图像，而是理解图像中的内容。\n\n### 为什么这很难？\n\n对于人类来说，识别一只猫是轻而易...",
+        "features": [
+          "计算机视觉致力于让计算机从图像或视频中获取高层理解",
+          "它将像素数据转化为语义信息（如“这是一只猫”）",
+          "主要挑战包括视角、光照、背景干扰和物体形变",
+          "人脸识别和自动驾驶是其最典型的应用场景"
+        ]
+      },
+      "title": "计算机视觉概述",
+      "id": null
+    },
+    {
+      "type": "CardGrid",
+      "role": "core-concept",
+      "content": {
+        "title": "卷积神经网络（CNN）",
+        "items": [
+          {
+            "name": "Example",
+            "description": "Google Photos：使用 CNN 自动识别你照片里的人、狗和风景",
+            "keywords": [
+              "卷积神经网络",
+              "CNN",
+              "卷积核"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "车牌识别系统：通过 CNN 提取车牌字符特征，即使在夜间也能准确识别",
+            "keywords": [
+              "卷积神经网络",
+              "CNN",
+              "卷积核"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "垃圾分类 AI：摄像头拍摄垃圾，CNN 判断是可回收还是有害垃圾",
+            "keywords": [
+              "卷积神经网络",
+              "CNN",
+              "卷积核"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "皮肤癌检测 App：用户上传皮肤照片，CNN 辅助医生判断是否为恶性病变",
+            "keywords": [
+              "卷积神经网络",
+              "CNN",
+              "卷积核"
+            ]
+          }
+        ]
+      },
+      "title": "卷积神经网络（CNN）",
+      "id": null
+    },
+    {
+      "type": "FlashcardGrid",
+      "role": "application-practice",
+      "content": {
+        "title": "视觉任务和应用",
+        "cards": [
+          {
+            "type": "Flashcard",
+            "id": "cv-003-card-0",
+            "front": {
+              "title": "Question 1",
+              "content": "如果不仅要识别出图片中的汽车，还要画出汽车的轮廓，这属于什么任务？"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "实例分割（如果是语义分割则不区分具体是哪辆车，但通常指精确轮廓即分割任务）。"
+            }
+          },
+          {
+            "type": "Flashcard",
+            "id": "cv-003-card-1",
+            "front": {
+              "title": "Question 2",
+              "content": "在医疗影像中，AI 辅助检测微小肿瘤属于哪类视觉任务的应用？"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "图像分类（判断是否有肿瘤）或 语义分割（勾勒肿瘤轮廓）。"
+            }
+          },
+          {
+            "type": "Flashcard",
+            "id": "cv-003-card-2",
+            "front": {
+              "title": "Question 3",
+              "content": "目标检测和图像分类的主要区别是什么？"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "目标检测除了识别物体类别，还需要提供物体在图像中的位置（通常用边界框表示）。"
+            }
+          }
+        ]
+      },
+      "title": "视觉任务和应用",
+      "id": null
+    }
+  ],
+  "metadata": {
+    "total_estimated_time": 75,
+    "target_audience": "对图像AI感兴趣的读者",
+    "warnings": [],
+    "generation_method": "multi-agent-pipeline"
+  }
+}

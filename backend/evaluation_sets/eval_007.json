@@ -1,0 +1,107 @@
+{
+  "set_id": "eval_007",
+  "domain": "化学",
+  "topic": "有机化学基础",
+  "target_audience": "化学系本科生",
+  "difficulty": "intermediate",
+  "user_intent": "掌握有机化合物的结构和性质",
+  "expected_components": [
+    "Hero",
+    "CardGrid",
+    "FlashcardGrid",
+    "CodePlayground"
+  ],
+  "knowledge_points": [
+    {
+      "knowledge_id": "CHEM-001",
+      "name": "有机化合物的分类",
+      "description": "根据官能团对有机化合物进行分类",
+      "domain": "化学",
+      "subdomain": "有机化学",
+      "difficulty": 2,
+      "cognitive_level": "COG_L2",
+      "importance": 0.9,
+      "abstraction": 3,
+      "estimated_time": 25,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [],
+      "successors": [
+        "CHEM-002",
+        "CHEM-003"
+      ],
+      "keywords": [
+        "官能团",
+        "烃类",
+        "衍生物"
+      ],
+      "application_scenarios": [
+        "药物设计",
+        "材料合成"
+      ],
+      "common_misconceptions": [],
+      "mastery_criteria": "能够识别主要的官能团"
+    },
+    {
+      "knowledge_id": "CHEM-002",
+      "name": "烷烃和烯烃",
+      "description": "最简单的有机化合物",
+      "domain": "化学",
+      "subdomain": "有机化学",
+      "difficulty": 2,
+      "cognitive_level": "COG_L2",
+      "importance": 0.8,
+      "abstraction": 3,
+      "estimated_time": 25,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [
+        "CHEM-001"
+      ],
+      "successors": [
+        "CHEM-003"
+      ],
+      "keywords": [
+        "烷烃",
+        "烯烃",
+        "不饱和度"
+      ],
+      "application_scenarios": [
+        "燃料",
+        "聚合物"
+      ],
+      "common_misconceptions": [],
+      "mastery_criteria": "理解碳碳单键和双键的区别"
+    },
+    {
+      "knowledge_id": "CHEM-003",
+      "name": "芳香族化合物",
+      "description": "具有特殊稳定性的环状化合物",
+      "domain": "化学",
+      "subdomain": "有机化学",
+      "difficulty": 3,
+      "cognitive_level": "COG_L3",
+      "importance": 0.9,
+      "abstraction": 4,
+      "estimated_time": 30,
+      "is_key_point": true,
+      "is_difficult": true,
+      "prerequisites": [
+        "CHEM-001",
+        "CHEM-002"
+      ],
+      "successors": [],
+      "keywords": [
+        "苯",
+        "芳香性",
+        "共振"
+      ],
+      "application_scenarios": [
+        "染料",
+        "药物"
+      ],
+      "common_misconceptions": [],
+      "mastery_criteria": "理解芳香性的本质"
+    }
+  ]
+}

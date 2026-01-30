@@ -1,0 +1,111 @@
+{
+  "set_id": "eval_009",
+  "domain": "地理学",
+  "topic": "气候变化",
+  "target_audience": "高中学生",
+  "difficulty": "intermediate",
+  "user_intent": "了解气候变化的成因和影响",
+  "expected_components": [
+    "Hero",
+    "Timeline",
+    "CardGrid",
+    "Cloze"
+  ],
+  "knowledge_points": [
+    {
+      "knowledge_id": "GEO-001",
+      "name": "气候系统",
+      "description": "地球气候系统的组成和运作",
+      "domain": "地理学",
+      "subdomain": "自然地理",
+      "difficulty": 2,
+      "cognitive_level": "COG_L2",
+      "importance": 0.9,
+      "abstraction": 3,
+      "estimated_time": 25,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [],
+      "successors": [
+        "GEO-002",
+        "GEO-003"
+      ],
+      "keywords": [
+        "大气",
+        "海洋",
+        "冰雪圈"
+      ],
+      "application_scenarios": [
+        "天气预报",
+        "气候预测"
+      ],
+      "common_misconceptions": [
+        "气候和天气是一回事"
+      ],
+      "mastery_criteria": "理解气候系统的组成"
+    },
+    {
+      "knowledge_id": "GEO-002",
+      "name": "温室效应",
+      "description": "温室气体对地球温度的影响",
+      "domain": "地理学",
+      "subdomain": "自然地理",
+      "difficulty": 2,
+      "cognitive_level": "COG_L2",
+      "importance": 1.0,
+      "abstraction": 3,
+      "estimated_time": 25,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [
+        "GEO-001"
+      ],
+      "successors": [
+        "GEO-003"
+      ],
+      "keywords": [
+        "温室气体",
+        "二氧化碳",
+        "全球变暖"
+      ],
+      "application_scenarios": [
+        "减排政策",
+        "碳交易"
+      ],
+      "common_misconceptions": [
+        "温室效应完全是坏事"
+      ],
+      "mastery_criteria": "理解温室效应的原理"
+    },
+    {
+      "knowledge_id": "GEO-003",
+      "name": "气候变化的影响",
+      "description": "气候变化对环境和人类社会的影响",
+      "domain": "地理学",
+      "subdomain": "自然地理",
+      "difficulty": 2,
+      "cognitive_level": "COG_L2",
+      "importance": 0.9,
+      "abstraction": 3,
+      "estimated_time": 25,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [
+        "GEO-001",
+        "GEO-002"
+      ],
+      "successors": [],
+      "keywords": [
+        "海平面上升",
+        "极端天气",
+        "生态系统"
+      ],
+      "application_scenarios": [
+        "城市规划",
+        "农业适应"
+      ],
+      "common_misconceptions": [],
+      "mastery_criteria": "能够列举气候变化的主要影响"
+    }
+  ]
+}

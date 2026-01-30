@@ -1,0 +1,565 @@
+{
+  "page_id": "ai_001",
+  "page_mode": null,
+  "title": "人工智能基础概念",
+  "summary": "学习人工智能的核心知识，包含3个知识点，预计学习时间1小时0分钟。",
+  "sections": [
+    {
+      "section_id": "section-00-基础概念",
+      "section_type": "Theory",
+      "title": "基础概念",
+      "layout_intent": "wide",
+      "pedagogical_goal": "掌握基础概念的核心概念，重点关注3个关键知识点",
+      "blocks": [
+        {
+          "type": "Hero",
+          "role": "page-introduction",
+          "content": {
+            "title": "什么是人工智能",
+            "subtitle": "# 什么是人工智能\n\n人工智能（Artificial Intelligence，简称AI）是指由人类创造的、能够模拟人类智能行为的计算机系统。它使机器能够学习、推理、感知、规划和解决问题，通常需要人类智能才能完成的任务。\n\n## 人工智能的三大核心要素\n\n1. **学习（Learning）**：AI系统能够从数据中获取知识并改进自身性能，而无需明确编程。这是AI与传统软件的根本区别。\n\n2. **...",
+            "features": [
+              "人工智能是模拟人类智能行为的计算机系统",
+              "AI的三大核心要素是学习、推理和感知",
+              "AI能够从数据中学习并改进自身性能",
+              "AI能够进行逻辑推理和决策",
+              "AI能够理解和解释来自环境的信息"
+            ]
+          },
+          "title": "什么是人工智能",
+          "id": null
+        },
+        {
+          "type": "CardGrid",
+          "role": "example-showcase",
+          "content": {
+            "title": "什么是人工智能 - 应用示例",
+            "items": [
+              {
+                "name": "Example",
+                "description": "特斯拉的Autopilot系统使用摄像头和雷达识别道路环境，自动控制车辆速度和方向",
+                "keywords": [
+                  "智能助手",
+                  "自然语言处理",
+                  "自动驾驶"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "IBM Watson能够分析大量医学文献和患者数据，为医生提供治疗建议",
+                "keywords": [
+                  "智能助手",
+                  "自然语言处理",
+                  "自动驾驶"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "支付宝的刷脸支付技术使用计算机视觉验证用户身份",
+                "keywords": [
+                  "智能助手",
+                  "自然语言处理",
+                  "自动驾驶"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "Netflix的推荐系统分析用户观看历史，提供个性化内容推荐",
+                "keywords": [
+                  "智能助手",
+                  "自然语言处理",
+                  "自动驾驶"
+                ]
+              }
+            ]
+          },
+          "title": "什么是人工智能 - 应用示例",
+          "id": null
+        },
+        {
+          "type": "FlashcardGrid",
+          "role": "practice-quiz",
+          "content": {
+            "title": "什么是人工智能 - 知识检测",
+            "cards": [
+              {
+                "type": "Flashcard",
+                "id": "ai-001-practice-card-0",
+                "front": {
+                  "title": "Question 1",
+                  "content": "下列哪项不是人工智能的核心要素？\nA. 学习\nB. 记忆\nC. 推理\nD. 感知"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "B. 记忆（人工智能的核心要素是学习、推理和感知，不包括记忆）"
+                }
+              },
+              {
+                "type": "Flashcard",
+                "id": "ai-001-practice-card-1",
+                "front": {
+                  "title": "Question 2",
+                  "content": "关于AI与传统软件的区别，以下哪项是正确的？\nA. AI不需要编程，传统软件需要\nB. AI可以从数据中学习，传统软件不能\nC. AI只能处理特定类型的数据，传统软件可以处理所有数据\nD. AI和传统软件没有本质区别"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "B. AI可以从数据中学习，传统软件不能（这是AI与传统软件的主要区别）"
+                }
+              },
+              {
+                "type": "Flashcard",
+                "id": "ai-001-practice-card-2",
+                "front": {
+                  "title": "Question 3",
+                  "content": "以下哪项是关于AI的常见误区？\nA. AI能够完全自主决策\nB. AI需要大量数据才能工作\nC. AI只能用于特定领域\nD. 以上都是"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "D. 以上都是（这些都是关于AI的常见误区）"
+                }
+              }
+            ]
+          },
+          "title": "什么是人工智能 - 知识检测",
+          "id": null
+        },
+        {
+          "type": "DeepDiveZigZag",
+          "role": "concept-explanation",
+          "content": {
+            "title": "AI的分类层次",
+            "items": [
+              {
+                "name": "什么是人工智能",
+                "title": "什么是人工智能",
+                "description": "人工智能是计算机科学的一个分支，致力于创建能够模拟人类智能的系统",
+                "keywords": [
+                  "人工智能",
+                  "AI",
+                  "机器智能",
+                  "图灵测试"
+                ],
+                "common_misconceptions": [
+                  "AI就是机器人",
+                  "AI能完全替代人类"
+                ]
+              },
+              {
+                "name": "什么是人工智能 - 应用示例",
+                "title": "什么是人工智能 - 应用示例",
+                "description": "通过实际案例理解概念的应用",
+                "keywords": [
+                  "人工智能",
+                  "AI",
+                  "机器智能"
+                ],
+                "common_misconceptions": []
+              },
+              {
+                "name": "什么是人工智能 - 知识检测",
+                "title": "什么是人工智能 - 知识检测",
+                "description": "通过练习题检验理解程度",
+                "keywords": [
+                  "人工智能",
+                  "AI"
+                ],
+                "common_misconceptions": [
+                  "AI就是机器人",
+                  "AI能完全替代人类"
+                ]
+              },
+              {
+                "name": "AI的分类层次",
+                "title": "AI的分类层次",
+                "description": "根据智能水平，AI可分为弱人工智能、强人工智能和超人工智能",
+                "keywords": [
+                  "弱AI",
+                  "强AI",
+                  "超AI",
+                  "ANI",
+                  "AGI"
+                ],
+                "common_misconceptions": [
+                  "现在的AI已经是强AI了"
+                ]
+              },
+              {
+                "name": "AI的分类层次 - 知识检测",
+                "title": "AI的分类层次 - 知识检测",
+                "description": "通过练习题检验理解程度",
+                "keywords": [
+                  "弱AI",
+                  "强AI"
+                ],
+                "common_misconceptions": [
+                  "现在的AI已经是强AI了"
+                ]
+              }
+            ]
+          },
+          "title": "AI的分类层次",
+          "id": null
+        },
+        {
+          "type": "CardGrid",
+          "role": "concept-grid",
+          "content": {
+            "title": "AI的主要分支",
+            "items": [
+              {
+                "name": "Example",
+                "description": "机器学习应用：Netflix推荐系统分析用户观看历史，提供个性化内容推荐",
+                "keywords": [
+                  "机器学习",
+                  "深度学习",
+                  "自然语言处理"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "深度学习应用：AlphaGo使用深度神经网络学习围棋策略，击败世界冠军",
+                "keywords": [
+                  "机器学习",
+                  "深度学习",
+                  "自然语言处理"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "自然语言处理应用：Google翻译使用神经网络实现多语言翻译",
+                "keywords": [
+                  "机器学习",
+                  "深度学习",
+                  "自然语言处理"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "计算机视觉应用：医疗AI系统分析X光片，检测异常",
+                "keywords": [
+                  "机器学习",
+                  "深度学习",
+                  "自然语言处理"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "机器人学应用：手术机器人辅助医生进行精确手术",
+                "keywords": [
+                  "机器学习",
+                  "深度学习",
+                  "自然语言处理"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "多智能体系统应用：智能交通系统协调多个车辆优化交通流量",
+                "keywords": [
+                  "机器学习",
+                  "深度学习",
+                  "自然语言处理"
+                ]
+              }
+            ]
+          },
+          "title": "AI的主要分支",
+          "id": null
+        },
+        {
+          "type": "Flashcard",
+          "role": "key-check",
+          "content": {
+            "id": "ai-003-practice",
+            "front": {
+              "title": "Quick Check",
+              "content": "下列哪项是机器学习的主要类型？\nA. 监督学习、无监督学习、强化学习\nB. 卷积神经网络、循环神经网络、变换器\nC. 图像分类、目标检测、图像分割\nD. 本体论、语义网络、知识图谱"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "A. 监督学习、无监督学习、强化学习（这些是机器学习的主要类型）"
+            }
+          },
+          "title": null,
+          "id": "ai-003-practice"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "Hero",
+      "role": "page-introduction",
+      "content": {
+        "title": "什么是人工智能",
+        "subtitle": "# 什么是人工智能\n\n人工智能（Artificial Intelligence，简称AI）是指由人类创造的、能够模拟人类智能行为的计算机系统。它使机器能够学习、推理、感知、规划和解决问题，通常需要人类智能才能完成的任务。\n\n## 人工智能的三大核心要素\n\n1. **学习（Learning）**：AI系统能够从数据中获取知识并改进自身性能，而无需明确编程。这是AI与传统软件的根本区别。\n\n2. **...",
+        "features": [
+          "人工智能是模拟人类智能行为的计算机系统",
+          "AI的三大核心要素是学习、推理和感知",
+          "AI能够从数据中学习并改进自身性能",
+          "AI能够进行逻辑推理和决策",
+          "AI能够理解和解释来自环境的信息"
+        ]
+      },
+      "title": "什么是人工智能",
+      "id": null
+    },
+    {
+      "type": "CardGrid",
+      "role": "example-showcase",
+      "content": {
+        "title": "什么是人工智能 - 应用示例",
+        "items": [
+          {
+            "name": "Example",
+            "description": "特斯拉的Autopilot系统使用摄像头和雷达识别道路环境，自动控制车辆速度和方向",
+            "keywords": [
+              "智能助手",
+              "自然语言处理",
+              "自动驾驶"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "IBM Watson能够分析大量医学文献和患者数据，为医生提供治疗建议",
+            "keywords": [
+              "智能助手",
+              "自然语言处理",
+              "自动驾驶"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "支付宝的刷脸支付技术使用计算机视觉验证用户身份",
+            "keywords": [
+              "智能助手",
+              "自然语言处理",
+              "自动驾驶"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "Netflix的推荐系统分析用户观看历史，提供个性化内容推荐",
+            "keywords": [
+              "智能助手",
+              "自然语言处理",
+              "自动驾驶"
+            ]
+          }
+        ]
+      },
+      "title": "什么是人工智能 - 应用示例",
+      "id": null
+    },
+    {
+      "type": "FlashcardGrid",
+      "role": "practice-quiz",
+      "content": {
+        "title": "什么是人工智能 - 知识检测",
+        "cards": [
+          {
+            "type": "Flashcard",
+            "id": "ai-001-practice-card-0",
+            "front": {
+              "title": "Question 1",
+              "content": "下列哪项不是人工智能的核心要素？\nA. 学习\nB. 记忆\nC. 推理\nD. 感知"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "B. 记忆（人工智能的核心要素是学习、推理和感知，不包括记忆）"
+            }
+          },
+          {
+            "type": "Flashcard",
+            "id": "ai-001-practice-card-1",
+            "front": {
+              "title": "Question 2",
+              "content": "关于AI与传统软件的区别，以下哪项是正确的？\nA. AI不需要编程，传统软件需要\nB. AI可以从数据中学习，传统软件不能\nC. AI只能处理特定类型的数据，传统软件可以处理所有数据\nD. AI和传统软件没有本质区别"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "B. AI可以从数据中学习，传统软件不能（这是AI与传统软件的主要区别）"
+            }
+          },
+          {
+            "type": "Flashcard",
+            "id": "ai-001-practice-card-2",
+            "front": {
+              "title": "Question 3",
+              "content": "以下哪项是关于AI的常见误区？\nA. AI能够完全自主决策\nB. AI需要大量数据才能工作\nC. AI只能用于特定领域\nD. 以上都是"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "D. 以上都是（这些都是关于AI的常见误区）"
+            }
+          }
+        ]
+      },
+      "title": "什么是人工智能 - 知识检测",
+      "id": null
+    },
+    {
+      "type": "DeepDiveZigZag",
+      "role": "concept-explanation",
+      "content": {
+        "title": "AI的分类层次",
+        "items": [
+          {
+            "name": "什么是人工智能",
+            "title": "什么是人工智能",
+            "description": "人工智能是计算机科学的一个分支，致力于创建能够模拟人类智能的系统",
+            "keywords": [
+              "人工智能",
+              "AI",
+              "机器智能",
+              "图灵测试"
+            ],
+            "common_misconceptions": [
+              "AI就是机器人",
+              "AI能完全替代人类"
+            ]
+          },
+          {
+            "name": "什么是人工智能 - 应用示例",
+            "title": "什么是人工智能 - 应用示例",
+            "description": "通过实际案例理解概念的应用",
+            "keywords": [
+              "人工智能",
+              "AI",
+              "机器智能"
+            ],
+            "common_misconceptions": []
+          },
+          {
+            "name": "什么是人工智能 - 知识检测",
+            "title": "什么是人工智能 - 知识检测",
+            "description": "通过练习题检验理解程度",
+            "keywords": [
+              "人工智能",
+              "AI"
+            ],
+            "common_misconceptions": [
+              "AI就是机器人",
+              "AI能完全替代人类"
+            ]
+          },
+          {
+            "name": "AI的分类层次",
+            "title": "AI的分类层次",
+            "description": "根据智能水平，AI可分为弱人工智能、强人工智能和超人工智能",
+            "keywords": [
+              "弱AI",
+              "强AI",
+              "超AI",
+              "ANI",
+              "AGI"
+            ],
+            "common_misconceptions": [
+              "现在的AI已经是强AI了"
+            ]
+          },
+          {
+            "name": "AI的分类层次 - 知识检测",
+            "title": "AI的分类层次 - 知识检测",
+            "description": "通过练习题检验理解程度",
+            "keywords": [
+              "弱AI",
+              "强AI"
+            ],
+            "common_misconceptions": [
+              "现在的AI已经是强AI了"
+            ]
+          }
+        ]
+      },
+      "title": "AI的分类层次",
+      "id": null
+    },
+    {
+      "type": "CardGrid",
+      "role": "concept-grid",
+      "content": {
+        "title": "AI的主要分支",
+        "items": [
+          {
+            "name": "Example",
+            "description": "机器学习应用：Netflix推荐系统分析用户观看历史，提供个性化内容推荐",
+            "keywords": [
+              "机器学习",
+              "深度学习",
+              "自然语言处理"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "深度学习应用：AlphaGo使用深度神经网络学习围棋策略，击败世界冠军",
+            "keywords": [
+              "机器学习",
+              "深度学习",
+              "自然语言处理"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "自然语言处理应用：Google翻译使用神经网络实现多语言翻译",
+            "keywords": [
+              "机器学习",
+              "深度学习",
+              "自然语言处理"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "计算机视觉应用：医疗AI系统分析X光片，检测异常",
+            "keywords": [
+              "机器学习",
+              "深度学习",
+              "自然语言处理"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "机器人学应用：手术机器人辅助医生进行精确手术",
+            "keywords": [
+              "机器学习",
+              "深度学习",
+              "自然语言处理"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "多智能体系统应用：智能交通系统协调多个车辆优化交通流量",
+            "keywords": [
+              "机器学习",
+              "深度学习",
+              "自然语言处理"
+            ]
+          }
+        ]
+      },
+      "title": "AI的主要分支",
+      "id": null
+    },
+    {
+      "type": "Flashcard",
+      "role": "key-check",
+      "content": {
+        "id": "ai-003-practice",
+        "front": {
+          "title": "Quick Check",
+          "content": "下列哪项是机器学习的主要类型？\nA. 监督学习、无监督学习、强化学习\nB. 卷积神经网络、循环神经网络、变换器\nC. 图像分类、目标检测、图像分割\nD. 本体论、语义网络、知识图谱"
+        },
+        "back": {
+          "title": "Answer",
+          "content": "A. 监督学习、无监督学习、强化学习（这些是机器学习的主要类型）"
+        }
+      },
+      "title": null,
+      "id": "ai-003-practice"
+    }
+  ],
+  "metadata": {
+    "total_estimated_time": 49,
+    "target_audience": "AI初学者",
+    "warnings": [],
+    "generation_method": "multi-agent-pipeline"
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "set_id": "ai_009",
+  "domain": "人工智能",
+  "topic": "AI工具与实践",
+  "target_audience": "想动手实践AI的学习者",
+  "difficulty": "intermediate",
+  "user_intent": "了解常用的AI开发工具和入门实践",
+  "expected_components": [
+    "Hero",
+    "CodePlayground",
+    "FlashcardGrid",
+    "CardGrid"
+  ],
+  "knowledge_points": [
+    {
+      "knowledge_id": "TOOLS-001",
+      "name": "Python与AI开发生态",
+      "description": "Python是AI开发的主流语言及其生态系统",
+      "domain": "人工智能",
+      "subdomain": "AI工具",
+      "difficulty": 2,
+      "cognitive_level": "COG_L2",
+      "importance": 0.9,
+      "abstraction": 3,
+      "estimated_time": 25,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [],
+      "successors": [
+        "TOOLS-002",
+        "TOOLS-003"
+      ],
+      "keywords": [
+        "Python",
+        "NumPy",
+        "Pandas",
+        "Scikit-learn"
+      ],
+      "application_scenarios": [],
+      "common_misconceptions": [
+        "必须精通数学才能做AI"
+      ],
+      "mastery_criteria": "了解AI开发的主要Python库"
+    },
+    {
+      "knowledge_id": "TOOLS-002",
+      "name": "深度学习框架",
+      "description": "TensorFlow和PyTorch等主流框架",
+      "domain": "人工智能",
+      "subdomain": "AI工具",
+      "difficulty": 3,
+      "cognitive_level": "COG_L3",
+      "importance": 0.9,
+      "abstraction": 4,
+      "estimated_time": 30,
+      "is_key_point": true,
+      "is_difficult": true,
+      "prerequisites": [
+        "TOOLS-001"
+      ],
+      "successors": [
+        "TOOLS-003"
+      ],
+      "keywords": [
+        "TensorFlow",
+        "PyTorch",
+        "Keras",
+        "JAX"
+      ],
+      "application_scenarios": [],
+      "common_misconceptions": [],
+      "mastery_criteria": "了解主流深度学习框架的特点"
+    },
+    {
+      "knowledge_id": "TOOLS-003",
+      "name": "AI实践入门",
+      "description": "从零开始构建第一个AI模型",
+      "domain": "人工智能",
+      "subdomain": "AI工具",
+      "difficulty": 2,
+      "cognitive_level": "COG_L3",
+      "importance": 0.8,
+      "abstraction": 3,
+      "estimated_time": 30,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [
+        "TOOLS-001",
+        "TOOLS-002"
+      ],
+      "successors": [],
+      "keywords": [
+        "数据准备",
+        "模型训练",
+        "模型评估",
+        "部署"
+      ],
+      "application_scenarios": [],
+      "common_misconceptions": [],
+      "mastery_criteria": "理解AI项目的完整开发流程"
+    }
+  ]
+}

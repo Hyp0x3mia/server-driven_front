@@ -98,7 +98,25 @@ export type CodePlaygroundBlock = {
   };
 };
 
-export type Block = HeroBlock | CardGridBlock | TimelineBlock | MarkdownBlock | FlashcardBlock | ClozeBlock | FlashcardGridBlock | CodePlaygroundBlock;
+export type DeepDiveZigZagBlock = {
+  type: "DeepDiveZigZag";
+  role?: string;
+  content: {
+    title?: string;
+    items: CardGridItem[];
+  };
+};
+
+export type SplitPaneLabBlock = {
+  type: "SplitPaneLab";
+  role?: string;
+  content: {
+    title?: string;
+    items: CardGridItem[];
+  };
+};
+
+export type Block = HeroBlock | CardGridBlock | TimelineBlock | MarkdownBlock | FlashcardBlock | ClozeBlock | FlashcardGridBlock | CodePlaygroundBlock | DeepDiveZigZagBlock | SplitPaneLabBlock;
 
 export type SectionV2 = {
   section_id?: string;
@@ -130,6 +148,8 @@ export type PageSchema = {
 import HeroMatrix from "../components/HeroMatrix.jsx";
 import BentoGrid from "../components/BentoGrid.jsx";
 import VerticalChronicle from "../components/VerticalChronicle.jsx";
+import DeepDiveZigZag from "../components/DeepDiveZigZag.jsx";
+import SplitPaneLab from "../components/SplitPaneLab.jsx";
 import { Flashcard } from "../components/Flashcard.tsx";
 import FlashcardGrid from "../components/FlashcardGrid.jsx";
 import ReactMarkdown from "react-markdown";
@@ -288,10 +308,15 @@ const FlashcardAdapter: React.FC<AdapterProps<FlashcardBlock>> = ({ block }) => 
     return <div className="p-4 bg-red-100 text-red-700">FlashcardAdapter: No block data</div>;
   }
 
+  // 处理两种数据格式：
+  // 格式1（旧）: { type: "Flashcard", id, front, back }
+  // 格式2（新）: { type: "Flashcard", content: { id, front, back } }
+  const flashcardData = (block as any).content?.id ? { ...(block as any).content, type: 'flashcard' as const } : { ...block, type: 'flashcard' as const };
+
   // 移除 my-16，由父级 space-y-16 统一控制间距
   return (
     <div className="w-full flex justify-center relative z-10 py-8">
-      <Flashcard data={block} />
+      <Flashcard data={flashcardData} />
     </div>
   );
 };
@@ -320,6 +345,46 @@ const CodePlaygroundAdapter: React.FC<AdapterProps<CodePlaygroundBlock>> = ({ bl
   );
 };
 
+const DeepDiveZigZagAdapter: React.FC<AdapterProps<DeepDiveZigZagBlock>> = ({ block, pageId }) => {
+  const groupTitle = safeStr(block.content.title, "Deep Dive");
+  const items = Array.isArray(block.content.items) ? block.content.items : [];
+
+  const adaptedItems: KnowledgePointLike[] = items.map((it, idx) =>
+    makeKnowledgePoint({
+      pageId,
+      groupTitle,
+      idx,
+      name: safeStr(it.title ?? it.name ?? `Topic ${idx + 1}`),
+      description: safeStr(it.description),
+      subdomain: it.subdomain,
+      keywords: it.keywords,
+      common_misconceptions: it.common_misconceptions,
+    })
+  );
+
+  return <DeepDiveZigZag items={adaptedItems} />;
+};
+
+const SplitPaneLabAdapter: React.FC<AdapterProps<SplitPaneLabBlock>> = ({ block, pageId }) => {
+  const groupTitle = safeStr(block.content.title, "Lab");
+  const items = Array.isArray(block.content.items) ? block.content.items : [];
+
+  const adaptedItems: KnowledgePointLike[] = items.map((it, idx) =>
+    makeKnowledgePoint({
+      pageId,
+      groupTitle,
+      idx,
+      name: safeStr(it.title ?? it.name ?? `Lab ${idx + 1}`),
+      description: safeStr(it.description),
+      subdomain: it.subdomain,
+      keywords: it.keywords,
+      common_misconceptions: it.common_misconceptions,
+    })
+  );
+
+  return <SplitPaneLab items={adaptedItems} />;
+};
+
 export const registry = {
   Hero: HeroAdapter,
   CardGrid: CardGridAdapter,
@@ -329,6 +394,8 @@ export const registry = {
   Cloze: ClozeAdapter,
   FlashcardGrid: FlashcardGridAdapter,
   CodePlayground: CodePlaygroundAdapter,
+  DeepDiveZigZag: DeepDiveZigZagAdapter,
+  SplitPaneLab: SplitPaneLabAdapter,
 } as const;
 
 export type RegistryKey = keyof typeof registry;

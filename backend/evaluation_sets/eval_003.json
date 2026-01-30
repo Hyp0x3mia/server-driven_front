@@ -1,0 +1,111 @@
+{
+  "set_id": "eval_003",
+  "domain": "数学",
+  "topic": "微积分基础",
+  "target_audience": "大学新生",
+  "difficulty": "intermediate",
+  "user_intent": "掌握微积分的基本概念和应用",
+  "expected_components": [
+    "Hero",
+    "FlashcardGrid",
+    "Cloze",
+    "Markdown"
+  ],
+  "knowledge_points": [
+    {
+      "knowledge_id": "MATH-001",
+      "name": "极限的概念",
+      "description": "极限是微积分的基础概念",
+      "domain": "数学",
+      "subdomain": "微积分",
+      "difficulty": 2,
+      "cognitive_level": "COG_L2",
+      "importance": 1.0,
+      "abstraction": 4,
+      "estimated_time": 25,
+      "is_key_point": true,
+      "is_difficult": true,
+      "prerequisites": [],
+      "successors": [
+        "MATH-002",
+        "MATH-003"
+      ],
+      "keywords": [
+        "极限",
+        "连续性",
+        "无穷小"
+      ],
+      "application_scenarios": [
+        "物理计算",
+        "工程应用"
+      ],
+      "common_misconceptions": [
+        "极限就是无限接近但不等于"
+      ],
+      "mastery_criteria": "理解极限的严格定义"
+    },
+    {
+      "knowledge_id": "MATH-002",
+      "name": "导数与微分",
+      "description": "导数描述函数的变化率",
+      "domain": "数学",
+      "subdomain": "微积分",
+      "difficulty": 2,
+      "cognitive_level": "COG_L3",
+      "importance": 0.9,
+      "abstraction": 3,
+      "estimated_time": 30,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [
+        "MATH-001"
+      ],
+      "successors": [
+        "MATH-003"
+      ],
+      "keywords": [
+        "导数",
+        "斜率",
+        "变化率"
+      ],
+      "application_scenarios": [
+        "优化问题",
+        "物理运动"
+      ],
+      "common_misconceptions": [
+        "导数总是存在"
+      ],
+      "mastery_criteria": "能够计算基本函数的导数"
+    },
+    {
+      "knowledge_id": "MATH-003",
+      "name": "积分与应用",
+      "description": "积分是导数的逆运算",
+      "domain": "数学",
+      "subdomain": "微积分",
+      "difficulty": 3,
+      "cognitive_level": "COG_L3",
+      "importance": 0.9,
+      "abstraction": 4,
+      "estimated_time": 30,
+      "is_key_point": true,
+      "is_difficult": true,
+      "prerequisites": [
+        "MATH-001",
+        "MATH-002"
+      ],
+      "successors": [],
+      "keywords": [
+        "积分",
+        "面积",
+        "定积分"
+      ],
+      "application_scenarios": [
+        "面积计算",
+        "物理功"
+      ],
+      "common_misconceptions": [],
+      "mastery_criteria": "理解定积分的几何意义"
+    }
+  ]
+}

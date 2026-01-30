@@ -1,0 +1,112 @@
+{
+  "set_id": "ai_007",
+  "domain": "人工智能",
+  "topic": "AI伦理与安全",
+  "target_audience": "关注AI社会影响的读者",
+  "difficulty": "intermediate",
+  "user_intent": "深入理解AI带来的伦理挑战和安全问题",
+  "expected_components": [
+    "Hero",
+    "FlashcardGrid",
+    "Cloze",
+    "Markdown"
+  ],
+  "knowledge_points": [
+    {
+      "knowledge_id": "ETHICS-001",
+      "name": "AI伦理的核心问题",
+      "description": "偏见、公平性、透明度和可解释性",
+      "domain": "人工智能",
+      "subdomain": "AI伦理",
+      "difficulty": 2,
+      "cognitive_level": "COG_L2",
+      "importance": 1.0,
+      "abstraction": 4,
+      "estimated_time": 25,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [],
+      "successors": [
+        "ETHICS-002",
+        "ETHICS-003"
+      ],
+      "keywords": [
+        "算法偏见",
+        "公平性",
+        "透明度",
+        "可解释性"
+      ],
+      "application_scenarios": [
+        "招聘筛选",
+        "贷款审批"
+      ],
+      "common_misconceptions": [
+        "AI是完全中立的"
+      ],
+      "mastery_criteria": "能够识别AI系统中的伦理问题"
+    },
+    {
+      "knowledge_id": "ETHICS-002",
+      "name": "隐私与数据安全",
+      "description": "AI系统对个人隐私和数据安全的影响",
+      "domain": "人工智能",
+      "subdomain": "AI伦理",
+      "difficulty": 2,
+      "cognitive_level": "COG_L2",
+      "importance": 0.9,
+      "abstraction": 3,
+      "estimated_time": 25,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [
+        "ETHICS-001"
+      ],
+      "successors": [
+        "ETHICS-003"
+      ],
+      "keywords": [
+        "数据隐私",
+        "GDPR",
+        "数据泄露",
+        "联邦学习"
+      ],
+      "application_scenarios": [
+        "人脸识别",
+        "推荐系统"
+      ],
+      "common_misconceptions": [],
+      "mastery_criteria": "了解AI相关的隐私问题和保护措施"
+    },
+    {
+      "knowledge_id": "ETHICS-003",
+      "name": "AI安全与对抗",
+      "description": "对抗样本和AI系统的安全性",
+      "domain": "人工智能",
+      "subdomain": "AI伦理",
+      "difficulty": 3,
+      "cognitive_level": "COG_L3",
+      "importance": 0.9,
+      "abstraction": 4,
+      "estimated_time": 30,
+      "is_key_point": true,
+      "is_difficult": true,
+      "prerequisites": [
+        "ETHICS-001",
+        "ETHICS-002"
+      ],
+      "successors": [],
+      "keywords": [
+        "对抗样本",
+        "模型攻击",
+        "鲁棒性",
+        "AI安全"
+      ],
+      "application_scenarios": [
+        "自动驾驶",
+        "金融风控"
+      ],
+      "common_misconceptions": [],
+      "mastery_criteria": "理解AI面临的安全威胁"
+    }
+  ]
+}

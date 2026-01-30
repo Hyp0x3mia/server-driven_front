@@ -1,0 +1,247 @@
+{
+  "page_id": "ai_008",
+  "page_mode": null,
+  "title": "AI应用场景",
+  "summary": "学习人工智能的核心知识，包含3个知识点，预计学习时间1小时15分钟。",
+  "sections": [
+    {
+      "section_id": "section-00-应用场景",
+      "section_type": "Application",
+      "title": "应用场景",
+      "layout_intent": "split",
+      "pedagogical_goal": "掌握应用场景的核心概念，重点关注3个关键知识点",
+      "blocks": [
+        {
+          "type": "Hero",
+          "role": "intro",
+          "content": {
+            "title": "日常生活中的AI",
+            "subtitle": "# 日常生活中的AI：隐形的超级助手\n\n你可能觉得人工智能（AI）是科幻电影里的机器人，或者只存在于高科技实验室中。但实际上，AI早已渗透到我们生活的方方面面，就像空气一样无处不在。\n\n### 什么是日常生活中的AI？\n\n简单来说，日常生活中的AI就是那些能够“听懂”你的话、“看懂”你的照片、甚至“猜透”你心思的软件功能。它们利用大量的数据和复杂的算法，来模拟人类的感知和决策能力。\n\n### 常见...",
+            "features": [
+              "AI已经融入日常生活，包括推荐算法、语音助手和图像识别。",
+              "推荐系统通过分析用户历史行为来预测偏好。",
+              "自然语言处理（NLP）让机器能够理解和生成人类语言。",
+              "AI在后台处理复杂数据，前台提供简洁的用户体验。",
+              "日常AI的核心目的是提升便利性和效率。"
+            ]
+          },
+          "title": "日常生活中的AI",
+          "id": null
+        },
+        {
+          "type": "CardGrid",
+          "role": "core-concept",
+          "content": {
+            "title": "AI在医疗健康领域",
+            "items": [
+              {
+                "name": "Example",
+                "description": "**肺癌筛查**：AI系统在几秒钟内扫描胸部CT影像，用红框圈出微小的肺结节，并计算其恶性概率，供放射科医生复核。",
+                "keywords": [
+                  "医学影像",
+                  "药物研发",
+                  "精准医疗"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "**蛋白质结构预测**：DeepMind的AlphaFold预测了蛋白质的3D结构，这帮助科学家更快地理解疾病机理并开发新药。",
+                "keywords": [
+                  "医学影像",
+                  "药物研发",
+                  "精准医疗"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "**智能皮肤癌检测**：用户上传皮肤病变照片到APP，AI通过图像比对分析，初步判断是良性痣还是恶性黑色素瘤。",
+                "keywords": [
+                  "医学影像",
+                  "药物研发",
+                  "精准医疗"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "**手术机器人**：虽然主要由医生控制，但AI辅助系统可以稳定医生的手部动作，并进行微创手术的精准定位。",
+                "keywords": [
+                  "医学影像",
+                  "药物研发",
+                  "精准医疗"
+                ]
+              }
+            ]
+          },
+          "title": "AI在医疗健康领域",
+          "id": null
+        },
+        {
+          "type": "FlashcardGrid",
+          "role": "assessment",
+          "content": {
+            "title": "AI在各行业的应用",
+            "cards": [
+              {
+                "type": "Flashcard",
+                "id": "app-003-card-0",
+                "front": {
+                  "title": "Question 1",
+                  "content": "在制造业中，AI如何通过“预测性维护”创造价值？"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "通过分析传感器数据预测机器故障时间，在机器坏掉之前进行维护，从而避免意外停机造成的生产损失。"
+                }
+              },
+              {
+                "type": "Flashcard",
+                "id": "app-003-card-1",
+                "front": {
+                  "title": "Question 2",
+                  "content": "金融行业利用AI进行欺诈检测时，主要分析什么数据？"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "分析用户的消费习惯、交易地点、金额、频率等历史数据，识别与正常模式不符的异常行为。"
+                }
+              },
+              {
+                "type": "Flashcard",
+                "id": "app-003-card-2",
+                "front": {
+                  "title": "Question 3",
+                  "content": "在教育领域，自适应学习AI的主要优势是什么？"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "它能根据每个学生的具体学习情况和薄弱环节，提供定制化的练习和辅导，实现因材施教。"
+                }
+              }
+            ]
+          },
+          "title": "AI在各行业的应用",
+          "id": null
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "Hero",
+      "role": "intro",
+      "content": {
+        "title": "日常生活中的AI",
+        "subtitle": "# 日常生活中的AI：隐形的超级助手\n\n你可能觉得人工智能（AI）是科幻电影里的机器人，或者只存在于高科技实验室中。但实际上，AI早已渗透到我们生活的方方面面，就像空气一样无处不在。\n\n### 什么是日常生活中的AI？\n\n简单来说，日常生活中的AI就是那些能够“听懂”你的话、“看懂”你的照片、甚至“猜透”你心思的软件功能。它们利用大量的数据和复杂的算法，来模拟人类的感知和决策能力。\n\n### 常见...",
+        "features": [
+          "AI已经融入日常生活，包括推荐算法、语音助手和图像识别。",
+          "推荐系统通过分析用户历史行为来预测偏好。",
+          "自然语言处理（NLP）让机器能够理解和生成人类语言。",
+          "AI在后台处理复杂数据，前台提供简洁的用户体验。",
+          "日常AI的核心目的是提升便利性和效率。"
+        ]
+      },
+      "title": "日常生活中的AI",
+      "id": null
+    },
+    {
+      "type": "CardGrid",
+      "role": "core-concept",
+      "content": {
+        "title": "AI在医疗健康领域",
+        "items": [
+          {
+            "name": "Example",
+            "description": "**肺癌筛查**：AI系统在几秒钟内扫描胸部CT影像，用红框圈出微小的肺结节，并计算其恶性概率，供放射科医生复核。",
+            "keywords": [
+              "医学影像",
+              "药物研发",
+              "精准医疗"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "**蛋白质结构预测**：DeepMind的AlphaFold预测了蛋白质的3D结构，这帮助科学家更快地理解疾病机理并开发新药。",
+            "keywords": [
+              "医学影像",
+              "药物研发",
+              "精准医疗"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "**智能皮肤癌检测**：用户上传皮肤病变照片到APP，AI通过图像比对分析，初步判断是良性痣还是恶性黑色素瘤。",
+            "keywords": [
+              "医学影像",
+              "药物研发",
+              "精准医疗"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "**手术机器人**：虽然主要由医生控制，但AI辅助系统可以稳定医生的手部动作，并进行微创手术的精准定位。",
+            "keywords": [
+              "医学影像",
+              "药物研发",
+              "精准医疗"
+            ]
+          }
+        ]
+      },
+      "title": "AI在医疗健康领域",
+      "id": null
+    },
+    {
+      "type": "FlashcardGrid",
+      "role": "assessment",
+      "content": {
+        "title": "AI在各行业的应用",
+        "cards": [
+          {
+            "type": "Flashcard",
+            "id": "app-003-card-0",
+            "front": {
+              "title": "Question 1",
+              "content": "在制造业中，AI如何通过“预测性维护”创造价值？"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "通过分析传感器数据预测机器故障时间，在机器坏掉之前进行维护，从而避免意外停机造成的生产损失。"
+            }
+          },
+          {
+            "type": "Flashcard",
+            "id": "app-003-card-1",
+            "front": {
+              "title": "Question 2",
+              "content": "金融行业利用AI进行欺诈检测时，主要分析什么数据？"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "分析用户的消费习惯、交易地点、金额、频率等历史数据，识别与正常模式不符的异常行为。"
+            }
+          },
+          {
+            "type": "Flashcard",
+            "id": "app-003-card-2",
+            "front": {
+              "title": "Question 3",
+              "content": "在教育领域，自适应学习AI的主要优势是什么？"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "它能根据每个学生的具体学习情况和薄弱环节，提供定制化的练习和辅导，实现因材施教。"
+            }
+          }
+        ]
+      },
+      "title": "AI在各行业的应用",
+      "id": null
+    }
+  ],
+  "metadata": {
+    "total_estimated_time": 75,
+    "target_audience": "想了解AI实际应用的读者",
+    "warnings": [],
+    "generation_method": "multi-agent-pipeline"
+  }
+}

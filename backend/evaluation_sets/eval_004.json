@@ -1,0 +1,109 @@
+{
+  "set_id": "eval_004",
+  "domain": "物理学",
+  "topic": "量子力学入门",
+  "target_audience": "物理系本科生",
+  "difficulty": "advanced",
+  "user_intent": "理解量子力学的基本原理和现象",
+  "expected_components": [
+    "Hero",
+    "Flashcard",
+    "CardGrid",
+    "Markdown"
+  ],
+  "knowledge_points": [
+    {
+      "knowledge_id": "PHY-001",
+      "name": "量子力学的诞生",
+      "description": "20世纪初物理学的革命性变革",
+      "domain": "物理学",
+      "subdomain": "量子力学",
+      "difficulty": 2,
+      "cognitive_level": "COG_L1",
+      "importance": 0.8,
+      "abstraction": 3,
+      "estimated_time": 20,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [],
+      "successors": [
+        "PHY-002",
+        "PHY-003"
+      ],
+      "keywords": [
+        "普朗克",
+        "黑体辐射",
+        "量子"
+      ],
+      "application_scenarios": [],
+      "common_misconceptions": [
+        "量子力学只适用于微观世界"
+      ],
+      "mastery_criteria": "了解量子力学的历史背景"
+    },
+    {
+      "knowledge_id": "PHY-002",
+      "name": "波粒二象性",
+      "description": "微观粒子同时具有波动性和粒子性",
+      "domain": "物理学",
+      "subdomain": "量子力学",
+      "difficulty": 3,
+      "cognitive_level": "COG_L2",
+      "importance": 1.0,
+      "abstraction": 5,
+      "estimated_time": 30,
+      "is_key_point": true,
+      "is_difficult": true,
+      "prerequisites": [
+        "PHY-001"
+      ],
+      "successors": [
+        "PHY-003"
+      ],
+      "keywords": [
+        "波",
+        "粒子",
+        "二象性",
+        "干涉"
+      ],
+      "application_scenarios": [
+        "电子显微镜",
+        "光电器件"
+      ],
+      "common_misconceptions": [
+        "光要么是波要么是粒子"
+      ],
+      "mastery_criteria": "理解双缝实验的意义"
+    },
+    {
+      "knowledge_id": "PHY-003",
+      "name": "薛定谔方程",
+      "description": "量子力学的基本运动方程",
+      "domain": "物理学",
+      "subdomain": "量子力学",
+      "difficulty": 4,
+      "cognitive_level": "COG_L3",
+      "importance": 0.9,
+      "abstraction": 5,
+      "estimated_time": 35,
+      "is_key_point": true,
+      "is_difficult": true,
+      "prerequisites": [
+        "PHY-001",
+        "PHY-002"
+      ],
+      "successors": [],
+      "keywords": [
+        "薛定谔方程",
+        "波函数",
+        "本征值"
+      ],
+      "application_scenarios": [
+        "原子结构",
+        "化学键"
+      ],
+      "common_misconceptions": [],
+      "mastery_criteria": "理解波函数的物理意义"
+    }
+  ]
+}

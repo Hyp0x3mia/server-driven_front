@@ -1,0 +1,281 @@
+{
+  "page_id": "nlp-introduction",
+  "page_mode": null,
+  "title": "自然语言处理",
+  "summary": "学习自然语言处理的核心知识，包含3个知识点，预计学习时间50分钟。",
+  "sections": [
+    {
+      "section_id": "section-00-领域概述",
+      "section_type": "Concept",
+      "title": "领域概述",
+      "layout_intent": "default",
+      "pedagogical_goal": "掌握领域概述的核心概念，重点关注1个关键知识点",
+      "blocks": [
+        {
+          "type": "Hero",
+          "role": "intro",
+          "content": {
+            "title": "自然语言处理概述",
+            "subtitle": "# 自然语言处理概述\n\n## 什么是自然语言处理？\n\n自然语言处理（Natural Language Processing，简称 NLP）是人工智能（AI）的一个重要分支，甚至被誉为“人工智能皇冠上的明珠”。简单来说，它的核心目标是让计算机能够理解、解释和生成人类语言。\n\n想象一下，人类通过语言交流思想、情感和知识，而计算机通常只认识“0”和“1”。NLP 就是这两者之间的**桥梁**和**翻译官...",
+            "features": [
+              "NLP 是人工智能与人类语言之间的桥梁",
+              "被称为“人工智能皇冠上的明珠”",
+              "主要包含 NLU（理解）和 NLG（生成）两大方向",
+              "核心应用包括文本分析、信息处理和智能交互",
+              "旨在让计算机理解、解释和生成人类语言"
+            ]
+          },
+          "title": "自然语言处理概述",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "section-01-基础概念",
+      "section_type": "Theory",
+      "title": "基础概念",
+      "layout_intent": "wide",
+      "pedagogical_goal": "掌握基础概念的核心概念，重点关注1个关键知识点",
+      "blocks": [
+        {
+          "type": "CardGrid",
+          "role": "core-concept",
+          "content": {
+            "title": "自然语言处理的定义与作用",
+            "items": [
+              {
+                "name": "Example",
+                "description": "在 Word 或 Google Docs 中，系统自动标红的拼写错误检查功能，就是基础的 NLP 在起作用。",
+                "keywords": [
+                  "定义",
+                  "交叉学科",
+                  "非结构化数据"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "银行使用 NLP 技术分析客户的通话记录，识别潜在的欺诈行为或客户满意度。",
+                "keywords": [
+                  "定义",
+                  "交叉学科",
+                  "非结构化数据"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "新闻网站利用 NLP 自动将长篇报道生成简短的“一句话摘要”，方便读者快速浏览。",
+                "keywords": [
+                  "定义",
+                  "交叉学科",
+                  "非结构化数据"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "在线教育平台通过 NLP 批改英语作文，指出语法错误并提供修改建议。",
+                "keywords": [
+                  "定义",
+                  "交叉学科",
+                  "非结构化数据"
+                ]
+              }
+            ]
+          },
+          "title": "自然语言处理的定义与作用",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "section-02-历史发展",
+      "section_type": "History",
+      "title": "历史发展",
+      "layout_intent": "timeline",
+      "pedagogical_goal": "掌握历史发展的核心概念，重点关注1个关键知识点",
+      "blocks": [
+        {
+          "type": "Timeline",
+          "role": "historical-narrative",
+          "content": {
+            "title": "自然语言处理的4个历史阶段",
+            "items": [
+              {
+                "year": "1",
+                "label": "Step 1",
+                "title": "Phase 1",
+                "description": "早期基于规则的系统就像死记硬背的学生，遇到没见过的句型就束手无策。",
+                "keywords": [
+                  "基于规则",
+                  "基于统计",
+                  "神经网络"
+                ]
+              },
+              {
+                "year": "2",
+                "label": "Step 2",
+                "title": "Phase 2",
+                "description": "基于统计的输入法能根据你输入的前一个字，预测下一个最可能出现的字。",
+                "keywords": [
+                  "基于规则",
+                  "基于统计",
+                  "神经网络"
+                ]
+              },
+              {
+                "year": "3",
+                "label": "Step 3",
+                "title": "Phase 3",
+                "description": "Word2Vec 技术能计算出“国王” - “男人” + “女人” ≈ “女王”，体现了对语义的理解。",
+                "keywords": [
+                  "基于规则",
+                  "基于统计",
+                  "神经网络"
+                ]
+              },
+              {
+                "year": "4",
+                "label": "Step 4",
+                "title": "Phase 4",
+                "description": "ChatGPT 能够写代码、写诗、回答专业问题，展示了第四阶段大模型的强大能力。",
+                "keywords": [
+                  "基于规则",
+                  "基于统计",
+                  "神经网络"
+                ]
+              }
+            ]
+          },
+          "title": "自然语言处理的4个历史阶段",
+          "id": null
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "Hero",
+      "role": "intro",
+      "content": {
+        "title": "自然语言处理概述",
+        "subtitle": "# 自然语言处理概述\n\n## 什么是自然语言处理？\n\n自然语言处理（Natural Language Processing，简称 NLP）是人工智能（AI）的一个重要分支，甚至被誉为“人工智能皇冠上的明珠”。简单来说，它的核心目标是让计算机能够理解、解释和生成人类语言。\n\n想象一下，人类通过语言交流思想、情感和知识，而计算机通常只认识“0”和“1”。NLP 就是这两者之间的**桥梁**和**翻译官...",
+        "features": [
+          "NLP 是人工智能与人类语言之间的桥梁",
+          "被称为“人工智能皇冠上的明珠”",
+          "主要包含 NLU（理解）和 NLG（生成）两大方向",
+          "核心应用包括文本分析、信息处理和智能交互",
+          "旨在让计算机理解、解释和生成人类语言"
+        ]
+      },
+      "title": "自然语言处理概述",
+      "id": null
+    },
+    {
+      "type": "CardGrid",
+      "role": "core-concept",
+      "content": {
+        "title": "自然语言处理的定义与作用",
+        "items": [
+          {
+            "name": "Example",
+            "description": "在 Word 或 Google Docs 中，系统自动标红的拼写错误检查功能，就是基础的 NLP 在起作用。",
+            "keywords": [
+              "定义",
+              "交叉学科",
+              "非结构化数据"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "银行使用 NLP 技术分析客户的通话记录，识别潜在的欺诈行为或客户满意度。",
+            "keywords": [
+              "定义",
+              "交叉学科",
+              "非结构化数据"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "新闻网站利用 NLP 自动将长篇报道生成简短的“一句话摘要”，方便读者快速浏览。",
+            "keywords": [
+              "定义",
+              "交叉学科",
+              "非结构化数据"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "在线教育平台通过 NLP 批改英语作文，指出语法错误并提供修改建议。",
+            "keywords": [
+              "定义",
+              "交叉学科",
+              "非结构化数据"
+            ]
+          }
+        ]
+      },
+      "title": "自然语言处理的定义与作用",
+      "id": null
+    },
+    {
+      "type": "Timeline",
+      "role": "historical-narrative",
+      "content": {
+        "title": "自然语言处理的4个历史阶段",
+        "items": [
+          {
+            "year": "1",
+            "label": "Step 1",
+            "title": "Phase 1",
+            "description": "早期基于规则的系统就像死记硬背的学生，遇到没见过的句型就束手无策。",
+            "keywords": [
+              "基于规则",
+              "基于统计",
+              "神经网络"
+            ]
+          },
+          {
+            "year": "2",
+            "label": "Step 2",
+            "title": "Phase 2",
+            "description": "基于统计的输入法能根据你输入的前一个字，预测下一个最可能出现的字。",
+            "keywords": [
+              "基于规则",
+              "基于统计",
+              "神经网络"
+            ]
+          },
+          {
+            "year": "3",
+            "label": "Step 3",
+            "title": "Phase 3",
+            "description": "Word2Vec 技术能计算出“国王” - “男人” + “女人” ≈ “女王”，体现了对语义的理解。",
+            "keywords": [
+              "基于规则",
+              "基于统计",
+              "神经网络"
+            ]
+          },
+          {
+            "year": "4",
+            "label": "Step 4",
+            "title": "Phase 4",
+            "description": "ChatGPT 能够写代码、写诗、回答专业问题，展示了第四阶段大模型的强大能力。",
+            "keywords": [
+              "基于规则",
+              "基于统计",
+              "神经网络"
+            ]
+          }
+        ]
+      },
+      "title": "自然语言处理的4个历史阶段",
+      "id": null
+    }
+  ],
+  "metadata": {
+    "total_estimated_time": 50,
+    "target_audience": "learners",
+    "warnings": [],
+    "generation_method": "multi-agent-pipeline"
+  }
+}

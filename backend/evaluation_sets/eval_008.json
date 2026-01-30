@@ -1,0 +1,100 @@
+{
+  "set_id": "eval_008",
+  "domain": "文学",
+  "topic": "中国古典诗词鉴赏",
+  "target_audience": "文学爱好者",
+  "difficulty": "beginner",
+  "user_intent": "欣赏古典诗词的艺术魅力",
+  "expected_components": [
+    "Hero",
+    "Timeline",
+    "Flashcard",
+    "Markdown"
+  ],
+  "knowledge_points": [
+    {
+      "knowledge_id": "LIT-001",
+      "name": "唐诗的发展历程",
+      "description": "从初唐到晚唐的诗歌发展",
+      "domain": "文学",
+      "subdomain": "中国古典文学",
+      "difficulty": 1,
+      "cognitive_level": "COG_L1",
+      "importance": 0.8,
+      "abstraction": 2,
+      "estimated_time": 20,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [],
+      "successors": [
+        "LIT-002",
+        "LIT-003"
+      ],
+      "keywords": [
+        "唐诗",
+        "初唐",
+        "盛唐",
+        "晚唐"
+      ],
+      "application_scenarios": [],
+      "common_misconceptions": [],
+      "mastery_criteria": "能够概述唐诗的发展阶段"
+    },
+    {
+      "knowledge_id": "LIT-002",
+      "name": "宋词的艺术特色",
+      "description": "宋词的独特魅力和表现手法",
+      "domain": "文学",
+      "subdomain": "中国古典文学",
+      "difficulty": 2,
+      "cognitive_level": "COG_L2",
+      "importance": 0.9,
+      "abstraction": 3,
+      "estimated_time": 25,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [
+        "LIT-001"
+      ],
+      "successors": [
+        "LIT-003"
+      ],
+      "keywords": [
+        "宋词",
+        "词牌",
+        "豪放派",
+        "婉约派"
+      ],
+      "application_scenarios": [],
+      "common_misconceptions": [],
+      "mastery_criteria": "理解词与诗的区别"
+    },
+    {
+      "knowledge_id": "LIT-003",
+      "name": "诗歌鉴赏方法",
+      "description": "如何欣赏和解读古典诗词",
+      "domain": "文学",
+      "subdomain": "中国古典文学",
+      "difficulty": 2,
+      "cognitive_level": "COG_L3",
+      "importance": 0.9,
+      "abstraction": 4,
+      "estimated_time": 30,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [
+        "LIT-001",
+        "LIT-002"
+      ],
+      "successors": [],
+      "keywords": [
+        "意象",
+        "意境",
+        "修辞"
+      ],
+      "application_scenarios": [],
+      "common_misconceptions": [],
+      "mastery_criteria": "掌握基本的鉴赏方法"
+    }
+  ]
+}

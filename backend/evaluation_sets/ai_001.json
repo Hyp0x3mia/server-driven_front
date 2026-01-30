@@ -1,0 +1,113 @@
+{
+  "set_id": "ai_001",
+  "domain": "人工智能",
+  "topic": "人工智能基础概念",
+  "target_audience": "AI初学者",
+  "difficulty": "beginner",
+  "user_intent": "全面了解AI的基本定义、特征和分类",
+  "expected_components": [
+    "Hero",
+    "Flashcard",
+    "CardGrid",
+    "Markdown"
+  ],
+  "knowledge_points": [
+    {
+      "knowledge_id": "AI-001",
+      "name": "什么是人工智能",
+      "description": "人工智能是计算机科学的一个分支，致力于创建能够模拟人类智能的系统",
+      "domain": "人工智能",
+      "subdomain": "基础概念",
+      "difficulty": 1,
+      "cognitive_level": "COG_L1",
+      "importance": 1.0,
+      "abstraction": 2,
+      "estimated_time": 20,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [],
+      "successors": [
+        "AI-002",
+        "AI-003"
+      ],
+      "keywords": [
+        "人工智能",
+        "AI",
+        "机器智能",
+        "图灵测试"
+      ],
+      "application_scenarios": [
+        "智能助手",
+        "自动驾驶"
+      ],
+      "common_misconceptions": [
+        "AI就是机器人",
+        "AI能完全替代人类"
+      ],
+      "mastery_criteria": "能够准确定义人工智能，并说出其三大核心要素"
+    },
+    {
+      "knowledge_id": "AI-002",
+      "name": "AI的分类层次",
+      "description": "根据智能水平，AI可分为弱人工智能、强人工智能和超人工智能",
+      "domain": "人工智能",
+      "subdomain": "基础概念",
+      "difficulty": 1,
+      "cognitive_level": "COG_L2",
+      "importance": 0.9,
+      "abstraction": 3,
+      "estimated_time": 15,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [
+        "AI-001"
+      ],
+      "successors": [
+        "AI-003"
+      ],
+      "keywords": [
+        "弱AI",
+        "强AI",
+        "超AI",
+        "ANI",
+        "AGI"
+      ],
+      "application_scenarios": [],
+      "common_misconceptions": [
+        "现在的AI已经是强AI了"
+      ],
+      "mastery_criteria": "能够区分弱AI、强AI和超AI，并举例说明"
+    },
+    {
+      "knowledge_id": "AI-003",
+      "name": "AI的主要分支",
+      "description": "人工智能包括机器学习、深度学习、自然语言处理等多个分支",
+      "domain": "人工智能",
+      "subdomain": "基础概念",
+      "difficulty": 2,
+      "cognitive_level": "COG_L2",
+      "importance": 0.9,
+      "abstraction": 3,
+      "estimated_time": 25,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [
+        "AI-001",
+        "AI-002"
+      ],
+      "successors": [],
+      "keywords": [
+        "机器学习",
+        "深度学习",
+        "NLP",
+        "计算机视觉",
+        "专家系统"
+      ],
+      "application_scenarios": [],
+      "common_misconceptions": [
+        "深度学习就是AI的全部"
+      ],
+      "mastery_criteria": "能够列举AI的主要分支及其应用领域"
+    }
+  ]
+}

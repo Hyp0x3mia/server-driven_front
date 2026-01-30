@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API 测试 - 多智能体内容生成</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .status.loading {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+
+        .result {
+            margin-top: 30px;
+            display: none;
+        }
+
+        .result h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .preview-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .preview-link:hover {
+            background: #218838;
+        }
+
+        .quick-examples {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .quick-examples h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .example-btn {
+            display: inline-block;
+            margin: 5px;
+            padding: 8px 16px;
+            background: white;
+            border: 2px solid #667eea;
+            color: #667eea;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .example-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 多智能体内容生成 API</h1>
+        <p class="subtitle">使用 LangGraph 多智能体系统生成教育内容</p>
+
+        <form id="generateForm">
+            <div class="form-group">
+                <label for="topic">主题 *</label>
+                <input type="text" id="topic" placeholder="例如：机器学习基础" required>
+            </div>
+
+            <div class="form-group">
+                <label for="audience">目标受众 *</label>
+                <input type="text" id="audience" value="初学者" placeholder="例如：初学者、AI工程师">
+            </div>
+
+            <div class="form-group">
+                <label for="difficulty">难度级别</label>
+                <select id="difficulty">
+                    <option value="beginner">初学者 (Beginner)</option>
+                    <option value="intermediate" selected>中级 (Intermediate)</option>
+                    <option value="advanced">高级 (Advanced)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="intent">特定目标（可选）</label>
+                <textarea id="intent" placeholder="例如：重点关注神经网络的工作原理"></textarea>
+            </div>
+
+            <div class="button-group">
+                <button type="submit" class="btn-primary">
+                    <span id="btnText">生成内容</span>
+                </button>
+                <button type="button" class="btn-secondary" onclick="checkHealth()">
+                    检查 API 状态
+                </button>
+            </div>
+        </form>
+
+        <div id="status" class="status"></div>
+
+        <div id="result" class="result">
+            <h3>✅ 生成成功！</h3>
+            <p id="resultInfo"></p>
+            <a id="previewLink" href="#" target="_blank" class="preview-link">
+                在浏览器中查看 →
+            </a>
+        </div>
+
+        <div class="quick-examples">
+            <h3>📝 快速示例</h3>
+            <button class="example-btn" onclick="fillExample('transformer')">Transformer 架构</button>
+            <button class="example-btn" onclick="fillExample('nlp')">自然语言处理</button>
+            <button class="example-btn" onclick="fillExample('cnn')">卷积神经网络</button>
+            <button class="example-btn" onclick="fillExample('rl')">强化学习</button>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:8000';
+
+        // 示例数据
+        const examples = {
+            transformer: {
+                topic: 'Transformer 架构',
+                audience: 'AI工程师',
+                difficulty: 'intermediate',
+                intent: '重点关注自注意力机制的实现原理'
+            },
+            nlp: {
+                topic: '自然语言处理',
+                audience: '初学者',
+                difficulty: 'beginner',
+                intent: '全面了解NLP的基础概念和应用'
+            },
+            cnn: {
+                topic: '卷积神经网络 (CNN)',
+                audience: '深度学习初学者',
+                difficulty: 'intermediate',
+                intent: '理解CNN在图像识别中的应用'
+            },
+            rl: {
+                topic: '强化学习',
+                audience: 'AI研究者',
+                difficulty: 'advanced',
+                intent: '深入研究Q-Learning算法'
+            }
+        };
+
+        // 填充示例
+        function fillExample(key) {
+            const example = examples[key];
+            document.getElementById('topic').value = example.topic;
+            document.getElementById('audience').value = example.audience;
+            document.getElementById('difficulty').value = example.difficulty;
+            document.getElementById('intent').value = example.intent;
+        }
+
+        // 检查 API 健康状态
+        async function checkHealth() {
+            const statusDiv = document.getElementById('status');
+            statusDiv.style.display = 'block';
+            statusDiv.className = 'status loading';
+            statusDiv.innerHTML = '检查中...';
+
+            try {
+                const response = await fetch(`${API_URL}/health`);
+                const data = await response.json();
+
+                statusDiv.className = 'status success';
+                statusDiv.innerHTML = `
+                    <strong>✅ API 运行正常</strong><br>
+                    版本: ${data.version}<br>
+                    模型: ${data.model}<br>
+                    运行时间: ${Math.round(data.uptime_seconds)} 秒
+                `;
+            } catch (error) {
+                statusDiv.className = 'status error';
+                statusDiv.innerHTML = `<strong>❌ API 连接失败</strong><br>${error.message}`;
+            }
+        }
+
+        // 生成内容
+        document.getElementById('generateForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const topic = document.getElementById('topic').value;
+            const audience = document.getElementById('audience').value;
+            const difficulty = document.getElementById('difficulty').value;
+            const intent = document.getElementById('intent').value;
+
+            const statusDiv = document.getElementById('status');
+            const resultDiv = document.getElementById('result');
+            const btnText = document.getElementById('btnText');
+
+            // 显示加载状态
+            statusDiv.style.display = 'block';
+            statusDiv.className = 'status loading';
+            statusDiv.innerHTML = '<span class="loading-spinner"></span> 正在生成内容，请稍候...（可能需要 3-6 分钟）';
+
+            btnText.disabled = true;
+            resultDiv.style.display = 'none';
+
+            try {
+                const requestBody = {
+                    topic: topic,
+                    target_audience: audience,
+                    difficulty: difficulty
+                };
+
+                if (intent) {
+                    requestBody.user_intent = intent;
+                }
+
+                const response = await fetch(`${API_URL}/generate`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(requestBody)
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    statusDiv.className = 'status success';
+                    statusDiv.innerHTML = '<strong>✅ 生成成功！</strong>';
+
+                    // 显示结果
+                    resultDiv.style.display = 'block';
+                    document.getElementById('resultInfo').innerHTML = `
+                        <strong>标题:</strong> ${data.page_schema.title}<br>
+                        <strong>章节数:</strong> ${data.page_schema.sections.length}<br>
+                        <strong>组件数:</strong> ${data.page_schema.components.length}<br>
+                        <strong>生成时间:</strong> ${Math.round(data.generation_time_seconds)} 秒<br>
+                        <strong>使用 Tokens:</strong> ${data.tokens_used}
+                    `;
+
+                    // 生成预览链接（使用 page_id）
+                    const pageId = data.page_schema.page_id || 'generated';
+                    document.getElementById('previewLink').href = `http://localhost:8080/#/page/${pageId}`;
+                } else {
+                    statusDiv.className = 'status error';
+                    statusDiv.innerHTML = `<strong>❌ 生成失败</strong><br>${data.error}`;
+                }
+            } catch (error) {
+                statusDiv.className = 'status error';
+                statusDiv.innerHTML = `<strong>❌ 请求失败</strong><br>${error.message}`;
+            } finally {
+                btnText.disabled = false;
+            }
+        });
+
+        // 页面加载时自动检查 API 状态
+        window.addEventListener('load', () => {
+            setTimeout(checkHealth, 500);
+        });
+    </script>
+</body>
+</html>

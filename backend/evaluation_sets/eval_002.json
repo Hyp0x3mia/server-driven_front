@@ -1,0 +1,102 @@
+{
+  "set_id": "eval_002",
+  "domain": "历史",
+  "topic": "工业革命",
+  "target_audience": "高中学生",
+  "difficulty": "beginner",
+  "user_intent": "了解工业革命的起因、过程和影响",
+  "expected_components": [
+    "Hero",
+    "Timeline",
+    "CardGrid",
+    "Markdown"
+  ],
+  "knowledge_points": [
+    {
+      "knowledge_id": "HIS-001",
+      "name": "工业革命概述",
+      "description": "18世纪从英国开始的生产方式变革",
+      "domain": "历史",
+      "subdomain": "近代史",
+      "difficulty": 1,
+      "cognitive_level": "COG_L1",
+      "importance": 0.9,
+      "abstraction": 2,
+      "estimated_time": 15,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [],
+      "successors": [
+        "HIS-002",
+        "HIS-003"
+      ],
+      "keywords": [
+        "工业革命",
+        "机械化",
+        "英国"
+      ],
+      "application_scenarios": [],
+      "common_misconceptions": [
+        "工业革命是一夜之间发生的"
+      ],
+      "mastery_criteria": "能够概述工业革命的定义和时间"
+    },
+    {
+      "knowledge_id": "HIS-002",
+      "name": "工业革命的四个阶段",
+      "description": "从早期机械化到电气化的发展历程",
+      "domain": "历史",
+      "subdomain": "近代史",
+      "difficulty": 2,
+      "cognitive_level": "COG_L2",
+      "importance": 0.8,
+      "abstraction": 3,
+      "estimated_time": 20,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [
+        "HIS-001"
+      ],
+      "successors": [
+        "HIS-003"
+      ],
+      "keywords": [
+        "蒸汽机",
+        "电气化",
+        "自动化"
+      ],
+      "application_scenarios": [],
+      "common_misconceptions": [],
+      "mastery_criteria": "能够列出工业革命的四个阶段"
+    },
+    {
+      "knowledge_id": "HIS-003",
+      "name": "工业革命的社会影响",
+      "description": "对社会结构、经济和生活的深远影响",
+      "domain": "历史",
+      "subdomain": "近代史",
+      "difficulty": 2,
+      "cognitive_level": "COG_L2",
+      "importance": 0.9,
+      "abstraction": 4,
+      "estimated_time": 20,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [
+        "HIS-001",
+        "HIS-002"
+      ],
+      "successors": [],
+      "keywords": [
+        "城市化",
+        "工人阶级",
+        "生活水平"
+      ],
+      "application_scenarios": [],
+      "common_misconceptions": [
+        "工业革命只带来了好处"
+      ],
+      "mastery_criteria": "能够分析工业革命的利弊"
+    }
+  ]
+}

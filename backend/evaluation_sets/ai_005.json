@@ -1,0 +1,116 @@
+{
+  "set_id": "ai_005",
+  "domain": "人工智能",
+  "topic": "自然语言处理（NLP）",
+  "target_audience": "对文本AI感兴趣的读者",
+  "difficulty": "intermediate",
+  "user_intent": "了解NLP如何让机器理解和生成人类语言",
+  "expected_components": [
+    "Hero",
+    "CardGrid",
+    "Timeline",
+    "Markdown"
+  ],
+  "knowledge_points": [
+    {
+      "knowledge_id": "NLP-001",
+      "name": "NLP的定义和挑战",
+      "description": "自然语言处理是AI的重要分支，处理人类语言的复杂性",
+      "domain": "人工智能",
+      "subdomain": "自然语言处理",
+      "difficulty": 2,
+      "cognitive_level": "COG_L1",
+      "importance": 0.9,
+      "abstraction": 3,
+      "estimated_time": 20,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [],
+      "successors": [
+        "NLP-002",
+        "NLP-003"
+      ],
+      "keywords": [
+        "NLP",
+        "自然语言理解",
+        "自然语言生成",
+        "歧义性"
+      ],
+      "application_scenarios": [
+        "机器翻译",
+        "智能客服"
+      ],
+      "common_misconceptions": [
+        "NLP只是简单的关键词匹配"
+      ],
+      "mastery_criteria": "理解NLP的基本定义和核心挑战"
+    },
+    {
+      "knowledge_id": "NLP-002",
+      "name": "NLP的关键技术",
+      "description": "分词、词向量、句法分析等NLP核心技术",
+      "domain": "人工智能",
+      "subdomain": "自然语言处理",
+      "difficulty": 3,
+      "cognitive_level": "COG_L2",
+      "importance": 0.9,
+      "abstraction": 4,
+      "estimated_time": 30,
+      "is_key_point": true,
+      "is_difficult": true,
+      "prerequisites": [
+        "NLP-001"
+      ],
+      "successors": [
+        "NLP-003"
+      ],
+      "keywords": [
+        "分词",
+        "词嵌入",
+        "Word2Vec",
+        "注意力机制"
+      ],
+      "application_scenarios": [
+        "文本分类",
+        "情感分析"
+      ],
+      "common_misconceptions": [],
+      "mastery_criteria": "了解NLP的主要技术方法"
+    },
+    {
+      "knowledge_id": "NLP-003",
+      "name": "大语言模型时代",
+      "description": "GPT、BERT等大语言模型带来的革命",
+      "domain": "人工智能",
+      "subdomain": "自然语言处理",
+      "difficulty": 2,
+      "cognitive_level": "COG_L2",
+      "importance": 1.0,
+      "abstraction": 4,
+      "estimated_time": 25,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [
+        "NLP-001",
+        "NLP-002"
+      ],
+      "successors": [],
+      "keywords": [
+        "GPT",
+        "Transformer",
+        "预训练",
+        "微调",
+        "提示工程"
+      ],
+      "application_scenarios": [
+        "对话系统",
+        "文本生成",
+        "代码生成"
+      ],
+      "common_misconceptions": [
+        "大模型完全理解语言"
+      ],
+      "mastery_criteria": "理解大语言模型的基本原理和应用"
+    }
+  ]
+}

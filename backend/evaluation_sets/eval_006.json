@@ -1,0 +1,109 @@
+{
+  "set_id": "eval_006",
+  "domain": "经济学",
+  "topic": "市场供需理论",
+  "target_audience": "经济学本科生",
+  "difficulty": "beginner",
+  "user_intent": "理解供需关系如何决定市场价格",
+  "expected_components": [
+    "Hero",
+    "Flashcard",
+    "Cloze",
+    "Markdown"
+  ],
+  "knowledge_points": [
+    {
+      "knowledge_id": "ECO-001",
+      "name": "需求理论",
+      "description": "消费者在不同价格下的购买行为",
+      "domain": "经济学",
+      "subdomain": "微观经济学",
+      "difficulty": 1,
+      "cognitive_level": "COG_L2",
+      "importance": 0.9,
+      "abstraction": 2,
+      "estimated_time": 20,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [],
+      "successors": [
+        "ECO-002",
+        "ECO-003"
+      ],
+      "keywords": [
+        "需求",
+        "价格",
+        "需求曲线"
+      ],
+      "application_scenarios": [
+        "定价策略",
+        "市场预测"
+      ],
+      "common_misconceptions": [
+        "需求量就是需求"
+      ],
+      "mastery_criteria": "理解需求定律"
+    },
+    {
+      "knowledge_id": "ECO-002",
+      "name": "供给理论",
+      "description": "生产者在不同价格下的供给行为",
+      "domain": "经济学",
+      "subdomain": "微观经济学",
+      "difficulty": 1,
+      "cognitive_level": "COG_L2",
+      "importance": 0.9,
+      "abstraction": 2,
+      "estimated_time": 20,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [
+        "ECO-001"
+      ],
+      "successors": [
+        "ECO-003"
+      ],
+      "keywords": [
+        "供给",
+        "成本",
+        "供给曲线"
+      ],
+      "application_scenarios": [
+        "生产计划",
+        "产业政策"
+      ],
+      "common_misconceptions": [],
+      "mastery_criteria": "理解供给定律"
+    },
+    {
+      "knowledge_id": "ECO-003",
+      "name": "市场均衡",
+      "description": "供需平衡决定市场价格和数量",
+      "domain": "经济学",
+      "subdomain": "微观经济学",
+      "difficulty": 2,
+      "cognitive_level": "COG_L3",
+      "importance": 1.0,
+      "abstraction": 3,
+      "estimated_time": 25,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [
+        "ECO-001",
+        "ECO-002"
+      ],
+      "successors": [],
+      "keywords": [
+        "均衡",
+        "价格机制",
+        "市场出清"
+      ],
+      "application_scenarios": [
+        "价格管制",
+        "税收政策"
+      ],
+      "common_misconceptions": [],
+      "mastery_criteria": "能够分析市场均衡的变化"
+    }
+  ]
+}

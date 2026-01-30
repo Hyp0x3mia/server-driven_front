@@ -1,0 +1,106 @@
+{
+  "set_id": "ai_002",
+  "domain": "人工智能",
+  "topic": "AI发展历史",
+  "target_audience": "对AI历史感兴趣的读者",
+  "difficulty": "beginner",
+  "user_intent": "了解AI从诞生到现在的关键发展历程",
+  "expected_components": [
+    "Hero",
+    "Timeline",
+    "CardGrid",
+    "Markdown"
+  ],
+  "knowledge_points": [
+    {
+      "knowledge_id": "AI-H-001",
+      "name": "AI的诞生（1950-1969）",
+      "description": "人工智能作为一个学科正式诞生，图灵测试和达特茅斯会议",
+      "domain": "人工智能",
+      "subdomain": "历史发展",
+      "difficulty": 1,
+      "cognitive_level": "COG_L1",
+      "importance": 0.9,
+      "abstraction": 2,
+      "estimated_time": 20,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [],
+      "successors": [
+        "AI-H-002",
+        "AI-H-003"
+      ],
+      "keywords": [
+        "图灵测试",
+        "达特茅斯会议",
+        "逻辑理论家",
+        "感知机"
+      ],
+      "application_scenarios": [],
+      "common_misconceptions": [
+        "AI是最近才出现的"
+      ],
+      "mastery_criteria": "能够说出AI诞生的标志性事件"
+    },
+    {
+      "knowledge_id": "AI-H-002",
+      "name": "AI的起伏发展（1970-1999）",
+      "description": "AI经历了两次寒冬和复兴期，专家系统和神经网络的发展",
+      "domain": "人工智能",
+      "subdomain": "历史发展",
+      "difficulty": 2,
+      "cognitive_level": "COG_L2",
+      "importance": 0.8,
+      "abstraction": 3,
+      "estimated_time": 25,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [
+        "AI-H-001"
+      ],
+      "successors": [
+        "AI-H-003"
+      ],
+      "keywords": [
+        "AI寒冬",
+        "专家系统",
+        "反向传播",
+        "深蓝"
+      ],
+      "application_scenarios": [],
+      "common_misconceptions": [
+        "AI发展一直很顺利"
+      ],
+      "mastery_criteria": "理解AI寒冬的原因和复苏的动力"
+    },
+    {
+      "knowledge_id": "AI-H-003",
+      "name": "深度学习时代（2000至今）",
+      "description": "大数据和算力推动AI进入新时代，AlphaGo和大语言模型",
+      "domain": "人工智能",
+      "subdomain": "历史发展",
+      "difficulty": 2,
+      "cognitive_level": "COG_L2",
+      "importance": 1.0,
+      "abstraction": 3,
+      "estimated_time": 25,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [
+        "AI-H-001",
+        "AI-H-002"
+      ],
+      "successors": [],
+      "keywords": [
+        "深度学习",
+        "AlexNet",
+        "AlphaGo",
+        "Transformer",
+        "GPT"
+      ],
+      "application_scenarios": [],
+      "common_misconceptions": [],
+      "mastery_criteria": "能够概述深度学习时代的标志性突破"
+    }
+  ]
+}

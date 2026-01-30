@@ -1,0 +1,357 @@
+{
+  "page_id": "ai_002",
+  "page_mode": null,
+  "title": "AI发展历史",
+  "summary": "学习人工智能的核心知识，包含3个知识点，预计学习时间1小时10分钟。",
+  "sections": [
+    {
+      "section_id": "section-00-历史发展",
+      "section_type": "History",
+      "title": "历史发展",
+      "layout_intent": "timeline",
+      "pedagogical_goal": "掌握历史发展的核心概念，重点关注3个关键知识点",
+      "blocks": [
+        {
+          "type": "Hero",
+          "role": "page-intro",
+          "content": {
+            "title": "AI的诞生（1950-1969）",
+            "subtitle": "# AI的诞生：梦想的起点（1950-1969）\n\n想象一下，如果我们可以制造出像人类一样思考的机器，世界会变成什么样？这个想法在20世纪50年代从科幻小说走向了科学现实。\n\n## 图灵测试：机器能思考吗？\n一切始于1950年，英国数学家**艾伦·图灵**（Alan Turing）发表了一篇里程碑式的论文。他提出了一个著名的问题：“机器能思考吗？”为了避开“思考”这个词的哲学定义，他设计了一个著名...",
+            "features": [
+              "1950年，艾伦·图灵提出“图灵测试”，探讨机器智能的可能性",
+              "1956年达特茅斯会议正式确立了“人工智能”这一学科名称",
+              "早期AI主要基于逻辑推理和符号处理，被称为“符号主义”",
+              "这一时期充满了对AI未来的极度乐观情绪"
+            ]
+          },
+          "title": "AI的诞生（1950-1969）",
+          "id": null
+        },
+        {
+          "type": "FlashcardGrid",
+          "role": "practice-quiz",
+          "content": {
+            "title": "AI的诞生（1950-1969） - 知识检测",
+            "cards": [
+              {
+                "type": "Flashcard",
+                "id": "ai-h-001-practice-card-0",
+                "front": {
+                  "title": "Question 1",
+                  "content": "判断题：1956年的达特茅斯会议上，科学家们展示了像ChatGPT这样复杂的对话系统。"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "错误。当时的计算机能力非常有限，只能处理简单的逻辑或规则匹配，不可能产生像ChatGPT这样复杂的系统。"
+                }
+              },
+              {
+                "type": "Flashcard",
+                "id": "ai-h-001-practice-card-1",
+                "front": {
+                  "title": "Question 2",
+                  "content": "选择题：以下哪项不是1950-1969年间AI发展的特征？\nA. 提出了图灵测试\nB. 诞生了“人工智能”这一术语\nC. 基于大数据的深度学习\nD. 开发了简单的逻辑证明程序"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "C。基于大数据的深度学习是21世纪（特别是2010年后）的特征，早期AI主要依靠手工编写的规则和逻辑。"
+                }
+              },
+              {
+                "type": "Flashcard",
+                "id": "ai-h-001-practice-card-2",
+                "front": {
+                  "title": "Question 3",
+                  "content": "填空题：______测试通过判断机器是否能模仿人类的回答来评估其智能水平。"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "图灵"
+                }
+              }
+            ]
+          },
+          "title": "AI的诞生（1950-1969） - 知识检测",
+          "id": null
+        },
+        {
+          "type": "Timeline",
+          "role": "chronological-narrative",
+          "content": {
+            "title": "AI的起伏发展（1970-1999）",
+            "items": [
+              {
+                "year": "1",
+                "label": "Step 1",
+                "title": "Phase 1",
+                "description": "专家系统MYCIN：医生输入病人的症状，系统根据数百条“如果...那么...”的规则推理出可能的病菌。",
+                "keywords": [
+                  "AI寒冬",
+                  "专家系统",
+                  "莫拉维克悖论"
+                ]
+              },
+              {
+                "year": "2",
+                "label": "Step 2",
+                "title": "Phase 2",
+                "description": "深蓝：它并不真正“理解”象棋，而是通过每秒计算2亿步棋的暴力搜索能力来战胜对手。",
+                "keywords": [
+                  "AI寒冬",
+                  "专家系统",
+                  "莫拉维克悖论"
+                ]
+              }
+            ]
+          },
+          "title": "AI的起伏发展（1970-1999）",
+          "id": null
+        },
+        {
+          "type": "CardGrid",
+          "role": "concept-showcase",
+          "content": {
+            "title": "深度学习时代（2000至今）",
+            "items": [
+              {
+                "name": "Example",
+                "description": "人脸识别：现在你的手机可以瞬间解锁，后台运行的就是深度卷积神经网络，这在2000年是不可想象的。",
+                "keywords": [
+                  "深度学习",
+                  "神经网络",
+                  "ImageNet"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "推荐算法：抖音或淘宝之所以“懂你”，是因为深度学习模型分析了你过去的行为数据，预测了你可能喜欢的内容。",
+                "keywords": [
+                  "深度学习",
+                  "神经网络",
+                  "ImageNet"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "大数据、强算力（GPU）和深度学习算法是引爆AI革命的三大支柱",
+                "keywords": [
+                  "深度学习",
+                  "神经网络"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "2012年AlexNet的胜利标志着深度学习时代的正式开启",
+                "keywords": [
+                  "深度学习",
+                  "神经网络"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "AlphaGo展示了深度学习在复杂策略游戏上的潜力",
+                "keywords": [
+                  "深度学习",
+                  "神经网络"
+                ]
+              }
+            ]
+          },
+          "title": "深度学习时代（2000至今）",
+          "id": null
+        },
+        {
+          "type": "Flashcard",
+          "role": "key-concept-check",
+          "content": {
+            "id": "ai-h-003-practice",
+            "front": {
+              "title": "Quick Check",
+              "content": "判断题：GPU在AI发展中之所以重要，是因为它原本就是为AI计算设计的。"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "错误。GPU原本是为电子游戏渲染图形设计的，后来人们发现它非常适合处理AI所需的矩阵运算（并行计算），才被广泛用于AI领域。"
+            }
+          },
+          "title": null,
+          "id": "ai-h-003-practice"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "Hero",
+      "role": "page-intro",
+      "content": {
+        "title": "AI的诞生（1950-1969）",
+        "subtitle": "# AI的诞生：梦想的起点（1950-1969）\n\n想象一下，如果我们可以制造出像人类一样思考的机器，世界会变成什么样？这个想法在20世纪50年代从科幻小说走向了科学现实。\n\n## 图灵测试：机器能思考吗？\n一切始于1950年，英国数学家**艾伦·图灵**（Alan Turing）发表了一篇里程碑式的论文。他提出了一个著名的问题：“机器能思考吗？”为了避开“思考”这个词的哲学定义，他设计了一个著名...",
+        "features": [
+          "1950年，艾伦·图灵提出“图灵测试”，探讨机器智能的可能性",
+          "1956年达特茅斯会议正式确立了“人工智能”这一学科名称",
+          "早期AI主要基于逻辑推理和符号处理，被称为“符号主义”",
+          "这一时期充满了对AI未来的极度乐观情绪"
+        ]
+      },
+      "title": "AI的诞生（1950-1969）",
+      "id": null
+    },
+    {
+      "type": "FlashcardGrid",
+      "role": "practice-quiz",
+      "content": {
+        "title": "AI的诞生（1950-1969） - 知识检测",
+        "cards": [
+          {
+            "type": "Flashcard",
+            "id": "ai-h-001-practice-card-0",
+            "front": {
+              "title": "Question 1",
+              "content": "判断题：1956年的达特茅斯会议上，科学家们展示了像ChatGPT这样复杂的对话系统。"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "错误。当时的计算机能力非常有限，只能处理简单的逻辑或规则匹配，不可能产生像ChatGPT这样复杂的系统。"
+            }
+          },
+          {
+            "type": "Flashcard",
+            "id": "ai-h-001-practice-card-1",
+            "front": {
+              "title": "Question 2",
+              "content": "选择题：以下哪项不是1950-1969年间AI发展的特征？\nA. 提出了图灵测试\nB. 诞生了“人工智能”这一术语\nC. 基于大数据的深度学习\nD. 开发了简单的逻辑证明程序"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "C。基于大数据的深度学习是21世纪（特别是2010年后）的特征，早期AI主要依靠手工编写的规则和逻辑。"
+            }
+          },
+          {
+            "type": "Flashcard",
+            "id": "ai-h-001-practice-card-2",
+            "front": {
+              "title": "Question 3",
+              "content": "填空题：______测试通过判断机器是否能模仿人类的回答来评估其智能水平。"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "图灵"
+            }
+          }
+        ]
+      },
+      "title": "AI的诞生（1950-1969） - 知识检测",
+      "id": null
+    },
+    {
+      "type": "Timeline",
+      "role": "chronological-narrative",
+      "content": {
+        "title": "AI的起伏发展（1970-1999）",
+        "items": [
+          {
+            "year": "1",
+            "label": "Step 1",
+            "title": "Phase 1",
+            "description": "专家系统MYCIN：医生输入病人的症状，系统根据数百条“如果...那么...”的规则推理出可能的病菌。",
+            "keywords": [
+              "AI寒冬",
+              "专家系统",
+              "莫拉维克悖论"
+            ]
+          },
+          {
+            "year": "2",
+            "label": "Step 2",
+            "title": "Phase 2",
+            "description": "深蓝：它并不真正“理解”象棋，而是通过每秒计算2亿步棋的暴力搜索能力来战胜对手。",
+            "keywords": [
+              "AI寒冬",
+              "专家系统",
+              "莫拉维克悖论"
+            ]
+          }
+        ]
+      },
+      "title": "AI的起伏发展（1970-1999）",
+      "id": null
+    },
+    {
+      "type": "CardGrid",
+      "role": "concept-showcase",
+      "content": {
+        "title": "深度学习时代（2000至今）",
+        "items": [
+          {
+            "name": "Example",
+            "description": "人脸识别：现在你的手机可以瞬间解锁，后台运行的就是深度卷积神经网络，这在2000年是不可想象的。",
+            "keywords": [
+              "深度学习",
+              "神经网络",
+              "ImageNet"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "推荐算法：抖音或淘宝之所以“懂你”，是因为深度学习模型分析了你过去的行为数据，预测了你可能喜欢的内容。",
+            "keywords": [
+              "深度学习",
+              "神经网络",
+              "ImageNet"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "大数据、强算力（GPU）和深度学习算法是引爆AI革命的三大支柱",
+            "keywords": [
+              "深度学习",
+              "神经网络"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "2012年AlexNet的胜利标志着深度学习时代的正式开启",
+            "keywords": [
+              "深度学习",
+              "神经网络"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "AlphaGo展示了深度学习在复杂策略游戏上的潜力",
+            "keywords": [
+              "深度学习",
+              "神经网络"
+            ]
+          }
+        ]
+      },
+      "title": "深度学习时代（2000至今）",
+      "id": null
+    },
+    {
+      "type": "Flashcard",
+      "role": "key-concept-check",
+      "content": {
+        "id": "ai-h-003-practice",
+        "front": {
+          "title": "Quick Check",
+          "content": "判断题：GPU在AI发展中之所以重要，是因为它原本就是为AI计算设计的。"
+        },
+        "back": {
+          "title": "Answer",
+          "content": "错误。GPU原本是为电子游戏渲染图形设计的，后来人们发现它非常适合处理AI所需的矩阵运算（并行计算），才被广泛用于AI领域。"
+        }
+      },
+      "title": null,
+      "id": "ai-h-003-practice"
+    }
+  ],
+  "metadata": {
+    "total_estimated_time": 49,
+    "target_audience": "对AI历史感兴趣的读者",
+    "warnings": [],
+    "generation_method": "multi-agent-pipeline"
+  }
+}

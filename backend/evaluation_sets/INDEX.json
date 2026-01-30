@@ -1,0 +1,57 @@
+{
+  "total": 10,
+  "domain": "人工智能",
+  "description": "AI通识内容评测集",
+  "sets": [
+    {
+      "id": "ai_001",
+      "topic": "人工智能基础概念",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "ai_002",
+      "topic": "AI发展历史",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "ai_003",
+      "topic": "机器学习基础",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "ai_004",
+      "topic": "神经网络与深度学习",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "ai_005",
+      "topic": "自然语言处理（NLP）",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "ai_006",
+      "topic": "计算机视觉",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "ai_007",
+      "topic": "AI伦理与安全",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "ai_008",
+      "topic": "AI应用场景",
+      "difficulty": "beginner"
+    },
+    {
+      "id": "ai_009",
+      "topic": "AI工具与实践",
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "ai_010",
+      "topic": "AI的未来发展趋势",
+      "difficulty": "intermediate"
+    }
+  ]
+}

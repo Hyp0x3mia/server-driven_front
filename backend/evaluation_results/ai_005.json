@@ -1,0 +1,227 @@
+{
+  "page_id": "ai_005",
+  "page_mode": null,
+  "title": "自然语言处理（NLP）",
+  "summary": "学习人工智能的核心知识，包含3个知识点，预计学习时间1小时15分钟。",
+  "sections": [
+    {
+      "section_id": "section-00-自然语言处理",
+      "section_type": "Concept",
+      "title": "自然语言处理",
+      "layout_intent": "default",
+      "pedagogical_goal": "掌握自然语言处理的核心概念，重点关注3个关键知识点，理解1个难点内容",
+      "blocks": [
+        {
+          "type": "Hero",
+          "role": "intro",
+          "content": {
+            "title": "NLP的定义和挑战",
+            "subtitle": "### 什么是自然语言处理（NLP）？\n\n自然语言处理（Natural Language Processing，简称 NLP）是人工智能（AI）的一个核心分支，致力于让计算机能够理解、解释和生成人类语言。简单来说，NLP 就是沟通人类与机器之间的桥梁。\n\n想象一下，你每天都在用键盘或语音与手机交流，无论是搜索问题、发送微信，还是询问 Siri 天气，背后都是 NLP 在发挥作用。它结合了计算机科学...",
+            "features": [
+              "NLP 是人工智能的一个分支，专注于让计算机理解、解释和生成人类语言。",
+              "核心挑战包括语言的歧义性、上下文依赖以及中文特有的分词问题。",
+              "NLP 是实现人机自然交互的基础技术。",
+              "机器翻译和智能客服是 NLP 最典型的两个应用场景。"
+            ]
+          },
+          "title": "NLP的定义和挑战",
+          "id": null
+        },
+        {
+          "type": "CardGrid",
+          "role": "core-concept",
+          "content": {
+            "title": "NLP的关键技术",
+            "items": [
+              {
+                "name": "Example",
+                "description": "**文本分类**：新闻网站自动将文章归类为“体育”、“财经”或“娱乐”，利用的是模型对文本主题特征的提取能力。",
+                "keywords": [
+                  "分词",
+                  "词嵌入",
+                  "Word2Vec"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "**情感分析**：品牌监控社交媒体上的评论，自动判断用户对产品的态度是“正面”、“负面”还是“中性”。",
+                "keywords": [
+                  "分词",
+                  "词嵌入",
+                  "Word2Vec"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "**垃圾邮件过滤**：邮箱自动识别并拦截垃圾邮件，这是基于对邮件文本内容的分类技术。",
+                "keywords": [
+                  "分词",
+                  "词嵌入",
+                  "Word2Vec"
+                ]
+              }
+            ]
+          },
+          "title": "NLP的关键技术",
+          "id": null
+        },
+        {
+          "type": "FlashcardGrid",
+          "role": "interactive-concept",
+          "content": {
+            "title": "大语言模型时代",
+            "cards": [
+              {
+                "type": "Flashcard",
+                "id": "nlp-003-card-0",
+                "front": {
+                  "title": "Question 1",
+                  "content": "大语言模型（LLM）的基础训练目标通常是什么？"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "预测下一个词。"
+                }
+              },
+              {
+                "type": "Flashcard",
+                "id": "nlp-003-card-1",
+                "front": {
+                  "title": "Question 2",
+                  "content": "什么是 LLM 的“涌现能力”？"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "指当模型规模大到一定程度时，突然出现的小模型所不具备的强大能力（如推理、少样本学习）。"
+                }
+              },
+              {
+                "type": "Flashcard",
+                "id": "nlp-003-card-2",
+                "front": {
+                  "title": "Question 3",
+                  "content": "在使用 LLM 时，什么是“幻觉”，为什么它很危险？"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "幻觉是指模型生成了看似合理但实际上错误或虚假的信息。这很危险因为它会误导用户以为信息是准确的。"
+                }
+              }
+            ]
+          },
+          "title": "大语言模型时代",
+          "id": null
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "Hero",
+      "role": "intro",
+      "content": {
+        "title": "NLP的定义和挑战",
+        "subtitle": "### 什么是自然语言处理（NLP）？\n\n自然语言处理（Natural Language Processing，简称 NLP）是人工智能（AI）的一个核心分支，致力于让计算机能够理解、解释和生成人类语言。简单来说，NLP 就是沟通人类与机器之间的桥梁。\n\n想象一下，你每天都在用键盘或语音与手机交流，无论是搜索问题、发送微信，还是询问 Siri 天气，背后都是 NLP 在发挥作用。它结合了计算机科学...",
+        "features": [
+          "NLP 是人工智能的一个分支，专注于让计算机理解、解释和生成人类语言。",
+          "核心挑战包括语言的歧义性、上下文依赖以及中文特有的分词问题。",
+          "NLP 是实现人机自然交互的基础技术。",
+          "机器翻译和智能客服是 NLP 最典型的两个应用场景。"
+        ]
+      },
+      "title": "NLP的定义和挑战",
+      "id": null
+    },
+    {
+      "type": "CardGrid",
+      "role": "core-concept",
+      "content": {
+        "title": "NLP的关键技术",
+        "items": [
+          {
+            "name": "Example",
+            "description": "**文本分类**：新闻网站自动将文章归类为“体育”、“财经”或“娱乐”，利用的是模型对文本主题特征的提取能力。",
+            "keywords": [
+              "分词",
+              "词嵌入",
+              "Word2Vec"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "**情感分析**：品牌监控社交媒体上的评论，自动判断用户对产品的态度是“正面”、“负面”还是“中性”。",
+            "keywords": [
+              "分词",
+              "词嵌入",
+              "Word2Vec"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "**垃圾邮件过滤**：邮箱自动识别并拦截垃圾邮件，这是基于对邮件文本内容的分类技术。",
+            "keywords": [
+              "分词",
+              "词嵌入",
+              "Word2Vec"
+            ]
+          }
+        ]
+      },
+      "title": "NLP的关键技术",
+      "id": null
+    },
+    {
+      "type": "FlashcardGrid",
+      "role": "interactive-concept",
+      "content": {
+        "title": "大语言模型时代",
+        "cards": [
+          {
+            "type": "Flashcard",
+            "id": "nlp-003-card-0",
+            "front": {
+              "title": "Question 1",
+              "content": "大语言模型（LLM）的基础训练目标通常是什么？"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "预测下一个词。"
+            }
+          },
+          {
+            "type": "Flashcard",
+            "id": "nlp-003-card-1",
+            "front": {
+              "title": "Question 2",
+              "content": "什么是 LLM 的“涌现能力”？"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "指当模型规模大到一定程度时，突然出现的小模型所不具备的强大能力（如推理、少样本学习）。"
+            }
+          },
+          {
+            "type": "Flashcard",
+            "id": "nlp-003-card-2",
+            "front": {
+              "title": "Question 3",
+              "content": "在使用 LLM 时，什么是“幻觉”，为什么它很危险？"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "幻觉是指模型生成了看似合理但实际上错误或虚假的信息。这很危险因为它会误导用户以为信息是准确的。"
+            }
+          }
+        ]
+      },
+      "title": "大语言模型时代",
+      "id": null
+    }
+  ],
+  "metadata": {
+    "total_estimated_time": 75,
+    "target_audience": "对文本AI感兴趣的读者",
+    "warnings": [],
+    "generation_method": "multi-agent-pipeline"
+  }
+}

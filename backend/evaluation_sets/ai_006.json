@@ -1,0 +1,113 @@
+{
+  "set_id": "ai_006",
+  "domain": "人工智能",
+  "topic": "计算机视觉",
+  "target_audience": "对图像AI感兴趣的读者",
+  "difficulty": "intermediate",
+  "user_intent": "了解AI如何看懂图像和视频",
+  "expected_components": [
+    "Hero",
+    "Flashcard",
+    "CardGrid",
+    "CodePlayground"
+  ],
+  "knowledge_points": [
+    {
+      "knowledge_id": "CV-001",
+      "name": "计算机视觉概述",
+      "description": "让计算机理解和分析视觉信息",
+      "domain": "人工智能",
+      "subdomain": "计算机视觉",
+      "difficulty": 2,
+      "cognitive_level": "COG_L1",
+      "importance": 0.9,
+      "abstraction": 3,
+      "estimated_time": 20,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [],
+      "successors": [
+        "CV-002",
+        "CV-003"
+      ],
+      "keywords": [
+        "计算机视觉",
+        "图像处理",
+        "模式识别",
+        "像素"
+      ],
+      "application_scenarios": [
+        "人脸识别",
+        "自动驾驶"
+      ],
+      "common_misconceptions": [
+        "计算机视觉就是摄像头"
+      ],
+      "mastery_criteria": "理解计算机视觉的定义和应用范围"
+    },
+    {
+      "knowledge_id": "CV-002",
+      "name": "卷积神经网络（CNN）",
+      "description": "CNN是处理图像的核心神经网络架构",
+      "domain": "人工智能",
+      "subdomain": "计算机视觉",
+      "difficulty": 3,
+      "cognitive_level": "COG_L3",
+      "importance": 1.0,
+      "abstraction": 5,
+      "estimated_time": 30,
+      "is_key_point": true,
+      "is_difficult": true,
+      "prerequisites": [
+        "CV-001"
+      ],
+      "successors": [
+        "CV-003"
+      ],
+      "keywords": [
+        "CNN",
+        "卷积层",
+        "池化层",
+        "特征提取"
+      ],
+      "application_scenarios": [
+        "图像分类",
+        "目标检测"
+      ],
+      "common_misconceptions": [],
+      "mastery_criteria": "理解CNN的工作原理和优势"
+    },
+    {
+      "knowledge_id": "CV-003",
+      "name": "视觉任务和应用",
+      "description": "分类、检测、分割等各种视觉任务",
+      "domain": "人工智能",
+      "subdomain": "计算机视觉",
+      "difficulty": 3,
+      "cognitive_level": "COG_L2",
+      "importance": 0.9,
+      "abstraction": 4,
+      "estimated_time": 25,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [
+        "CV-001",
+        "CV-002"
+      ],
+      "successors": [],
+      "keywords": [
+        "图像分类",
+        "目标检测",
+        "图像分割",
+        "姿态估计"
+      ],
+      "application_scenarios": [
+        "医疗影像",
+        "安防监控",
+        "自动驾驶"
+      ],
+      "common_misconceptions": [],
+      "mastery_criteria": "了解主要的视觉任务类型"
+    }
+  ]
+}

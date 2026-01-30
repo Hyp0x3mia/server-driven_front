@@ -1,0 +1,111 @@
+{
+  "set_id": "eval_001",
+  "domain": "计算机科学",
+  "topic": "Transformer 架构详解",
+  "target_audience": "AI工程师",
+  "difficulty": "intermediate",
+  "user_intent": "深入理解自注意力机制的原理和实现",
+  "expected_components": [
+    "Hero",
+    "CodePlayground",
+    "FlashcardGrid",
+    "Markdown"
+  ],
+  "knowledge_points": [
+    {
+      "knowledge_id": "CS-001",
+      "name": "Transformer 架构概述",
+      "description": "Transformer是基于注意力机制的神经网络架构",
+      "domain": "计算机科学",
+      "subdomain": "深度学习",
+      "difficulty": 2,
+      "cognitive_level": "COG_L2",
+      "importance": 0.9,
+      "abstraction": 4,
+      "estimated_time": 20,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [],
+      "successors": [
+        "CS-002",
+        "CS-003"
+      ],
+      "keywords": [
+        "Transformer",
+        "注意力机制",
+        "神经网络"
+      ],
+      "application_scenarios": [
+        "机器翻译",
+        "文本生成"
+      ],
+      "common_misconceptions": [
+        "Transformer只能用于NLP"
+      ],
+      "mastery_criteria": "理解Transformer的核心创新点"
+    },
+    {
+      "knowledge_id": "CS-002",
+      "name": "自注意力机制",
+      "description": "自注意力机制允许模型在处理序列时关注不同位置",
+      "domain": "计算机科学",
+      "subdomain": "深度学习",
+      "difficulty": 3,
+      "cognitive_level": "COG_L3",
+      "importance": 1.0,
+      "abstraction": 5,
+      "estimated_time": 30,
+      "is_key_point": true,
+      "is_difficult": true,
+      "prerequisites": [
+        "CS-001"
+      ],
+      "successors": [
+        "CS-003"
+      ],
+      "keywords": [
+        "自注意力",
+        "Query-Key-Value",
+        "注意力权重"
+      ],
+      "application_scenarios": [
+        "序列建模",
+        "关系抽取"
+      ],
+      "common_misconceptions": [
+        "注意力权重就是相关性"
+      ],
+      "mastery_criteria": "能够计算注意力矩阵"
+    },
+    {
+      "knowledge_id": "CS-003",
+      "name": "编码器-解码器结构",
+      "description": "Transformer采用编码器-解码器架构处理序列到序列任务",
+      "domain": "计算机科学",
+      "subdomain": "深度学习",
+      "difficulty": 2,
+      "cognitive_level": "COG_L2",
+      "importance": 0.8,
+      "abstraction": 3,
+      "estimated_time": 25,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [
+        "CS-001",
+        "CS-002"
+      ],
+      "successors": [],
+      "keywords": [
+        "编码器",
+        "解码器",
+        "Seq2Seq"
+      ],
+      "application_scenarios": [
+        "机器翻译",
+        "文本摘要"
+      ],
+      "common_misconceptions": [],
+      "mastery_criteria": "理解编码器和解码器的协作方式"
+    }
+  ]
+}

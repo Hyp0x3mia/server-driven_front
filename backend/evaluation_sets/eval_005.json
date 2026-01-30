@@ -1,0 +1,109 @@
+{
+  "set_id": "eval_005",
+  "domain": "生物学",
+  "topic": "细胞生物学",
+  "target_audience": "医学生",
+  "difficulty": "intermediate",
+  "user_intent": "深入了解细胞的结构和功能",
+  "expected_components": [
+    "Hero",
+    "CardGrid",
+    "FlashcardGrid",
+    "Timeline"
+  ],
+  "knowledge_points": [
+    {
+      "knowledge_id": "BIO-001",
+      "name": "细胞膜结构",
+      "description": "细胞膜是细胞的边界和保护层",
+      "domain": "生物学",
+      "subdomain": "细胞生物学",
+      "difficulty": 2,
+      "cognitive_level": "COG_L2",
+      "importance": 0.9,
+      "abstraction": 3,
+      "estimated_time": 25,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [],
+      "successors": [
+        "BIO-002",
+        "BIO-003"
+      ],
+      "keywords": [
+        "细胞膜",
+        "磷脂",
+        "蛋白质"
+      ],
+      "application_scenarios": [
+        "药物递送",
+        "细胞识别"
+      ],
+      "common_misconceptions": [
+        "细胞膜是静止的"
+      ],
+      "mastery_criteria": "理解流动镶嵌模型"
+    },
+    {
+      "knowledge_id": "BIO-002",
+      "name": "细胞器功能",
+      "description": "各种细胞器的分工协作",
+      "domain": "生物学",
+      "subdomain": "细胞生物学",
+      "difficulty": 2,
+      "cognitive_level": "COG_L2",
+      "importance": 0.9,
+      "abstraction": 3,
+      "estimated_time": 30,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [
+        "BIO-001"
+      ],
+      "successors": [
+        "BIO-003"
+      ],
+      "keywords": [
+        "线粒体",
+        "内质网",
+        "高尔基体"
+      ],
+      "application_scenarios": [
+        "代谢疾病",
+        "细胞治疗"
+      ],
+      "common_misconceptions": [],
+      "mastery_criteria": "能够描述主要细胞器的功能"
+    },
+    {
+      "knowledge_id": "BIO-003",
+      "name": "细胞分裂",
+      "description": "细胞增殖的方式和调控",
+      "domain": "生物学",
+      "subdomain": "细胞生物学",
+      "difficulty": 3,
+      "cognitive_level": "COG_L3",
+      "importance": 0.9,
+      "abstraction": 4,
+      "estimated_time": 30,
+      "is_key_point": true,
+      "is_difficult": true,
+      "prerequisites": [
+        "BIO-001",
+        "BIO-002"
+      ],
+      "successors": [],
+      "keywords": [
+        "有丝分裂",
+        "减数分裂",
+        "细胞周期"
+      ],
+      "application_scenarios": [
+        "癌症研究",
+        "生殖医学"
+      ],
+      "common_misconceptions": [],
+      "mastery_criteria": "区分有丝分裂和减数分裂"
+    }
+  ]
+}

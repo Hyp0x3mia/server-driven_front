@@ -1,0 +1,35 @@
+{
+  "total": 3,
+  "successful": 2,
+  "results": [
+    {
+      "set_id": "ai_001",
+      "topic": "人工智能基础概念",
+      "success": true,
+      "generation_time": 355.7049517631531,
+      "tokens_used": 8500,
+      "sections": 1,
+      "components": 5,
+      "component_coverage": 0.75,
+      "generated_at": "2026-01-30T14:57:10.328555"
+    },
+    {
+      "set_id": "ai_002",
+      "topic": "AI发展历史",
+      "success": true,
+      "generation_time": 206.34421515464783,
+      "tokens_used": 8500,
+      "sections": 1,
+      "components": 5,
+      "component_coverage": 0.75,
+      "generated_at": "2026-01-30T15:00:36.674404"
+    },
+    {
+      "set_id": "ai_003",
+      "topic": "机器学习基础",
+      "success": false,
+      "error": "Content Expert failed: Expecting property name enclosed in double quotes: line 252 column 1 (char 10551); Assembler: No content available",
+      "generated_at": "2026-01-30T15:03:51.303661"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "set_id": "ai_003",
+  "domain": "人工智能",
+  "topic": "机器学习基础",
+  "target_audience": "技术背景的初学者",
+  "difficulty": "intermediate",
+  "user_intent": "理解机器学习的核心概念和工作原理",
+  "expected_components": [
+    "Hero",
+    "FlashcardGrid",
+    "Cloze",
+    "Markdown"
+  ],
+  "knowledge_points": [
+    {
+      "knowledge_id": "ML-001",
+      "name": "什么是机器学习",
+      "description": "机器学习是让计算机从数据中学习规律的方法",
+      "domain": "人工智能",
+      "subdomain": "机器学习",
+      "difficulty": 2,
+      "cognitive_level": "COG_L2",
+      "importance": 1.0,
+      "abstraction": 3,
+      "estimated_time": 25,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [],
+      "successors": [
+        "ML-002",
+        "ML-003"
+      ],
+      "keywords": [
+        "机器学习",
+        "数据驱动",
+        "算法",
+        "模型",
+        "训练"
+      ],
+      "application_scenarios": [
+        "推荐系统",
+        "垃圾邮件过滤"
+      ],
+      "common_misconceptions": [
+        "机器学习就是编程",
+        "机器学习能自动学习不需要数据"
+      ],
+      "mastery_criteria": "理解机器学习的定义和与传统编程的区别"
+    },
+    {
+      "knowledge_id": "ML-002",
+      "name": "机器学习的三大范式",
+      "description": "监督学习、无监督学习和强化学习",
+      "domain": "人工智能",
+      "subdomain": "机器学习",
+      "difficulty": 2,
+      "cognitive_level": "COG_L2",
+      "importance": 0.9,
+      "abstraction": 3,
+      "estimated_time": 30,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [
+        "ML-001"
+      ],
+      "successors": [
+        "ML-003"
+      ],
+      "keywords": [
+        "监督学习",
+        "无监督学习",
+        "强化学习",
+        "标注数据",
+        "奖励"
+      ],
+      "application_scenarios": [
+        "图像分类",
+        "聚类",
+        "游戏AI"
+      ],
+      "common_misconceptions": [
+        "监督学习比无监督学习更高级"
+      ],
+      "mastery_criteria": "能够区分三种学习范式并举例"
+    },
+    {
+      "knowledge_id": "ML-003",
+      "name": "训练、验证和测试",
+      "description": "机器学习模型的开发流程和评估方法",
+      "domain": "人工智能",
+      "subdomain": "机器学习",
+      "difficulty": 3,
+      "cognitive_level": "COG_L3",
+      "importance": 0.9,
+      "abstraction": 4,
+      "estimated_time": 30,
+      "is_key_point": true,
+      "is_difficult": true,
+      "prerequisites": [
+        "ML-001",
+        "ML-002"
+      ],
+      "successors": [],
+      "keywords": [
+        "训练集",
+        "验证集",
+        "测试集",
+        "过拟合",
+        "准确率"
+      ],
+      "application_scenarios": [],
+      "common_misconceptions": [
+        "模型在训练集上表现好就是好模型"
+      ],
+      "mastery_criteria": "理解机器学习的标准开发流程"
+    }
+  ]
+}

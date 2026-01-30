@@ -1,0 +1,103 @@
+{
+  "set_id": "ai_008",
+  "domain": "人工智能",
+  "topic": "AI应用场景",
+  "target_audience": "想了解AI实际应用的读者",
+  "difficulty": "beginner",
+  "user_intent": "全面了解AI在各行业的实际应用",
+  "expected_components": [
+    "Hero",
+    "CardGrid",
+    "Timeline",
+    "Flashcard"
+  ],
+  "knowledge_points": [
+    {
+      "knowledge_id": "APP-001",
+      "name": "日常生活中的AI",
+      "description": "手机、智能家居中的AI应用",
+      "domain": "人工智能",
+      "subdomain": "应用场景",
+      "difficulty": 1,
+      "cognitive_level": "COG_L1",
+      "importance": 0.8,
+      "abstraction": 2,
+      "estimated_time": 20,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [],
+      "successors": [
+        "APP-002",
+        "APP-003"
+      ],
+      "keywords": [
+        "智能助手",
+        "推荐系统",
+        "人脸解锁",
+        "语音助手"
+      ],
+      "application_scenarios": [],
+      "common_misconceptions": [],
+      "mastery_criteria": "能够列举日常生活中的AI应用"
+    },
+    {
+      "knowledge_id": "APP-002",
+      "name": "AI在医疗健康领域",
+      "description": "医学影像分析、药物研发、健康监测",
+      "domain": "人工智能",
+      "subdomain": "应用场景",
+      "difficulty": 2,
+      "cognitive_level": "COG_L2",
+      "importance": 0.9,
+      "abstraction": 3,
+      "estimated_time": 25,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [
+        "APP-001"
+      ],
+      "successors": [
+        "APP-003"
+      ],
+      "keywords": [
+        "医学影像",
+        "药物发现",
+        "疾病预测",
+        "个性化医疗"
+      ],
+      "application_scenarios": [],
+      "common_misconceptions": [
+        "AI可以完全替代医生"
+      ],
+      "mastery_criteria": "了解AI在医疗领域的主要应用"
+    },
+    {
+      "knowledge_id": "APP-003",
+      "name": "AI在各行业的应用",
+      "description": "金融、教育、制造、交通等行业中的AI",
+      "domain": "人工智能",
+      "subdomain": "应用场景",
+      "difficulty": 2,
+      "cognitive_level": "COG_L2",
+      "importance": 0.9,
+      "abstraction": 3,
+      "estimated_time": 30,
+      "is_key_point": true,
+      "is_difficult": false,
+      "prerequisites": [
+        "APP-001",
+        "APP-002"
+      ],
+      "successors": [],
+      "keywords": [
+        "金融科技",
+        "智能教育",
+        "工业4.0",
+        "自动驾驶"
+      ],
+      "application_scenarios": [],
+      "common_misconceptions": [],
+      "mastery_criteria": "能够列举AI在多个行业的应用案例"
+    }
+  ]
+}
