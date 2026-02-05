@@ -9,8 +9,9 @@ Defines data models for each stage:
 """
 
 from pydantic import BaseModel, Field, field_validator
-from typing import List, Dict, Optional, Literal, Any
+from typing import List, Dict, Optional, Literal, Any, Callable
 from enum import Enum
+import time
 
 
 # ============ Enums ============
@@ -435,6 +436,34 @@ class GenerationResponse(BaseModel):
     generation_time_seconds: Optional[float] = None
     error: Optional[str] = None
     warnings: List[str] = Field(default_factory=list)
+
+
+# ============ Streaming Types ============
+
+class StreamingEventType(str, Enum):
+    """Types of events that can be streamed during generation"""
+    STAGE_START = "stage_start"
+    STAGE_COMPLETE = "stage_complete"
+    SKELETON_READY = "skeleton_ready"  # Show structure early
+    BLOCK_READY = "block_ready"
+    HEARTBEAT = "heartbeat"  # Keep-alive during slow generation
+    PROGRESS = "progress"  # Detailed progress updates
+    SECTION_COMPLETE = "section_complete"
+    ERROR = "error"
+    COMPLETE = "complete"
+
+
+class StreamingEvent(BaseModel):
+    """
+    Event emitted during streaming generation.
+
+    These events are sent via SSE to the frontend to enable
+    progressive rendering of content as it's generated.
+    """
+    type: StreamingEventType = Field(..., description="Type of event")
+    stage: Optional[str] = Field(None, description="Current stage (planner, content_expert, etc.)")
+    data: Optional[Dict[str, Any]] = Field(None, description="Event-specific data")
+    timestamp: float = Field(default_factory=time.time, description="Event timestamp")
 
 
 # ============ Validation Helpers ============

@@ -198,6 +198,14 @@ For each mapping, provide a clear rationale:
 - "CardGrid: 6 related concepts benefit from equal visual weight"
 - "Timeline: Historical development requires chronological display"
 - "Flashcard: Key definition worth isolated practice"
+
+## IMPORTANT Language Requirement
+
+**ALWAYS use Chinese (简体中文) for all output content** including:
+- Rationale descriptions
+- Any explanations or comments
+
+This applies regardless of the source content language.
 """
 
     def map_content_to_visuals(

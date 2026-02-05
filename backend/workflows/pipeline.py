@@ -280,33 +280,240 @@ class ContentGenerationPipeline:
 
         return response
 
-    def run_streaming(self, request: GenerationRequest):
+    def run_streaming(self, request: GenerationRequest, thread_id: str = None):
         """
         Run the pipeline with streaming output.
 
-        Yields status updates as the pipeline progresses.
+        Yields StreamingEvent objects as content is generated.
         """
+        from models.schemas import StreamingEvent, StreamingEventType
+
         print("\n🚀 Starting Multi-Agent Content Generation Pipeline (Streaming)")
 
-        # Initialize state
-        initial_state = WorkflowState(
-            request=request,
-            start_time=time.time()
+        start_time = time.time()
+
+        # Helper to get elapsed time
+        def get_elapsed():
+            return time.time() - start_time
+
+        # ============ STAGE 1: PLANNER ============
+        yield StreamingEvent(
+            type=StreamingEventType.STAGE_START,
+            stage="planner",
+            data={"elapsed": get_elapsed()}
         )
 
-        # Run with streaming
-        config = {"configurable": {"thread_id": "streaming"}}
+        print("\n" + "="*60)
+        print("🏗️  STAGE 1: PLANNER AGENT")
+        print("="*60)
 
-        async def stream_generator():
-            async for event in self.workflow.astream_events(initial_state, config, version="v1"):
-                # Yield relevant events
-                if "event" in event:
-                    yield {
-                        "type": "event",
-                        "data": event
-                    }
+        try:
+            skeleton = self.planner.plan(request)
+            print(f"✅ Planner completed: {len(skeleton.sections)} sections")
 
-        return stream_generator()
+            # Send skeleton_ready immediately
+            yield StreamingEvent(
+                type=StreamingEventType.SKELETON_READY,
+                stage="planner",
+                data={
+                    "sections": [{
+                        "section_id": s.section_id,
+                        "title": s.title,
+                        "node_count": len(s.nodes)
+                    } for s in skeleton.sections],
+                    "estimated_blocks": sum(len(s.nodes) for s in skeleton.sections)
+                }
+            )
+
+            yield StreamingEvent(
+                type=StreamingEventType.STAGE_COMPLETE,
+                stage="planner",
+                data={"section_count": len(skeleton.sections), "elapsed": get_elapsed()}
+            )
+
+        except Exception as e:
+            yield StreamingEvent(
+                type=StreamingEventType.ERROR,
+                stage="planner",
+                data={"error": str(e)}
+            )
+            return
+
+        # ============ STAGE 2: CONTENT EXPERT ============
+        time.sleep(2)  # Rate limiting
+
+        yield StreamingEvent(
+            type=StreamingEventType.STAGE_START,
+            stage="content_expert",
+            data={"elapsed": get_elapsed()}
+        )
+
+        print("\n" + "="*60)
+        print("📚 STAGE 2A: CONTENT EXPERT AGENT")
+        print("="*60)
+
+        try:
+            content = self.content_expert.generate_content(
+                skeleton=skeleton,
+                target_audience=request.target_audience
+            )
+            print(f"✅ Content Expert completed: {len(content.contents)} blocks")
+
+            yield StreamingEvent(
+                type=StreamingEventType.STAGE_COMPLETE,
+                stage="content_expert",
+                data={"content_count": len(content.contents), "elapsed": get_elapsed()}
+            )
+
+        except Exception as e:
+            yield StreamingEvent(
+                type=StreamingEventType.ERROR,
+                stage="content_expert",
+                data={"error": str(e)}
+            )
+            return
+
+        # ============ STAGE 3: VISUAL DIRECTOR ============
+        time.sleep(2)  # Rate limiting
+
+        yield StreamingEvent(
+            type=StreamingEventType.STAGE_START,
+            stage="visual_director",
+            data={"elapsed": get_elapsed()}
+        )
+
+        print("\n" + "="*60)
+        print("🎨 STAGE 2B: VISUAL DIRECTOR AGENT")
+        print("="*60)
+
+        try:
+            visual_mapping = self.visual_director.map_content_to_visuals(skeleton)
+            print(f"✅ Visual Director completed: {len(visual_mapping.mappings)} mappings")
+
+            yield StreamingEvent(
+                type=StreamingEventType.STAGE_COMPLETE,
+                stage="visual_director",
+                data={"mapping_count": len(visual_mapping.mappings), "elapsed": get_elapsed()}
+            )
+
+        except Exception as e:
+            yield StreamingEvent(
+                type=StreamingEventType.ERROR,
+                stage="visual_director",
+                data={"error": str(e)}
+            )
+            return
+
+        # ============ STAGE 4: ASSEMBLER (INCREMENTAL) ============
+        yield StreamingEvent(
+            type=StreamingEventType.STAGE_START,
+            stage="assembler",
+            data={"elapsed": get_elapsed()}
+        )
+
+        print("\n" + "="*60)
+        print("🔧 STAGE 3: ASSEMBLER & VALIDATOR")
+        print("="*60)
+
+        try:
+            # Calculate total blocks for progress tracking
+            total_blocks = sum(len(s.nodes) for s in skeleton.sections)
+
+            # Use a queue to get events immediately from assembler
+            import queue
+            event_queue = queue.Queue()
+
+            def capture_event(event: StreamingEvent):
+                """Put event in queue immediately"""
+                event_queue.put(event)
+                print(f"  📦 Block {event.data.get('index', '?') + 1}/{total_blocks} ready: {event.data.get('block', {}).get('type', 'unknown')}")
+
+            # Start assembler in a separate thread so we can yield events as they arrive
+            import threading
+            assembler_result = {}
+            assembler_error = []
+
+            def run_assembler():
+                try:
+                    schema = self.assembler.assemble(
+                        skeleton=skeleton,
+                        content=content,
+                        visual_mapping=visual_mapping,
+                        callback=capture_event
+                    )
+                    assembler_result['schema'] = schema
+                except Exception as e:
+                    assembler_error.append(e)
+
+            # Start assembler thread
+            assembler_thread = threading.Thread(target=run_assembler)
+            assembler_thread.start()
+
+            # Yield events as they arrive
+            blocks_received = 0
+            while assembler_thread.is_alive() or not event_queue.empty():
+                try:
+                    # Get event with timeout to check thread status
+                    event = event_queue.get(timeout=0.5)
+
+                    # If it's a block event, add delay to simulate progressive generation
+                    if event.type == StreamingEventType.BLOCK_READY:
+                        blocks_received += 1
+                        print(f"  📡 Yielding block event {blocks_received}/{total_blocks}")
+                        yield event
+                        # Add delay to make blocks appear progressively (visual effect only)
+                        time.sleep(2.0)  # 2 seconds between blocks
+                    else:
+                        yield event
+
+                except queue.Empty:
+                    # No event yet, check if thread is still running
+                    if not assembler_thread.is_alive():
+                        break
+
+            # Wait for thread to complete
+            assembler_thread.join()
+
+            # Check for errors
+            if assembler_error:
+                raise assembler_error[0]
+
+            final_schema = assembler_result['schema']
+
+            print(f"\n✅ Assembler completed: {len(final_schema.components)} blocks")
+
+            # Save to JSON
+            output_path = f"public/pages/{skeleton.page_id}.json"
+            self.assembler.export_to_json(final_schema, output_path)
+            print(f"💾 Saved to: {output_path}")
+
+            # Final completion
+            total_time = get_elapsed()
+            yield StreamingEvent(
+                type=StreamingEventType.COMPLETE,
+                stage="assembler",
+                data={
+                    "schema": final_schema.model_dump(mode='json'),
+                    "total_blocks": len(final_schema.components),
+                    "saved_to": output_path,
+                    "generation_time": total_time
+                }
+            )
+
+            print("\n" + "="*60)
+            print("✅ PIPELINE COMPLETE")
+            print("="*60)
+            print(f"⏱️  Total time: {total_time:.2f}s")
+            print(f"📦 Total blocks: {len(final_schema.components)}")
+
+        except Exception as e:
+            import traceback
+            yield StreamingEvent(
+                type=StreamingEventType.ERROR,
+                stage="assembler",
+                data={"error": str(e), "traceback": traceback.format_exc()}
+            )
+            return
 
 
 # ============ Helper Functions ============

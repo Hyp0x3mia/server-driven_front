@@ -1,0 +1,1110 @@
+{
+  "page_id": "da-mo-xing-quan-jing-jie-xi",
+  "page_mode": null,
+  "title": "大语言模型（LLM）全景解析",
+  "summary": "本课程旨在为普通学习者提供关于大语言模型的全面且易懂的介绍。内容涵盖大模型的基本定义、发展历史、核心工作原理（如Transformer架构）、实际应用场景以及如何通过提示词工程有效使用模型。课程结合理论讲解与互动实践，帮助学员建立对大模型的系统性认知。",
+  "sections": [
+    {
+      "section_id": "section-concept",
+      "section_type": "Concept",
+      "title": "概念：什么是大模型？",
+      "layout_intent": "default",
+      "pedagogical_goal": "建立对大语言模型的基础认知，理解其核心定义与特征。",
+      "blocks": [
+        {
+          "type": "Hero",
+          "role": "课程介绍",
+          "content": {
+            "title": "大语言模型的定义",
+            "subtitle": "# 什么是大语言模型（LLM）？\n\n大语言模型（Large Language Model，简称 LLM）是一种基于深度学习的人工智能算法，它通过在海量文本数据上进行训练，学会了理解、生成和操作人类语言。\n\n简单来说，你可以把它想象成一个**超级复杂的概率机器**。当你给它一个输入（比如一个问题或半句话）时，它并不是在“搜索”现成的答案，而是根据它读过的所有书和文章，计算出下一个字或词最可能是什么。...",
+            "features": [
+              "LLM 是基于深度学习的 AI，核心功能是理解和生成人类语言。",
+              "LLM 的本质是概率预测，通过计算下一个词出现的可能性来生成文本。",
+              "与传统搜索引擎的“检索”不同，LLM 进行的是内容的“生成”。",
+              "“大”指的是训练数据的海量级和模型参数的巨大规模。"
+            ]
+          },
+          "title": "大语言模型的定义",
+          "id": null
+        },
+        {
+          "type": "DeepDiveZigZag",
+          "role": "深度概念解析",
+          "content": {
+            "title": "涌现能力与规模效应",
+            "items": [
+              {
+                "name": "大语言模型的定义",
+                "title": "大语言模型的定义",
+                "description": "大语言模型的定义",
+                "keywords": [
+                  "大语言模型",
+                  "LLM",
+                  "生成式AI",
+                  "参数量"
+                ],
+                "common_misconceptions": []
+              },
+              {
+                "name": "涌现能力与规模效应",
+                "title": "涌现能力与规模效应",
+                "description": "涌现能力与规模效应",
+                "keywords": [
+                  "涌现",
+                  "规模效应",
+                  "上下文学习"
+                ],
+                "common_misconceptions": []
+              },
+              {
+                "name": "交互体验：对话 vs 搜索",
+                "title": "交互体验：对话 vs 搜索",
+                "description": "交互体验：对话 vs 搜索",
+                "keywords": [
+                  "交互体验",
+                  "生成",
+                  "检索"
+                ],
+                "common_misconceptions": []
+              }
+            ]
+          },
+          "title": "涌现能力与规模效应",
+          "id": null
+        },
+        {
+          "type": "CardGrid",
+          "role": "对比展示",
+          "content": {
+            "title": "交互体验：对话 vs 搜索",
+            "items": [
+              {
+                "name": "Example",
+                "description": "用户询问“推荐几本科幻小说”，搜索引擎列出书单，LLM 会列出书单并附上每本书的简介和推荐理由。",
+                "keywords": [
+                  "交互体验",
+                  "搜索引擎",
+                  "对话系统"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "用户要求“把这段话翻译成英文”，搜索引擎可能提供翻译网站的入口，而 LLM 直接给出翻译结果。",
+                "keywords": [
+                  "交互体验",
+                  "搜索引擎",
+                  "对话系统"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "搜索引擎提供链接，用户需要自己筛选和整合信息。",
+                "keywords": [
+                  "交互体验",
+                  "搜索引擎"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "LLM 直接生成最终答案，省去了用户点击和阅读网页的步骤。",
+                "keywords": [
+                  "交互体验",
+                  "搜索引擎"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "LLM 支持多轮对话，能记住上下文，这是搜索引擎做不到的。",
+                "keywords": [
+                  "交互体验",
+                  "搜索引擎"
+                ]
+              }
+            ]
+          },
+          "title": "交互体验：对话 vs 搜索",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "section-history",
+      "section_type": "History",
+      "title": "历史：从统计学到Transformer",
+      "layout_intent": "timeline",
+      "pedagogical_goal": "梳理大模型的发展脉络，理解关键技术节点的历史意义。",
+      "blocks": [
+        {
+          "type": "Timeline",
+          "role": "历史演进",
+          "content": {
+            "title": "早期自然语言处理",
+            "items": [
+              {
+                "year": "1",
+                "label": "Step 1",
+                "title": "Phase 1",
+                "description": "早期的机器翻译系统（如 Google 翻译 2016 年前）主要基于 LSTM，翻译长难句时经常出错，因为忘了主语是谁。",
+                "keywords": [
+                  "RNN",
+                  "LSTM",
+                  "自然语言处理"
+                ]
+              },
+              {
+                "year": "2",
+                "label": "Step 2",
+                "title": "Phase 2",
+                "description": "手机上的语音助手在早期使用 RNN/LSTM 进行语音转文字，反应速度较慢，且对长句识别率不高。",
+                "keywords": [
+                  "RNN",
+                  "LSTM",
+                  "自然语言处理"
+                ]
+              }
+            ]
+          },
+          "title": "早期自然语言处理",
+          "id": null
+        },
+        {
+          "type": "Timeline",
+          "role": "历史里程碑",
+          "content": {
+            "title": "Transformer架构的诞生",
+            "items": [
+              {
+                "year": "1",
+                "label": "Step 1",
+                "title": "Phase 1",
+                "description": "当你使用 ChatGPT 时，它之所以能瞬间理解你长篇大论的问题，正是因为底层使用了 Transformer 架构。",
+                "keywords": [
+                  "Transformer",
+                  "Attention Is All You Need",
+                  "自注意力机制"
+                ]
+              },
+              {
+                "year": "2",
+                "label": "Step 2",
+                "title": "Phase 2",
+                "description": "Google 翻译在 2016 年后的巨大性能提升，也是因为切换到了基于 Transformer 的模型（GNMT）。",
+                "keywords": [
+                  "Transformer",
+                  "Attention Is All You Need",
+                  "自注意力机制"
+                ]
+              }
+            ]
+          },
+          "title": "Transformer架构的诞生",
+          "id": null
+        },
+        {
+          "type": "Timeline",
+          "role": "历史迭代",
+          "content": {
+            "title": "GPT系列的演进之路",
+            "items": [
+              {
+                "year": "1",
+                "label": "Step 1",
+                "title": "Phase 1",
+                "description": "GPT-2 可以续写一个关于独角兽的故事，虽然逻辑偶尔混乱，但文笔通顺。",
+                "keywords": [
+                  "GPT",
+                  "OpenAI",
+                  "预训练"
+                ]
+              },
+              {
+                "year": "2",
+                "label": "Step 2",
+                "title": "Phase 2",
+                "description": "GPT-3 可以根据简单的描述“用 Python 写一个贪吃蛇游戏”，直接生成可运行的代码。",
+                "keywords": [
+                  "GPT",
+                  "OpenAI",
+                  "预训练"
+                ]
+              }
+            ]
+          },
+          "title": "GPT系列的演进之路",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "section-theory",
+      "section_type": "Theory",
+      "title": "原理：大模型是如何思考的？",
+      "layout_intent": "wide",
+      "pedagogical_goal": "深入浅出地解释大模型背后的核心工作机制。",
+      "blocks": [
+        {
+          "type": "DeepDiveZigZag",
+          "role": "核心理论图解",
+          "content": {
+            "title": "注意力机制：理解上下文",
+            "items": [
+              {
+                "name": "预训练：预测下一个词",
+                "title": "预训练：预测下一个词",
+                "description": "预训练：预测下一个词",
+                "keywords": [
+                  "预训练",
+                  "概率预测",
+                  "无监督学习"
+                ],
+                "common_misconceptions": []
+              },
+              {
+                "name": "注意力机制：理解上下文",
+                "title": "注意力机制：理解上下文",
+                "description": "注意力机制：理解上下文",
+                "keywords": [
+                  "注意力机制",
+                  "上下文",
+                  "权重"
+                ],
+                "common_misconceptions": []
+              },
+              {
+                "name": "人类反馈强化学习（RLHF）",
+                "title": "人类反馈强化学习（RLHF）",
+                "description": "人类反馈强化学习（RLHF）",
+                "keywords": [
+                  "RLHF",
+                  "人类反馈",
+                  "奖励模型",
+                  "对齐"
+                ],
+                "common_misconceptions": []
+              }
+            ]
+          },
+          "title": "注意力机制：理解上下文",
+          "id": null
+        },
+        {
+          "type": "Timeline",
+          "role": "流程步骤",
+          "content": {
+            "title": "人类反馈强化学习（RLHF）",
+            "items": [
+              {
+                "year": "1",
+                "label": "Step 1",
+                "title": "Phase 1",
+                "description": "如果模型在预训练后学会了骂人的脏话，RLHF 过程中人类会给这些回答打低分，模型就会逐渐学会不说脏话。",
+                "keywords": [
+                  "RLHF",
+                  "人类反馈",
+                  "强化学习"
+                ]
+              },
+              {
+                "year": "2",
+                "label": "Step 2",
+                "title": "Phase 2",
+                "description": "当用户问“如何制造炸弹？”时，经过 RLHF 的模型会拒绝回答，而不是提供教程。",
+                "keywords": [
+                  "RLHF",
+                  "人类反馈",
+                  "强化学习"
+                ]
+              }
+            ]
+          },
+          "title": "人类反馈强化学习（RLHF）",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "section-application",
+      "section_type": "Application",
+      "title": "应用：大模型能做什么？",
+      "layout_intent": "split",
+      "pedagogical_goal": "展示大模型在不同领域的具体应用，拓展学员视野。",
+      "blocks": [
+        {
+          "type": "CardGrid",
+          "role": "应用场景展示",
+          "content": {
+            "title": "内容创作与辅助编程",
+            "items": [
+              {
+                "name": "Example",
+                "description": "市场部员工用 LLM 在 1 分钟内生成了 10 个不同风格的产品宣传语。",
+                "keywords": [
+                  "内容创作",
+                  "辅助编程",
+                  "文案生成"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "初学者利用 LLM 解释复杂的正则表达式，快速掌握了编程技巧。",
+                "keywords": [
+                  "内容创作",
+                  "辅助编程",
+                  "文案生成"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "LLM 在文案、邮件、翻译等创作任务中能显著提高效率。",
+                "keywords": [
+                  "内容创作",
+                  "辅助编程"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "在编程领域，LLM 可以生成代码、修复 Bug 和解释逻辑。",
+                "keywords": [
+                  "内容创作",
+                  "辅助编程"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "LLM 不仅能生成内容，还能提供灵感和头脑风暴。",
+                "keywords": [
+                  "内容创作",
+                  "辅助编程"
+                ]
+              }
+            ]
+          },
+          "title": "内容创作与辅助编程",
+          "id": null
+        },
+        {
+          "type": "CardGrid",
+          "role": "对比分析",
+          "content": {
+            "title": "多模态模型对比",
+            "items": [
+              {
+                "name": "Example",
+                "description": "用户上传一张植物的照片，问模型“这是什么花？怎么养护？”，模型识别出是“多肉植物”并给出建议。",
+                "keywords": [
+                  "多模态",
+                  "GPT-4V",
+                  "视觉问答"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "用户上传一张包含数学几何图形的题目照片，模型读图后给出了解题步骤。",
+                "keywords": [
+                  "多模态",
+                  "GPT-4V",
+                  "视觉问答"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "单模态模型仅处理文本，多模态模型能同时处理文本、图像等多种信息。",
+                "keywords": [
+                  "多模态",
+                  "GPT-4V"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "多模态模型能直接“看懂”图片、图表和文档截图。",
+                "keywords": [
+                  "多模态",
+                  "GPT-4V"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "多模态能力极大地扩展了 AI 的应用场景，如视觉问答、草图生成代码等。",
+                "keywords": [
+                  "多模态",
+                  "GPT-4V"
+                ]
+              }
+            ]
+          },
+          "title": "多模态模型对比",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "section-practice",
+      "section_type": "Practice",
+      "title": "实践：如何与AI高效对话",
+      "layout_intent": "interactive",
+      "pedagogical_goal": "通过互动练习，掌握提示词工程的基础技巧。",
+      "blocks": [
+        {
+          "type": "FlashcardGrid",
+          "role": "互动练习",
+          "content": {
+            "title": "挑战：识别AI幻觉",
+            "cards": [
+              {
+                "type": "Flashcard",
+                "id": "node-hallucination-quiz-card-0",
+                "front": {
+                  "title": "Question 1",
+                  "content": "什么是 AI 幻觉？"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "大语言模型生成内容自信流畅，但事实完全错误或编造的现象。"
+                }
+              },
+              {
+                "type": "Flashcard",
+                "id": "node-hallucination-quiz-card-1",
+                "front": {
+                  "title": "Question 2",
+                  "content": "在提示词中加入什么指令有助于减少幻觉？"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "加入“如果你不知道答案，请直接说不知道，不要编造”等约束指令。"
+                }
+              }
+            ]
+          },
+          "title": "挑战：识别AI幻觉",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "section-summary",
+      "section_type": "Summary",
+      "title": "总结：回顾与展望",
+      "layout_intent": "default",
+      "pedagogical_goal": "总结课程核心知识点，探讨大模型的伦理与未来。",
+      "blocks": [
+        {
+          "type": "FlashcardGrid",
+          "role": "知识回顾",
+          "content": {
+            "title": "核心知识点回顾",
+            "cards": [
+              {
+                "type": "Flashcard",
+                "id": "node-key-takeaways-card-0",
+                "front": {
+                  "title": "Question 1",
+                  "content": "让模型对齐人类价值观的关键技术是什么？"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "人类反馈强化学习（RLHF）。"
+                }
+              },
+              {
+                "type": "Flashcard",
+                "id": "node-key-takeaways-card-1",
+                "front": {
+                  "title": "Question 2",
+                  "content": "LLM 进行预训练时的核心任务是什么？"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "预测下一个词。"
+                }
+              }
+            ]
+          },
+          "title": "核心知识点回顾",
+          "id": null
+        },
+        {
+          "type": "CardGrid",
+          "role": "议题展示",
+          "content": {
+            "title": "伦理挑战与未来展望",
+            "items": [
+              {
+                "name": "Example",
+                "description": "有艺术家起诉 AI 公司，因为 AI 生成的画作风格模仿了他们的作品，涉及版权问题。",
+                "keywords": [
+                  "伦理挑战",
+                  "版权",
+                  "偏见"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "未来的 AI 可能会像电影《钢铁侠》中的“贾维斯”一样，主动帮主人管理日程、控制家电。",
+                "keywords": [
+                  "伦理挑战",
+                  "版权",
+                  "偏见"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "大模型带来了版权、偏见、虚假信息和就业替代等伦理挑战。",
+                "keywords": [
+                  "伦理挑战",
+                  "版权"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "应对伦理问题需要技术、法律和社会手段的综合治理。",
+                "keywords": [
+                  "伦理挑战",
+                  "版权"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "未来趋势包括多模态融合、自主智能体和高度个性化。",
+                "keywords": [
+                  "伦理挑战",
+                  "版权"
+                ]
+              }
+            ]
+          },
+          "title": "伦理挑战与未来展望",
+          "id": null
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "Hero",
+      "role": "课程介绍",
+      "content": {
+        "title": "大语言模型的定义",
+        "subtitle": "# 什么是大语言模型（LLM）？\n\n大语言模型（Large Language Model，简称 LLM）是一种基于深度学习的人工智能算法，它通过在海量文本数据上进行训练，学会了理解、生成和操作人类语言。\n\n简单来说，你可以把它想象成一个**超级复杂的概率机器**。当你给它一个输入（比如一个问题或半句话）时，它并不是在“搜索”现成的答案，而是根据它读过的所有书和文章，计算出下一个字或词最可能是什么。...",
+        "features": [
+          "LLM 是基于深度学习的 AI，核心功能是理解和生成人类语言。",
+          "LLM 的本质是概率预测，通过计算下一个词出现的可能性来生成文本。",
+          "与传统搜索引擎的“检索”不同，LLM 进行的是内容的“生成”。",
+          "“大”指的是训练数据的海量级和模型参数的巨大规模。"
+        ]
+      },
+      "title": "大语言模型的定义",
+      "id": null
+    },
+    {
+      "type": "DeepDiveZigZag",
+      "role": "深度概念解析",
+      "content": {
+        "title": "涌现能力与规模效应",
+        "items": [
+          {
+            "name": "大语言模型的定义",
+            "title": "大语言模型的定义",
+            "description": "大语言模型的定义",
+            "keywords": [
+              "大语言模型",
+              "LLM",
+              "生成式AI",
+              "参数量"
+            ],
+            "common_misconceptions": []
+          },
+          {
+            "name": "涌现能力与规模效应",
+            "title": "涌现能力与规模效应",
+            "description": "涌现能力与规模效应",
+            "keywords": [
+              "涌现",
+              "规模效应",
+              "上下文学习"
+            ],
+            "common_misconceptions": []
+          },
+          {
+            "name": "交互体验：对话 vs 搜索",
+            "title": "交互体验：对话 vs 搜索",
+            "description": "交互体验：对话 vs 搜索",
+            "keywords": [
+              "交互体验",
+              "生成",
+              "检索"
+            ],
+            "common_misconceptions": []
+          }
+        ]
+      },
+      "title": "涌现能力与规模效应",
+      "id": null
+    },
+    {
+      "type": "CardGrid",
+      "role": "对比展示",
+      "content": {
+        "title": "交互体验：对话 vs 搜索",
+        "items": [
+          {
+            "name": "Example",
+            "description": "用户询问“推荐几本科幻小说”，搜索引擎列出书单，LLM 会列出书单并附上每本书的简介和推荐理由。",
+            "keywords": [
+              "交互体验",
+              "搜索引擎",
+              "对话系统"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "用户要求“把这段话翻译成英文”，搜索引擎可能提供翻译网站的入口，而 LLM 直接给出翻译结果。",
+            "keywords": [
+              "交互体验",
+              "搜索引擎",
+              "对话系统"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "搜索引擎提供链接，用户需要自己筛选和整合信息。",
+            "keywords": [
+              "交互体验",
+              "搜索引擎"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "LLM 直接生成最终答案，省去了用户点击和阅读网页的步骤。",
+            "keywords": [
+              "交互体验",
+              "搜索引擎"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "LLM 支持多轮对话，能记住上下文，这是搜索引擎做不到的。",
+            "keywords": [
+              "交互体验",
+              "搜索引擎"
+            ]
+          }
+        ]
+      },
+      "title": "交互体验：对话 vs 搜索",
+      "id": null
+    },
+    {
+      "type": "Timeline",
+      "role": "历史演进",
+      "content": {
+        "title": "早期自然语言处理",
+        "items": [
+          {
+            "year": "1",
+            "label": "Step 1",
+            "title": "Phase 1",
+            "description": "早期的机器翻译系统（如 Google 翻译 2016 年前）主要基于 LSTM，翻译长难句时经常出错，因为忘了主语是谁。",
+            "keywords": [
+              "RNN",
+              "LSTM",
+              "自然语言处理"
+            ]
+          },
+          {
+            "year": "2",
+            "label": "Step 2",
+            "title": "Phase 2",
+            "description": "手机上的语音助手在早期使用 RNN/LSTM 进行语音转文字，反应速度较慢，且对长句识别率不高。",
+            "keywords": [
+              "RNN",
+              "LSTM",
+              "自然语言处理"
+            ]
+          }
+        ]
+      },
+      "title": "早期自然语言处理",
+      "id": null
+    },
+    {
+      "type": "Timeline",
+      "role": "历史里程碑",
+      "content": {
+        "title": "Transformer架构的诞生",
+        "items": [
+          {
+            "year": "1",
+            "label": "Step 1",
+            "title": "Phase 1",
+            "description": "当你使用 ChatGPT 时，它之所以能瞬间理解你长篇大论的问题，正是因为底层使用了 Transformer 架构。",
+            "keywords": [
+              "Transformer",
+              "Attention Is All You Need",
+              "自注意力机制"
+            ]
+          },
+          {
+            "year": "2",
+            "label": "Step 2",
+            "title": "Phase 2",
+            "description": "Google 翻译在 2016 年后的巨大性能提升，也是因为切换到了基于 Transformer 的模型（GNMT）。",
+            "keywords": [
+              "Transformer",
+              "Attention Is All You Need",
+              "自注意力机制"
+            ]
+          }
+        ]
+      },
+      "title": "Transformer架构的诞生",
+      "id": null
+    },
+    {
+      "type": "Timeline",
+      "role": "历史迭代",
+      "content": {
+        "title": "GPT系列的演进之路",
+        "items": [
+          {
+            "year": "1",
+            "label": "Step 1",
+            "title": "Phase 1",
+            "description": "GPT-2 可以续写一个关于独角兽的故事，虽然逻辑偶尔混乱，但文笔通顺。",
+            "keywords": [
+              "GPT",
+              "OpenAI",
+              "预训练"
+            ]
+          },
+          {
+            "year": "2",
+            "label": "Step 2",
+            "title": "Phase 2",
+            "description": "GPT-3 可以根据简单的描述“用 Python 写一个贪吃蛇游戏”，直接生成可运行的代码。",
+            "keywords": [
+              "GPT",
+              "OpenAI",
+              "预训练"
+            ]
+          }
+        ]
+      },
+      "title": "GPT系列的演进之路",
+      "id": null
+    },
+    {
+      "type": "DeepDiveZigZag",
+      "role": "核心理论图解",
+      "content": {
+        "title": "注意力机制：理解上下文",
+        "items": [
+          {
+            "name": "预训练：预测下一个词",
+            "title": "预训练：预测下一个词",
+            "description": "预训练：预测下一个词",
+            "keywords": [
+              "预训练",
+              "概率预测",
+              "无监督学习"
+            ],
+            "common_misconceptions": []
+          },
+          {
+            "name": "注意力机制：理解上下文",
+            "title": "注意力机制：理解上下文",
+            "description": "注意力机制：理解上下文",
+            "keywords": [
+              "注意力机制",
+              "上下文",
+              "权重"
+            ],
+            "common_misconceptions": []
+          },
+          {
+            "name": "人类反馈强化学习（RLHF）",
+            "title": "人类反馈强化学习（RLHF）",
+            "description": "人类反馈强化学习（RLHF）",
+            "keywords": [
+              "RLHF",
+              "人类反馈",
+              "奖励模型",
+              "对齐"
+            ],
+            "common_misconceptions": []
+          }
+        ]
+      },
+      "title": "注意力机制：理解上下文",
+      "id": null
+    },
+    {
+      "type": "Timeline",
+      "role": "流程步骤",
+      "content": {
+        "title": "人类反馈强化学习（RLHF）",
+        "items": [
+          {
+            "year": "1",
+            "label": "Step 1",
+            "title": "Phase 1",
+            "description": "如果模型在预训练后学会了骂人的脏话，RLHF 过程中人类会给这些回答打低分，模型就会逐渐学会不说脏话。",
+            "keywords": [
+              "RLHF",
+              "人类反馈",
+              "强化学习"
+            ]
+          },
+          {
+            "year": "2",
+            "label": "Step 2",
+            "title": "Phase 2",
+            "description": "当用户问“如何制造炸弹？”时，经过 RLHF 的模型会拒绝回答，而不是提供教程。",
+            "keywords": [
+              "RLHF",
+              "人类反馈",
+              "强化学习"
+            ]
+          }
+        ]
+      },
+      "title": "人类反馈强化学习（RLHF）",
+      "id": null
+    },
+    {
+      "type": "CardGrid",
+      "role": "应用场景展示",
+      "content": {
+        "title": "内容创作与辅助编程",
+        "items": [
+          {
+            "name": "Example",
+            "description": "市场部员工用 LLM 在 1 分钟内生成了 10 个不同风格的产品宣传语。",
+            "keywords": [
+              "内容创作",
+              "辅助编程",
+              "文案生成"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "初学者利用 LLM 解释复杂的正则表达式，快速掌握了编程技巧。",
+            "keywords": [
+              "内容创作",
+              "辅助编程",
+              "文案生成"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "LLM 在文案、邮件、翻译等创作任务中能显著提高效率。",
+            "keywords": [
+              "内容创作",
+              "辅助编程"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "在编程领域，LLM 可以生成代码、修复 Bug 和解释逻辑。",
+            "keywords": [
+              "内容创作",
+              "辅助编程"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "LLM 不仅能生成内容，还能提供灵感和头脑风暴。",
+            "keywords": [
+              "内容创作",
+              "辅助编程"
+            ]
+          }
+        ]
+      },
+      "title": "内容创作与辅助编程",
+      "id": null
+    },
+    {
+      "type": "CardGrid",
+      "role": "对比分析",
+      "content": {
+        "title": "多模态模型对比",
+        "items": [
+          {
+            "name": "Example",
+            "description": "用户上传一张植物的照片，问模型“这是什么花？怎么养护？”，模型识别出是“多肉植物”并给出建议。",
+            "keywords": [
+              "多模态",
+              "GPT-4V",
+              "视觉问答"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "用户上传一张包含数学几何图形的题目照片，模型读图后给出了解题步骤。",
+            "keywords": [
+              "多模态",
+              "GPT-4V",
+              "视觉问答"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "单模态模型仅处理文本，多模态模型能同时处理文本、图像等多种信息。",
+            "keywords": [
+              "多模态",
+              "GPT-4V"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "多模态模型能直接“看懂”图片、图表和文档截图。",
+            "keywords": [
+              "多模态",
+              "GPT-4V"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "多模态能力极大地扩展了 AI 的应用场景，如视觉问答、草图生成代码等。",
+            "keywords": [
+              "多模态",
+              "GPT-4V"
+            ]
+          }
+        ]
+      },
+      "title": "多模态模型对比",
+      "id": null
+    },
+    {
+      "type": "FlashcardGrid",
+      "role": "互动练习",
+      "content": {
+        "title": "挑战：识别AI幻觉",
+        "cards": [
+          {
+            "type": "Flashcard",
+            "id": "node-hallucination-quiz-card-0",
+            "front": {
+              "title": "Question 1",
+              "content": "什么是 AI 幻觉？"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "大语言模型生成内容自信流畅，但事实完全错误或编造的现象。"
+            }
+          },
+          {
+            "type": "Flashcard",
+            "id": "node-hallucination-quiz-card-1",
+            "front": {
+              "title": "Question 2",
+              "content": "在提示词中加入什么指令有助于减少幻觉？"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "加入“如果你不知道答案，请直接说不知道，不要编造”等约束指令。"
+            }
+          }
+        ]
+      },
+      "title": "挑战：识别AI幻觉",
+      "id": null
+    },
+    {
+      "type": "FlashcardGrid",
+      "role": "知识回顾",
+      "content": {
+        "title": "核心知识点回顾",
+        "cards": [
+          {
+            "type": "Flashcard",
+            "id": "node-key-takeaways-card-0",
+            "front": {
+              "title": "Question 1",
+              "content": "让模型对齐人类价值观的关键技术是什么？"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "人类反馈强化学习（RLHF）。"
+            }
+          },
+          {
+            "type": "Flashcard",
+            "id": "node-key-takeaways-card-1",
+            "front": {
+              "title": "Question 2",
+              "content": "LLM 进行预训练时的核心任务是什么？"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "预测下一个词。"
+            }
+          }
+        ]
+      },
+      "title": "核心知识点回顾",
+      "id": null
+    },
+    {
+      "type": "CardGrid",
+      "role": "议题展示",
+      "content": {
+        "title": "伦理挑战与未来展望",
+        "items": [
+          {
+            "name": "Example",
+            "description": "有艺术家起诉 AI 公司，因为 AI 生成的画作风格模仿了他们的作品，涉及版权问题。",
+            "keywords": [
+              "伦理挑战",
+              "版权",
+              "偏见"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "未来的 AI 可能会像电影《钢铁侠》中的“贾维斯”一样，主动帮主人管理日程、控制家电。",
+            "keywords": [
+              "伦理挑战",
+              "版权",
+              "偏见"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "大模型带来了版权、偏见、虚假信息和就业替代等伦理挑战。",
+            "keywords": [
+              "伦理挑战",
+              "版权"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "应对伦理问题需要技术、法律和社会手段的综合治理。",
+            "keywords": [
+              "伦理挑战",
+              "版权"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "未来趋势包括多模态融合、自主智能体和高度个性化。",
+            "keywords": [
+              "伦理挑战",
+              "版权"
+            ]
+          }
+        ]
+      },
+      "title": "伦理挑战与未来展望",
+      "id": null
+    }
+  ],
+  "metadata": {
+    "total_estimated_time": 175,
+    "target_audience": "对人工智能感兴趣，希望了解大模型基础原理与应用的普通学习者",
+    "warnings": [],
+    "generation_method": "multi-agent-pipeline"
+  }
+}

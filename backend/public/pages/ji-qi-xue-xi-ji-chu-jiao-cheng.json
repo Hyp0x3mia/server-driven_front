@@ -1,0 +1,397 @@
+{
+  "page_id": "ji-qi-xue-xi-ji-chu-jiao-cheng",
+  "page_mode": null,
+  "title": "机器学习基础教程",
+  "summary": "本课程旨在为初学者提供机器学习的核心概念、工作原理及基础应用的全面介绍。通过理论结合实践的方式，帮助学习者建立对数据驱动决策的初步认识，并理解模型训练的基本流程。",
+  "sections": [
+    {
+      "section_id": "section-01-concept",
+      "section_type": "Concept",
+      "title": "核心概念与定义",
+      "layout_intent": "default",
+      "pedagogical_goal": "建立对机器学习基本定义和范式的理解，区分其与传统编程的差异。",
+      "blocks": [
+        {
+          "type": "Hero",
+          "role": "页面介绍",
+          "content": {
+            "title": "什么是机器学习",
+            "subtitle": "# 什么是机器学习？\n\n想象一下，如果你想让计算机识别照片里的猫，你会怎么做？\n\n在**传统编程**中，你需要编写成千上万条规则：“如果有尖耳朵，它是猫”、“如果有胡须，它是猫”……但这很快就会变得极其复杂，因为猫的形态千变万化。\n\n**机器学习**则完全不同。它不是由人类直接告诉计算机“怎么做”，而是给计算机看成千上万张猫的照片，让它自己“学会”猫长什么样。\n\n### 核心定义\n\n机器学习是人工...",
+            "features": [
+              "机器学习是从数据中自动发现规律并做出预测的技术",
+              "它不需要人类显式地编写每一条处理规则",
+              "核心范式转变：从“规则+数据=答案”变为“答案+数据=规则”",
+              "机器学习是实现人工智能的一种主要方式"
+            ]
+          },
+          "title": "什么是机器学习",
+          "id": null
+        },
+        {
+          "type": "DeepDiveZigZag",
+          "role": "深度概念解析",
+          "content": {
+            "title": "数据驱动的决策范式",
+            "items": [
+              {
+                "name": "什么是机器学习",
+                "title": "什么是机器学习",
+                "description": "什么是机器学习",
+                "keywords": [
+                  "机器学习",
+                  "人工智能",
+                  "算法"
+                ],
+                "common_misconceptions": []
+              },
+              {
+                "name": "数据驱动的决策范式",
+                "title": "数据驱动的决策范式",
+                "description": "数据驱动的决策范式",
+                "keywords": [
+                  "数据驱动",
+                  "特征",
+                  "模式识别"
+                ],
+                "common_misconceptions": []
+              },
+              {
+                "name": "生活中的机器学习案例",
+                "title": "生活中的机器学习案例",
+                "description": "生活中的机器学习案例",
+                "keywords": [
+                  "推荐系统",
+                  "垃圾邮件过滤",
+                  "图像识别"
+                ],
+                "common_misconceptions": []
+              }
+            ]
+          },
+          "title": "数据驱动的决策范式",
+          "id": null
+        },
+        {
+          "type": "CardGrid",
+          "role": "案例展示",
+          "content": {
+            "title": "生活中的机器学习案例",
+            "items": [
+              {
+                "name": "Example",
+                "description": "电商平台的“猜你喜欢”：根据浏览记录推荐相关商品",
+                "keywords": [
+                  "推荐系统",
+                  "语音识别",
+                  "图像识别"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "导航软件的实时路况：根据所有用户的移动速度预测拥堵情况并规划路线",
+                "keywords": [
+                  "推荐系统",
+                  "语音识别",
+                  "图像识别"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "垃圾邮件拦截：根据邮件内容的关键词和发件人特征自动分类",
+                "keywords": [
+                  "推荐系统",
+                  "语音识别",
+                  "图像识别"
+                ]
+              }
+            ]
+          },
+          "title": "生活中的机器学习案例",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "section-02-theory",
+      "section_type": "Theory",
+      "title": "工作原理与类型",
+      "layout_intent": "wide",
+      "pedagogical_goal": "深入理解机器学习系统的运作流程，并掌握主要的学习类型分类。",
+      "blocks": [
+        {
+          "type": "Timeline",
+          "role": "流程演示",
+          "content": {
+            "title": "模型训练与测试流程",
+            "items": [
+              {
+                "year": "1",
+                "label": "Step 1",
+                "title": "Phase 1",
+                "description": "房价预测：用2010-2018年的数据训练，用2019年数据验证，用2020年数据测试",
+                "keywords": [
+                  "训练集",
+                  "验证集",
+                  "测试集"
+                ]
+              },
+              {
+                "year": "2",
+                "label": "Step 2",
+                "title": "Phase 2",
+                "description": "疾病诊断：用80%的病人X光片训练模型，剩下的20%用来测试模型能否准确诊断新病人",
+                "keywords": [
+                  "训练集",
+                  "验证集",
+                  "测试集"
+                ]
+              }
+            ]
+          },
+          "title": "模型训练与测试流程",
+          "id": null
+        },
+        {
+          "type": "FlashcardGrid",
+          "role": "对比分析",
+          "content": {
+            "title": "监督学习与非监督学习对比",
+            "cards": [
+              {
+                "type": "Flashcard",
+                "id": "node-2-2-card-0",
+                "front": {
+                  "title": "Question 1",
+                  "content": "如果你想根据用户的年龄、性别和购买历史来预测他们“下个月是否会流失”，这是监督学习还是非监督学习？"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "监督学习（因为这是一个预测任务，且有明确的“流失/不流失”标签）"
+                }
+              },
+              {
+                "type": "Flashcard",
+                "id": "node-2-2-card-1",
+                "front": {
+                  "title": "Question 2",
+                  "content": "如果你有一堆新闻文章，想按主题自动将它们分成几堆，且没有预先定义的主题列表，应该使用哪种方法？"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "非监督学习（具体来说是聚类，因为没有预先定义的类别标签，需要算法自己发现结构）"
+                }
+              }
+            ]
+          },
+          "title": "监督学习与非监督学习对比",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "section-03-practice",
+      "section_type": "Practice",
+      "title": "实践与代码初探",
+      "layout_intent": "interactive",
+      "pedagogical_goal": "通过交互式练习和代码示例，巩固理论知识，体验机器学习的实现过程。",
+      "blocks": [
+        {
+          "type": "CodePlayground",
+          "role": "代码演示",
+          "content": {
+            "mode": "tokenizer",
+            "initialText": "Try this out!",
+            "codeTemplate": null
+          },
+          "title": "Interactive: 简单的线性回归代码演示",
+          "id": null
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "Hero",
+      "role": "页面介绍",
+      "content": {
+        "title": "什么是机器学习",
+        "subtitle": "# 什么是机器学习？\n\n想象一下，如果你想让计算机识别照片里的猫，你会怎么做？\n\n在**传统编程**中，你需要编写成千上万条规则：“如果有尖耳朵，它是猫”、“如果有胡须，它是猫”……但这很快就会变得极其复杂，因为猫的形态千变万化。\n\n**机器学习**则完全不同。它不是由人类直接告诉计算机“怎么做”，而是给计算机看成千上万张猫的照片，让它自己“学会”猫长什么样。\n\n### 核心定义\n\n机器学习是人工...",
+        "features": [
+          "机器学习是从数据中自动发现规律并做出预测的技术",
+          "它不需要人类显式地编写每一条处理规则",
+          "核心范式转变：从“规则+数据=答案”变为“答案+数据=规则”",
+          "机器学习是实现人工智能的一种主要方式"
+        ]
+      },
+      "title": "什么是机器学习",
+      "id": null
+    },
+    {
+      "type": "DeepDiveZigZag",
+      "role": "深度概念解析",
+      "content": {
+        "title": "数据驱动的决策范式",
+        "items": [
+          {
+            "name": "什么是机器学习",
+            "title": "什么是机器学习",
+            "description": "什么是机器学习",
+            "keywords": [
+              "机器学习",
+              "人工智能",
+              "算法"
+            ],
+            "common_misconceptions": []
+          },
+          {
+            "name": "数据驱动的决策范式",
+            "title": "数据驱动的决策范式",
+            "description": "数据驱动的决策范式",
+            "keywords": [
+              "数据驱动",
+              "特征",
+              "模式识别"
+            ],
+            "common_misconceptions": []
+          },
+          {
+            "name": "生活中的机器学习案例",
+            "title": "生活中的机器学习案例",
+            "description": "生活中的机器学习案例",
+            "keywords": [
+              "推荐系统",
+              "垃圾邮件过滤",
+              "图像识别"
+            ],
+            "common_misconceptions": []
+          }
+        ]
+      },
+      "title": "数据驱动的决策范式",
+      "id": null
+    },
+    {
+      "type": "CardGrid",
+      "role": "案例展示",
+      "content": {
+        "title": "生活中的机器学习案例",
+        "items": [
+          {
+            "name": "Example",
+            "description": "电商平台的“猜你喜欢”：根据浏览记录推荐相关商品",
+            "keywords": [
+              "推荐系统",
+              "语音识别",
+              "图像识别"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "导航软件的实时路况：根据所有用户的移动速度预测拥堵情况并规划路线",
+            "keywords": [
+              "推荐系统",
+              "语音识别",
+              "图像识别"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "垃圾邮件拦截：根据邮件内容的关键词和发件人特征自动分类",
+            "keywords": [
+              "推荐系统",
+              "语音识别",
+              "图像识别"
+            ]
+          }
+        ]
+      },
+      "title": "生活中的机器学习案例",
+      "id": null
+    },
+    {
+      "type": "Timeline",
+      "role": "流程演示",
+      "content": {
+        "title": "模型训练与测试流程",
+        "items": [
+          {
+            "year": "1",
+            "label": "Step 1",
+            "title": "Phase 1",
+            "description": "房价预测：用2010-2018年的数据训练，用2019年数据验证，用2020年数据测试",
+            "keywords": [
+              "训练集",
+              "验证集",
+              "测试集"
+            ]
+          },
+          {
+            "year": "2",
+            "label": "Step 2",
+            "title": "Phase 2",
+            "description": "疾病诊断：用80%的病人X光片训练模型，剩下的20%用来测试模型能否准确诊断新病人",
+            "keywords": [
+              "训练集",
+              "验证集",
+              "测试集"
+            ]
+          }
+        ]
+      },
+      "title": "模型训练与测试流程",
+      "id": null
+    },
+    {
+      "type": "FlashcardGrid",
+      "role": "对比分析",
+      "content": {
+        "title": "监督学习与非监督学习对比",
+        "cards": [
+          {
+            "type": "Flashcard",
+            "id": "node-2-2-card-0",
+            "front": {
+              "title": "Question 1",
+              "content": "如果你想根据用户的年龄、性别和购买历史来预测他们“下个月是否会流失”，这是监督学习还是非监督学习？"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "监督学习（因为这是一个预测任务，且有明确的“流失/不流失”标签）"
+            }
+          },
+          {
+            "type": "Flashcard",
+            "id": "node-2-2-card-1",
+            "front": {
+              "title": "Question 2",
+              "content": "如果你有一堆新闻文章，想按主题自动将它们分成几堆，且没有预先定义的主题列表，应该使用哪种方法？"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "非监督学习（具体来说是聚类，因为没有预先定义的类别标签，需要算法自己发现结构）"
+            }
+          }
+        ]
+      },
+      "title": "监督学习与非监督学习对比",
+      "id": null
+    },
+    {
+      "type": "CodePlayground",
+      "role": "代码演示",
+      "content": {
+        "mode": "tokenizer",
+        "initialText": "Try this out!",
+        "codeTemplate": null
+      },
+      "title": "Interactive: 简单的线性回归代码演示",
+      "id": null
+    }
+  ],
+  "metadata": {
+    "total_estimated_time": 80,
+    "target_audience": "具备基础编程概念，希望了解人工智能与机器学习核心原理的初学者",
+    "warnings": [],
+    "generation_method": "multi-agent-pipeline"
+  }
+}

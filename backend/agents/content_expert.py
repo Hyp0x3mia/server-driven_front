@@ -108,7 +108,7 @@ For each content node, generate:
 - **Tone**: Friendly but professional
 - **Format**: Markdown with headings, lists, code blocks
 - **Length**: 200-800 words per node (depending on complexity)
-- **Language**: Chinese for Chinese topics, otherwise English
+- **Language**: **IMPORTANT: Always write in Chinese (简体中文), regardless of the topic**
 
 ## Special Handling by Category
 
@@ -205,7 +205,87 @@ For each content node, generate:
                 json_match = re.search(r'\{[\s\S]*\}', content)
                 if json_match:
                     json_str = json_match.group(0)
-                    data = json.loads(json_str)
+
+                    # Clean control characters that might break JSON parsing
+                    # LLMs sometimes output control chars in JSON strings that break parsing
+
+                    # Remove all control characters except valid JSON whitespace (space, \n, \r, \t in structure)
+                    # We need to preserve the JSON structure but clean control chars from string values
+                    import json as json_module
+
+                    # Step 1: Fix invalid escape sequences
+                    # LLMs sometimes generate backslashes followed by non-escapable characters
+                    # We need to clean these while preserving valid escapes like \n, \t, \", \\, \uXXXX
+
+                    def clean_invalid_escapes(text: str) -> str:
+                        """Remove invalid escape sequences from JSON string."""
+                        # Pattern: backslash followed by anything that's NOT a valid escape character
+                        # Valid escapes: " \ / b f n r t uXXXX (where X is hex digit)
+                        result = []
+                        i = 0
+                        while i < len(text):
+                            if text[i] == '\\' and i + 1 < len(text):
+                                next_char = text[i + 1]
+                                # Check if it's a valid escape
+                                if next_char in '"\\/bfnrt':
+                                    result.append(text[i:i+2])
+                                    i += 2
+                                    continue
+                                elif next_char == 'u' and i + 5 < len(text):
+                                    # Check \uXXXX format
+                                    hex_digits = text[i+2:i+6]
+                                    if all(c in '0123456789abcdefABCDEF' for c in hex_digits):
+                                        result.append(text[i:i+6])
+                                        i += 6
+                                        continue
+                                # Invalid escape - remove the backslash, keep the next char
+                                result.append(next_char)
+                                i += 2
+                            else:
+                                result.append(text[i])
+                                i += 1
+                        return ''.join(result)
+
+                    def fix_json_syntax(text: str) -> str:
+                        """Fix common JSON syntax errors."""
+                        # Fix 1: Remove trailing commas (e.g., { "a": 1, } -> { "a": 1 })
+                        text = re.sub(r',\s*([}\]])', r'\1', text)
+
+                        # Fix 2: Add missing commas between objects/arrays
+                        # e.g., {"a":1}{"b":2} -> {"a":1},{"b":2}
+                        text = re.sub(r'}\s*{', '},{', text)
+                        text = re.sub(r']\s*\[', '],[', text)
+                        text = re.sub(r'"\s*\s*"', '","', text)
+                        text = re.sub(r'"\s*{', '",{', text)
+                        text = re.sub(r'}\s*"', '},"', text)
+
+                        # Fix 3: Fix unquoted strings (if they appear as keys/values)
+                        # This is risky, so be conservative
+
+                        return text
+
+                    # Step 1: Clean invalid escapes
+                    json_str = clean_invalid_escapes(json_str)
+
+                    # Step 2: Fix JSON syntax errors
+                    json_str = fix_json_syntax(json_str)
+
+                    # Step 3: Remove control characters (except those in valid escape sequences)
+                    # This removes \x00-\x1f except space (\x20), \n (\x0a), \r (\x0d), \t (\x09)
+                    cleaned_json = re.sub(r'[\x00-\x08\x0b-\x0c\x0e-\x1f]', '', json_str)
+
+                    try:
+                        data = json.loads(cleaned_json)
+                    except json.JSONDecodeError as json_err:
+                        print(f"❌ JSON parsing failed: {json_err}")
+                        print(f"📝 JSON preview (first 300 chars): {cleaned_json[:300]}")
+
+                        # Try with strict=False as last resort
+                        try:
+                            data = json.loads(cleaned_json, strict=False)
+                            print(f"✅ Parsed with strict=False")
+                        except Exception as final_err:
+                            raise ValueError(f"Failed to parse JSON: {final_err}")
 
                     # Manually construct ContentCollection
                     contents = []

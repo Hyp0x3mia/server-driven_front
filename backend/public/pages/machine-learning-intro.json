@@ -1,0 +1,599 @@
+{
+  "page_id": "machine-learning-intro",
+  "page_mode": null,
+  "title": "机器学习核心概念与实践",
+  "summary": "本课程旨在向普通学习者介绍机器学习的核心概念、发展历史、基本原理及实际应用。通过交互式组件和案例分析，帮助学员建立对人工智能领域的整体认知，理解机器如何从数据中学习。",
+  "sections": [
+    {
+      "section_id": "section-concept",
+      "section_type": "Concept",
+      "title": "什么是机器学习",
+      "layout_intent": "default",
+      "pedagogical_goal": "建立对机器学习的基本认知，区分其与传统编程的差异",
+      "blocks": [
+        {
+          "type": "Hero",
+          "role": "页面介绍",
+          "content": {
+            "title": "机器学习的定义",
+            "subtitle": "# 什么是机器学习？\n\n机器学习是人工智能（AI）的一个核心子集，它致力于研究如何通过计算的手段，利用经验（数据）来改善系统自身的性能。\n\n简单来说，**机器学习就是让计算机像人类一样，从数据中学习规律，而不是通过人类手动编写每一条规则。**\n\n### 核心含义解析\n\n传统的计算机程序需要程序员明确地告诉计算机每一步该怎么做（例如：“如果图片里有胡须，就标记为猫”）。而机器学习算法则是通过分析大量...",
+            "features": [
+              "机器学习是AI的子集，专注于从数据中学习规律",
+              "它通过数据自动改进性能，而非依赖显式编程",
+              "核心在于利用经验（数据）来解决复杂问题"
+            ]
+          },
+          "title": "机器学习的定义",
+          "id": null
+        },
+        {
+          "type": "CardGrid",
+          "role": "概念对比",
+          "content": {
+            "title": "传统编程与机器学习的对比",
+            "items": [
+              {
+                "name": "Example",
+                "description": "传统编程：编写一个计算器程序，输入数字和运算符，输出结果",
+                "keywords": [
+                  "传统编程",
+                  "基于规则",
+                  "数据驱动"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "机器学习：编写一个手写数字识别程序，输入图片，输出数字",
+                "keywords": [
+                  "传统编程",
+                  "基于规则",
+                  "数据驱动"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "传统编程是“规则+数据=答案”，机器学习是“数据+答案=规则”",
+                "keywords": [
+                  "传统编程",
+                  "基于规则"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "传统编程依赖人工定义逻辑，适合规则明确的任务",
+                "keywords": [
+                  "传统编程",
+                  "基于规则"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "机器学习依赖数据驱动，适合模式识别和复杂预测任务",
+                "keywords": [
+                  "传统编程",
+                  "基于规则"
+                ]
+              }
+            ]
+          },
+          "title": "传统编程与机器学习的对比",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "section-history",
+      "section_type": "History",
+      "title": "机器学习的发展简史",
+      "layout_intent": "timeline",
+      "pedagogical_goal": "通过时间线了解机器学习的关键里程碑和演变过程",
+      "blocks": [
+        {
+          "type": "Timeline",
+          "role": "历史背景",
+          "content": {
+            "title": "从图灵测试到深度学习",
+            "items": [
+              {
+                "year": "1",
+                "label": "Step 1",
+                "title": "Phase 1",
+                "description": "1990年代：基于规则的垃圾邮件过滤器逐渐被贝叶斯分类器取代",
+                "keywords": [
+                  "图灵测试",
+                  "感知机",
+                  "反向传播"
+                ]
+              },
+              {
+                "year": "2",
+                "label": "Step 2",
+                "title": "Phase 2",
+                "description": "2016年：AlphaGo 击败人类围棋冠军，展示了强化学习的威力",
+                "keywords": [
+                  "图灵测试",
+                  "感知机",
+                  "反向传播"
+                ]
+              }
+            ]
+          },
+          "title": "从图灵测试到深度学习",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "section-theory",
+      "section_type": "Theory",
+      "title": "核心原理与类型",
+      "layout_intent": "wide",
+      "pedagogical_goal": "深入理解机器学习的分类标准及基本工作流程",
+      "blocks": [
+        {
+          "type": "CardGrid",
+          "role": "概念分类",
+          "content": {
+            "title": "三大主要学习范式",
+            "items": [
+              {
+                "name": "Example",
+                "description": "监督学习：根据房屋面积、位置预测房价（回归）",
+                "keywords": [
+                  "监督学习",
+                  "无监督学习",
+                  "强化学习"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "无监督学习：电商根据用户浏览行为将用户分为“价格敏感型”、“品牌忠诚型”（聚类）",
+                "keywords": [
+                  "监督学习",
+                  "无监督学习",
+                  "强化学习"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "强化学习：训练一只机器狗学会走路，摔倒扣分，前进加分",
+                "keywords": [
+                  "监督学习",
+                  "无监督学习",
+                  "强化学习"
+                ]
+              }
+            ]
+          },
+          "title": "三大主要学习范式",
+          "id": null
+        },
+        {
+          "type": "DeepDiveZigZag",
+          "role": "流程详解",
+          "content": {
+            "title": "机器学习的基本工作流程",
+            "items": [
+              {
+                "name": "三大主要学习范式",
+                "title": "三大主要学习范式",
+                "description": "三大主要学习范式",
+                "keywords": [
+                  "监督学习",
+                  "无监督学习",
+                  "强化学习",
+                  "标签",
+                  "反馈"
+                ],
+                "common_misconceptions": []
+              },
+              {
+                "name": "机器学习的基本工作流程",
+                "title": "机器学习的基本工作流程",
+                "description": "机器学习的基本工作流程",
+                "keywords": [
+                  "数据清洗",
+                  "特征工程",
+                  "模型训练",
+                  "验证",
+                  "泛化"
+                ],
+                "common_misconceptions": []
+              }
+            ]
+          },
+          "title": "机器学习的基本工作流程",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "section-application",
+      "section_type": "Application",
+      "title": "现实世界的应用",
+      "layout_intent": "split",
+      "pedagogical_goal": "通过具体案例展示机器学习在各行业的实际价值",
+      "blocks": [
+        {
+          "type": "CardGrid",
+          "role": "案例展示",
+          "content": {
+            "title": "典型应用案例分析",
+            "items": [
+              {
+                "name": "Example",
+                "description": "淘宝的“猜你喜欢”商品推荐列表",
+                "keywords": [
+                  "推荐系统",
+                  "自然语言处理",
+                  "计算机视觉"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "微信语音转文字功能",
+                "keywords": [
+                  "推荐系统",
+                  "自然语言处理",
+                  "计算机视觉"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "银行App的异常登录提醒",
+                "keywords": [
+                  "推荐系统",
+                  "自然语言处理",
+                  "计算机视觉"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "停车场自动识别车牌号",
+                "keywords": [
+                  "推荐系统",
+                  "自然语言处理",
+                  "计算机视觉"
+                ]
+              }
+            ]
+          },
+          "title": "典型应用案例分析",
+          "id": null
+        },
+        {
+          "type": "FlashcardGrid",
+          "role": "批判性分析",
+          "content": {
+            "title": "机器学习的优势与挑战",
+            "cards": [
+              {
+                "type": "Flashcard",
+                "id": "ml-pros-cons-card-0",
+                "front": {
+                  "title": "Question 1",
+                  "content": "如果训练数据中存在种族歧视，机器学习模型会怎样？"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "模型会学习并放大这种歧视，导致不公平的预测结果。"
+                }
+              },
+              {
+                "type": "Flashcard",
+                "id": "ml-pros-cons-card-1",
+                "front": {
+                  "title": "Question 2",
+                  "content": "为什么在医疗诊断中，AI的“黑盒”特性是一个问题？"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "因为医生和患者需要知道AI做出诊断的依据（为什么），以便信任和验证结果，黑盒模型无法提供这种解释。"
+                }
+              }
+            ]
+          },
+          "title": "机器学习的优势与挑战",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "section-practice",
+      "section_type": "Practice",
+      "title": "交互式实践",
+      "layout_intent": "interactive",
+      "pedagogical_goal": "通过动手操作和代码演示加深对模型训练过程的理解",
+      "blocks": [
+        {
+          "type": "CodePlayground",
+          "role": "交互实验",
+          "content": {
+            "mode": "tokenizer",
+            "initialText": "Try this out!",
+            "codeTemplate": null
+          },
+          "title": "Interactive: 可视化分类器训练",
+          "id": null
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "Hero",
+      "role": "页面介绍",
+      "content": {
+        "title": "机器学习的定义",
+        "subtitle": "# 什么是机器学习？\n\n机器学习是人工智能（AI）的一个核心子集，它致力于研究如何通过计算的手段，利用经验（数据）来改善系统自身的性能。\n\n简单来说，**机器学习就是让计算机像人类一样，从数据中学习规律，而不是通过人类手动编写每一条规则。**\n\n### 核心含义解析\n\n传统的计算机程序需要程序员明确地告诉计算机每一步该怎么做（例如：“如果图片里有胡须，就标记为猫”）。而机器学习算法则是通过分析大量...",
+        "features": [
+          "机器学习是AI的子集，专注于从数据中学习规律",
+          "它通过数据自动改进性能，而非依赖显式编程",
+          "核心在于利用经验（数据）来解决复杂问题"
+        ]
+      },
+      "title": "机器学习的定义",
+      "id": null
+    },
+    {
+      "type": "CardGrid",
+      "role": "概念对比",
+      "content": {
+        "title": "传统编程与机器学习的对比",
+        "items": [
+          {
+            "name": "Example",
+            "description": "传统编程：编写一个计算器程序，输入数字和运算符，输出结果",
+            "keywords": [
+              "传统编程",
+              "基于规则",
+              "数据驱动"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "机器学习：编写一个手写数字识别程序，输入图片，输出数字",
+            "keywords": [
+              "传统编程",
+              "基于规则",
+              "数据驱动"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "传统编程是“规则+数据=答案”，机器学习是“数据+答案=规则”",
+            "keywords": [
+              "传统编程",
+              "基于规则"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "传统编程依赖人工定义逻辑，适合规则明确的任务",
+            "keywords": [
+              "传统编程",
+              "基于规则"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "机器学习依赖数据驱动，适合模式识别和复杂预测任务",
+            "keywords": [
+              "传统编程",
+              "基于规则"
+            ]
+          }
+        ]
+      },
+      "title": "传统编程与机器学习的对比",
+      "id": null
+    },
+    {
+      "type": "Timeline",
+      "role": "历史背景",
+      "content": {
+        "title": "从图灵测试到深度学习",
+        "items": [
+          {
+            "year": "1",
+            "label": "Step 1",
+            "title": "Phase 1",
+            "description": "1990年代：基于规则的垃圾邮件过滤器逐渐被贝叶斯分类器取代",
+            "keywords": [
+              "图灵测试",
+              "感知机",
+              "反向传播"
+            ]
+          },
+          {
+            "year": "2",
+            "label": "Step 2",
+            "title": "Phase 2",
+            "description": "2016年：AlphaGo 击败人类围棋冠军，展示了强化学习的威力",
+            "keywords": [
+              "图灵测试",
+              "感知机",
+              "反向传播"
+            ]
+          }
+        ]
+      },
+      "title": "从图灵测试到深度学习",
+      "id": null
+    },
+    {
+      "type": "CardGrid",
+      "role": "概念分类",
+      "content": {
+        "title": "三大主要学习范式",
+        "items": [
+          {
+            "name": "Example",
+            "description": "监督学习：根据房屋面积、位置预测房价（回归）",
+            "keywords": [
+              "监督学习",
+              "无监督学习",
+              "强化学习"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "无监督学习：电商根据用户浏览行为将用户分为“价格敏感型”、“品牌忠诚型”（聚类）",
+            "keywords": [
+              "监督学习",
+              "无监督学习",
+              "强化学习"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "强化学习：训练一只机器狗学会走路，摔倒扣分，前进加分",
+            "keywords": [
+              "监督学习",
+              "无监督学习",
+              "强化学习"
+            ]
+          }
+        ]
+      },
+      "title": "三大主要学习范式",
+      "id": null
+    },
+    {
+      "type": "DeepDiveZigZag",
+      "role": "流程详解",
+      "content": {
+        "title": "机器学习的基本工作流程",
+        "items": [
+          {
+            "name": "三大主要学习范式",
+            "title": "三大主要学习范式",
+            "description": "三大主要学习范式",
+            "keywords": [
+              "监督学习",
+              "无监督学习",
+              "强化学习",
+              "标签",
+              "反馈"
+            ],
+            "common_misconceptions": []
+          },
+          {
+            "name": "机器学习的基本工作流程",
+            "title": "机器学习的基本工作流程",
+            "description": "机器学习的基本工作流程",
+            "keywords": [
+              "数据清洗",
+              "特征工程",
+              "模型训练",
+              "验证",
+              "泛化"
+            ],
+            "common_misconceptions": []
+          }
+        ]
+      },
+      "title": "机器学习的基本工作流程",
+      "id": null
+    },
+    {
+      "type": "CardGrid",
+      "role": "案例展示",
+      "content": {
+        "title": "典型应用案例分析",
+        "items": [
+          {
+            "name": "Example",
+            "description": "淘宝的“猜你喜欢”商品推荐列表",
+            "keywords": [
+              "推荐系统",
+              "自然语言处理",
+              "计算机视觉"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "微信语音转文字功能",
+            "keywords": [
+              "推荐系统",
+              "自然语言处理",
+              "计算机视觉"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "银行App的异常登录提醒",
+            "keywords": [
+              "推荐系统",
+              "自然语言处理",
+              "计算机视觉"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "停车场自动识别车牌号",
+            "keywords": [
+              "推荐系统",
+              "自然语言处理",
+              "计算机视觉"
+            ]
+          }
+        ]
+      },
+      "title": "典型应用案例分析",
+      "id": null
+    },
+    {
+      "type": "FlashcardGrid",
+      "role": "批判性分析",
+      "content": {
+        "title": "机器学习的优势与挑战",
+        "cards": [
+          {
+            "type": "Flashcard",
+            "id": "ml-pros-cons-card-0",
+            "front": {
+              "title": "Question 1",
+              "content": "如果训练数据中存在种族歧视，机器学习模型会怎样？"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "模型会学习并放大这种歧视，导致不公平的预测结果。"
+            }
+          },
+          {
+            "type": "Flashcard",
+            "id": "ml-pros-cons-card-1",
+            "front": {
+              "title": "Question 2",
+              "content": "为什么在医疗诊断中，AI的“黑盒”特性是一个问题？"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "因为医生和患者需要知道AI做出诊断的依据（为什么），以便信任和验证结果，黑盒模型无法提供这种解释。"
+            }
+          }
+        ]
+      },
+      "title": "机器学习的优势与挑战",
+      "id": null
+    },
+    {
+      "type": "CodePlayground",
+      "role": "交互实验",
+      "content": {
+        "mode": "tokenizer",
+        "initialText": "Try this out!",
+        "codeTemplate": null
+      },
+      "title": "Interactive: 可视化分类器训练",
+      "id": null
+    }
+  ],
+  "metadata": {
+    "total_estimated_time": 115,
+    "target_audience": "对人工智能感兴趣的普通学习者，具备基础计算机常识",
+    "warnings": [],
+    "generation_method": "multi-agent-pipeline"
+  }
+}

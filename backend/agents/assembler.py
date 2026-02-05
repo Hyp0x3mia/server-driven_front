@@ -10,7 +10,7 @@ The Assembler is responsible for:
 This is the FINAL stage before output.
 """
 
-from typing import Dict, List, Any, Optional
+from typing import Dict, List, Any, Optional, Callable
 import json
 import re
 from models.schemas import (
@@ -24,6 +24,8 @@ from models.schemas import (
     VisualComponent,
     BlockType,
     SectionType,
+    StreamingEvent,
+    StreamingEventType,
 )
 
 
@@ -46,7 +48,8 @@ class AssemblerAgent:
         self,
         skeleton: PageSkeleton,
         content: ContentCollection,
-        visual_mapping: VisualMapping
+        visual_mapping: VisualMapping,
+        callback: Optional[Callable[[StreamingEvent], None]] = None
     ) -> FrontendPageSchema:
         """
         Assemble the final page schema from all previous stages.
@@ -55,6 +58,7 @@ class AssemblerAgent:
             skeleton: Structure from Planner Agent
             content: Generated content from Content Expert
             visual_mapping: Component mappings from Visual Director
+            callback: Optional callback function to emit streaming events
 
         Returns:
             FrontendPageSchema ready for frontend rendering
@@ -93,7 +97,10 @@ class AssemblerAgent:
                     node=node,
                     content=node_content,
                     visual=node_visual,
-                    section=section
+                    section=section,
+                    section_blocks=section_blocks,
+                    total_blocks=sum(len(s.nodes) for s in skeleton.sections),
+                    callback=callback
                 )
 
                 if block:
@@ -145,40 +152,61 @@ class AssemblerAgent:
         node,
         content: ContentBlock,
         visual: VisualComponent,
-        section
+        section,
+        section_blocks: List[FrontendBlock],
+        total_blocks: int,
+        callback: Optional[Callable[[StreamingEvent], None]] = None
     ) -> Optional[FrontendBlock]:
         """Assemble a single frontend block from content and visual mapping."""
         block_type = visual.block_type
+        block = None
 
         try:
             # Build block based on type
             if block_type == BlockType.HERO:
-                return self._build_hero_block(content, visual, node)
+                block = self._build_hero_block(content, visual, node)
             elif block_type == BlockType.MARKDOWN:
-                return self._build_markdown_block(content, visual, node)
+                block = self._build_markdown_block(content, visual, node)
             elif block_type == BlockType.FLASHCARD:
-                return self._build_flashcard_block(content, visual, node)
+                block = self._build_flashcard_block(content, visual, node)
             elif block_type == BlockType.CARDGRID:
-                return self._build_cardgrid_block(content, visual, node, section)
+                block = self._build_cardgrid_block(content, visual, node, section)
             elif block_type == BlockType.TIMELINE:
-                return self._build_timeline_block(content, visual, node, section)
+                block = self._build_timeline_block(content, visual, node, section)
             elif block_type == BlockType.CLOZE:
-                return self._build_cloze_block(content, visual, node)
+                block = self._build_cloze_block(content, visual, node)
             elif block_type == BlockType.FLASHCARDGRID:
-                return self._build_flashcardgrid_block(content, visual, node)
+                block = self._build_flashcardgrid_block(content, visual, node)
             elif block_type == BlockType.CODEPLAYGROUND:
-                return self._build_codeplayground_block(content, visual, node)
+                block = self._build_codeplayground_block(content, visual, node)
             elif block_type == BlockType.DEEP_DIVE_ZIGZAG:
-                return self._build_deepdive_zigzag_block(content, visual, node, section)
+                block = self._build_deepdive_zigzag_block(content, visual, node, section)
             elif block_type == BlockType.SPLIT_PANE_LAB:
-                return self._build_split_pane_lab_block(content, visual, node, section)
+                block = self._build_split_pane_lab_block(content, visual, node, section)
             else:
                 self.warnings.append(f"Unknown block type: {block_type}, using Markdown")
-                return self._build_markdown_block(content, visual, node)
+                block = self._build_markdown_block(content, visual, node)
 
         except Exception as e:
             self.errors.append(f"Error assembling block {node.node_id}: {e}")
-            return None
+            block = None
+
+        # Emit block ready event
+        if block and callback:
+            current_index = len(section_blocks)
+            callback(StreamingEvent(
+                type=StreamingEventType.BLOCK_READY,
+                stage="assembler",
+                data={
+                    "block": block.model_dump(mode='json'),
+                    "section_id": section.section_id,
+                    "section_title": section.title,
+                    "index": current_index,
+                    "progress": f"{current_index + 1}/{total_blocks} ({int((current_index + 1) / total_blocks * 100)}%)"
+                }
+            ))
+
+        return block
 
     def _build_hero_block(
         self,

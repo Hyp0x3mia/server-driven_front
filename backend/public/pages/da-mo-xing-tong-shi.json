@@ -1,0 +1,966 @@
+{
+  "page_id": "da-mo-xing-tong-shi",
+  "page_mode": null,
+  "title": "大模型通识：从原理到应用",
+  "summary": "本课程旨在帮助普通学习者建立对大语言模型（LLM）的全面认知。课程涵盖大模型的基本定义、发展历史、核心Transformer架构原理、训练流程以及提示词工程的实际应用，通过循序渐进的方式引导学习者掌握这一前沿技术的基础知识。",
+  "sections": [
+    {
+      "section_id": "section-concept",
+      "section_type": "Concept",
+      "title": "核心概念：什么是大模型？",
+      "layout_intent": "default",
+      "pedagogical_goal": "建立对大语言模型的基本认知，理解其定义与基本特性。",
+      "blocks": [
+        {
+          "type": "Hero",
+          "role": "页面介绍",
+          "content": {
+            "title": "大语言模型的定义",
+            "subtitle": "### 什么是大语言模型？\n\n大语言模型（Large Language Model，简称 LLM）是一种基于深度学习的人工智能算法，旨在理解、生成和操作人类语言。你可以把它想象成一个超级复杂的数学函数，通过分析海量文本来学习语言的规律。\n\n### 两个核心要素\n\n要理解“大”语言模型，我们需要关注两个关键数字：\n\n1.  **参数量**：参数就像是模型大脑中的“神经元连接”数量。参数越多，模型能够...",
+            "features": [
+              "LLM 是基于深度学习的算法，通过海量文本数据训练而成",
+              "“大”主要体现在巨大的参数量和庞大的训练数据集上",
+              "其核心机制是预测下一个词，基于概率统计生成文本"
+            ]
+          },
+          "title": "大语言模型的定义",
+          "id": null
+        },
+        {
+          "type": "CardGrid",
+          "role": "概念对比",
+          "content": {
+            "title": "生成式AI的特性",
+            "items": [
+              {
+                "name": "Example",
+                "description": "判别式 AI：人脸识别门禁系统（判断是否为本人）",
+                "keywords": [
+                  "生成式 AI",
+                  "判别式 AI",
+                  "涌现"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "生成式 AI：Midjourney（根据文字描述生成艺术画作）",
+                "keywords": [
+                  "生成式 AI",
+                  "判别式 AI",
+                  "涌现"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "生成式 AI 侧重于创造新内容，而判别式 AI 侧重于分类和判断",
+                "keywords": [
+                  "生成式 AI",
+                  "判别式 AI"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "“涌现”是指模型规模扩大到一定程度后，突然产生的预料之外的能力",
+                "keywords": [
+                  "生成式 AI",
+                  "判别式 AI"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "涌现能力包括逻辑推理、编程、数学计算等复杂任务",
+                "keywords": [
+                  "生成式 AI",
+                  "判别式 AI"
+                ]
+              }
+            ]
+          },
+          "title": "生成式AI的特性",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "section-history",
+      "section_type": "History",
+      "title": "历史演进：从统计模型到GPT",
+      "layout_intent": "timeline",
+      "pedagogical_goal": "梳理大模型的发展脉络，理解关键技术转折点。",
+      "blocks": [
+        {
+          "type": "Timeline",
+          "role": "历史背景",
+          "content": {
+            "title": "早期语言模型的局限",
+            "items": [
+              {
+                "year": "1",
+                "label": "Step 1",
+                "title": "Phase 1",
+                "description": "早期的机器翻译系统经常翻译长句时逻辑混乱，因为忘了主语",
+                "keywords": [
+                  "RNN",
+                  "LSTM",
+                  "串行处理"
+                ]
+              },
+              {
+                "year": "2",
+                "label": "Step 2",
+                "title": "Phase 2",
+                "description": "语音助手在处理长指令时，往往只能响应最后半句",
+                "keywords": [
+                  "RNN",
+                  "LSTM",
+                  "串行处理"
+                ]
+              }
+            ]
+          },
+          "title": "早期语言模型的局限",
+          "id": null
+        },
+        {
+          "type": "Timeline",
+          "role": "关键转折点",
+          "content": {
+            "title": "Transformer架构的诞生",
+            "items": [
+              {
+                "year": "1",
+                "label": "Step 1",
+                "title": "Phase 1",
+                "description": "BERT 和 GPT 系列模型都基于 Transformer 架构构建",
+                "keywords": [
+                  "Transformer",
+                  "Attention Is All You Need",
+                  "并行计算"
+                ]
+              },
+              {
+                "year": "2",
+                "label": "Step 2",
+                "title": "Phase 2",
+                "description": "现代翻译工具（如 Google 翻译）在升级到 Transformer 后，准确率大幅提升",
+                "keywords": [
+                  "Transformer",
+                  "Attention Is All You Need",
+                  "并行计算"
+                ]
+              }
+            ]
+          },
+          "title": "Transformer架构的诞生",
+          "id": null
+        },
+        {
+          "type": "Timeline",
+          "role": "演进历程",
+          "content": {
+            "title": "GPT系列的进化之路",
+            "items": [
+              {
+                "year": "1",
+                "label": "Step 1",
+                "title": "Phase 1",
+                "description": "GPT-2 曾被戏称为“太危险而不能发布的 AI”，因为它能写极其逼真的假新闻",
+                "keywords": [
+                  "GPT",
+                  "OpenAI",
+                  "缩放定律"
+                ]
+              },
+              {
+                "year": "2",
+                "label": "Step 2",
+                "title": "Phase 2",
+                "description": "GPT-3 能够根据简单的描述生成可运行的 Python 网页爬虫代码",
+                "keywords": [
+                  "GPT",
+                  "OpenAI",
+                  "缩放定律"
+                ]
+              }
+            ]
+          },
+          "title": "GPT系列的进化之路",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "section-theory",
+      "section_type": "Theory",
+      "title": "核心原理：大模型是如何思考的？",
+      "layout_intent": "wide",
+      "pedagogical_goal": "深入浅出地解释大模型背后的技术原理，包括架构与训练过程。",
+      "blocks": [
+        {
+          "type": "DeepDiveZigZag",
+          "role": "深度原理解析",
+          "content": {
+            "title": "自注意力机制解析",
+            "items": [
+              {
+                "name": "自注意力机制解析",
+                "title": "自注意力机制解析",
+                "description": "自注意力机制解析",
+                "keywords": [
+                  "自注意力",
+                  "上下文理解",
+                  "向量表示"
+                ],
+                "common_misconceptions": []
+              },
+              {
+                "name": "预训练与微调流程",
+                "title": "预训练与微调流程",
+                "description": "预训练与微调流程",
+                "keywords": [
+                  "预训练",
+                  "微调",
+                  "无监督学习"
+                ],
+                "common_misconceptions": []
+              },
+              {
+                "name": "人类反馈强化学习(RLHF)",
+                "title": "人类反馈强化学习(RLHF)",
+                "description": "人类反馈强化学习(RLHF)",
+                "keywords": [
+                  "RLHF",
+                  "奖励模型",
+                  "对齐"
+                ],
+                "common_misconceptions": []
+              }
+            ]
+          },
+          "title": "自注意力机制解析",
+          "id": null
+        },
+        {
+          "type": "CardGrid",
+          "role": "流程阶段对比",
+          "content": {
+            "title": "预训练与微调流程",
+            "items": [
+              {
+                "name": "Example",
+                "description": "LLaMA 模型发布的是基础模型，而 Alpaca 是在 LLaMA 基础上经过微调的对话模型",
+                "keywords": [
+                  "预训练",
+                  "微调",
+                  "SFT"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "企业内部使用通用大模型，再投喂内部文档进行微调，以熟悉公司业务",
+                "keywords": [
+                  "预训练",
+                  "微调",
+                  "SFT"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "预训练是“通识教育”，通过海量数据让模型学会语言规律和世界知识",
+                "keywords": [
+                  "预训练",
+                  "微调"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "微调是“职业培训”，通过问答数据让模型学会遵循指令",
+                "keywords": [
+                  "预训练",
+                  "微调"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "预训练产出基础模型，微调产出可用的对话模型",
+                "keywords": [
+                  "预训练",
+                  "微调"
+                ]
+              }
+            ]
+          },
+          "title": "预训练与微调流程",
+          "id": null
+        },
+        {
+          "type": "FlashcardGrid",
+          "role": "效果对比",
+          "content": {
+            "title": "人类反馈强化学习(RLHF)",
+            "cards": [
+              {
+                "type": "Flashcard",
+                "id": "node-comp-rlhf-card-0",
+                "front": {
+                  "title": "Question 1",
+                  "content": "RLHF 中的“R”代表什么？"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "Reinforcement Learning（强化学习）。"
+                }
+              },
+              {
+                "type": "Flashcard",
+                "id": "node-comp-rlhf-card-1",
+                "front": {
+                  "title": "Question 2",
+                  "content": "RLHF 主要解决了模型的什么问题？"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "解决了模型输出与人类价值观不对齐的问题（如有害、偏见、无用回答）。"
+                }
+              }
+            ]
+          },
+          "title": "人类反馈强化学习(RLHF)",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "section-application",
+      "section_type": "Application",
+      "title": "实际应用：如何驾驭大模型？",
+      "layout_intent": "split",
+      "pedagogical_goal": "展示大模型的实际应用场景，并教授基础的提示词工程技巧。",
+      "blocks": [
+        {
+          "type": "CardGrid",
+          "role": "应用场景展示",
+          "content": {
+            "title": "典型应用场景展示",
+            "items": [
+              {
+                "name": "Example",
+                "description": "市场部使用 ChatGPT 生成 10 个不同风格的产品推广标语",
+                "keywords": [
+                  "内容创作",
+                  "编程辅助",
+                  "数据分析"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "程序员使用 GitHub Copilot 自动补全 Python 函数代码",
+                "keywords": [
+                  "内容创作",
+                  "编程辅助",
+                  "数据分析"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "HR 使用大模型从 100 份简历中快速筛选出符合要求的候选人",
+                "keywords": [
+                  "内容创作",
+                  "编程辅助",
+                  "数据分析"
+                ]
+              }
+            ]
+          },
+          "title": "典型应用场景展示",
+          "id": null
+        },
+        {
+          "type": "CodePlayground",
+          "role": "交互式代码演示",
+          "content": {
+            "mode": "tokenizer",
+            "initialText": "Try this out!",
+            "codeTemplate": null
+          },
+          "title": "Interactive: 调用大模型API示例",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "section-practice",
+      "section_type": "Practice",
+      "title": "实战演练：动手试一试",
+      "layout_intent": "interactive",
+      "pedagogical_goal": "通过交互式练习巩固所学知识，提升实际操作能力。",
+      "blocks": [
+        {
+          "type": "FlashcardGrid",
+          "role": "知识自测",
+          "content": {
+            "title": "核心概念自测",
+            "cards": [
+              {
+                "type": "Flashcard",
+                "id": "node-prac-quiz-card-0",
+                "front": {
+                  "title": "Question 1",
+                  "content": "Transformer 架构相比 RNN，最大的优势是什么？"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "B. 支持并行计算，处理长文本能力更强"
+                }
+              },
+              {
+                "type": "Flashcard",
+                "id": "node-prac-quiz-card-1",
+                "front": {
+                  "title": "Question 2",
+                  "content": "在大模型训练流程中，预训练和微调的主要区别是什么？"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "B. 预训练学习世界知识，微调学习遵循指令"
+                }
+              },
+              {
+                "type": "Flashcard",
+                "id": "node-prac-quiz-card-2",
+                "front": {
+                  "title": "Question 3",
+                  "content": "以下哪项不是 RLHF（人类反馈强化学习）的目的？"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "C. 增加模型的参数量"
+                }
+              }
+            ]
+          },
+          "title": "核心概念自测",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "section-summary",
+      "section_type": "Summary",
+      "title": "总结与展望",
+      "layout_intent": "default",
+      "pedagogical_goal": "回顾课程重点，探讨大模型的局限性与未来发展方向。",
+      "blocks": [
+        {
+          "type": "CardGrid",
+          "role": "局限性分析",
+          "content": {
+            "title": "大模型的局限性与挑战",
+            "items": [
+              {
+                "name": "Example",
+                "description": "律师使用 ChatGPT 查案，结果模型引用了几个完全不存在的法庭案例（真实发生的案例）",
+                "keywords": [
+                  "幻觉",
+                  "偏见",
+                  "算力成本"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "模型在回答医疗问题时给出了错误的药物建议，可能危及生命",
+                "keywords": [
+                  "幻觉",
+                  "偏见",
+                  "算力成本"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "“幻觉”是指大模型可能生成虚假但看似合理的内容",
+                "keywords": [
+                  "幻觉",
+                  "偏见"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "大模型继承了训练数据中的偏见，可能输出不当内容",
+                "keywords": [
+                  "幻觉",
+                  "偏见"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "算力成本和隐私问题是企业应用时必须考虑的挑战",
+                "keywords": [
+                  "幻觉",
+                  "偏见"
+                ]
+              }
+            ]
+          },
+          "title": "大模型的局限性与挑战",
+          "id": null
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "Hero",
+      "role": "页面介绍",
+      "content": {
+        "title": "大语言模型的定义",
+        "subtitle": "### 什么是大语言模型？\n\n大语言模型（Large Language Model，简称 LLM）是一种基于深度学习的人工智能算法，旨在理解、生成和操作人类语言。你可以把它想象成一个超级复杂的数学函数，通过分析海量文本来学习语言的规律。\n\n### 两个核心要素\n\n要理解“大”语言模型，我们需要关注两个关键数字：\n\n1.  **参数量**：参数就像是模型大脑中的“神经元连接”数量。参数越多，模型能够...",
+        "features": [
+          "LLM 是基于深度学习的算法，通过海量文本数据训练而成",
+          "“大”主要体现在巨大的参数量和庞大的训练数据集上",
+          "其核心机制是预测下一个词，基于概率统计生成文本"
+        ]
+      },
+      "title": "大语言模型的定义",
+      "id": null
+    },
+    {
+      "type": "CardGrid",
+      "role": "概念对比",
+      "content": {
+        "title": "生成式AI的特性",
+        "items": [
+          {
+            "name": "Example",
+            "description": "判别式 AI：人脸识别门禁系统（判断是否为本人）",
+            "keywords": [
+              "生成式 AI",
+              "判别式 AI",
+              "涌现"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "生成式 AI：Midjourney（根据文字描述生成艺术画作）",
+            "keywords": [
+              "生成式 AI",
+              "判别式 AI",
+              "涌现"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "生成式 AI 侧重于创造新内容，而判别式 AI 侧重于分类和判断",
+            "keywords": [
+              "生成式 AI",
+              "判别式 AI"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "“涌现”是指模型规模扩大到一定程度后，突然产生的预料之外的能力",
+            "keywords": [
+              "生成式 AI",
+              "判别式 AI"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "涌现能力包括逻辑推理、编程、数学计算等复杂任务",
+            "keywords": [
+              "生成式 AI",
+              "判别式 AI"
+            ]
+          }
+        ]
+      },
+      "title": "生成式AI的特性",
+      "id": null
+    },
+    {
+      "type": "Timeline",
+      "role": "历史背景",
+      "content": {
+        "title": "早期语言模型的局限",
+        "items": [
+          {
+            "year": "1",
+            "label": "Step 1",
+            "title": "Phase 1",
+            "description": "早期的机器翻译系统经常翻译长句时逻辑混乱，因为忘了主语",
+            "keywords": [
+              "RNN",
+              "LSTM",
+              "串行处理"
+            ]
+          },
+          {
+            "year": "2",
+            "label": "Step 2",
+            "title": "Phase 2",
+            "description": "语音助手在处理长指令时，往往只能响应最后半句",
+            "keywords": [
+              "RNN",
+              "LSTM",
+              "串行处理"
+            ]
+          }
+        ]
+      },
+      "title": "早期语言模型的局限",
+      "id": null
+    },
+    {
+      "type": "Timeline",
+      "role": "关键转折点",
+      "content": {
+        "title": "Transformer架构的诞生",
+        "items": [
+          {
+            "year": "1",
+            "label": "Step 1",
+            "title": "Phase 1",
+            "description": "BERT 和 GPT 系列模型都基于 Transformer 架构构建",
+            "keywords": [
+              "Transformer",
+              "Attention Is All You Need",
+              "并行计算"
+            ]
+          },
+          {
+            "year": "2",
+            "label": "Step 2",
+            "title": "Phase 2",
+            "description": "现代翻译工具（如 Google 翻译）在升级到 Transformer 后，准确率大幅提升",
+            "keywords": [
+              "Transformer",
+              "Attention Is All You Need",
+              "并行计算"
+            ]
+          }
+        ]
+      },
+      "title": "Transformer架构的诞生",
+      "id": null
+    },
+    {
+      "type": "Timeline",
+      "role": "演进历程",
+      "content": {
+        "title": "GPT系列的进化之路",
+        "items": [
+          {
+            "year": "1",
+            "label": "Step 1",
+            "title": "Phase 1",
+            "description": "GPT-2 曾被戏称为“太危险而不能发布的 AI”，因为它能写极其逼真的假新闻",
+            "keywords": [
+              "GPT",
+              "OpenAI",
+              "缩放定律"
+            ]
+          },
+          {
+            "year": "2",
+            "label": "Step 2",
+            "title": "Phase 2",
+            "description": "GPT-3 能够根据简单的描述生成可运行的 Python 网页爬虫代码",
+            "keywords": [
+              "GPT",
+              "OpenAI",
+              "缩放定律"
+            ]
+          }
+        ]
+      },
+      "title": "GPT系列的进化之路",
+      "id": null
+    },
+    {
+      "type": "DeepDiveZigZag",
+      "role": "深度原理解析",
+      "content": {
+        "title": "自注意力机制解析",
+        "items": [
+          {
+            "name": "自注意力机制解析",
+            "title": "自注意力机制解析",
+            "description": "自注意力机制解析",
+            "keywords": [
+              "自注意力",
+              "上下文理解",
+              "向量表示"
+            ],
+            "common_misconceptions": []
+          },
+          {
+            "name": "预训练与微调流程",
+            "title": "预训练与微调流程",
+            "description": "预训练与微调流程",
+            "keywords": [
+              "预训练",
+              "微调",
+              "无监督学习"
+            ],
+            "common_misconceptions": []
+          },
+          {
+            "name": "人类反馈强化学习(RLHF)",
+            "title": "人类反馈强化学习(RLHF)",
+            "description": "人类反馈强化学习(RLHF)",
+            "keywords": [
+              "RLHF",
+              "奖励模型",
+              "对齐"
+            ],
+            "common_misconceptions": []
+          }
+        ]
+      },
+      "title": "自注意力机制解析",
+      "id": null
+    },
+    {
+      "type": "CardGrid",
+      "role": "流程阶段对比",
+      "content": {
+        "title": "预训练与微调流程",
+        "items": [
+          {
+            "name": "Example",
+            "description": "LLaMA 模型发布的是基础模型，而 Alpaca 是在 LLaMA 基础上经过微调的对话模型",
+            "keywords": [
+              "预训练",
+              "微调",
+              "SFT"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "企业内部使用通用大模型，再投喂内部文档进行微调，以熟悉公司业务",
+            "keywords": [
+              "预训练",
+              "微调",
+              "SFT"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "预训练是“通识教育”，通过海量数据让模型学会语言规律和世界知识",
+            "keywords": [
+              "预训练",
+              "微调"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "微调是“职业培训”，通过问答数据让模型学会遵循指令",
+            "keywords": [
+              "预训练",
+              "微调"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "预训练产出基础模型，微调产出可用的对话模型",
+            "keywords": [
+              "预训练",
+              "微调"
+            ]
+          }
+        ]
+      },
+      "title": "预训练与微调流程",
+      "id": null
+    },
+    {
+      "type": "FlashcardGrid",
+      "role": "效果对比",
+      "content": {
+        "title": "人类反馈强化学习(RLHF)",
+        "cards": [
+          {
+            "type": "Flashcard",
+            "id": "node-comp-rlhf-card-0",
+            "front": {
+              "title": "Question 1",
+              "content": "RLHF 中的“R”代表什么？"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "Reinforcement Learning（强化学习）。"
+            }
+          },
+          {
+            "type": "Flashcard",
+            "id": "node-comp-rlhf-card-1",
+            "front": {
+              "title": "Question 2",
+              "content": "RLHF 主要解决了模型的什么问题？"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "解决了模型输出与人类价值观不对齐的问题（如有害、偏见、无用回答）。"
+            }
+          }
+        ]
+      },
+      "title": "人类反馈强化学习(RLHF)",
+      "id": null
+    },
+    {
+      "type": "CardGrid",
+      "role": "应用场景展示",
+      "content": {
+        "title": "典型应用场景展示",
+        "items": [
+          {
+            "name": "Example",
+            "description": "市场部使用 ChatGPT 生成 10 个不同风格的产品推广标语",
+            "keywords": [
+              "内容创作",
+              "编程辅助",
+              "数据分析"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "程序员使用 GitHub Copilot 自动补全 Python 函数代码",
+            "keywords": [
+              "内容创作",
+              "编程辅助",
+              "数据分析"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "HR 使用大模型从 100 份简历中快速筛选出符合要求的候选人",
+            "keywords": [
+              "内容创作",
+              "编程辅助",
+              "数据分析"
+            ]
+          }
+        ]
+      },
+      "title": "典型应用场景展示",
+      "id": null
+    },
+    {
+      "type": "CodePlayground",
+      "role": "交互式代码演示",
+      "content": {
+        "mode": "tokenizer",
+        "initialText": "Try this out!",
+        "codeTemplate": null
+      },
+      "title": "Interactive: 调用大模型API示例",
+      "id": null
+    },
+    {
+      "type": "FlashcardGrid",
+      "role": "知识自测",
+      "content": {
+        "title": "核心概念自测",
+        "cards": [
+          {
+            "type": "Flashcard",
+            "id": "node-prac-quiz-card-0",
+            "front": {
+              "title": "Question 1",
+              "content": "Transformer 架构相比 RNN，最大的优势是什么？"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "B. 支持并行计算，处理长文本能力更强"
+            }
+          },
+          {
+            "type": "Flashcard",
+            "id": "node-prac-quiz-card-1",
+            "front": {
+              "title": "Question 2",
+              "content": "在大模型训练流程中，预训练和微调的主要区别是什么？"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "B. 预训练学习世界知识，微调学习遵循指令"
+            }
+          },
+          {
+            "type": "Flashcard",
+            "id": "node-prac-quiz-card-2",
+            "front": {
+              "title": "Question 3",
+              "content": "以下哪项不是 RLHF（人类反馈强化学习）的目的？"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "C. 增加模型的参数量"
+            }
+          }
+        ]
+      },
+      "title": "核心概念自测",
+      "id": null
+    },
+    {
+      "type": "CardGrid",
+      "role": "局限性分析",
+      "content": {
+        "title": "大模型的局限性与挑战",
+        "items": [
+          {
+            "name": "Example",
+            "description": "律师使用 ChatGPT 查案，结果模型引用了几个完全不存在的法庭案例（真实发生的案例）",
+            "keywords": [
+              "幻觉",
+              "偏见",
+              "算力成本"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "模型在回答医疗问题时给出了错误的药物建议，可能危及生命",
+            "keywords": [
+              "幻觉",
+              "偏见",
+              "算力成本"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "“幻觉”是指大模型可能生成虚假但看似合理的内容",
+            "keywords": [
+              "幻觉",
+              "偏见"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "大模型继承了训练数据中的偏见，可能输出不当内容",
+            "keywords": [
+              "幻觉",
+              "偏见"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "算力成本和隐私问题是企业应用时必须考虑的挑战",
+            "keywords": [
+              "幻觉",
+              "偏见"
+            ]
+          }
+        ]
+      },
+      "title": "大模型的局限性与挑战",
+      "id": null
+    }
+  ],
+  "metadata": {
+    "total_estimated_time": 168,
+    "target_audience": "对人工智能感兴趣，希望了解大模型基础概念与应用的普通学习者",
+    "warnings": [],
+    "generation_method": "multi-agent-pipeline"
+  }
+}

@@ -1,0 +1,627 @@
+{
+  "page_id": "da-mo-xing-jie-shao",
+  "page_mode": null,
+  "title": "大模型入门与原理",
+  "summary": "本课程旨在帮助普通学习者建立对大语言模型（LLM）的全面认知。从历史发展脉络出发，深入浅出地讲解其核心概念与工作原理，探讨实际应用场景，并通过交互式练习掌握基础的提示词工程技能。",
+  "sections": [
+    {
+      "section_id": "section-history",
+      "section_type": "History",
+      "title": "历史演进：从规则到大模型",
+      "layout_intent": "timeline",
+      "pedagogical_goal": "通过回顾人工智能的发展历程，帮助学习者理解大模型出现的必然性及其技术突破点。",
+      "blocks": [
+        {
+          "type": "Hero",
+          "role": "课程引入与概览",
+          "content": {
+            "title": "自然语言处理的三个阶段",
+            "subtitle": "自然语言处理（NLP）的发展就像人类学习语言的进化史，主要经历了三个关键阶段。理解这一历程，能让你明白为什么现在的AI能像人一样“说话”。\n\n### 1. 规则驱动阶段（1950s - 1980s）\n在这个阶段，计算机处理语言完全依赖人类编写的硬性规则。语言学家和程序员坐在一起，把语法规则（如“主语+谓语+宾语”）写成代码。\n*   **特点**：逻辑严密，但极其脆弱。只要句子稍微复杂或不符合预设...",
+            "features": [
+              "NLP经历了从“人工规则”到“统计概率”再到“深度理解”的演变",
+              "规则驱动阶段僵化且难以维护，无法处理复杂语言",
+              "统计学习阶段让机器开始基于数据说话，但缺乏深层理解",
+              "深度学习通过神经网络模拟人脑，实现了语义理解的突破"
+            ]
+          },
+          "title": "自然语言处理的三个阶段",
+          "id": null
+        },
+        {
+          "type": "Timeline",
+          "role": "历史发展脉络",
+          "content": {
+            "title": "Transformer架构的诞生",
+            "items": [
+              {
+                "year": "1",
+                "label": "Step 1",
+                "title": "Phase 1",
+                "description": "Google翻译：在Transformer推出后，翻译质量有了质的飞跃，因为它能更好地理解整句语境。",
+                "keywords": [
+                  "Transformer",
+                  "注意力机制",
+                  "Self-Attention"
+                ]
+              },
+              {
+                "year": "2",
+                "label": "Step 2",
+                "title": "Phase 2",
+                "description": "GPT-3：基于Transformer的Decoder结构，通过阅读海量互联网文本，学会了写诗、写代码。",
+                "keywords": [
+                  "Transformer",
+                  "注意力机制",
+                  "Self-Attention"
+                ]
+              },
+              {
+                "year": "3",
+                "label": "Step 3",
+                "title": "Phase 3",
+                "description": "BERT：基于Transformer的Encoder结构，擅长理解上下文，用于搜索引擎和问答系统。",
+                "keywords": [
+                  "Transformer",
+                  "注意力机制",
+                  "Self-Attention"
+                ]
+              }
+            ]
+          },
+          "title": "Transformer架构的诞生",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "section-concept",
+      "section_type": "Concept",
+      "title": "核心概念：什么是大模型",
+      "layout_intent": "default",
+      "pedagogical_goal": "明确大模型的定义，拆解其关键术语，消除专业术语带来的认知障碍。",
+      "blocks": [
+        {
+          "type": "Flashcard",
+          "role": "核心定义强化",
+          "content": {
+            "id": "node-llm-definition",
+            "front": {
+              "title": "Quick Check",
+              "content": "LLM中的“L”代表什么单词？"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "Large（大）"
+            }
+          },
+          "title": null,
+          "id": "node-llm-definition"
+        },
+        {
+          "type": "DeepDiveZigZag",
+          "role": "深度概念解析",
+          "content": {
+            "title": "关键术语：参数与Token",
+            "items": [
+              {
+                "name": "大语言模型（LLM）的定义",
+                "title": "大语言模型（LLM）的定义",
+                "description": "大语言模型（LLM）的定义",
+                "keywords": [
+                  "LLM",
+                  "定义",
+                  "通用人工智能"
+                ],
+                "common_misconceptions": []
+              },
+              {
+                "name": "关键术语：参数与Token",
+                "title": "关键术语：参数与Token",
+                "description": "关键术语：参数与Token",
+                "keywords": [
+                  "参数",
+                  "Token",
+                  "词元化",
+                  "模型规模"
+                ],
+                "common_misconceptions": []
+              }
+            ]
+          },
+          "title": "关键术语：参数与Token",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "section-theory",
+      "section_type": "Theory",
+      "title": "工作原理：模型如何思考",
+      "layout_intent": "wide",
+      "pedagogical_goal": "揭示大模型背后的运作机制，特别是预训练和生成过程，建立“概率预测”的核心认知。",
+      "blocks": [
+        {
+          "type": "CardGrid",
+          "role": "流程阶段对比",
+          "content": {
+            "title": "训练流程：预训练与微调",
+            "items": [
+              {
+                "name": "Example",
+                "description": "通用预训练：模型阅读了所有医学论文，学会了医学术语。",
+                "keywords": [
+                  "预训练",
+                  "微调",
+                  "指令微调"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "垂直微调：在通用模型基础上，用医院的问诊记录进行微调，使其成为医疗问诊助手。",
+                "keywords": [
+                  "预训练",
+                  "微调",
+                  "指令微调"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "代码微调：在通用模型基础上，用GitHub的高质量代码和注释进行微调，强化其编程能力。",
+                "keywords": [
+                  "预训练",
+                  "微调",
+                  "指令微调"
+                ]
+              }
+            ]
+          },
+          "title": "训练流程：预训练与微调",
+          "id": null
+        },
+        {
+          "type": "CodePlayground",
+          "role": "交互式原理演示",
+          "content": {
+            "mode": "tokenizer",
+            "initialText": "Try this out!",
+            "codeTemplate": null
+          },
+          "title": "Interactive: 生成机制：下一个词预测",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "section-application",
+      "section_type": "Application",
+      "title": "应用场景：大模型能做什么",
+      "layout_intent": "split",
+      "pedagogical_goal": "展示大模型在现实生活和工作中多样化的应用，分析不同类型模型的适用场景。",
+      "blocks": [
+        {
+          "type": "CardGrid",
+          "role": "应用案例展示",
+          "content": {
+            "title": "典型应用案例分析",
+            "items": [
+              {
+                "name": "Example",
+                "description": "写邮件：告诉模型“帮我给老板写一封请假条，理由是看病，语气要诚恳”，模型立刻生成。",
+                "keywords": [
+                  "内容创作",
+                  "代码生成",
+                  "智能客服"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "写代码：输入“用JavaScript写一个函数，判断一个数字是否为质数”，模型直接给出可用代码。",
+                "keywords": [
+                  "内容创作",
+                  "代码生成",
+                  "智能客服"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "做总结：把一篇长篇新闻报道粘贴给模型，输入“用3个要点总结这篇文章”，模型输出精炼摘要。",
+                "keywords": [
+                  "内容创作",
+                  "代码生成",
+                  "智能客服"
+                ]
+              }
+            ]
+          },
+          "title": "典型应用案例分析",
+          "id": null
+        },
+        {
+          "type": "FlashcardGrid",
+          "role": "模型类型对比分析",
+          "content": {
+            "title": "通用模型与专用模型对比",
+            "cards": [
+              {
+                "type": "Flashcard",
+                "id": "node-model-comparison-card-0",
+                "front": {
+                  "title": "Question 1",
+                  "content": "如果你需要写一封感谢信给客户，应该选择哪种类型的模型？"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "通用大模型"
+                }
+              },
+              {
+                "type": "Flashcard",
+                "id": "node-model-comparison-card-1",
+                "front": {
+                  "title": "Question 2",
+                  "content": "专用模型相比通用模型的主要优势是什么？"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "在特定领域的专业深度更高，准确性更好，且针对特定任务的运行成本可能更低"
+                }
+              },
+              {
+                "type": "Flashcard",
+                "id": "node-model-comparison-card-2",
+                "front": {
+                  "title": "Question 3",
+                  "content": "为什么通用模型在专业领域可能会出现“幻觉”？"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "因为通用模型的知识太杂，虽然涉猎广泛，但在专业细节上缺乏深度训练，容易混淆信息或生成错误内容"
+                }
+              }
+            ]
+          },
+          "title": "通用模型与专用模型对比",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "section-summary",
+      "section_type": "Summary",
+      "title": "总结与展望",
+      "layout_intent": "default",
+      "pedagogical_goal": "回顾全课程重点，探讨大模型的局限性及未来发展趋势，引发进一步思考。",
+      "blocks": [
+        {
+          "type": "CardGrid",
+          "role": "总结与要点回顾",
+          "content": {
+            "title": "核心要点回顾与局限性",
+            "items": [
+              {
+                "name": "Example",
+                "description": "幻觉案例：询问模型一本不存在的书的内容，模型可能会编造出详细的章节和剧情。",
+                "keywords": [
+                  "幻觉",
+                  "知识截止",
+                  "偏见"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "数学陷阱：让大模型计算“12345乘以67890”，它可能会算错，但如果让它写Python代码计算，结果就是对的。",
+                "keywords": [
+                  "幻觉",
+                  "知识截止",
+                  "偏见"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "知识截止：询问模型关于昨天发布的某款新手机的具体参数，它可能不知道。",
+                "keywords": [
+                  "幻觉",
+                  "知识截止",
+                  "偏见"
+                ]
+              }
+            ]
+          },
+          "title": "核心要点回顾与局限性",
+          "id": null
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "Hero",
+      "role": "课程引入与概览",
+      "content": {
+        "title": "自然语言处理的三个阶段",
+        "subtitle": "自然语言处理（NLP）的发展就像人类学习语言的进化史，主要经历了三个关键阶段。理解这一历程，能让你明白为什么现在的AI能像人一样“说话”。\n\n### 1. 规则驱动阶段（1950s - 1980s）\n在这个阶段，计算机处理语言完全依赖人类编写的硬性规则。语言学家和程序员坐在一起，把语法规则（如“主语+谓语+宾语”）写成代码。\n*   **特点**：逻辑严密，但极其脆弱。只要句子稍微复杂或不符合预设...",
+        "features": [
+          "NLP经历了从“人工规则”到“统计概率”再到“深度理解”的演变",
+          "规则驱动阶段僵化且难以维护，无法处理复杂语言",
+          "统计学习阶段让机器开始基于数据说话，但缺乏深层理解",
+          "深度学习通过神经网络模拟人脑，实现了语义理解的突破"
+        ]
+      },
+      "title": "自然语言处理的三个阶段",
+      "id": null
+    },
+    {
+      "type": "Timeline",
+      "role": "历史发展脉络",
+      "content": {
+        "title": "Transformer架构的诞生",
+        "items": [
+          {
+            "year": "1",
+            "label": "Step 1",
+            "title": "Phase 1",
+            "description": "Google翻译：在Transformer推出后，翻译质量有了质的飞跃，因为它能更好地理解整句语境。",
+            "keywords": [
+              "Transformer",
+              "注意力机制",
+              "Self-Attention"
+            ]
+          },
+          {
+            "year": "2",
+            "label": "Step 2",
+            "title": "Phase 2",
+            "description": "GPT-3：基于Transformer的Decoder结构，通过阅读海量互联网文本，学会了写诗、写代码。",
+            "keywords": [
+              "Transformer",
+              "注意力机制",
+              "Self-Attention"
+            ]
+          },
+          {
+            "year": "3",
+            "label": "Step 3",
+            "title": "Phase 3",
+            "description": "BERT：基于Transformer的Encoder结构，擅长理解上下文，用于搜索引擎和问答系统。",
+            "keywords": [
+              "Transformer",
+              "注意力机制",
+              "Self-Attention"
+            ]
+          }
+        ]
+      },
+      "title": "Transformer架构的诞生",
+      "id": null
+    },
+    {
+      "type": "Flashcard",
+      "role": "核心定义强化",
+      "content": {
+        "id": "node-llm-definition",
+        "front": {
+          "title": "Quick Check",
+          "content": "LLM中的“L”代表什么单词？"
+        },
+        "back": {
+          "title": "Answer",
+          "content": "Large（大）"
+        }
+      },
+      "title": null,
+      "id": "node-llm-definition"
+    },
+    {
+      "type": "DeepDiveZigZag",
+      "role": "深度概念解析",
+      "content": {
+        "title": "关键术语：参数与Token",
+        "items": [
+          {
+            "name": "大语言模型（LLM）的定义",
+            "title": "大语言模型（LLM）的定义",
+            "description": "大语言模型（LLM）的定义",
+            "keywords": [
+              "LLM",
+              "定义",
+              "通用人工智能"
+            ],
+            "common_misconceptions": []
+          },
+          {
+            "name": "关键术语：参数与Token",
+            "title": "关键术语：参数与Token",
+            "description": "关键术语：参数与Token",
+            "keywords": [
+              "参数",
+              "Token",
+              "词元化",
+              "模型规模"
+            ],
+            "common_misconceptions": []
+          }
+        ]
+      },
+      "title": "关键术语：参数与Token",
+      "id": null
+    },
+    {
+      "type": "CardGrid",
+      "role": "流程阶段对比",
+      "content": {
+        "title": "训练流程：预训练与微调",
+        "items": [
+          {
+            "name": "Example",
+            "description": "通用预训练：模型阅读了所有医学论文，学会了医学术语。",
+            "keywords": [
+              "预训练",
+              "微调",
+              "指令微调"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "垂直微调：在通用模型基础上，用医院的问诊记录进行微调，使其成为医疗问诊助手。",
+            "keywords": [
+              "预训练",
+              "微调",
+              "指令微调"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "代码微调：在通用模型基础上，用GitHub的高质量代码和注释进行微调，强化其编程能力。",
+            "keywords": [
+              "预训练",
+              "微调",
+              "指令微调"
+            ]
+          }
+        ]
+      },
+      "title": "训练流程：预训练与微调",
+      "id": null
+    },
+    {
+      "type": "CodePlayground",
+      "role": "交互式原理演示",
+      "content": {
+        "mode": "tokenizer",
+        "initialText": "Try this out!",
+        "codeTemplate": null
+      },
+      "title": "Interactive: 生成机制：下一个词预测",
+      "id": null
+    },
+    {
+      "type": "CardGrid",
+      "role": "应用案例展示",
+      "content": {
+        "title": "典型应用案例分析",
+        "items": [
+          {
+            "name": "Example",
+            "description": "写邮件：告诉模型“帮我给老板写一封请假条，理由是看病，语气要诚恳”，模型立刻生成。",
+            "keywords": [
+              "内容创作",
+              "代码生成",
+              "智能客服"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "写代码：输入“用JavaScript写一个函数，判断一个数字是否为质数”，模型直接给出可用代码。",
+            "keywords": [
+              "内容创作",
+              "代码生成",
+              "智能客服"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "做总结：把一篇长篇新闻报道粘贴给模型，输入“用3个要点总结这篇文章”，模型输出精炼摘要。",
+            "keywords": [
+              "内容创作",
+              "代码生成",
+              "智能客服"
+            ]
+          }
+        ]
+      },
+      "title": "典型应用案例分析",
+      "id": null
+    },
+    {
+      "type": "FlashcardGrid",
+      "role": "模型类型对比分析",
+      "content": {
+        "title": "通用模型与专用模型对比",
+        "cards": [
+          {
+            "type": "Flashcard",
+            "id": "node-model-comparison-card-0",
+            "front": {
+              "title": "Question 1",
+              "content": "如果你需要写一封感谢信给客户，应该选择哪种类型的模型？"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "通用大模型"
+            }
+          },
+          {
+            "type": "Flashcard",
+            "id": "node-model-comparison-card-1",
+            "front": {
+              "title": "Question 2",
+              "content": "专用模型相比通用模型的主要优势是什么？"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "在特定领域的专业深度更高，准确性更好，且针对特定任务的运行成本可能更低"
+            }
+          },
+          {
+            "type": "Flashcard",
+            "id": "node-model-comparison-card-2",
+            "front": {
+              "title": "Question 3",
+              "content": "为什么通用模型在专业领域可能会出现“幻觉”？"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "因为通用模型的知识太杂，虽然涉猎广泛，但在专业细节上缺乏深度训练，容易混淆信息或生成错误内容"
+            }
+          }
+        ]
+      },
+      "title": "通用模型与专用模型对比",
+      "id": null
+    },
+    {
+      "type": "CardGrid",
+      "role": "总结与要点回顾",
+      "content": {
+        "title": "核心要点回顾与局限性",
+        "items": [
+          {
+            "name": "Example",
+            "description": "幻觉案例：询问模型一本不存在的书的内容，模型可能会编造出详细的章节和剧情。",
+            "keywords": [
+              "幻觉",
+              "知识截止",
+              "偏见"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "数学陷阱：让大模型计算“12345乘以67890”，它可能会算错，但如果让它写Python代码计算，结果就是对的。",
+            "keywords": [
+              "幻觉",
+              "知识截止",
+              "偏见"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "知识截止：询问模型关于昨天发布的某款新手机的具体参数，它可能不知道。",
+            "keywords": [
+              "幻觉",
+              "知识截止",
+              "偏见"
+            ]
+          }
+        ]
+      },
+      "title": "核心要点回顾与局限性",
+      "id": null
+    }
+  ],
+  "metadata": {
+    "total_estimated_time": 113,
+    "target_audience": "对人工智能感兴趣，希望了解大模型基础原理与应用的普通学习者",
+    "warnings": [],
+    "generation_method": "multi-agent-pipeline"
+  }
+}

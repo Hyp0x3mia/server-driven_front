@@ -108,6 +108,17 @@ You will generate a JSON structure with:
 - `total_estimated_time`: Sum of all node times
 
 Keep nodes FOCUSED. Each node should represent ONE learnable unit.
+
+## IMPORTANT Language Requirement
+
+**ALWAYS use Chinese (简体中文) for all output content** including:
+- Page title
+- Section titles
+- Node descriptions
+- Learning objectives
+- Any text content
+
+This applies regardless of whether the topic name is in English or Chinese.
 """
 
     def _build_user_prompt(self, request: GenerationRequest) -> str:
@@ -207,7 +218,81 @@ Generate the complete page skeleton as JSON.
                 return result
 
             except Exception as e:
-                print(f"❌ Planner Agent error: {e}")
+                print(f"⚠️  Pydantic parser failed: {e}")
+                print(f"📝 Attempting manual JSON parsing...")
+
+                # Try manual parsing as fallback
+                import json
+                import re
+
+                # Try to extract JSON from response
+                content = response.content
+                json_match = re.search(r'\{[\s\S]*\}', content)
+
+                if json_match:
+                    json_str = json_match.group(0)
+
+                    try:
+                        data = json.loads(json_str)
+
+                        # Valid category enum values
+                        valid_categories = {
+                            'abstract_concept', 'concrete_example', 'process_flow',
+                            'code_example', 'definition', 'comparison_analysis',
+                            'historical_event', 'practice_exercise'
+                        }
+
+                        # Category mapping for common invalid values
+                        category_mapping = {
+                            'summary': 'abstract_concept',
+                            'introduction': 'abstract_concept',
+                            'overview': 'abstract_concept',
+                            'conclusion': 'abstract_concept',
+                            'example': 'concrete_example',
+                            'history': 'historical_event',
+                            'comparison': 'comparison_analysis',
+                            'practice': 'practice_exercise',
+                            'exercise': 'practice_exercise',
+                            'code': 'code_example',
+                            'flow': 'process_flow',
+                        }
+
+                        # Fix missing/invalid fields
+                        for section in data.get("sections", []):
+                            for node in section.get("nodes", []):
+                                # Fix 1: Missing knowledge_id
+                                if "knowledge_id" not in node or not node["knowledge_id"]:
+                                    node_id = node.get("node_id", "")
+                                    if node_id.startswith("node-"):
+                                        knowledge_id = "k-" + node_id[5:]
+                                    else:
+                                        knowledge_id = "k-" + node_id
+                                    node["knowledge_id"] = knowledge_id
+                                    print(f"   🔧 Added missing knowledge_id: {knowledge_id} for node {node_id}")
+
+                                # Fix 2: Invalid category
+                                category = node.get("category", "")
+                                if category and category not in valid_categories:
+                                    # Map to valid category
+                                    new_category = category_mapping.get(category.lower(), 'abstract_concept')
+                                    node["category"] = new_category
+                                    print(f"   🔧 Fixed invalid category '{category}' -> '{new_category}' for node {node.get('node_id')}")
+
+                        # Re-parse with Pydantic
+                        result = PageSkeleton(**data)
+
+                        print(f"✅ Planner Agent: Generated {len(result.sections)} sections with "
+                              f"{sum(len(s.nodes) for s in result.sections)} total nodes (recovered)")
+
+                        # Validate
+                        self._validate_skeleton(result)
+
+                        return result
+
+                    except Exception as fallback_err:
+                        print(f"❌ Fallback parsing also failed: {fallback_err}")
+                        raise ValueError(f"Failed to parse skeleton: {fallback_err}")
+
                 raise
 
     def _validate_skeleton(self, skeleton: PageSkeleton) -> None:

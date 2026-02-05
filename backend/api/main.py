@@ -11,6 +11,7 @@ Provides endpoints for:
 import os
 import time
 import uuid
+import json
 from datetime import datetime
 from typing import Optional, List
 from contextlib import asynccontextmanager
@@ -307,7 +308,14 @@ async def generate_content_stream(request: GenerationRequestAPI):
     """
     Generate content with streaming progress updates.
 
-    Returns Server-Sent Events (SSE) with real-time progress.
+    SSE Event Types:
+    - stage_start: Stage beginning
+    - stage_complete: Stage finished with metadata
+    - skeleton_ready: Page structure available (show titles)
+    - block_ready: Individual component ready to render
+    - progress: Detailed progress "5/12 (42%)"
+    - complete: Generation finished, auto-saved to JSON
+    - error: Error occurred
     """
     if not pipeline:
         raise HTTPException(status_code=503, detail="Pipeline not initialized")
@@ -316,31 +324,39 @@ async def generate_content_stream(request: GenerationRequestAPI):
 
     async def event_generator():
         """Generate SSE events"""
+        import sys
+        import asyncio
         try:
-            yield f"event: start\ndata: {{'task_id': '{task_id}', 'status': 'starting'}}\n\n"
-
             # Convert to internal request
             gen_request = GenerationRequest(**request.model_dump())
 
-            # Run pipeline (you'd modify the pipeline to support streaming)
-            response = pipeline.run(request=gen_request, thread_id=task_id)
+            # Run streaming pipeline
+            for event in pipeline.run_streaming(request=gen_request, thread_id=task_id):
+                # Format as SSE
+                print(f"📡 SSE: Sending event {event.type.value} for stage {event.stage}")
+                event_data = json.dumps({
+                    "task_id": task_id,
+                    "type": event.type.value,
+                    "stage": event.stage,
+                    "data": event.data,
+                    "timestamp": event.timestamp
+                }, ensure_ascii=False)
 
-            # Send progress events
-            yield f"event: progress\ndata: {{'stage': 'planner', 'progress': 0.33}}\n\n"
-            yield f"event: progress\ndata: {{'stage': 'content_expert', 'progress': 0.66}}\n\n"
-            yield f"event: progress\ndata: {{'stage': 'visual_director', 'progress': 0.66}}\n\n"
-            yield f"event: progress\ndata: {{'stage': 'assembler', 'progress': 1.0}}\n\n"
+                # Yield SSE event
+                yield f"event: {event.type.value}\ndata: {event_data}\n\n"
 
-            # Send final result
-            if response.success:
-                import json
-                result_data = response.model_dump_json(exclude_unset=True)
-                yield f"event: complete\ndata: {result_data}\n\n"
-            else:
-                yield f"event: error\ndata: {{'error': '{response.error}'}}\n\n"
+                # Force immediate delivery by yielding control
+                await asyncio.sleep(0)
 
         except Exception as e:
-            yield f"event: error\ndata: {{'error': '{str(e)}'}}\n\n"
+            import traceback
+            error_data = json.dumps({
+                "task_id": task_id,
+                "type": "error",
+                "error": str(e),
+                "traceback": traceback.format_exc()
+            }, ensure_ascii=False)
+            yield f"event: error\ndata: {error_data}\n\n"
 
     return StreamingResponse(
         event_generator(),
@@ -348,6 +364,7 @@ async def generate_content_stream(request: GenerationRequestAPI):
         headers={
             "Cache-Control": "no-cache",
             "Connection": "keep-alive",
+            "X-Accel-Buffering": "no",  # Disable nginx buffering
         }
     )
 

@@ -1,0 +1,811 @@
+{
+  "page_id": "da-mo-xing-gai-lan",
+  "page_mode": null,
+  "title": "大模型概览：从原理到应用",
+  "summary": "本课程面向普通学习者，系统介绍大语言模型（LLM）的基本概念、发展历史、核心工作原理以及实际应用场景。通过循序渐进的学习，帮助学员理解大模型“为什么强”以及“如何用”，并掌握基础的提示词工程技巧。",
+  "sections": [
+    {
+      "section_id": "section-01",
+      "section_type": "Concept",
+      "title": "什么是大模型？",
+      "layout_intent": "default",
+      "pedagogical_goal": "建立对大模型的基本认知，理解其定义及核心特征。",
+      "blocks": [
+        {
+          "type": "Hero",
+          "role": "课程介绍",
+          "content": {
+            "title": "大模型的定义",
+            "subtitle": "# 什么是大语言模型（LLM）？\n\n想象一下，如果你读过世界上所有的书、文章和网页，并且记住了里面的每一个字、每一个词是如何组合在一起的。当你看到“床前明月”这四个字时，你的大脑会本能地预测下一个字是“光”。\n\n**大语言模型（Large Language Model，简称 LLM）** 本质上就是一个基于数学的超级预测机器。它不是真的“理解”了人类语言的含义，而是通过分析海量的文本数据，学会了语...",
+            "features": [
+              "大语言模型（LLM）是基于海量数据训练的深度神经网络",
+              "其核心机制是根据上文预测下一个字或词",
+              "它通过数学函数模拟人类语言的统计规律，而非真正具备人类意识"
+            ]
+          },
+          "title": "大模型的定义",
+          "id": null
+        },
+        {
+          "type": "DeepDiveZigZag",
+          "role": "核心概念深度解析",
+          "content": {
+            "title": "“大”的含义：参数与数据",
+            "items": [
+              {
+                "name": "大模型的定义",
+                "title": "大模型的定义",
+                "description": "大模型的定义",
+                "keywords": [
+                  "大语言模型",
+                  "LLM",
+                  "人工智能"
+                ],
+                "common_misconceptions": []
+              },
+              {
+                "name": "“大”的含义：参数与数据",
+                "title": "“大”的含义：参数与数据",
+                "description": "“大”的含义：参数与数据",
+                "keywords": [
+                  "参数量",
+                  "训练数据",
+                  "涌现能力"
+                ],
+                "common_misconceptions": []
+              }
+            ]
+          },
+          "title": "“大”的含义：参数与数据",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "section-02",
+      "section_type": "History",
+      "title": "大模型的发展简史",
+      "layout_intent": "timeline",
+      "pedagogical_goal": "梳理大模型的技术演进脉络，了解关键里程碑。",
+      "blocks": [
+        {
+          "type": "Timeline",
+          "role": "历史演进展示",
+          "content": {
+            "title": "从深度学习到Transformer",
+            "items": [
+              {
+                "year": "1",
+                "label": "Step 1",
+                "title": "Phase 1",
+                "description": "早期的翻译软件经常翻译不通顺，因为 RNN 忘了前面的主语",
+                "keywords": [
+                  "深度学习",
+                  "神经网络",
+                  "RNN"
+                ]
+              },
+              {
+                "year": "2",
+                "label": "Step 2",
+                "title": "Phase 2",
+                "description": "Transformer 的出现让机器阅读理解测试的准确率大幅提升",
+                "keywords": [
+                  "深度学习",
+                  "神经网络",
+                  "RNN"
+                ]
+              },
+              {
+                "year": "3",
+                "label": "Step 3",
+                "title": "Phase 3",
+                "description": "现代的大模型（如 GPT-4）全部基于 Transformer 架构",
+                "keywords": [
+                  "深度学习",
+                  "神经网络",
+                  "RNN"
+                ]
+              }
+            ]
+          },
+          "title": "从深度学习到Transformer",
+          "id": null
+        },
+        {
+          "type": "Timeline",
+          "role": "产品迭代展示",
+          "content": {
+            "title": "GPT系列的进化之路",
+            "items": [
+              {
+                "year": "1",
+                "label": "Step 1",
+                "title": "Phase 1",
+                "description": "GPT-3 可以根据“鸡尾酒会笑话”这个标题直接写出一篇完整的幽默文章",
+                "keywords": [
+                  "GPT",
+                  "OpenAI",
+                  "少样本学习"
+                ]
+              },
+              {
+                "year": "2",
+                "label": "Step 2",
+                "title": "Phase 2",
+                "description": "ChatGPT 能够模仿莎士比亚的口吻写一首关于编程的诗",
+                "keywords": [
+                  "GPT",
+                  "OpenAI",
+                  "少样本学习"
+                ]
+              },
+              {
+                "year": "3",
+                "label": "Step 3",
+                "title": "Phase 3",
+                "description": "GPT-4 能够看一张冰箱里的照片，并告诉你能做什么菜",
+                "keywords": [
+                  "GPT",
+                  "OpenAI",
+                  "少样本学习"
+                ]
+              }
+            ]
+          },
+          "title": "GPT系列的进化之路",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "section-03",
+      "section_type": "Theory",
+      "title": "大模型的核心原理",
+      "layout_intent": "wide",
+      "pedagogical_goal": "深入浅出地解释大模型如何“思考”和“学习”，拆解训练流程。",
+      "blocks": [
+        {
+          "type": "SplitPaneLab",
+          "role": "理论与算法实验室",
+          "content": {
+            "title": "Transformer架构与注意力机制",
+            "items": [
+              {
+                "name": "Transformer架构与注意力机制",
+                "title": "Transformer架构与注意力机制",
+                "description": "Transformer架构与注意力机制",
+                "keywords": [
+                  "自注意力",
+                  "上下文理解",
+                  "架构"
+                ],
+                "common_misconceptions": []
+              },
+              {
+                "name": "训练流程：预训练与微调",
+                "title": "训练流程：预训练与微调",
+                "description": "训练流程：预训练与微调",
+                "keywords": [
+                  "预训练",
+                  "微调",
+                  "RLHF"
+                ],
+                "common_misconceptions": []
+              },
+              {
+                "name": "生成式AI与判别式AI的区别",
+                "title": "生成式AI与判别式AI的区别",
+                "description": "生成式AI与判别式AI的区别",
+                "keywords": [
+                  "生成式AI",
+                  "判别式AI",
+                  "分类",
+                  "创造"
+                ],
+                "common_misconceptions": []
+              }
+            ]
+          },
+          "title": "Transformer架构与注意力机制",
+          "id": null
+        },
+        {
+          "type": "Timeline",
+          "role": "流程步骤演示",
+          "content": {
+            "title": "训练流程：预训练与微调",
+            "items": [
+              {
+                "year": "1",
+                "label": "Step 1",
+                "title": "Phase 1",
+                "description": "预训练就像让大学生读完图书馆所有书，微调是让他参加律师资格考试培训",
+                "keywords": [
+                  "预训练",
+                  "微调",
+                  "RLHF"
+                ]
+              },
+              {
+                "year": "2",
+                "label": "Step 2",
+                "title": "Phase 2",
+                "description": "通过 RLHF，模型学会了在被问到“如何制造炸弹”时拒绝回答",
+                "keywords": [
+                  "预训练",
+                  "微调",
+                  "RLHF"
+                ]
+              }
+            ]
+          },
+          "title": "训练流程：预训练与微调",
+          "id": null
+        },
+        {
+          "type": "CardGrid",
+          "role": "对比分析",
+          "content": {
+            "title": "生成式AI与判别式AI的区别",
+            "items": [
+              {
+                "name": "Example",
+                "description": "判别式：人脸识别门禁系统判断你是谁",
+                "keywords": [
+                  "判别式 AI",
+                  "生成式 AI",
+                  "分类"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "生成式：AI 根据你的描述画一只“穿着宇航服的猫”",
+                "keywords": [
+                  "判别式 AI",
+                  "生成式 AI",
+                  "分类"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "判别式：银行系统判断这笔交易是否为欺诈",
+                "keywords": [
+                  "判别式 AI",
+                  "生成式 AI",
+                  "分类"
+                ]
+              }
+            ]
+          },
+          "title": "生成式AI与判别式AI的区别",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "section-04",
+      "section_type": "Application",
+      "title": "大模型的应用场景",
+      "layout_intent": "split",
+      "pedagogical_goal": "展示大模型在现实世界中的多样化应用，激发学习兴趣。",
+      "blocks": [
+        {
+          "type": "CardGrid",
+          "role": "案例展示",
+          "content": {
+            "title": "文本生成与代码辅助",
+            "items": [
+              {
+                "name": "Example",
+                "description": "市场部员工用 AI 快速生成 10 个不同风格的广告标语",
+                "keywords": [
+                  "文本生成",
+                  "代码辅助",
+                  "翻译"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "开发者遇到报错，直接复制错误代码给 AI，AI 指出漏掉了一个分号",
+                "keywords": [
+                  "文本生成",
+                  "代码辅助",
+                  "翻译"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "留学生用 AI 把中文论文翻译成地道的英文摘要",
+                "keywords": [
+                  "文本生成",
+                  "代码辅助",
+                  "翻译"
+                ]
+              }
+            ]
+          },
+          "title": "文本生成与代码辅助",
+          "id": null
+        },
+        {
+          "type": "Flashcard",
+          "role": "概念强化",
+          "content": {
+            "id": "node-04-02",
+            "front": {
+              "title": "Quick Check",
+              "content": "请列举两个多模态大模型的具体应用场景。"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "文生图（根据文字画画）、图生文（看图说话）、语音对话、视频生成等"
+            }
+          },
+          "title": null,
+          "id": "node-04-02"
+        }
+      ]
+    },
+    {
+      "section_id": "section-06",
+      "section_type": "Summary",
+      "title": "总结与展望",
+      "layout_intent": "default",
+      "pedagogical_goal": "回顾课程核心内容，探讨大模型的局限性与未来发展方向。",
+      "blocks": [
+        {
+          "type": "FlashcardGrid",
+          "role": "知识回顾",
+          "content": {
+            "title": "核心要点回顾",
+            "cards": [
+              {
+                "type": "Flashcard",
+                "id": "node-06-01-card-0",
+                "front": {
+                  "title": "Question 1",
+                  "content": "请简述大模型训练的三个主要阶段。"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "预训练（学习通识）、微调（适应任务）、RLHF（人类反馈强化学习，对齐价值观）"
+                }
+              },
+              {
+                "type": "Flashcard",
+                "id": "node-06-01-card-1",
+                "front": {
+                  "title": "Question 2",
+                  "content": "Transformer 架构相比 RNN 的两个主要优势是什么？"
+                },
+                "back": {
+                  "title": "Answer",
+                  "content": "支持并行计算（速度快）和注意力机制（理解长距离上下文更准确）"
+                }
+              }
+            ]
+          },
+          "title": "核心要点回顾",
+          "id": null
+        },
+        {
+          "type": "DeepDiveZigZag",
+          "role": "深度探讨",
+          "content": {
+            "title": "局限性与伦理挑战",
+            "items": [
+              {
+                "name": "核心要点回顾",
+                "title": "核心要点回顾",
+                "description": "核心要点回顾",
+                "keywords": [
+                  "知识回顾",
+                  "框架梳理"
+                ],
+                "common_misconceptions": []
+              },
+              {
+                "name": "局限性与伦理挑战",
+                "title": "局限性与伦理挑战",
+                "description": "局限性与伦理挑战",
+                "keywords": [
+                  "幻觉",
+                  "偏见",
+                  "AI伦理",
+                  "安全"
+                ],
+                "common_misconceptions": []
+              }
+            ]
+          },
+          "title": "局限性与伦理挑战",
+          "id": null
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "Hero",
+      "role": "课程介绍",
+      "content": {
+        "title": "大模型的定义",
+        "subtitle": "# 什么是大语言模型（LLM）？\n\n想象一下，如果你读过世界上所有的书、文章和网页，并且记住了里面的每一个字、每一个词是如何组合在一起的。当你看到“床前明月”这四个字时，你的大脑会本能地预测下一个字是“光”。\n\n**大语言模型（Large Language Model，简称 LLM）** 本质上就是一个基于数学的超级预测机器。它不是真的“理解”了人类语言的含义，而是通过分析海量的文本数据，学会了语...",
+        "features": [
+          "大语言模型（LLM）是基于海量数据训练的深度神经网络",
+          "其核心机制是根据上文预测下一个字或词",
+          "它通过数学函数模拟人类语言的统计规律，而非真正具备人类意识"
+        ]
+      },
+      "title": "大模型的定义",
+      "id": null
+    },
+    {
+      "type": "DeepDiveZigZag",
+      "role": "核心概念深度解析",
+      "content": {
+        "title": "“大”的含义：参数与数据",
+        "items": [
+          {
+            "name": "大模型的定义",
+            "title": "大模型的定义",
+            "description": "大模型的定义",
+            "keywords": [
+              "大语言模型",
+              "LLM",
+              "人工智能"
+            ],
+            "common_misconceptions": []
+          },
+          {
+            "name": "“大”的含义：参数与数据",
+            "title": "“大”的含义：参数与数据",
+            "description": "“大”的含义：参数与数据",
+            "keywords": [
+              "参数量",
+              "训练数据",
+              "涌现能力"
+            ],
+            "common_misconceptions": []
+          }
+        ]
+      },
+      "title": "“大”的含义：参数与数据",
+      "id": null
+    },
+    {
+      "type": "Timeline",
+      "role": "历史演进展示",
+      "content": {
+        "title": "从深度学习到Transformer",
+        "items": [
+          {
+            "year": "1",
+            "label": "Step 1",
+            "title": "Phase 1",
+            "description": "早期的翻译软件经常翻译不通顺，因为 RNN 忘了前面的主语",
+            "keywords": [
+              "深度学习",
+              "神经网络",
+              "RNN"
+            ]
+          },
+          {
+            "year": "2",
+            "label": "Step 2",
+            "title": "Phase 2",
+            "description": "Transformer 的出现让机器阅读理解测试的准确率大幅提升",
+            "keywords": [
+              "深度学习",
+              "神经网络",
+              "RNN"
+            ]
+          },
+          {
+            "year": "3",
+            "label": "Step 3",
+            "title": "Phase 3",
+            "description": "现代的大模型（如 GPT-4）全部基于 Transformer 架构",
+            "keywords": [
+              "深度学习",
+              "神经网络",
+              "RNN"
+            ]
+          }
+        ]
+      },
+      "title": "从深度学习到Transformer",
+      "id": null
+    },
+    {
+      "type": "Timeline",
+      "role": "产品迭代展示",
+      "content": {
+        "title": "GPT系列的进化之路",
+        "items": [
+          {
+            "year": "1",
+            "label": "Step 1",
+            "title": "Phase 1",
+            "description": "GPT-3 可以根据“鸡尾酒会笑话”这个标题直接写出一篇完整的幽默文章",
+            "keywords": [
+              "GPT",
+              "OpenAI",
+              "少样本学习"
+            ]
+          },
+          {
+            "year": "2",
+            "label": "Step 2",
+            "title": "Phase 2",
+            "description": "ChatGPT 能够模仿莎士比亚的口吻写一首关于编程的诗",
+            "keywords": [
+              "GPT",
+              "OpenAI",
+              "少样本学习"
+            ]
+          },
+          {
+            "year": "3",
+            "label": "Step 3",
+            "title": "Phase 3",
+            "description": "GPT-4 能够看一张冰箱里的照片，并告诉你能做什么菜",
+            "keywords": [
+              "GPT",
+              "OpenAI",
+              "少样本学习"
+            ]
+          }
+        ]
+      },
+      "title": "GPT系列的进化之路",
+      "id": null
+    },
+    {
+      "type": "SplitPaneLab",
+      "role": "理论与算法实验室",
+      "content": {
+        "title": "Transformer架构与注意力机制",
+        "items": [
+          {
+            "name": "Transformer架构与注意力机制",
+            "title": "Transformer架构与注意力机制",
+            "description": "Transformer架构与注意力机制",
+            "keywords": [
+              "自注意力",
+              "上下文理解",
+              "架构"
+            ],
+            "common_misconceptions": []
+          },
+          {
+            "name": "训练流程：预训练与微调",
+            "title": "训练流程：预训练与微调",
+            "description": "训练流程：预训练与微调",
+            "keywords": [
+              "预训练",
+              "微调",
+              "RLHF"
+            ],
+            "common_misconceptions": []
+          },
+          {
+            "name": "生成式AI与判别式AI的区别",
+            "title": "生成式AI与判别式AI的区别",
+            "description": "生成式AI与判别式AI的区别",
+            "keywords": [
+              "生成式AI",
+              "判别式AI",
+              "分类",
+              "创造"
+            ],
+            "common_misconceptions": []
+          }
+        ]
+      },
+      "title": "Transformer架构与注意力机制",
+      "id": null
+    },
+    {
+      "type": "Timeline",
+      "role": "流程步骤演示",
+      "content": {
+        "title": "训练流程：预训练与微调",
+        "items": [
+          {
+            "year": "1",
+            "label": "Step 1",
+            "title": "Phase 1",
+            "description": "预训练就像让大学生读完图书馆所有书，微调是让他参加律师资格考试培训",
+            "keywords": [
+              "预训练",
+              "微调",
+              "RLHF"
+            ]
+          },
+          {
+            "year": "2",
+            "label": "Step 2",
+            "title": "Phase 2",
+            "description": "通过 RLHF，模型学会了在被问到“如何制造炸弹”时拒绝回答",
+            "keywords": [
+              "预训练",
+              "微调",
+              "RLHF"
+            ]
+          }
+        ]
+      },
+      "title": "训练流程：预训练与微调",
+      "id": null
+    },
+    {
+      "type": "CardGrid",
+      "role": "对比分析",
+      "content": {
+        "title": "生成式AI与判别式AI的区别",
+        "items": [
+          {
+            "name": "Example",
+            "description": "判别式：人脸识别门禁系统判断你是谁",
+            "keywords": [
+              "判别式 AI",
+              "生成式 AI",
+              "分类"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "生成式：AI 根据你的描述画一只“穿着宇航服的猫”",
+            "keywords": [
+              "判别式 AI",
+              "生成式 AI",
+              "分类"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "判别式：银行系统判断这笔交易是否为欺诈",
+            "keywords": [
+              "判别式 AI",
+              "生成式 AI",
+              "分类"
+            ]
+          }
+        ]
+      },
+      "title": "生成式AI与判别式AI的区别",
+      "id": null
+    },
+    {
+      "type": "CardGrid",
+      "role": "案例展示",
+      "content": {
+        "title": "文本生成与代码辅助",
+        "items": [
+          {
+            "name": "Example",
+            "description": "市场部员工用 AI 快速生成 10 个不同风格的广告标语",
+            "keywords": [
+              "文本生成",
+              "代码辅助",
+              "翻译"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "开发者遇到报错，直接复制错误代码给 AI，AI 指出漏掉了一个分号",
+            "keywords": [
+              "文本生成",
+              "代码辅助",
+              "翻译"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "留学生用 AI 把中文论文翻译成地道的英文摘要",
+            "keywords": [
+              "文本生成",
+              "代码辅助",
+              "翻译"
+            ]
+          }
+        ]
+      },
+      "title": "文本生成与代码辅助",
+      "id": null
+    },
+    {
+      "type": "Flashcard",
+      "role": "概念强化",
+      "content": {
+        "id": "node-04-02",
+        "front": {
+          "title": "Quick Check",
+          "content": "请列举两个多模态大模型的具体应用场景。"
+        },
+        "back": {
+          "title": "Answer",
+          "content": "文生图（根据文字画画）、图生文（看图说话）、语音对话、视频生成等"
+        }
+      },
+      "title": null,
+      "id": "node-04-02"
+    },
+    {
+      "type": "FlashcardGrid",
+      "role": "知识回顾",
+      "content": {
+        "title": "核心要点回顾",
+        "cards": [
+          {
+            "type": "Flashcard",
+            "id": "node-06-01-card-0",
+            "front": {
+              "title": "Question 1",
+              "content": "请简述大模型训练的三个主要阶段。"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "预训练（学习通识）、微调（适应任务）、RLHF（人类反馈强化学习，对齐价值观）"
+            }
+          },
+          {
+            "type": "Flashcard",
+            "id": "node-06-01-card-1",
+            "front": {
+              "title": "Question 2",
+              "content": "Transformer 架构相比 RNN 的两个主要优势是什么？"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "支持并行计算（速度快）和注意力机制（理解长距离上下文更准确）"
+            }
+          }
+        ]
+      },
+      "title": "核心要点回顾",
+      "id": null
+    },
+    {
+      "type": "DeepDiveZigZag",
+      "role": "深度探讨",
+      "content": {
+        "title": "局限性与伦理挑战",
+        "items": [
+          {
+            "name": "核心要点回顾",
+            "title": "核心要点回顾",
+            "description": "核心要点回顾",
+            "keywords": [
+              "知识回顾",
+              "框架梳理"
+            ],
+            "common_misconceptions": []
+          },
+          {
+            "name": "局限性与伦理挑战",
+            "title": "局限性与伦理挑战",
+            "description": "局限性与伦理挑战",
+            "keywords": [
+              "幻觉",
+              "偏见",
+              "AI伦理",
+              "安全"
+            ],
+            "common_misconceptions": []
+          }
+        ]
+      },
+      "title": "局限性与伦理挑战",
+      "id": null
+    }
+  ],
+  "metadata": {
+    "total_estimated_time": 160,
+    "target_audience": "对人工智能感兴趣，希望了解大模型基础知识的普通学习者",
+    "warnings": [],
+    "generation_method": "multi-agent-pipeline"
+  }
+}
