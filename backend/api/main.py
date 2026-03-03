@@ -166,6 +166,22 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# ============ Register json-render POC Routes ============
+# Import json_render_endpoints using relative import
+import importlib.util
+import sys
+from pathlib import Path
+
+# Add backend directory to path
+backend_dir = Path(__file__).parent.parent
+sys.path.insert(0, str(backend_dir))
+
+# Import the module
+json_render_module = importlib.import_module('api.json_render_endpoints')
+register_json_render_routes = json_render_module.register_json_render_routes
+register_json_render_routes(app)
+print("✅ json-render POC routes registered")
+
 
 # ============ Endpoints ============
 
