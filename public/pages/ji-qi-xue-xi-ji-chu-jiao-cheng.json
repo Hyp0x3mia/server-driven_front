@@ -1,0 +1,187 @@
+{
+  "page_id": "ji-qi-xue-xi-ji-chu-jiao-cheng",
+  "page_mode": null,
+  "title": "机器学习基础教程",
+  "summary": "本课程旨在为初学者提供机器学习的核心概念、工作流程及基础应用实践的全面介绍，帮助学员建立对机器学习领域的整体认知。",
+  "sections": [
+    {
+      "section_id": "section-1-concepts",
+      "section_type": "Concept",
+      "title": "核心概念与原理",
+      "layout_intent": "default",
+      "pedagogical_goal": "建立机器学习的基础认知框架，理解其定义、分类及基本工作流程。",
+      "blocks": [
+        {
+          "type": "CardGrid",
+          "role": "comparison",
+          "content": {
+            "title": "机器学习的主要类型",
+            "items": [
+              {
+                "name": "Example",
+                "description": "示例 1：机器学习的主要类型 的应用",
+                "keywords": [
+                  "机器学习的主要类型"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "关于 机器学习的主要类型 的关键点",
+                "keywords": [
+                  "机器学习的主要类型"
+                ]
+              }
+            ]
+          },
+          "title": "机器学习的主要类型",
+          "id": null
+        },
+        {
+          "type": "Timeline",
+          "role": "core-concept",
+          "content": {
+            "title": "机器学习的基本工作流程",
+            "items": [
+              {
+                "year": "1",
+                "title": "Stage 1",
+                "description": "关于 机器学习的基本工作流程 的关键点",
+                "keywords": [
+                  "机器学习的基本工作流程"
+                ]
+              }
+            ]
+          },
+          "title": "机器学习的基本工作流程",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "section-2-application",
+      "section_type": "Application",
+      "title": "实际应用与代码实现",
+      "layout_intent": "split",
+      "pedagogical_goal": "通过具体案例和代码演示，展示机器学习在实际问题中的应用方式。",
+      "blocks": [
+        {
+          "type": "CodePlayground",
+          "role": "practice",
+          "content": {
+            "mode": "tokenizer",
+            "initialText": "Try this out!",
+            "codeTemplate": null
+          },
+          "title": "Interactive: 简单的代码演示",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "section-3-practice",
+      "section_type": "Practice",
+      "title": "互动练习与总结",
+      "layout_intent": "interactive",
+      "pedagogical_goal": "通过互动测验巩固所学知识，并总结课程核心要点。",
+      "blocks": [
+        {
+          "type": "Flashcard",
+          "role": "assessment",
+          "content": {
+            "id": "node-3-1",
+            "front": {
+              "title": "Quick Check",
+              "content": "关于 场景选择挑战 的关键点"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "以下是关于 场景选择挑战 的内容。"
+            }
+          },
+          "title": null,
+          "id": "node-3-1"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "CardGrid",
+      "role": "comparison",
+      "content": {
+        "title": "机器学习的主要类型",
+        "items": [
+          {
+            "name": "Example",
+            "description": "示例 1：机器学习的主要类型 的应用",
+            "keywords": [
+              "机器学习的主要类型"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "关于 机器学习的主要类型 的关键点",
+            "keywords": [
+              "机器学习的主要类型"
+            ]
+          }
+        ]
+      },
+      "title": "机器学习的主要类型",
+      "id": null
+    },
+    {
+      "type": "Timeline",
+      "role": "core-concept",
+      "content": {
+        "title": "机器学习的基本工作流程",
+        "items": [
+          {
+            "year": "1",
+            "title": "Stage 1",
+            "description": "关于 机器学习的基本工作流程 的关键点",
+            "keywords": [
+              "机器学习的基本工作流程"
+            ]
+          }
+        ]
+      },
+      "title": "机器学习的基本工作流程",
+      "id": null
+    },
+    {
+      "type": "CodePlayground",
+      "role": "practice",
+      "content": {
+        "mode": "tokenizer",
+        "initialText": "Try this out!",
+        "codeTemplate": null
+      },
+      "title": "Interactive: 简单的代码演示",
+      "id": null
+    },
+    {
+      "type": "Flashcard",
+      "role": "assessment",
+      "content": {
+        "id": "node-3-1",
+        "front": {
+          "title": "Quick Check",
+          "content": "关于 场景选择挑战 的关键点"
+        },
+        "back": {
+          "title": "Answer",
+          "content": "以下是关于 场景选择挑战 的内容。"
+        }
+      },
+      "title": null,
+      "id": "node-3-1"
+    }
+  ],
+  "metadata": {
+    "total_estimated_time": 105,
+    "target_audience": "初学者",
+    "warnings": [],
+    "generation_method": "progressive-multi-agent-pipeline"
+  }
+}

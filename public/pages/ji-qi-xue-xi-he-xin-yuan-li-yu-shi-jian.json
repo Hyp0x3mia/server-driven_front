@@ -1,0 +1,196 @@
+{
+  "page_id": "ji-qi-xue-xi-he-xin-yuan-li-yu-shi-jian",
+  "page_mode": null,
+  "title": "机器学习核心原理与实践",
+  "summary": "本课程旨在为初学者提供机器学习的全面概览，从基本定义出发，深入理解核心算法类型与工作流程，并通过代码示例和互动练习掌握实际应用能力。",
+  "sections": [
+    {
+      "section_id": "section-concept",
+      "section_type": "Concept",
+      "title": "核心概念与范式转变",
+      "layout_intent": "default",
+      "pedagogical_goal": "建立对机器学习基本定义及其与传统编程区别的认知",
+      "blocks": [
+        {
+          "type": "CardGrid",
+          "role": "comparison",
+          "content": {
+            "title": "传统编程 vs 机器学习",
+            "items": [
+              {
+                "name": "Example",
+                "description": "示例 1：传统编程 vs 机器学习 的应用",
+                "keywords": [
+                  "传统编程 vs 机器学习"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "关于 传统编程 vs 机器学习 的关键点",
+                "keywords": [
+                  "传统编程 vs 机器学习"
+                ]
+              }
+            ]
+          },
+          "title": "传统编程 vs 机器学习",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "section-theory",
+      "section_type": "Theory",
+      "title": "算法类型与工作流程",
+      "layout_intent": "wide",
+      "pedagogical_goal": "掌握机器学习的主要分类及标准开发流程",
+      "blocks": [
+        {
+          "type": "Timeline",
+          "role": "core-concept",
+          "content": {
+            "title": "机器学习项目生命周期",
+            "items": [
+              {
+                "year": "1",
+                "title": "Stage 1",
+                "description": "关于 机器学习项目生命周期 的关键点",
+                "keywords": [
+                  "机器学习项目生命周期"
+                ]
+              }
+            ]
+          },
+          "title": "机器学习项目生命周期",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "section-application",
+      "section_type": "Application",
+      "title": "代码实现与案例分析",
+      "layout_intent": "split",
+      "pedagogical_goal": "通过具体案例和代码演示理解机器学习的实际运作",
+      "blocks": [
+        {
+          "type": "CodePlayground",
+          "role": "practice",
+          "content": {
+            "mode": "tokenizer",
+            "initialText": "Try this out!",
+            "codeTemplate": null
+          },
+          "title": "Interactive: Python 简单线性回归实现",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "section-practice",
+      "section_type": "Practice",
+      "title": "互动练习与评估",
+      "layout_intent": "interactive",
+      "pedagogical_goal": "通过互动测验巩固对学习范式和应用场景的理解",
+      "blocks": [
+        {
+          "type": "Flashcard",
+          "role": "assessment",
+          "content": {
+            "id": "node-scenario-quiz",
+            "front": {
+              "title": "Quick Check",
+              "content": "关于 场景分类挑战 的关键点"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "以下是关于 场景分类挑战 的内容。"
+            }
+          },
+          "title": null,
+          "id": "node-scenario-quiz"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "CardGrid",
+      "role": "comparison",
+      "content": {
+        "title": "传统编程 vs 机器学习",
+        "items": [
+          {
+            "name": "Example",
+            "description": "示例 1：传统编程 vs 机器学习 的应用",
+            "keywords": [
+              "传统编程 vs 机器学习"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "关于 传统编程 vs 机器学习 的关键点",
+            "keywords": [
+              "传统编程 vs 机器学习"
+            ]
+          }
+        ]
+      },
+      "title": "传统编程 vs 机器学习",
+      "id": null
+    },
+    {
+      "type": "Timeline",
+      "role": "core-concept",
+      "content": {
+        "title": "机器学习项目生命周期",
+        "items": [
+          {
+            "year": "1",
+            "title": "Stage 1",
+            "description": "关于 机器学习项目生命周期 的关键点",
+            "keywords": [
+              "机器学习项目生命周期"
+            ]
+          }
+        ]
+      },
+      "title": "机器学习项目生命周期",
+      "id": null
+    },
+    {
+      "type": "CodePlayground",
+      "role": "practice",
+      "content": {
+        "mode": "tokenizer",
+        "initialText": "Try this out!",
+        "codeTemplate": null
+      },
+      "title": "Interactive: Python 简单线性回归实现",
+      "id": null
+    },
+    {
+      "type": "Flashcard",
+      "role": "assessment",
+      "content": {
+        "id": "node-scenario-quiz",
+        "front": {
+          "title": "Quick Check",
+          "content": "关于 场景分类挑战 的关键点"
+        },
+        "back": {
+          "title": "Answer",
+          "content": "以下是关于 场景分类挑战 的内容。"
+        }
+      },
+      "title": null,
+      "id": "node-scenario-quiz"
+    }
+  ],
+  "metadata": {
+    "total_estimated_time": 90,
+    "target_audience": "具备基础编程知识（如Python）并对人工智能感兴趣的初学者",
+    "warnings": [],
+    "generation_method": "progressive-multi-agent-pipeline"
+  }
+}

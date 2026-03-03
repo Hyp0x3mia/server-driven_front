@@ -1,0 +1,147 @@
+{
+  "page_id": "software-testing-fundamentals",
+  "page_mode": null,
+  "title": "软件测试基础",
+  "summary": "本课程旨在向学生介绍软件测试的核心概念、基本原则、主流方法以及测试生命周期。通过理论与实践相结合的方式，帮助学生建立系统的测试思维，并掌握基本的测试用例设计能力。",
+  "sections": [
+    {
+      "section_id": "sec-testing-concepts",
+      "section_type": "Concept",
+      "title": "软件测试核心概念与方法",
+      "layout_intent": "default",
+      "pedagogical_goal": "帮助学生理解软件测试的定义与目的，掌握测试的基本原则，区分不同的测试方法，并了解测试的标准流程。",
+      "blocks": [
+        {
+          "type": "CardGrid",
+          "role": "comparison",
+          "content": {
+            "title": "黑盒测试与白盒测试对比",
+            "items": [
+              {
+                "name": "Example",
+                "description": "示例 1：黑盒测试与白盒测试对比 的应用",
+                "keywords": [
+                  "黑盒测试与白盒测试对比"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "关于 黑盒测试与白盒测试对比 的关键点",
+                "keywords": [
+                  "黑盒测试与白盒测试对比"
+                ]
+              }
+            ]
+          },
+          "title": "黑盒测试与白盒测试对比",
+          "id": null
+        },
+        {
+          "type": "Timeline",
+          "role": "core-concept",
+          "content": {
+            "title": "软件测试生命周期 (STLC)",
+            "items": [
+              {
+                "year": "1",
+                "title": "Stage 1",
+                "description": "关于 软件测试生命周期 (STLC) 的关键点",
+                "keywords": [
+                  "软件测试生命周期 (STLC)"
+                ]
+              }
+            ]
+          },
+          "title": "软件测试生命周期 (STLC)",
+          "id": null
+        },
+        {
+          "type": "Flashcard",
+          "role": "assessment",
+          "content": {
+            "id": "node-test-case-design",
+            "front": {
+              "title": "Quick Check",
+              "content": "关于 实战：设计登录功能的测试用例 的关键点"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "以下是关于 实战：设计登录功能的测试用例 的内容。"
+            }
+          },
+          "title": null,
+          "id": "node-test-case-design"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "CardGrid",
+      "role": "comparison",
+      "content": {
+        "title": "黑盒测试与白盒测试对比",
+        "items": [
+          {
+            "name": "Example",
+            "description": "示例 1：黑盒测试与白盒测试对比 的应用",
+            "keywords": [
+              "黑盒测试与白盒测试对比"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "关于 黑盒测试与白盒测试对比 的关键点",
+            "keywords": [
+              "黑盒测试与白盒测试对比"
+            ]
+          }
+        ]
+      },
+      "title": "黑盒测试与白盒测试对比",
+      "id": null
+    },
+    {
+      "type": "Timeline",
+      "role": "core-concept",
+      "content": {
+        "title": "软件测试生命周期 (STLC)",
+        "items": [
+          {
+            "year": "1",
+            "title": "Stage 1",
+            "description": "关于 软件测试生命周期 (STLC) 的关键点",
+            "keywords": [
+              "软件测试生命周期 (STLC)"
+            ]
+          }
+        ]
+      },
+      "title": "软件测试生命周期 (STLC)",
+      "id": null
+    },
+    {
+      "type": "Flashcard",
+      "role": "assessment",
+      "content": {
+        "id": "node-test-case-design",
+        "front": {
+          "title": "Quick Check",
+          "content": "关于 实战：设计登录功能的测试用例 的关键点"
+        },
+        "back": {
+          "title": "Answer",
+          "content": "以下是关于 实战：设计登录功能的测试用例 的内容。"
+        }
+      },
+      "title": null,
+      "id": "node-test-case-design"
+    }
+  ],
+  "metadata": {
+    "total_estimated_time": 75,
+    "target_audience": "学生",
+    "warnings": [],
+    "generation_method": "progressive-multi-agent-pipeline"
+  }
+}

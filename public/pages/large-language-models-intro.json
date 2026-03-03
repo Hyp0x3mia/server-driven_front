@@ -1,0 +1,376 @@
+{
+  "page_id": "large-language-models-intro",
+  "page_mode": null,
+  "title": "大模型通识：原理与应用",
+  "summary": "本课程面向普通学习者，全面介绍大语言模型（LLM）的基本概念、发展历史、核心工作机制、实际应用场景以及如何通过提示词与模型进行有效交互。",
+  "sections": [
+    {
+      "section_id": "section-concept",
+      "section_type": "Concept",
+      "title": "概念解析：什么是大模型？",
+      "layout_intent": "default",
+      "pedagogical_goal": "建立对大模型的基本认知，理解其定义与核心特征。",
+      "blocks": [
+        {
+          "type": "CardGrid",
+          "role": "comparison",
+          "content": {
+            "title": "大模型 vs 传统AI",
+            "items": [
+              {
+                "name": "Example",
+                "description": "示例 1：大模型 vs 传统AI 的应用",
+                "keywords": [
+                  "大模型 vs 传统AI"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "关于 大模型 vs 传统AI 的关键点",
+                "keywords": [
+                  "大模型 vs 传统AI"
+                ]
+              }
+            ]
+          },
+          "title": "大模型 vs 传统AI",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "section-history",
+      "section_type": "History",
+      "title": "历史演进：从统计学到Transformer",
+      "layout_intent": "timeline",
+      "pedagogical_goal": "梳理大模型的发展脉络，理解关键技术突破点。",
+      "blocks": [
+        {
+          "type": "Timeline",
+          "role": "core-concept",
+          "content": {
+            "title": "早期自然语言处理",
+            "items": [
+              {
+                "year": "1",
+                "title": "Stage 1",
+                "description": "关于 早期自然语言处理 的关键点",
+                "keywords": [
+                  "早期自然语言处理"
+                ]
+              }
+            ]
+          },
+          "title": "早期自然语言处理",
+          "id": null
+        },
+        {
+          "type": "Timeline",
+          "role": "core-concept",
+          "content": {
+            "title": "Transformer架构的诞生",
+            "items": [
+              {
+                "year": "1",
+                "title": "Stage 1",
+                "description": "关于 Transformer架构的诞生 的关键点",
+                "keywords": [
+                  "Transformer架构的诞生"
+                ]
+              }
+            ]
+          },
+          "title": "Transformer架构的诞生",
+          "id": null
+        },
+        {
+          "type": "Timeline",
+          "role": "core-concept",
+          "content": {
+            "title": "GPT系列的进化之路",
+            "items": [
+              {
+                "year": "1",
+                "title": "Stage 1",
+                "description": "关于 GPT系列的进化之路 的关键点",
+                "keywords": [
+                  "GPT系列的进化之路"
+                ]
+              }
+            ]
+          },
+          "title": "GPT系列的进化之路",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "section-theory",
+      "section_type": "Theory",
+      "title": "核心原理：模型是如何思考的？",
+      "layout_intent": "wide",
+      "pedagogical_goal": "深入浅出地解释大模型背后的工作机制。",
+      "blocks": [
+        {
+          "type": "Timeline",
+          "role": "core-concept",
+          "content": {
+            "title": "预训练与微调流程",
+            "items": [
+              {
+                "year": "1",
+                "title": "Stage 1",
+                "description": "关于 预训练与微调流程 的关键点",
+                "keywords": [
+                  "预训练与微调流程"
+                ]
+              }
+            ]
+          },
+          "title": "预训练与微调流程",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "section-practice",
+      "section_type": "Practice",
+      "title": "实践指南：如何与AI对话",
+      "layout_intent": "interactive",
+      "pedagogical_goal": "掌握提示词工程技巧，提升交互效果。",
+      "blocks": [
+        {
+          "type": "Timeline",
+          "role": "core-concept",
+          "content": {
+            "title": "提示词工程基础",
+            "items": [
+              {
+                "year": "1",
+                "title": "Stage 1",
+                "description": "关于 提示词工程基础 的关键点",
+                "keywords": [
+                  "提示词工程基础"
+                ]
+              }
+            ]
+          },
+          "title": "提示词工程基础",
+          "id": null
+        },
+        {
+          "type": "Flashcard",
+          "role": "assessment",
+          "content": {
+            "id": "node-practice-interactive",
+            "front": {
+              "title": "Quick Check",
+              "content": "关于 交互式提示词优化 的关键点"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "以下是关于 交互式提示词优化 的内容。"
+            }
+          },
+          "title": null,
+          "id": "node-practice-interactive"
+        },
+        {
+          "type": "CardGrid",
+          "role": "comparison",
+          "content": {
+            "title": "常见误区与幻觉识别",
+            "items": [
+              {
+                "name": "Example",
+                "description": "示例 1：常见误区与幻觉识别 的应用",
+                "keywords": [
+                  "常见误区与幻觉识别"
+                ]
+              },
+              {
+                "name": "Key Point",
+                "description": "关于 常见误区与幻觉识别 的关键点",
+                "keywords": [
+                  "常见误区与幻觉识别"
+                ]
+              }
+            ]
+          },
+          "title": "常见误区与幻觉识别",
+          "id": null
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "CardGrid",
+      "role": "comparison",
+      "content": {
+        "title": "大模型 vs 传统AI",
+        "items": [
+          {
+            "name": "Example",
+            "description": "示例 1：大模型 vs 传统AI 的应用",
+            "keywords": [
+              "大模型 vs 传统AI"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "关于 大模型 vs 传统AI 的关键点",
+            "keywords": [
+              "大模型 vs 传统AI"
+            ]
+          }
+        ]
+      },
+      "title": "大模型 vs 传统AI",
+      "id": null
+    },
+    {
+      "type": "Timeline",
+      "role": "core-concept",
+      "content": {
+        "title": "早期自然语言处理",
+        "items": [
+          {
+            "year": "1",
+            "title": "Stage 1",
+            "description": "关于 早期自然语言处理 的关键点",
+            "keywords": [
+              "早期自然语言处理"
+            ]
+          }
+        ]
+      },
+      "title": "早期自然语言处理",
+      "id": null
+    },
+    {
+      "type": "Timeline",
+      "role": "core-concept",
+      "content": {
+        "title": "Transformer架构的诞生",
+        "items": [
+          {
+            "year": "1",
+            "title": "Stage 1",
+            "description": "关于 Transformer架构的诞生 的关键点",
+            "keywords": [
+              "Transformer架构的诞生"
+            ]
+          }
+        ]
+      },
+      "title": "Transformer架构的诞生",
+      "id": null
+    },
+    {
+      "type": "Timeline",
+      "role": "core-concept",
+      "content": {
+        "title": "GPT系列的进化之路",
+        "items": [
+          {
+            "year": "1",
+            "title": "Stage 1",
+            "description": "关于 GPT系列的进化之路 的关键点",
+            "keywords": [
+              "GPT系列的进化之路"
+            ]
+          }
+        ]
+      },
+      "title": "GPT系列的进化之路",
+      "id": null
+    },
+    {
+      "type": "Timeline",
+      "role": "core-concept",
+      "content": {
+        "title": "预训练与微调流程",
+        "items": [
+          {
+            "year": "1",
+            "title": "Stage 1",
+            "description": "关于 预训练与微调流程 的关键点",
+            "keywords": [
+              "预训练与微调流程"
+            ]
+          }
+        ]
+      },
+      "title": "预训练与微调流程",
+      "id": null
+    },
+    {
+      "type": "Timeline",
+      "role": "core-concept",
+      "content": {
+        "title": "提示词工程基础",
+        "items": [
+          {
+            "year": "1",
+            "title": "Stage 1",
+            "description": "关于 提示词工程基础 的关键点",
+            "keywords": [
+              "提示词工程基础"
+            ]
+          }
+        ]
+      },
+      "title": "提示词工程基础",
+      "id": null
+    },
+    {
+      "type": "Flashcard",
+      "role": "assessment",
+      "content": {
+        "id": "node-practice-interactive",
+        "front": {
+          "title": "Quick Check",
+          "content": "关于 交互式提示词优化 的关键点"
+        },
+        "back": {
+          "title": "Answer",
+          "content": "以下是关于 交互式提示词优化 的内容。"
+        }
+      },
+      "title": null,
+      "id": "node-practice-interactive"
+    },
+    {
+      "type": "CardGrid",
+      "role": "comparison",
+      "content": {
+        "title": "常见误区与幻觉识别",
+        "items": [
+          {
+            "name": "Example",
+            "description": "示例 1：常见误区与幻觉识别 的应用",
+            "keywords": [
+              "常见误区与幻觉识别"
+            ]
+          },
+          {
+            "name": "Key Point",
+            "description": "关于 常见误区与幻觉识别 的关键点",
+            "keywords": [
+              "常见误区与幻觉识别"
+            ]
+          }
+        ]
+      },
+      "title": "常见误区与幻觉识别",
+      "id": null
+    }
+  ],
+  "metadata": {
+    "total_estimated_time": 168,
+    "target_audience": "对人工智能感兴趣的普通学习者、非技术背景从业者",
+    "warnings": [],
+    "generation_method": "progressive-multi-agent-pipeline"
+  }
+}

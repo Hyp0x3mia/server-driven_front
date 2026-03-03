@@ -323,17 +323,82 @@ async def generate_content_stream(request: GenerationRequestAPI):
     task_id = str(uuid.uuid4())
 
     async def event_generator():
-        """Generate SSE events"""
+        """Generate SSE events progressively"""
         import sys
         import asyncio
+        import concurrent.futures
+        import time as time_module
         try:
+            # Log start
+            start_msg = f"[{time_module.time()}] event_generator() called for task {task_id}"
+            print(start_msg, flush=True)
+            sys.stderr.write(start_msg + "\n")
+            sys.stderr.flush()
+
             # Convert to internal request
             gen_request = GenerationRequest(**request.model_dump())
 
-            # Run streaming pipeline
-            for event in pipeline.run_streaming(request=gen_request, thread_id=task_id):
+            # Create a queue for real-time event streaming
+            event_queue = asyncio.Queue()
+
+            # Get the event loop BEFORE starting the thread
+            loop = asyncio.get_event_loop()
+
+            def run_pipeline():
+                """Run pipeline in thread pool and put events in queue"""
+                try:
+                    for event in pipeline.run_streaming(request=gen_request, thread_id=task_id):
+                        # Put event in queue (using the loop we captured earlier)
+                        asyncio.run_coroutine_threadsafe(
+                            event_queue.put(event),
+                            loop
+                        )
+                except Exception as e:
+                    # Put error in queue
+                    asyncio.run_coroutine_threadsafe(
+                        event_queue.put(e),
+                        loop
+                    )
+                finally:
+                    # Signal completion
+                    asyncio.run_coroutine_threadsafe(
+                        event_queue.put(None),
+                        loop
+                    )
+
+            # Start pipeline in thread pool
+            msg = f"📡 SSE: Starting pipeline in thread pool for task {task_id}"
+            print(msg, flush=True)
+            import sys
+            sys.stderr.write(msg + "\n")
+            sys.stderr.flush()
+            executor = concurrent.futures.ThreadPoolExecutor(max_workers=1)
+            loop.run_in_executor(executor, run_pipeline)
+
+            # Yield events as they arrive
+            event_count = 0
+            while True:
+                # Wait for event (with timeout to allow checking for client disconnect)
+                try:
+                    event = await asyncio.wait_for(event_queue.get(), timeout=1.0)
+                except asyncio.TimeoutError:
+                    # No event yet, but keep connection alive
+                    yield ": keep-alive\n\n"
+                    continue
+
+                # Check for completion signal
+                if event is None:
+                    print(f"📡 SSE: Pipeline completed, sent {event_count} events")
+                    break
+
+                # Check if event is an exception
+                if isinstance(event, Exception):
+                    raise event
+
+                event_count += 1
+
                 # Format as SSE
-                print(f"📡 SSE: Sending event {event.type.value} for stage {event.stage}")
+                print(f"📡 SSE: Sending event #{event_count} - {event.type.value} for stage {event.stage}")
                 event_data = json.dumps({
                     "task_id": task_id,
                     "type": event.type.value,
@@ -345,11 +410,10 @@ async def generate_content_stream(request: GenerationRequestAPI):
                 # Yield SSE event
                 yield f"event: {event.type.value}\ndata: {event_data}\n\n"
 
-                # Force immediate delivery by yielding control
-                await asyncio.sleep(0)
-
         except Exception as e:
             import traceback
+            print(f"❌ SSE Error: {e}")
+            traceback.print_exc()
             error_data = json.dumps({
                 "task_id": task_id,
                 "type": "error",

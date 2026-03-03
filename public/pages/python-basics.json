@@ -1,0 +1,222 @@
+{
+  "page_id": "python-basics",
+  "page_mode": null,
+  "title": "Python基础",
+  "summary": "本课程介绍Python编程语言的基础知识，包括基本语法、数据类型、数据结构和控制流，适合初学者学习。",
+  "sections": [
+    {
+      "section_id": "python-concepts-syntax",
+      "section_type": "Concept",
+      "title": "Python基础概念和语法",
+      "layout_intent": "default",
+      "pedagogical_goal": "建立Python编程的基础知识，理解变量、数据类型和基本操作",
+      "blocks": [
+        {
+          "type": "Hero",
+          "role": "intro",
+          "content": {
+            "title": "Python简介与环境设置",
+            "subtitle": "# Python简介与环境设置\n\n## 什么是Python？\n\nPython是一种高级、解释型、通用-purpose编程语言，由荷兰程序员Guido van Rossum于1991年创建。Python的设计哲学强调代码的可读性和简洁的语法，使得开发者能够用更少的代码表达想法。\n\n### Python的特点\n\n- **简洁易读**：Python的语法接近自然语言，学习曲线平缓\n- **解释型语言**...",
+            "features": [
+              "Python是一种高级、解释型、通用-purpose编程语言，由Guido van Rossum于1991年创建",
+              "Python具有简洁易读的语法，强调代码可读性和简洁性",
+              "Python是解释型语言，代码不需要编译，由解释器逐行执行",
+              "安装Python环境包括下载安装包、配置环境变量和验证安装",
+              "Python解释器将源代码转换为字节码，然后由虚拟机执行"
+            ]
+          },
+          "title": "Python简介与环境设置",
+          "id": null
+        },
+        {
+          "type": "CodePlayground",
+          "role": "practice",
+          "content": {
+            "mode": "tokenizer",
+            "initialText": "Try this out!",
+            "codeTemplate": null
+          },
+          "title": "Interactive: 基本运算符",
+          "id": null
+        },
+        {
+          "type": "CodePlayground",
+          "role": "practice",
+          "content": {
+            "mode": "tokenizer",
+            "initialText": "Try this out!",
+            "codeTemplate": null
+          },
+          "title": "Interactive: 字符串操作",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "python-data-structures-control-flow",
+      "section_type": "Application",
+      "title": "Python数据结构和控制流",
+      "layout_intent": "split",
+      "pedagogical_goal": "学习Python的数据结构和控制流语句，掌握程序的基本结构",
+      "blocks": [
+        {
+          "type": "CodePlayground",
+          "role": "practice",
+          "content": {
+            "mode": "tokenizer",
+            "initialText": "Try this out!",
+            "codeTemplate": null
+          },
+          "title": "Interactive: 列表与元组",
+          "id": null
+        },
+        {
+          "type": "CodePlayground",
+          "role": "practice",
+          "content": {
+            "mode": "tokenizer",
+            "initialText": "Try this out!",
+            "codeTemplate": null
+          },
+          "title": "Interactive: 字典与集合",
+          "id": null
+        },
+        {
+          "type": "CodePlayground",
+          "role": "practice",
+          "content": {
+            "mode": "tokenizer",
+            "initialText": "Try this out!",
+            "codeTemplate": null
+          },
+          "title": "Interactive: 条件语句",
+          "id": null
+        },
+        {
+          "type": "CodePlayground",
+          "role": "practice",
+          "content": {
+            "mode": "tokenizer",
+            "initialText": "Try this out!",
+            "codeTemplate": null
+          },
+          "title": "Interactive: 循环语句",
+          "id": null
+        },
+        {
+          "type": "CodePlayground",
+          "role": "practice",
+          "content": {
+            "mode": "tokenizer",
+            "initialText": "Try this out!",
+            "codeTemplate": null
+          },
+          "title": "Interactive: 函数基础",
+          "id": null
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "Hero",
+      "role": "intro",
+      "content": {
+        "title": "Python简介与环境设置",
+        "subtitle": "# Python简介与环境设置\n\n## 什么是Python？\n\nPython是一种高级、解释型、通用-purpose编程语言，由荷兰程序员Guido van Rossum于1991年创建。Python的设计哲学强调代码的可读性和简洁的语法，使得开发者能够用更少的代码表达想法。\n\n### Python的特点\n\n- **简洁易读**：Python的语法接近自然语言，学习曲线平缓\n- **解释型语言**...",
+        "features": [
+          "Python是一种高级、解释型、通用-purpose编程语言，由Guido van Rossum于1991年创建",
+          "Python具有简洁易读的语法，强调代码可读性和简洁性",
+          "Python是解释型语言，代码不需要编译，由解释器逐行执行",
+          "安装Python环境包括下载安装包、配置环境变量和验证安装",
+          "Python解释器将源代码转换为字节码，然后由虚拟机执行"
+        ]
+      },
+      "title": "Python简介与环境设置",
+      "id": null
+    },
+    {
+      "type": "CodePlayground",
+      "role": "practice",
+      "content": {
+        "mode": "tokenizer",
+        "initialText": "Try this out!",
+        "codeTemplate": null
+      },
+      "title": "Interactive: 基本运算符",
+      "id": null
+    },
+    {
+      "type": "CodePlayground",
+      "role": "practice",
+      "content": {
+        "mode": "tokenizer",
+        "initialText": "Try this out!",
+        "codeTemplate": null
+      },
+      "title": "Interactive: 字符串操作",
+      "id": null
+    },
+    {
+      "type": "CodePlayground",
+      "role": "practice",
+      "content": {
+        "mode": "tokenizer",
+        "initialText": "Try this out!",
+        "codeTemplate": null
+      },
+      "title": "Interactive: 列表与元组",
+      "id": null
+    },
+    {
+      "type": "CodePlayground",
+      "role": "practice",
+      "content": {
+        "mode": "tokenizer",
+        "initialText": "Try this out!",
+        "codeTemplate": null
+      },
+      "title": "Interactive: 字典与集合",
+      "id": null
+    },
+    {
+      "type": "CodePlayground",
+      "role": "practice",
+      "content": {
+        "mode": "tokenizer",
+        "initialText": "Try this out!",
+        "codeTemplate": null
+      },
+      "title": "Interactive: 条件语句",
+      "id": null
+    },
+    {
+      "type": "CodePlayground",
+      "role": "practice",
+      "content": {
+        "mode": "tokenizer",
+        "initialText": "Try this out!",
+        "codeTemplate": null
+      },
+      "title": "Interactive: 循环语句",
+      "id": null
+    },
+    {
+      "type": "CodePlayground",
+      "role": "practice",
+      "content": {
+        "mode": "tokenizer",
+        "initialText": "Try this out!",
+        "codeTemplate": null
+      },
+      "title": "Interactive: 函数基础",
+      "id": null
+    }
+  ],
+  "metadata": {
+    "total_estimated_time": 150,
+    "target_audience": "初学者",
+    "warnings": [],
+    "generation_method": "progressive-multi-agent-pipeline"
+  }
+}

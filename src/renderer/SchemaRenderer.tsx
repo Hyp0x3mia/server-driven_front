@@ -81,8 +81,8 @@ function generateSlug(text: string): string {
  */
 function getBlockId(block: Block, index: number): string {
   if (block.id) return block.id;
-  if (block.title) return `section-${generateSlug(block.title)}`;
-  return `block-${index}`;
+  if (block.title) return `section-${generateSlug(block.title)}-${index}`;
+  return `block-${block.type}-${index}`;
 }
 
 /**

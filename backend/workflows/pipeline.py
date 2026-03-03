@@ -339,72 +339,7 @@ class ContentGenerationPipeline:
             )
             return
 
-        # ============ STAGE 2: CONTENT EXPERT ============
-        time.sleep(2)  # Rate limiting
-
-        yield StreamingEvent(
-            type=StreamingEventType.STAGE_START,
-            stage="content_expert",
-            data={"elapsed": get_elapsed()}
-        )
-
-        print("\n" + "="*60)
-        print("📚 STAGE 2A: CONTENT EXPERT AGENT")
-        print("="*60)
-
-        try:
-            content = self.content_expert.generate_content(
-                skeleton=skeleton,
-                target_audience=request.target_audience
-            )
-            print(f"✅ Content Expert completed: {len(content.contents)} blocks")
-
-            yield StreamingEvent(
-                type=StreamingEventType.STAGE_COMPLETE,
-                stage="content_expert",
-                data={"content_count": len(content.contents), "elapsed": get_elapsed()}
-            )
-
-        except Exception as e:
-            yield StreamingEvent(
-                type=StreamingEventType.ERROR,
-                stage="content_expert",
-                data={"error": str(e)}
-            )
-            return
-
-        # ============ STAGE 3: VISUAL DIRECTOR ============
-        time.sleep(2)  # Rate limiting
-
-        yield StreamingEvent(
-            type=StreamingEventType.STAGE_START,
-            stage="visual_director",
-            data={"elapsed": get_elapsed()}
-        )
-
-        print("\n" + "="*60)
-        print("🎨 STAGE 2B: VISUAL DIRECTOR AGENT")
-        print("="*60)
-
-        try:
-            visual_mapping = self.visual_director.map_content_to_visuals(skeleton)
-            print(f"✅ Visual Director completed: {len(visual_mapping.mappings)} mappings")
-
-            yield StreamingEvent(
-                type=StreamingEventType.STAGE_COMPLETE,
-                stage="visual_director",
-                data={"mapping_count": len(visual_mapping.mappings), "elapsed": get_elapsed()}
-            )
-
-        except Exception as e:
-            yield StreamingEvent(
-                type=StreamingEventType.ERROR,
-                stage="visual_director",
-                data={"error": str(e)}
-            )
-            return
-
-        # ============ STAGE 4: ASSEMBLER (INCREMENTAL) ============
+        # ============ STAGE 2: PROGRESSIVE ASSEMBLY ============
         yield StreamingEvent(
             type=StreamingEventType.STAGE_START,
             stage="assembler",
@@ -412,73 +347,90 @@ class ContentGenerationPipeline:
         )
 
         print("\n" + "="*60)
-        print("🔧 STAGE 3: ASSEMBLER & VALIDATOR")
+        print("🔧 STAGE 3: PROGRESSIVE ASSEMBLY")
         print("="*60)
 
         try:
-            # Calculate total blocks for progress tracking
+            # Calculate total blocks
             total_blocks = sum(len(s.nodes) for s in skeleton.sections)
+            current_block = 0
 
-            # Use a queue to get events immediately from assembler
-            import queue
-            event_queue = queue.Queue()
+            # Collect all blocks for final schema
+            all_blocks = []
+            sections = []
 
-            def capture_event(event: StreamingEvent):
-                """Put event in queue immediately"""
-                event_queue.put(event)
-                print(f"  📦 Block {event.data.get('index', '?') + 1}/{total_blocks} ready: {event.data.get('block', {}).get('type', 'unknown')}")
+            # Process each section and node progressively
+            for section_idx, section in enumerate(skeleton.sections):
+                section_blocks = []
+                section_context = f"Section {section_idx + 1}: {section.title}\n{section.pedagogical_goal}"
 
-            # Start assembler in a separate thread so we can yield events as they arrive
-            import threading
-            assembler_result = {}
-            assembler_error = []
+                print(f"\n📂 Processing section {section_idx + 1}/{len(skeleton.sections)}: {section.title}")
 
-            def run_assembler():
-                try:
-                    schema = self.assembler.assemble(
-                        skeleton=skeleton,
-                        content=content,
-                        visual_mapping=visual_mapping,
-                        callback=capture_event
+                for node_idx, node in enumerate(section.nodes):
+                    current_block += 1
+                    print(f"\n  🔷 Processing block {current_block}/{total_blocks}: {node.title}")
+
+                    # Step 1: Generate content for this node
+                    node_content = self.content_expert.generate_content_for_node(
+                        node=node,
+                        section_title=section.title,
+                        section_context=section_context,
+                        target_audience=request.target_audience,
+                        index=current_block - 1,
+                        total=total_blocks
                     )
-                    assembler_result['schema'] = schema
-                except Exception as e:
-                    assembler_error.append(e)
 
-            # Start assembler thread
-            assembler_thread = threading.Thread(target=run_assembler)
-            assembler_thread.start()
+                    # Step 2: Generate visual mapping for this node
+                    node_visual = self.visual_director.map_single_node(
+                        node=node,
+                        section_title=section.title
+                    )
 
-            # Yield events as they arrive
-            blocks_received = 0
-            while assembler_thread.is_alive() or not event_queue.empty():
-                try:
-                    # Get event with timeout to check thread status
-                    event = event_queue.get(timeout=0.5)
+                    # Step 3: Assemble the block
+                    block = self.assembler._assemble_block(
+                        node=node,
+                        content=node_content,
+                        visual=node_visual,
+                        section=section,
+                        section_blocks=section_blocks,
+                        total_blocks=total_blocks,
+                        callback=None  # We'll emit our own event
+                    )
 
-                    # If it's a block event, add delay to simulate progressive generation
-                    if event.type == StreamingEventType.BLOCK_READY:
-                        blocks_received += 1
-                        print(f"  📡 Yielding block event {blocks_received}/{total_blocks}")
-                        yield event
-                        # Add delay to make blocks appear progressively (visual effect only)
-                        time.sleep(2.0)  # 2 seconds between blocks
+                    if block:
+                        section_blocks.append(block)
+                        all_blocks.append(block)
+
+                        # Step 4: Emit block_ready event immediately
+                        print(f"  📡 Emitting block_ready event for {block.type}")
+                        yield StreamingEvent(
+                            type=StreamingEventType.BLOCK_READY,
+                            stage="assembler",
+                            data={
+                                "block": block.model_dump(mode='json'),
+                                "section_id": section.section_id,
+                                "section_title": section.title,
+                                "index": current_block - 1,
+                                "progress": f"{current_block}/{total_blocks} ({int((current_block / total_blocks) * 100)}%)"
+                            }
+                        )
                     else:
-                        yield event
+                        print(f"  ⚠️  Skipped node {node.node_id} (no block generated)")
 
-                except queue.Empty:
-                    # No event yet, check if thread is still running
-                    if not assembler_thread.is_alive():
-                        break
+                # Create section after all its blocks are ready
+                if section_blocks:
+                    frontend_section = self.assembler._build_section(
+                        section=section,
+                        blocks=section_blocks
+                    )
+                    sections.append(frontend_section)
 
-            # Wait for thread to complete
-            assembler_thread.join()
-
-            # Check for errors
-            if assembler_error:
-                raise assembler_error[0]
-
-            final_schema = assembler_result['schema']
+            # Create final page schema
+            final_schema = self.assembler._build_final_schema(
+                skeleton=skeleton,
+                sections=sections,
+                all_blocks=all_blocks
+            )
 
             print(f"\n✅ Assembler completed: {len(final_schema.components)} blocks")
 

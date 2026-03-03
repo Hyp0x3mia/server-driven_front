@@ -305,6 +305,18 @@ For each content node, generate:
                             except ValueError:
                                 item["difficulty"] = DifficultyLevel.INTERMEDIATE
 
+                        # Fix analogies: if it's a list, convert to string or set to None
+                        if "analogies" in item and isinstance(item["analogies"], list):
+                            if len(item["analogies"]) > 0:
+                                # Convert first analogy to string
+                                item["analogies"] = str(item["analogies"][0])
+                            else:
+                                item["analogies"] = None
+
+                        # Ensure difficulty field exists
+                        if "difficulty" not in item:
+                            item["difficulty"] = DifficultyLevel.INTERMEDIATE
+
                         # Create ContentBlock
                         block = ContentBlock(**item)
                         contents.append(block)
@@ -326,6 +338,221 @@ For each content node, generate:
             import traceback
             traceback.print_exc()
             raise
+
+    def generate_content_for_node(
+        self,
+        node,
+        section_title: str,
+        section_context: str,
+        target_audience: str,
+        index: int,
+        total: int
+    ) -> ContentBlock:
+        """
+        Generate content for a single node (for progressive streaming).
+
+        Args:
+            node: Node to generate content for
+            section_title: Parent section title
+            section_context: Context about the section
+            target_audience: Who is this content for?
+            index: Current node index (for progress tracking)
+            total: Total number of nodes
+
+        Returns:
+            ContentBlock for this node
+        """
+        print(f"  📝 Generating content for node {index + 1}/{total}: {node.title}")
+
+        # Build node-specific prompt
+        node_context = {
+            "node_id": node.node_id,
+            "title": node.title,
+            "category": node.category.value,
+            "section": section_title,
+            "section_context": section_context,
+            "learning_objectives": node.learning_objectives,
+            "suggested_length": node.estimated_time_minutes
+        }
+
+        user_prompt = f"""Generate educational content for a SINGLE learning node.
+
+## Node Information:
+- **Node ID**: {node_context['node_id']}
+- **Title**: {node_context['title']}
+- **Category**: {node_context['category']}
+- **Section**: {node_context['section']}
+- **Learning Objectives**: {', '.join(node_context['learning_objectives']) if node_context['learning_objectives'] else 'Learn and understand this topic'}
+- **Target Audience**: {target_audience}
+
+## Context:
+This is node {index + 1} of {total} in the section "{section_title}".
+{section_context}
+
+## Instructions:
+Generate ONLY the content for this specific node. Use the format specified in the system prompt.
+**IMPORTANT: Return ONLY a JSON object for this single node, not an array.**
+
+Format:
+{{
+  "node_id": "{node_context['node_id']}",
+  "title": "{node_context['title']}",
+  "category": "{node_context['category']}",
+  "main_content": "Your markdown content here...",
+  "key_points": ["point 1", "point 2", "point 3"],
+  "examples": [
+    {{"description": "Example 1", "content": "..."}},
+    {{"description": "Example 2", "content": "..."}}
+  ],
+  "analogies": [
+    {{"analogy": "Think of it like...", "explanation": "..."}}
+  ],
+  "keywords": ["term1", "term2"],
+  "common_misconceptions": [
+    {{"misconception": "...", "clarification": "..."}}
+  ],
+  "quiz_questions": [
+    {{"question": "...", "options": ["A", "B", "C", "D"], "correct_answer": 0, "explanation": "..."}}
+  ]
+}}
+"""
+
+        messages = [
+            SystemMessage(content=self._build_system_prompt()),
+            HumanMessage(content=user_prompt)
+        ]
+
+        try:
+            response = self.llm.invoke(messages)
+
+            # Parse response
+            import json
+            import re
+
+            content = response.content
+            json_match = re.search(r'\{[\s\S]*\}', content)
+
+            if json_match:
+                json_str = json_match.group(0)
+
+                # Clean invalid escapes
+                def clean_invalid_escapes(text: str) -> str:
+                    result = []
+                    i = 0
+                    while i < len(text):
+                        if text[i] == '\\' and i + 1 < len(text):
+                            next_char = text[i + 1]
+                            if next_char in '"\\/bfnrt':
+                                result.append(text[i:i+2])
+                                i += 2
+                                continue
+                            elif next_char == 'u' and i + 5 < len(text):
+                                hex_digits = text[i+2:i+6]
+                                if all(c in '0123456789abcdefABCDEF' for c in hex_digits):
+                                    result.append(text[i:i+6])
+                                    i += 6
+                                    continue
+                            result.append(next_char)
+                            i += 2
+                        else:
+                            result.append(text[i])
+                            i += 1
+                    return ''.join(result)
+
+                def fix_json_syntax(text: str) -> str:
+                    text = re.sub(r',\s*([}\]])', r'\1', text)
+                    text = re.sub(r'}\s*{', '},{', text)
+                    text = re.sub(r']\s*\[', '],[', text)
+                    return text
+
+                json_str = clean_invalid_escapes(json_str)
+                json_str = fix_json_syntax(json_str)
+                cleaned_json = re.sub(r'[\x00-\x08\x0b-\x0c\x0e-\x1f]', '', json_str)
+
+                data = json.loads(cleaned_json)
+
+                # Fix enums
+                if "category" in data and isinstance(data["category"], str):
+                    try:
+                        data["category"] = ContentCategory(data["category"])
+                    except ValueError:
+                        data["category"] = ContentCategory.ABSTRACT_CONCEPT
+
+                if "difficulty" in data and isinstance(data["difficulty"], str):
+                    try:
+                        data["difficulty"] = DifficultyLevel(data["difficulty"])
+                    except ValueError:
+                        data["difficulty"] = DifficultyLevel.INTERMEDIATE
+
+                # Fix analogies: if it's a list, convert to string or set to None
+                if "analogies" in data and isinstance(data["analogies"], list):
+                    if len(data["analogies"]) > 0:
+                        # Convert first analogy to string
+                        data["analogies"] = str(data["analogies"][0])
+                    else:
+                        data["analogies"] = None
+
+                # Ensure difficulty field exists
+                if "difficulty" not in data:
+                    data["difficulty"] = DifficultyLevel.INTERMEDIATE
+
+                # Fix examples: if list of dicts, extract the first value from each dict
+                if "examples" in data and isinstance(data["examples"], list):
+                    if len(data["examples"]) > 0 and isinstance(data["examples"][0], dict):
+                        # Extract values from dicts - try common keys
+                        data["examples"] = [
+                            (d.get("description") or d.get("example") or d.get("text") or list(d.values())[0] if d else "")
+                            for d in data["examples"]
+                        ]
+
+                # Fix common_misconceptions: if list of dicts, extract the misconception value
+                if "common_misconceptions" in data and isinstance(data["common_misconceptions"], list):
+                    if len(data["common_misconceptions"]) > 0 and isinstance(data["common_misconceptions"][0], dict):
+                        data["common_misconceptions"] = [
+                            (d.get("misconception") or d.get("text") or list(d.values())[0] if d else "")
+                            for d in data["common_misconceptions"]
+                        ]
+
+                # Fix quiz_questions: if list of dicts, extract the question value
+                if "quiz_questions" in data and isinstance(data["quiz_questions"], list):
+                    if len(data["quiz_questions"]) > 0 and isinstance(data["quiz_questions"][0], dict):
+                        data["quiz_questions"] = [
+                            (d.get("question") or d.get("text") or list(d.values())[0] if d else "")
+                            for d in data["quiz_questions"]
+                        ]
+
+                # Fix quiz_answers: if list of dicts, extract the answer value
+                if "quiz_answers" in data and isinstance(data["quiz_answers"], list):
+                    if len(data["quiz_answers"]) > 0 and isinstance(data["quiz_answers"][0], dict):
+                        data["quiz_answers"] = [
+                            (d.get("answer") or d.get("text") or list(d.values())[0] if d else "")
+                            for d in data["quiz_answers"]
+                        ]
+
+                result = ContentBlock(**data)
+                print(f"  ✅ Generated content for node {index + 1}/{total}")
+                return result
+
+            else:
+                raise ValueError(f"Could not extract JSON from response")
+
+        except Exception as e:
+            print(f"  ❌ Error generating content for node {node.node_id}: {e}")
+            # Return minimal content as fallback
+            return ContentBlock(
+                node_id=node.node_id,
+                title=node.title,
+                category=node.category,
+                difficulty=node.difficulty,
+                main_content=f"以下是关于 {node.title} 的内容。",
+                key_points=[f"关于 {node.title} 的关键点"],
+                examples=[f"示例 1：{node.title} 的应用"],
+                analogies=None,
+                keywords=[node.title],
+                common_misconceptions=[],
+                quiz_questions=[],
+                quiz_answers=[]
+            )
 
     def _count_nodes(self, skeleton: PageSkeleton) -> int:
         """Count total nodes in skeleton."""

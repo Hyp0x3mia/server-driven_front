@@ -3,7 +3,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import { navItems } from "./nav-items";
-import SchemaPage from "./pages/SchemaPage"; // 使用新的 SchemaPage（带 Navbar）
+import SchemaPage from "./pages/SchemaPage";
+import StreamingSchemaPage from "./pages/StreamingSchemaPage"; // 使用新的 SchemaPage（带 Navbar）
 
 const queryClient = new QueryClient();
 
@@ -13,6 +14,9 @@ const App = () => (
       <Toaster />
       <HashRouter>
         <Routes>
+          {/* Streaming generation page */}
+          <Route path="/streaming/:topic" element={<StreamingSchemaPage />} />
+
           {/* 1) 使用新的 SchemaPage（带 Navbar 集成） */}
           <Route path="/page/:id" element={<SchemaPage />} />
 

@@ -248,6 +248,78 @@ This applies regardless of the source content language.
             print(f"❌ Visual Director error: {e}")
             raise
 
+    def map_single_node(
+        self,
+        node,
+        section_title: str
+    ) -> VisualComponent:
+        """
+        Map a single node to a visual component (for progressive streaming).
+
+        Args:
+            node: Node to map
+            section_title: Parent section title
+
+        Returns:
+            VisualComponent for this node
+        """
+        print(f"  🎨 Mapping node {node.node_id} to component...")
+
+        # Use simple rule-based mapping for speed
+        # (We can switch to LLM-based for more sophisticated decisions later)
+
+        category = node.category
+
+        # Get component options for this category
+        component_options = self.COMPONENT_DECISION_RULES.get(
+            category,
+            [BlockType.MARKDOWN]  # Default to markdown
+        )
+
+        # Select component based on node characteristics
+        if "intro" in node.node_id.lower() or "overview" in node.node_id.lower():
+            block_type = BlockType.HERO
+        elif category == ContentCategory.CODE_EXAMPLE:
+            block_type = BlockType.CODEPLAYGROUND
+        elif category == ContentCategory.PROCESS_FLOW:
+            block_type = BlockType.TIMELINE
+        elif category == ContentCategory.COMPARISON_ANALYSIS:
+            block_type = BlockType.CARDGRID
+        elif category == ContentCategory.PRACTICE_EXERCISE:
+            block_type = BlockType.FLASHCARD
+        else:
+            # Use first option from category rules
+            block_type = component_options[0]
+
+        # Build rationale
+        rationale = f"""选择 {block_type.value} 组件：
+
+- **内容类型**: {category.value}
+- **标题**: {node.title}
+- **原因**: 基于 {category.value} 类型和节点特点
+"""
+
+        # Determine role based on block type
+        role = "core-concept"  # Default role
+        if block_type == BlockType.HERO:
+            role = "intro"
+        elif block_type == BlockType.CODEPLAYGROUND:
+            role = "practice"
+        elif block_type == BlockType.FLASHCARD or block_type == BlockType.CLOZE:
+            role = "assessment"
+        elif block_type == BlockType.CARDGRID:
+            role = "comparison"
+
+        result = VisualComponent(
+            node_id=node.node_id,
+            block_type=block_type,
+            role=role,
+            rationale=rationale
+        )
+
+        print(f"  ✅ Mapped to {block_type.value} (role: {role})")
+        return result
+
     def _count_nodes(self, skeleton: PageSkeleton) -> int:
         """Count total nodes in skeleton."""
         return sum(len(section.nodes) for section in skeleton.sections)

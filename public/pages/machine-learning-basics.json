@@ -1,0 +1,313 @@
+{
+  "page_id": "machine-learning-basics",
+  "page_mode": null,
+  "title": "机器学习基础",
+  "summary": "本课程介绍机器学习的基本概念、理论、应用和实践，帮助学习者建立对机器学习的全面理解。",
+  "sections": [
+    {
+      "section_id": "concept-section",
+      "section_type": "Concept",
+      "title": "机器学习概念",
+      "layout_intent": "default",
+      "pedagogical_goal": "建立机器学习的基本概念框架",
+      "blocks": [
+        {
+          "type": "Hero",
+          "role": "intro",
+          "content": {
+            "title": "机器学习概述",
+            "subtitle": "# 机器学习概述\n\n## 什么是机器学习？\n\n机器学习是人工智能的一个分支，它使计算机系统能够从数据中学习模式和规律，而无需进行明确的编程。简单来说，机器学习算法通过分析大量数据，自动发现其中的模式，并利用这些模式进行预测或决策。\n\n## 机器学习与传统编程的区别\n\n### 传统编程\n\n在传统编程中，程序员需要编写明确的指令来告诉计算机如何完成任务。例如，要编写一个程序来识别猫和狗，程序员需要定义...",
+            "features": [
+              "机器学习是让计算机从数据中学习模式，而不是通过明确编程",
+              "传统编程是告诉计算机如何完成任务，而机器学习是让计算机自己学习如何完成任务",
+              "机器学习主要分为监督学习、无监督学习和强化学习三大类",
+              "机器学习已广泛应用于图像识别、自然语言处理、推荐系统等领域",
+              "机器学习的基本流程包括数据收集、数据预处理、模型训练、模型评估和部署"
+            ]
+          },
+          "title": "机器学习概述",
+          "id": null
+        },
+        {
+          "type": "Timeline",
+          "role": "core-concept",
+          "content": {
+            "title": "机器学习工作流程",
+            "items": [
+              {
+                "year": "1",
+                "label": "Step 1",
+                "title": "Phase 1",
+                "description": "图像分类项目工作流程",
+                "keywords": [
+                  "机器学习工作流程",
+                  "数据收集",
+                  "数据预处理"
+                ]
+              },
+              {
+                "year": "2",
+                "label": "Step 2",
+                "title": "Phase 2",
+                "description": "推荐系统项目工作流程",
+                "keywords": [
+                  "机器学习工作流程",
+                  "数据收集",
+                  "数据预处理"
+                ]
+              }
+            ]
+          },
+          "title": "机器学习工作流程",
+          "id": null
+        }
+      ]
+    },
+    {
+      "section_id": "practice-section",
+      "section_type": "Practice",
+      "title": "机器学习实践",
+      "layout_intent": "interactive",
+      "pedagogical_goal": "通过实践操作掌握机器学习的实际应用技能",
+      "blocks": [
+        {
+          "type": "Timeline",
+          "role": "core-concept",
+          "content": {
+            "title": "数据预处理实践",
+            "items": [
+              {
+                "year": "1",
+                "title": "Stage 1",
+                "description": "关于 数据预处理实践 的关键点",
+                "keywords": [
+                  "数据预处理实践"
+                ]
+              }
+            ]
+          },
+          "title": "数据预处理实践",
+          "id": null
+        },
+        {
+          "type": "CodePlayground",
+          "role": "practice",
+          "content": {
+            "mode": "tokenizer",
+            "initialText": "Try this out!",
+            "codeTemplate": null
+          },
+          "title": "Interactive: 模型构建与训练",
+          "id": null
+        },
+        {
+          "type": "Flashcard",
+          "role": "assessment",
+          "content": {
+            "id": "ml-model-evaluation",
+            "front": {
+              "title": "Quick Check",
+              "content": "在类别不平衡的数据集中，哪个评估指标可能比准确率更能反映模型的真实性能？"
+            },
+            "back": {
+              "title": "Answer",
+              "content": "# 模型评估与优化\n\n## 学习目标\n通过本实践练习，你将掌握模型评估的基本方法和技术，学会使用交叉验证和超参数优化，并理解如何改进模型性能。\n\n## 实践任务：评估并优化一个分类模型\n\n### 步骤1：理解评估指标\n\n在开始之前，我们需要了解常用的模型评估指标：\n\n- **准确率(Accuracy)**：正确预测的样本比例\n- **精确率(Precision)**：真正例占所有预测为正例的比例\n- **召回率(Recall)**：真正例占所有实际正例的比例\n- **F1分数**：精确率和召回率的调和平均\n- **ROC曲线和AUC值**：衡量模型区分正负类的能力\n\n```python\nfrom sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score\n\n# 假设我们有真实标签和预测结果\ny_true = [0, 1, 1, 0, 1, 0, 1, 1, 0, 0]\ny_pred = [0, 1, 0, 0, 1, 1, 1, 0, 0, 1]\n\n# 计算各"
+            }
+          },
+          "title": null,
+          "id": "ml-model-evaluation"
+        }
+      ]
+    },
+    {
+      "section_id": "summary-section",
+      "section_type": "Summary",
+      "title": "总结与展望",
+      "layout_intent": "default",
+      "pedagogical_goal": "巩固学习成果并提供进一步学习的方向",
+      "blocks": [
+        {
+          "type": "CardGrid",
+          "role": "comparison",
+          "content": {
+            "title": "进一步学习资源",
+            "items": [
+              {
+                "name": "Example",
+                "description": "在线课程平台比较",
+                "keywords": [
+                  "机器学习资源",
+                  "在线课程",
+                  "专业书籍"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "经典机器学习书籍推荐",
+                "keywords": [
+                  "机器学习资源",
+                  "在线课程",
+                  "专业书籍"
+                ]
+              },
+              {
+                "name": "Example",
+                "description": "研究论文获取渠道",
+                "keywords": [
+                  "机器学习资源",
+                  "在线课程",
+                  "专业书籍"
+                ]
+              }
+            ]
+          },
+          "title": "进一步学习资源",
+          "id": null
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "type": "Hero",
+      "role": "intro",
+      "content": {
+        "title": "机器学习概述",
+        "subtitle": "# 机器学习概述\n\n## 什么是机器学习？\n\n机器学习是人工智能的一个分支，它使计算机系统能够从数据中学习模式和规律，而无需进行明确的编程。简单来说，机器学习算法通过分析大量数据，自动发现其中的模式，并利用这些模式进行预测或决策。\n\n## 机器学习与传统编程的区别\n\n### 传统编程\n\n在传统编程中，程序员需要编写明确的指令来告诉计算机如何完成任务。例如，要编写一个程序来识别猫和狗，程序员需要定义...",
+        "features": [
+          "机器学习是让计算机从数据中学习模式，而不是通过明确编程",
+          "传统编程是告诉计算机如何完成任务，而机器学习是让计算机自己学习如何完成任务",
+          "机器学习主要分为监督学习、无监督学习和强化学习三大类",
+          "机器学习已广泛应用于图像识别、自然语言处理、推荐系统等领域",
+          "机器学习的基本流程包括数据收集、数据预处理、模型训练、模型评估和部署"
+        ]
+      },
+      "title": "机器学习概述",
+      "id": null
+    },
+    {
+      "type": "Timeline",
+      "role": "core-concept",
+      "content": {
+        "title": "机器学习工作流程",
+        "items": [
+          {
+            "year": "1",
+            "label": "Step 1",
+            "title": "Phase 1",
+            "description": "图像分类项目工作流程",
+            "keywords": [
+              "机器学习工作流程",
+              "数据收集",
+              "数据预处理"
+            ]
+          },
+          {
+            "year": "2",
+            "label": "Step 2",
+            "title": "Phase 2",
+            "description": "推荐系统项目工作流程",
+            "keywords": [
+              "机器学习工作流程",
+              "数据收集",
+              "数据预处理"
+            ]
+          }
+        ]
+      },
+      "title": "机器学习工作流程",
+      "id": null
+    },
+    {
+      "type": "Timeline",
+      "role": "core-concept",
+      "content": {
+        "title": "数据预处理实践",
+        "items": [
+          {
+            "year": "1",
+            "title": "Stage 1",
+            "description": "关于 数据预处理实践 的关键点",
+            "keywords": [
+              "数据预处理实践"
+            ]
+          }
+        ]
+      },
+      "title": "数据预处理实践",
+      "id": null
+    },
+    {
+      "type": "CodePlayground",
+      "role": "practice",
+      "content": {
+        "mode": "tokenizer",
+        "initialText": "Try this out!",
+        "codeTemplate": null
+      },
+      "title": "Interactive: 模型构建与训练",
+      "id": null
+    },
+    {
+      "type": "Flashcard",
+      "role": "assessment",
+      "content": {
+        "id": "ml-model-evaluation",
+        "front": {
+          "title": "Quick Check",
+          "content": "在类别不平衡的数据集中，哪个评估指标可能比准确率更能反映模型的真实性能？"
+        },
+        "back": {
+          "title": "Answer",
+          "content": "# 模型评估与优化\n\n## 学习目标\n通过本实践练习，你将掌握模型评估的基本方法和技术，学会使用交叉验证和超参数优化，并理解如何改进模型性能。\n\n## 实践任务：评估并优化一个分类模型\n\n### 步骤1：理解评估指标\n\n在开始之前，我们需要了解常用的模型评估指标：\n\n- **准确率(Accuracy)**：正确预测的样本比例\n- **精确率(Precision)**：真正例占所有预测为正例的比例\n- **召回率(Recall)**：真正例占所有实际正例的比例\n- **F1分数**：精确率和召回率的调和平均\n- **ROC曲线和AUC值**：衡量模型区分正负类的能力\n\n```python\nfrom sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score\n\n# 假设我们有真实标签和预测结果\ny_true = [0, 1, 1, 0, 1, 0, 1, 1, 0, 0]\ny_pred = [0, 1, 0, 0, 1, 1, 1, 0, 0, 1]\n\n# 计算各"
+        }
+      },
+      "title": null,
+      "id": "ml-model-evaluation"
+    },
+    {
+      "type": "CardGrid",
+      "role": "comparison",
+      "content": {
+        "title": "进一步学习资源",
+        "items": [
+          {
+            "name": "Example",
+            "description": "在线课程平台比较",
+            "keywords": [
+              "机器学习资源",
+              "在线课程",
+              "专业书籍"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "经典机器学习书籍推荐",
+            "keywords": [
+              "机器学习资源",
+              "在线课程",
+              "专业书籍"
+            ]
+          },
+          {
+            "name": "Example",
+            "description": "研究论文获取渠道",
+            "keywords": [
+              "机器学习资源",
+              "在线课程",
+              "专业书籍"
+            ]
+          }
+        ]
+      },
+      "title": "进一步学习资源",
+      "id": null
+    }
+  ],
+  "metadata": {
+    "total_estimated_time": 255,
+    "target_audience": "对机器学习感兴趣的初学者和中级学习者",
+    "warnings": [],
+    "generation_method": "progressive-multi-agent-pipeline"
+  }
+}

@@ -607,7 +607,38 @@ class AssemblerAgent:
         with open(filepath, 'w', encoding='utf-8') as f:
             json.dump(schema.model_dump(mode='json'), f, indent=2, ensure_ascii=False)
 
-        print(f"💾 Exported schema to {filepath}")
+    def _build_section(self, section, blocks: List[FrontendBlock]) -> FrontendSection:
+        """Build a frontend section from skeleton section and assembled blocks."""
+        return FrontendSection(
+            section_id=section.section_id,
+            section_type=section.section_type.value,
+            title=section.title,
+            layout_intent=self._determine_layout_intent(section),
+            pedagogical_goal=section.pedagogical_goal,
+            blocks=blocks
+        )
+
+    def _build_final_schema(
+        self,
+        skeleton,
+        sections: List[FrontendSection],
+        all_blocks: List[FrontendBlock]
+    ) -> FrontendPageSchema:
+        """Build the final page schema from all sections and blocks."""
+        return FrontendPageSchema(
+            page_id=skeleton.page_id,
+            page_mode=self._determine_page_mode(skeleton),
+            title=skeleton.title,
+            summary=skeleton.summary,
+            sections=sections,
+            components=all_blocks,
+            metadata={
+                "total_estimated_time": skeleton.total_estimated_time,
+                "target_audience": skeleton.target_audience,
+                "warnings": self.warnings,
+                "generation_method": "progressive-multi-agent-pipeline"
+            }
+        )
 
 
 # ============ Quality Assurance ============
